@@ -338,3 +338,26 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .sign-list ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; }
 .sign-list a { text-decoration: none; display: block; padding: 4px 0; }
 .sign-list a[aria-current] { font-weight: 700; color: var(--gold-ink); }
+
+/* A4 PDF sheet (built off-screen by js/pdf.js; always light colours) */
+.pdf-sheet { position: absolute; left: -12000px; top: 0; background: #fff; color: var(--ink); padding: 0; font-size: 13px; }
+.pdf-sheet .jathagam, .pdf-sheet .match-card, .pdf-sheet .panch-card { padding: 0; box-shadow: none; }
+.pdf-sheet .seg, .pdf-sheet .ad-slot, .pdf-sheet .actions { display: none !important; }
+.pdf-sheet .result-head { margin-bottom: 8px; }
+.pdf-sheet .result-head h2 { font-size: 1.35rem; }
+.pdf-sheet .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 10px; gap: 8px; }
+.pdf-sheet .charts { grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 10px; }
+.pdf-sheet .block { margin-bottom: 10px; }
+.pdf-sheet .block h3 { font-size: 1rem; margin: 0 0 6px; }
+.pdf-sheet .detail-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pdf-sheet table { font-size: 12px; }
+.pdf-sheet th, .pdf-sheet td { padding-top: 4px; padding-bottom: 4px; }
+.pdf-sheet .tables { grid-template-columns: 1fr 1fr; gap: 12px; }
+.pdf-sheet .table-wrap { overflow: visible; }
+.pdf-sheet .note { margin: 4px 0 0; }
+.pdf-sheet .charts { grid-template-columns: repeat(2, 320px); justify-content: center; gap: 24px; }
+.pdf-sheet .charts figcaption { margin-top: 2px; }
+.pdf-sheet .facts > div { padding: 8px 12px; }
+.pdf-sheet .detail-grid dd, .pdf-sheet .detail-grid dt { line-height: 1.25; }
+.pdf-sheet .detail-grid > div { padding: 5px 10px; }
+.pdf-sheet th, .pdf-sheet td { padding-top: 3px; padding-bottom: 3px; line-height: 1.3; }

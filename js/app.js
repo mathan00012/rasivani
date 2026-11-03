@@ -343,7 +343,7 @@
           <div class="table-wrap"><table><thead><tr><th scope="col">${esc(t('bhukti'))}</th><th scope="col">${esc(t('from'))}</th><th scope="col">${esc(t('to'))}</th></tr></thead><tbody>${bh}</tbody></table></div></section>
       </div>
       </div>
-      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="print">${esc(UI.en.print)}</button></div>`;
+      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
     $$('.seg button', out).forEach((b) => b.addEventListener('click', () => { store.set('gv-style', b.dataset.style); renderChart(); }));
     out.hidden = false;
   }
@@ -414,7 +414,7 @@
       </dl>
       <ul class="pm-list">${items}</ul>
       <div class="ad-slot" data-ad="match-mid"></div>
-      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="print">${esc(UI.en.print)}</button></div>`;
+      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
     out.hidden = false;
   }
   function updateRasiNote(p) {
@@ -531,9 +531,17 @@
       setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     } catch (e) { window.print(); } finally { btn.disabled = false; btn.textContent = label; }
   }
+  async function downloadPdf(el, btn) {
+    const label = btn.textContent; btn.disabled = true; btn.textContent = '…';
+    try {
+      if (!window.RVPdf) await loadScript('js/pdf.js');
+      await window.RVPdf.save(el, `rasivani-${document.body.dataset.page}-${Date.now()}.pdf`, 'RasiVani · rasivani.com');
+    } catch (e) { window.print(); } finally { btn.disabled = false; btn.textContent = label; }
+  }
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]'); if (!b) return;
     if (b.dataset.act === 'print') window.print();
+    if (b.dataset.act === 'pdf') downloadPdf(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
     if (b.dataset.act === 'png') downloadImage(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
   });
 

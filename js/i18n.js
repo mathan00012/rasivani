@@ -45,7 +45,7 @@
       v_good: 'Matches', v_mid: 'Partial', v_bad: 'Does not match',
       tithi: 'Tithi', nakshatra: 'Nakshatra', yoga: 'Yoga', karana: 'Karana', weekday: 'Weekday', sunrise: 'Sunrise', sunset: 'Sunset',
       rahukalam: 'Rahu kalam', yamagandam: 'Yamagandam', gulikai: 'Gulika kalam', chandrashtamam: 'Chandrashtamam for', paksha: 'Paksha',
-      print: 'Print / Save PDF', error_fill: 'Please fill in the date, time and place.',
+      print: 'Download PDF', error_fill: 'Please fill in the date, time and place.',
       disclaimer: 'Astrology is a traditional belief system, not science. Use these results as cultural guidance only, never for medical, financial or legal decisions.',
       about: 'About', privacy: 'Privacy', contact: 'Contact', private_note: 'Your birth details never leave your device.'
     },
