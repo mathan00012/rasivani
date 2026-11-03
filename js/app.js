@@ -264,7 +264,7 @@
       <polygon points="200,1 399,200 200,399 1,200"/>${txt}</svg>`;
   }
 
-  function styleDefault() { return ['ta', 'te', 'kn', 'ml'].includes(lang) ? 'south' : 'north'; }
+  function styleDefault() { return 'south'; } // South Indian square chart for every language (Maddy's choice)
 
   // Antardasha (bhukti) periods inside one maha dasha
   const DASHA_ORDER = ['ketu', 'venus', 'sun', 'moon', 'mars', 'rahu', 'jupiter', 'saturn', 'mercury'];
@@ -285,7 +285,7 @@
   function renderChart() {
     const out = $('#chart-result'); if (!lastChart) return;
     const { c, pc, name, place, dateStr } = lastChart;
-    const style = store.get('gv-style') || styleDefault();
+    const style = store.get('gv-style2') || styleDefault();
     const all = [c.lagna, ...c.planets];
     const nav = all.map((p) => Object.assign({}, p, { rasi: p.navamsa }));
     const centre = `${KALASHA}<span class="sc-name">${esc(name || '')}</span><span class="sc-date">${esc(dateStr)}</span>`;
@@ -344,7 +344,7 @@
       </div>
       </div>
       <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
-    $$('.seg button', out).forEach((b) => b.addEventListener('click', () => { store.set('gv-style', b.dataset.style); renderChart(); }));
+    $$('.seg button', out).forEach((b) => b.addEventListener('click', () => { store.set('gv-style2', b.dataset.style); renderChart(); }));
     out.hidden = false;
   }
   function readBirth(prefix) {
