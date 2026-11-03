@@ -1,0 +1,29 @@
+{
+  "name": "RasiVani – Jathagam, Porutham, Panchangam",
+  "short_name": "RasiVani",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf2",
+  "theme_color": "#2a1a5e",
+  "lang": "en",
+  "description": "Free birth chart, marriage matching and panchangam in 10 Indian languages.",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

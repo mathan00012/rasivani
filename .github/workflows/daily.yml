@@ -1,0 +1,28 @@
+# Refreshes the daily rasi palan and saves it in the repository.
+# Cloudflare Pages watches this repository and puts every new commit live on rasivani.com.
+# Runs by itself every night at 00:05 India time. To publish right now, open the
+# repository on GitHub → Actions → "Publish site" → Run workflow (that is the one button).
+name: Publish site
+on:
+  schedule:
+    - cron: '35 18 * * *'   # 18:35 UTC = 00:05 IST
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: publish, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Build pages and today's rasi palan
+        run: node tools/daily.mjs
+      - name: Save the new pages (Cloudflare Pages deploys this commit)
+        run: |
+          git config user.name "rasivani-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Daily rasi palan $(date -u +%F)"
+          git push
