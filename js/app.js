@@ -164,6 +164,8 @@
 
   // ---------- Language ----------
   let lang = 'en';
+  const TOOL_FILES = ['index.html', 'porutham.html', 'panchangam.html'];
+  const toolHref = (l, f) => `${l === 'en' ? '' : `${l}/`}${f === 'index.html' ? '' : f}` || './';
   const t = (k) => (UI[lang] && UI[lang][k]) || UI.en[k] || k;
   const T = () => TERMS[lang] || TERMS.en;
   const loadedFonts = new Set();
@@ -177,9 +179,9 @@
     document.head.appendChild(link);
   }
   function detectLang() {
+    if (document.body.dataset.fixed || document.body.dataset.page === 'palan') return document.body.dataset.lang;
     const q = new URLSearchParams(location.search).get('lang');
     if (q && UI[q]) return q;
-    if (document.body.dataset.page === 'palan') return document.body.dataset.lang;
     const s = store.get('gv-lang'); if (s && UI[s]) return s;
     const nav = (navigator.languages || [navigator.language || 'en']).map((x) => x.slice(0, 2));
     return nav.find((x) => UI[x]) || 'en';
@@ -194,7 +196,14 @@
     $$('.combo input').forEach((el) => { el.placeholder = t('place_hint'); });
     const sel = $('#lang'); if (sel) sel.value = l;
     $$('a[data-palan]').forEach((a) => { a.setAttribute('href', `rasi-palan/${l}/`); });
-    $$('a[data-keep-lang]').forEach((a) => { const u = new URL(a.getAttribute('href'), location.href); u.searchParams.set('lang', l); a.href = u.pathname.split('/').pop() + u.search; });
+    $$('a[data-keep-lang]').forEach((a) => {
+      const f = a.dataset.keepLang || a.getAttribute('href').split('?')[0].split('/').pop();
+      a.dataset.keepLang = f;
+      a.setAttribute('href', TOOL_FILES.includes(f) ? toolHref(l, f) : `${f}?lang=${l}`);
+    });
+    // Each language has its own address (/ta/, /te/porutham.html ...): keep the address bar in step without reloading.
+    const toolFile = { chart: 'index.html', match: 'porutham.html', panchang: 'panchangam.html' }[document.body.dataset.page];
+    if (toolFile && history.replaceState) { try { history.replaceState(null, '', new URL(toolHref(l, toolFile), document.baseURI).href); } catch (e) { /* file:// previews */ } }
     fillTermSelects();
     if (rerender) rerender();
   }
@@ -534,7 +543,7 @@
     if (sel) {
       sel.innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.name}</option>`).join('');
       sel.addEventListener('change', () => {
-        if (document.body.dataset.page === 'palan') { store.set('gv-lang', sel.value); location.href = `rasi-palan/${sel.value}/`; return; }
+        if (document.body.dataset.page === 'palan') { store.set('gv-lang', sel.value); location.href = `rasi-palan/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         applyLang(sel.value);
       });
     }

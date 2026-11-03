@@ -26,3 +26,8 @@ jobs:
           git add -A
           git diff --cached --quiet || git commit -m "Daily rasi palan $(date -u +%F)"
           git push
+      - name: Tell Bing and other IndexNow search engines about today's pages
+        continue-on-error: true
+        run: |
+          sleep 150   # give Cloudflare Pages time to put the new commit live
+          node tools/indexnow.mjs

@@ -299,3 +299,42 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 }
 .coords select { width: 100%; }
 .coord-hint { grid-column: 1 / -1; margin: 0 0 12px; font-size: 0.85rem; color: var(--muted, #6a6257); line-height: 1.45; }
+
+/* Per-rasi daily pages and SEO additions */
+.foot-langs { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 12px; font-size: 14px; }
+.foot-langs a { color: inherit; opacity: .85; }
+.crumbs { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
+.crumbs a { color: inherit; }
+.sign-glyph { font-size: 44px; line-height: 1; margin: 0 0 4px; color: var(--gold); }
+.special { background: var(--surface); border-left: 4px solid var(--gold); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 18px; margin: 24px 0 0; }
+.special h2 { font-size: 16px; margin: 0 0 6px; color: var(--gold-ink); }
+.special p { margin: 4px 0 0; }
+.rasi-card .more { font-weight: 600; font-size: 15px; }
+.sign-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; margin: 28px 0; align-items: start; }
+@media (max-width: 860px) { .sign-layout { grid-template-columns: 1fr; } }
+.sign-main .overview { font-size: 18px; }
+.areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; }
+@media (max-width: 600px) { .areas { grid-template-columns: 1fr; } }
+.area { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 16px; }
+.area h3 { font-size: 17px; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.area p { margin: 0; }
+.stars { color: var(--gold-ink); letter-spacing: 1px; white-space: nowrap; font-weight: 400; }
+.week { list-style: none; padding: 0; margin: 0 0 12px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 600px) { .week { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.week li { background: var(--surface-2); border-radius: 10px; padding: 8px 6px; text-align: center; font-size: 13px; display: flex; flex-direction: column; gap: 2px; }
+.week li strong { color: var(--gold-ink); font-weight: 400; letter-spacing: .5px; font-size: 12px; }
+.week li em { font-style: normal; font-size: 11px; color: var(--bad); font-weight: 700; }
+.week li.good { outline: 2px solid var(--gold); }
+.week li.bad { outline: 2px solid var(--bad); }
+.faq details { background: var(--surface); border-radius: 10px; padding: 10px 14px; margin: 0 0 8px; box-shadow: var(--shadow); }
+.faq summary { font-weight: 600; cursor: pointer; }
+.faq details p { margin: 8px 0 0; }
+.sign-side { display: flex; flex-direction: column; gap: 16px; }
+.sign-side h2 { font-size: 18px; margin: 0 0 10px; }
+.lucky-box dl { margin: 0; display: grid; gap: 8px; }
+.lucky-box dl div { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--line, rgba(0,0,0,.08)); padding-bottom: 6px; }
+.lucky-box dt { color: var(--muted); }
+.lucky-box dd { margin: 0; font-weight: 700; text-align: right; }
+.sign-list ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; }
+.sign-list a { text-decoration: none; display: block; padding: 4px 0; }
+.sign-list a[aria-current] { font-weight: 700; color: var(--gold-ink); }

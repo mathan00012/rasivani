@@ -1,0 +1,54 @@
+# RasiVani
+
+> RasiVani (https://rasivani.com) is a free Vedic astrology website for Indian families, in 10 languages: English (en), हिन्दी (hi), தமிழ் (ta), తెలుగు (te), ಕನ್ನಡ (kn), മലയാളം (ml), मराठी (mr), বাংলা (bn), ગુજરાતી (gu), ଓଡ଼ିଆ (or). It makes a jathagam / janam kundli (birth chart), checks marriage porutham (10 poruthams), shows the daily panchangam with Rahu kalam, and publishes a fresh rasi palan (daily horoscope) for all 12 rasis every day at 00:05 IST.
+
+Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimshottari dasha and the ten South Indian poruthams. Birth details are processed in the visitor's browser and are never stored. Astrology is presented as cultural tradition, not as medical, financial or legal advice.
+
+## Free tools
+- [Jathagam / birth chart in English](https://rasivani.com/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in हिन्दी](https://rasivani.com/hi/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in தமிழ்](https://rasivani.com/ta/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in తెలుగు](https://rasivani.com/te/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in ಕನ್ನಡ](https://rasivani.com/kn/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in മലയാളം](https://rasivani.com/ml/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in मराठी](https://rasivani.com/mr/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in বাংলা](https://rasivani.com/bn/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in ગુજરાતી](https://rasivani.com/gu/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Jathagam / birth chart in ଓଡ଼ିଆ](https://rasivani.com/or/): rasi and navamsa charts, nakshatra, planets, dasha
+- [Marriage porutham in English](https://rasivani.com/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in हिन्दी](https://rasivani.com/hi/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in தமிழ்](https://rasivani.com/ta/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in తెలుగు](https://rasivani.com/te/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in ಕನ್ನಡ](https://rasivani.com/kn/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in മലയാളം](https://rasivani.com/ml/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in मराठी](https://rasivani.com/mr/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in বাংলা](https://rasivani.com/bn/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in ગુજરાતી](https://rasivani.com/gu/porutham.html): 10 poruthams including rajju and vedha
+- [Marriage porutham in ଓଡ଼ିଆ](https://rasivani.com/or/porutham.html): 10 poruthams including rajju and vedha
+- [Panchangam in English](https://rasivani.com/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in हिन्दी](https://rasivani.com/hi/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in தமிழ்](https://rasivani.com/ta/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in తెలుగు](https://rasivani.com/te/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ಕನ್ನಡ](https://rasivani.com/kn/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in മലയാളം](https://rasivani.com/ml/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in मराठी](https://rasivani.com/mr/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in বাংলা](https://rasivani.com/bn/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ગુજરાતી](https://rasivani.com/gu/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ଓଡ଼ିଆ](https://rasivani.com/or/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+
+## Daily rasi palan (updated every day)
+- [Today's rasi palan in English](https://rasivani.com/rasi-palan/en/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/en/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in हिन्दी](https://rasivani.com/rasi-palan/hi/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/hi/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in தமிழ்](https://rasivani.com/rasi-palan/ta/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/ta/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in తెలుగు](https://rasivani.com/rasi-palan/te/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/te/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in ಕನ್ನಡ](https://rasivani.com/rasi-palan/kn/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/kn/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in മലയാളം](https://rasivani.com/rasi-palan/ml/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/ml/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in मराठी](https://rasivani.com/rasi-palan/mr/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/mr/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in বাংলা](https://rasivani.com/rasi-palan/bn/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/bn/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in ગુજરાતી](https://rasivani.com/rasi-palan/gu/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/gu/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+- [Today's rasi palan in ଓଡ଼ିଆ](https://rasivani.com/rasi-palan/or/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/or/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
+
+## About
+- [About RasiVani](https://rasivani.com/about.html)
+- [Privacy](https://rasivani.com/privacy.html)
+- Contact: hello@rasivani.com

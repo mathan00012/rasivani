@@ -1,6 +1,6 @@
 // Generates the static HTML pages, sitemap and PWA files.
 // Run: node tools/build.mjs   (then upload the whole folder to any static host)
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -15,7 +15,19 @@ export const SITE = {
 // ========================================
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const write = (f, s) => writeFileSync(join(root, f), s);
+const write = (f, s) => { mkdirSync(dirname(join(root, f)), { recursive: true }); writeFileSync(join(root, f), s); };
+await import('../js/i18n.js');
+const { I18N } = globalThis;
+const { SEO } = await import('./seo.mjs');
+export const LANG_CODES = I18N.LANGS.map((l) => l.code);
+// IndexNow lets Bing, Yandex, Seznam and Naver know the moment a page changes. The key is public by design.
+export const INDEXNOW_KEY = 'a7c3e91f5b2d4086b1e4f9c27d8a6e35';
+// The three tool pages get their own URL per language: /ta/, /ta/porutham.html, /ta/panchangam.html ...
+export const TOOL_FILES = ['index.html', 'porutham.html', 'panchangam.html'];
+export const toolHref = (lang, file) => `${lang === 'en' ? '' : `${lang}/`}${file === 'index.html' ? '' : file}` || './';
+const OG_LOCALE = { en: 'en_IN', hi: 'hi_IN', ta: 'ta_IN', te: 'te_IN', kn: 'kn_IN', ml: 'ml_IN', mr: 'mr_IN', bn: 'bn_IN', gu: 'gu_IN', or: 'or_IN' };
+const escAttr = (s) => String(s).replace(/&(?!amp;|lt;|gt;|quot;|#)/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const LOGO = `<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/><circle cx="16" cy="16" r="6" fill="#f2a516"/><circle cx="27.3" cy="9.5" r="2.4" fill="currentColor"/></svg>`;
 const ICON = {
@@ -24,9 +36,9 @@ const ICON = {
   lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>`
 };
 
-export function layout({ page, file, title, description, body, scripts = true, base = '', lang = 'en', alternates = '', head = '' }) {
+export function layout({ page, file, title, description, body, scripts = true, base = '', lang = 'en', alternates = '', head = '', keywords = '', fixed = false }) {
   const nav = [['index.html', 'nav_chart', 'chart'], ['porutham.html', 'nav_match', 'match'], ['panchangam.html', 'nav_panchang', 'panchang']]
-    .map(([href, key, id]) => `<a href="${href}" data-keep-lang data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}></a>`).join('')
+    .map(([href, key, id]) => `<a href="${toolHref(lang, href)}" data-keep-lang="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}></a>`).join('')
     + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}></a>`;
   const adsense = SITE.adsenseClient
     ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : '';
@@ -34,17 +46,24 @@ export function layout({ page, file, title, description, body, scripts = true, b
   const jsonld = page === 'chart' ? `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'WebApplication', name: SITE.name, url: SITE.url,
     applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-    inLanguage: ['en', 'hi', 'ta', 'te', 'kn', 'ml', 'mr', 'bn', 'gu', 'or']
+    inLanguage: lang, description, image: `${SITE.url}/icons/og.png`
   })}</script>` : '';
+  const siteLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebSite', '@id': `${SITE.url}/#website`, name: SITE.name, alternateName: 'RasiVani Jathagam & Rasi Palan', url: `${SITE.url}/`, inLanguage: LANG_CODES, publisher: { '@id': `${SITE.url}/#org` } },
+    { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png` }
+  ] })}</script>`;
+  const langLinks = I18N.LANGS.map((l) => `<a href="${page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
   return `<!doctype html>
 <html lang="${lang}" data-script="${lang}">
 <head>
 <meta charset="utf-8">${base ? `\n<base href="${base}">` : ''}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
-<meta name="description" content="${description}">
+<meta name="description" content="${escAttr(description)}">${keywords ? `\n<meta name="keywords" content="${escAttr(keywords)}">` : ''}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="${canonical}">${alternates}
-<meta property="og:type" content="website"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="${SITE.name}"><meta property="og:locale" content="${OG_LOCALE[lang] || 'en_IN'}"><meta property="og:title" content="${title}"><meta property="og:description" content="${escAttr(description)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${SITE.url}/icons/og.png">
 <meta name="theme-color" content="#2a1a5e">
 <link rel="manifest" href="manifest.webmanifest">
@@ -53,12 +72,12 @@ export function layout({ page, file, title, description, body, scripts = true, b
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
-${jsonld}${head}${adsense}
+${siteLd}${jsonld}${head}${adsense}
 </head>
-<body data-page="${page}" data-lang="${lang}">
+<body data-page="${page}" data-lang="${lang}"${fixed ? ' data-fixed="1"' : ''}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap head-row">
-  <a class="brand" href="index.html" data-keep-lang>${LOGO}<span>${SITE.name}</span></a>
+  <a class="brand" href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html">${LOGO}<span>${SITE.name}</span></a>
   <nav class="nav" aria-label="Main">${nav}</nav>
   <div class="lang-pick">${ICON.lang}<label class="skip" for="lang" data-i18n="nav_lang"></label><select id="lang" aria-label="Language"></select></div>
 </div></header>
@@ -67,13 +86,15 @@ ${body}
 </main>
 <footer class="site-foot"><div class="wrap">
   <p class="disclaimer" data-i18n="disclaimer"></p>
+  <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
   <div class="foot-links"><a href="about.html" data-keep-lang data-i18n="about"></a><a href="privacy.html" data-keep-lang data-i18n="privacy"></a><a href="contact.html" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
 ${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/app.js"></script>' : ''}
 </body>
 </html>
-`;
+`.replace(/(<[a-z0-9]+\b[^>]*\bdata-i18n="(\w+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${escText(I18N.UI[lang]?.[key] ?? I18N.UI.en[key] ?? '')}${close}`);
 }
+// Prerendering the text above means Google, Bing and AI crawlers that do not run JavaScript still read every heading.
 
 const trust = `<ul class="trust">
   <li>${ICON.check}<span>Tamil · Telugu · Kannada · Malayalam · हिन्दी · मराठी · বাংলা · ગુજરાતી · ଓଡ଼ିଆ · English</span></li>
@@ -81,11 +102,15 @@ const trust = `<ul class="trust">
 </ul>`;
 const privateNote = `<p class="private">${ICON.lock}<span data-i18n="private_note"></span></p>`;
 
+for (const lang of LANG_CODES) {
+const pre = lang === 'en' ? '' : `${lang}/`;
+const S = SEO[lang];
+const toolAlt = (f) => LANG_CODES.map((l) => `\n<link rel="alternate" hreflang="${l}" href="${SITE.url}/${toolHref(l, f).replace(/^\.\/$/, '')}">`).join('')
+  + `\n<link rel="alternate" hreflang="x-default" href="${SITE.url}/${toolHref('en', f).replace(/^\.\/$/, '')}">`;
+const common = (f, key) => ({ lang, base: lang === 'en' ? '' : '../', fixed: lang !== 'en', alternates: toolAlt(f), title: escText(S[key][0]), description: S[key][1], keywords: S[key][2] });
 // ---- Birth chart (home) ----
-write('index.html', layout({
-  page: 'chart', file: 'index.html',
-  title: 'Free Jathagam &amp; Kundli in Tamil, Telugu, Hindi and more | RasiVani',
-  description: 'Free online jathagam, janam kundli and birth chart with rasi, navamsa, nakshatra and dasha in Tamil, Telugu, Kannada, Malayalam, Hindi, Marathi, Bengali, Gujarati and Odia.',
+write(`${pre}index.html`, layout({
+  ...common('index.html', 'home'), page: 'chart', file: `${pre}index.html`,
   body: `<section class="hero">
   <div>
     <h1 data-i18n="chart_title"></h1>
@@ -106,18 +131,16 @@ write('index.html', layout({
 </section>
 <section id="chart-result" class="result" aria-live="polite" hidden></section>
 <section class="services" aria-label="Services">
-  <a href="index.html" data-keep-lang><h3 data-i18n="nav_chart"></h3><p data-i18n="chart_sub"></p></a>
-  <a href="porutham.html" data-keep-lang><h3 data-i18n="nav_match"></h3><p data-i18n="match_sub"></p></a>
-  <a href="panchangam.html" data-keep-lang><h3 data-i18n="nav_panchang"></h3><p data-i18n="panchang_sub"></p></a>
-  <a href="rasi-palan/en/" data-palan><h3 data-i18n="nav_palan"></h3><p>Mesha · Vrishabha · Mithuna · Karka · Simha · Kanya · Tula · Vrischika · Dhanu · Makara · Kumbha · Meena</p></a>
+  <a href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html"><h3 data-i18n="nav_chart"></h3><p data-i18n="chart_sub"></p></a>
+  <a href="${toolHref(lang, 'porutham.html')}" data-keep-lang="porutham.html"><h3 data-i18n="nav_match"></h3><p data-i18n="match_sub"></p></a>
+  <a href="${toolHref(lang, 'panchangam.html')}" data-keep-lang="panchangam.html"><h3 data-i18n="nav_panchang"></h3><p data-i18n="panchang_sub"></p></a>
+  <a href="rasi-palan/${lang}/" data-palan><h3 data-i18n="nav_palan"></h3><p>${I18N.TERMS[lang].rasi.join(' · ')}</p></a>
 </section>`
 }));
 
 // ---- Marriage matching ----
-write('porutham.html', layout({
-  page: 'match', file: 'porutham.html',
-  title: 'Free Marriage Porutham &amp; Kundli Matching (10 Poruthams) | RasiVani',
-  description: 'Free thirumana porutham and marriage matching: check all 10 poruthams including rajju and vedha from birth details or birth star, in your language.',
+write(`${pre}porutham.html`, layout({
+  ...common('porutham.html', 'match'), page: 'match', file: `${pre}porutham.html`,
   body: `<section class="hero" style="grid-template-columns:1fr;padding-bottom:16px">
   <div><h1 data-i18n="match_title"></h1><p class="lede" data-i18n="match_sub"></p></div>
 </section>
@@ -130,10 +153,8 @@ write('porutham.html', layout({
 }));
 
 // ---- Panchangam ----
-write('panchangam.html', layout({
-  page: 'panchang', file: 'panchangam.html',
-  title: 'Today’s Panchangam, Rahu Kalam &amp; Nalla Neram | RasiVani',
-  description: 'Today’s panchangam for your city: tithi, nakshatra, yoga, karana, sunrise, sunset, Rahu kalam, Yamagandam, Gulikai and Chandrashtamam.',
+write(`${pre}panchangam.html`, layout({
+  ...common('panchangam.html', 'panch'), page: 'panchang', file: `${pre}panchangam.html`,
   body: `<section class="hero">
   <div><h1 data-i18n="panchang_title"></h1><p class="lede" data-i18n="panchang_sub"></p></div>
   <form id="panch-form" class="panel" novalidate>
@@ -148,6 +169,7 @@ write('panchangam.html', layout({
 </section>
 <section id="panch-result" class="result" aria-live="polite" hidden></section>`
 }));
+}
 
 // ---- Static pages required by AdSense / Play Store ----
 const prose = (file, title, html) => write(file, layout({ page: 'info', file, title: `${title} | ${SITE.name}`, description: `${title} - ${SITE.name}`, body: `<article class="prose">${html}</article>` }));
@@ -183,14 +205,45 @@ prose('contact.html', 'Contact', `<h1>Contact us</h1>
 <p>When reporting a calculation issue, please include the date, time and place you entered (only if you are comfortable sharing them).</p>`);
 
 // ---- SEO + PWA files ----
-export const STATIC_PAGES = ['', 'porutham.html', 'panchangam.html', 'about.html', 'privacy.html', 'contact.html'];
+export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'about.html', 'privacy.html', 'contact.html'];
 const pages = STATIC_PAGES;
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map((p) => `  <url><loc>${SITE.url}/${p}</loc><lastmod>${SITE.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `);
-write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
+// Search engines and AI answer engines are all welcome (they bring visitors). Ad and SEO scrapers are not needed.
+const AI_BOTS = ['Googlebot', 'Bingbot', 'Google-Extended', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Perplexity-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'Applebot', 'Applebot-Extended', 'DuckDuckBot', 'YandexBot', 'meta-externalagent', 'Amazonbot', 'CCBot'];
+write('robots.txt', `# RasiVani: search engines and AI assistants may read and cite every page.
+User-agent: *
+Allow: /
+
+${AI_BOTS.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}
+
+Sitemap: ${SITE.url}/sitemap.xml
+`);
+write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
+// llms.txt: a plain summary that AI assistants (ChatGPT, Perplexity, Claude, Gemini) read to understand and cite the site.
+const L = I18N.LANGS;
+write('llms.txt', `# ${SITE.name}
+
+> ${SITE.name} (${SITE.url}) is a free Vedic astrology website for Indian families, in ${L.length} languages: ${L.map((l) => `${l.name} (${l.code})`).join(', ')}. It makes a jathagam / janam kundli (birth chart), checks marriage porutham (10 poruthams), shows the daily panchangam with Rahu kalam, and publishes a fresh rasi palan (daily horoscope) for all 12 rasis every day at 00:05 IST.
+
+Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimshottari dasha and the ten South Indian poruthams. Birth details are processed in the visitor's browser and are never stored. Astrology is presented as cultural tradition, not as medical, financial or legal advice.
+
+## Free tools
+${L.map((l) => `- [Jathagam / birth chart in ${l.name}](${SITE.url}/${toolHref(l.code, 'index.html').replace(/^\.\/$/, '')}): rasi and navamsa charts, nakshatra, planets, dasha`).join('\n')}
+${L.map((l) => `- [Marriage porutham in ${l.name}](${SITE.url}/${toolHref(l.code, 'porutham.html')}): 10 poruthams including rajju and vedha`).join('\n')}
+${L.map((l) => `- [Panchangam in ${l.name}](${SITE.url}/${toolHref(l.code, 'panchangam.html')}): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai`).join('\n')}
+
+## Daily rasi palan (updated every day)
+${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.code}/): all 12 rasis, plus one page per rasi at ${SITE.url}/rasi-palan/${l.code}/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)`).join('\n')}
+
+## About
+- [About ${SITE.name}](${SITE.url}/about.html)
+- [Privacy](${SITE.url}/privacy.html)
+- Contact: ${SITE.email}
+`);
 write('ads.txt', SITE.adsenseClient
   ? `google.com, ${SITE.adsenseClient.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`
   : `# Replace with your AdSense line after approval, e.g.\n# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0\n`);
