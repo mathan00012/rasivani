@@ -14,11 +14,14 @@ import { writeFileSync, mkdirSync, readdirSync, existsSync, unlinkSync } from 'n
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, layout, STATIC_PAGES, toolHref } from './build.mjs';
+import { loadBlog, buildBlog, guideLinks } from './blog.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 await import('../js/astro.js'); await import('../js/i18n.js'); await import('../js/palan-i18n.js'); await import('../js/palan-more-i18n.js');
 const { Astro: A, I18N, PALAN, PALAN_MORE } = globalThis;
 const LANGS = I18N.LANGS.map((l) => l.code);
+const BLOG = await loadBlog(LANGS);
+let TODAY_ISO = '';
 const KEEP_DAYS = 400; // dated pages older than this are removed so the site stays under Cloudflare's file limit
 
 const REF_CITY = { en: 'newdelhi', hi: 'newdelhi', mr: 'mumbai', ta: 'chennai', te: 'hyderabad', kn: 'bengaluru', ml: 'kochi', bn: 'kolkata', gu: 'ahmedabad', or: 'bhubaneswar' };
@@ -170,7 +173,8 @@ ${cards}
 <section class="block"><h3>${esc(P.rahu_cities)}</h3>
   <div class="table-wrap"><table><thead><tr><th scope="col">${esc(P.city)}</th><th scope="col">${esc(U.sunrise)}</th><th scope="col">${esc(U.rahukalam)}</th><th scope="col">${esc(U.yamagandam)}</th><th scope="col">${esc(U.gulikai)}</th></tr></thead><tbody>${rahuRows}</tbody></table></div>
   <p class="note">IST · Lahiri ayanamsa</p></section>
-${archive.length ? `<section class="block"><h3>${esc(P.archive)}</h3><ul class="archive">${archive.map((a) => `<li><a href="rasi-palan/${lang}/${a}.html">${a}</a></li>`).join('')}</ul></section>` : ''}`;
+${archive.length ? `<section class="block"><h3>${esc(P.archive)}</h3><ul class="archive">${archive.map((a) => `<li><a href="rasi-palan/${lang}/${a}.html">${a}</a></li>`).join('')}</ul></section>` : ''}
+${guideLinks(BLOG, lang, TODAY_ISO, ['chandrashtamam', 'rahu-kalam', 'sade-sati', 'panchangam-basics'])}`;
   return layout({ page: 'palan', file, title, description, body, base: '../../', lang, alternates, head: ld, keywords: fill(M.keywords, { rasi: T.rasi[0] }) });
 }
 
@@ -260,6 +264,7 @@ ${specialHtml(lang, f)}
     <p class="note">${esc(M.positions)}: ${esc(positions)}</p>
   </section>
   <section class="block faq"><h3>${esc(M.faq)}</h3>${faq.map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section>
+  ${guideLinks(BLOG, lang, TODAY_ISO, [h === 8 ? 'chandrashtamam' : null, [12, 1, 2, 8, 4].includes(sh) ? 'sade-sati' : null, f.vrat ? 'vrat-days' : null, 'rahu-kalam', 'ten-poruthams', 'jathagam-guide'].filter(Boolean).slice(0, 4))}
 </article>
 <aside class="sign-side">
   <div class="panel lucky-box"><h2>${esc(M.lucky)}</h2>
@@ -281,6 +286,7 @@ if (arg && /^\d{4}-\d{2}-\d{2}$/.test(arg)) start = new Date(`${arg}T00:00:00Z`)
 else { const now = new Date(Date.now() + 5.5 * 3600000); start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())); }
 const days = [0, 1, 2].map((i) => addDays(start, i));
 const todayIso = days[0].toISOString().slice(0, 10);
+TODAY_ISO = todayIso;
 const oldestKept = addDays(start, -KEEP_DAYS).toISOString().slice(0, 10);
 
 for (const lang of LANGS) {
@@ -313,9 +319,13 @@ writeFileSync(join(root, 'rasi-palan', 'index.html'), layout({
 <section class="block">${I18N.LANGS.map((l) => `<h3 lang="${l.code}">${l.name}</h3><ul class="archive" lang="${l.code}">${SLUG.map((s, r) => `<li><a href="rasi-palan/${l.code}/${s}/">${I18N.TERMS[l.code].rasi[r]}</a></li>`).join('')}</ul>`).join('')}</section>`
 }));
 
+// Guides (blog): one new guide goes live each day
+const blogUrls = buildBlog(root, todayIso, BLOG);
+
 // Sitemap: tool pages in every language, each language's overview + 12 rasi pages, and the last 30 days
 const urls = STATIC_PAGES.map((p) => [`${SITE.url}/${p}`, todayIso]);
 urls.push([`${SITE.url}/rasi-palan/`, todayIso]);
+urls.push(...blogUrls);
 for (const lang of LANGS) {
   urls.push([`${SITE.url}/rasi-palan/${lang}/`, todayIso]);
   SLUG.forEach((s) => urls.push([`${SITE.url}/rasi-palan/${lang}/${s}/`, todayIso]));

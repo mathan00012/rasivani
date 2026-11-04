@@ -180,7 +180,7 @@
     document.head.appendChild(link);
   }
   function detectLang() {
-    if (document.body.dataset.fixed || document.body.dataset.page === 'palan') return document.body.dataset.lang;
+    if (document.body.dataset.fixed || document.body.dataset.page === 'palan' || document.body.dataset.page === 'blog') return document.body.dataset.lang;
     const q = new URLSearchParams(location.search).get('lang');
     if (q && UI[q]) return q;
     const s = store.get('gv-lang'); if (s && UI[s]) return s;
@@ -585,6 +585,7 @@
     if (sel) {
       sel.innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.name}</option>`).join('');
       sel.addEventListener('change', () => {
+        if (document.body.dataset.page === 'blog') { store.set('gv-lang', sel.value); location.href = `blog/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         if (document.body.dataset.page === 'palan') { store.set('gv-lang', sel.value); location.href = `rasi-palan/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         applyLang(sel.value);
       });

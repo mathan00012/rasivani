@@ -19,6 +19,9 @@ const write = (f, s) => { mkdirSync(dirname(join(root, f)), { recursive: true })
 await import('../js/i18n.js');
 const { I18N } = globalThis;
 const { SEO } = await import('./seo.mjs');
+// Footer label for the guides (blog); the articles themselves are built by tools/blog.mjs
+const BLOG_LABEL = {};
+for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
 export const LANG_CODES = I18N.LANGS.map((l) => l.code);
 // IndexNow lets Bing, Yandex, Seznam and Naver know the moment a page changes. The key is public by design.
 export const INDEXNOW_KEY = 'a7c3e91f5b2d4086b1e4f9c27d8a6e35';
@@ -52,7 +55,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
     { '@type': 'WebSite', '@id': `${SITE.url}/#website`, name: SITE.name, alternateName: 'RasiVani Jathagam & Rasi Palan', url: `${SITE.url}/`, inLanguage: LANG_CODES, publisher: { '@id': `${SITE.url}/#org` } },
     { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png` }
   ] })}</script>`;
-  const langLinks = I18N.LANGS.map((l) => `<a href="${page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
+  const langLinks = I18N.LANGS.map((l) => `<a href="${page === 'blog' && BLOG_LABEL[l.code] ? `blog/${l.code}/${/^blog\/[a-z]{2}\/[^/]+\//.test(file) ? file.split('/')[2] + '/' : ''}` : page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
   return `<!doctype html>
 <html lang="${lang}" data-script="${lang}">
 <head>
@@ -87,7 +90,7 @@ ${body}
 <footer class="site-foot"><div class="wrap">
   <p class="disclaimer" data-i18n="disclaimer"></p>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
-  <div class="foot-links"><a href="about.html" data-keep-lang data-i18n="about"></a><a href="privacy.html" data-keep-lang data-i18n="privacy"></a><a href="contact.html" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
+  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}<a href="about.html" data-keep-lang data-i18n="about"></a><a href="privacy.html" data-keep-lang data-i18n="privacy"></a><a href="contact.html" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
 ${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/app.js"></script>' : ''}
 </body>
@@ -238,6 +241,9 @@ ${L.map((l) => `- [Panchangam in ${l.name}](${SITE.url}/${toolHref(l.code, 'panc
 
 ## Daily rasi palan (updated every day)
 ${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.code}/): all 12 rasis, plus one page per rasi at ${SITE.url}/rasi-palan/${l.code}/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)`).join('\n')}
+
+## Astrology guides (a new guide every day)
+${L.filter((l) => BLOG_LABEL[l.code]).map((l) => `- [${BLOG_LABEL[l.code]} (${l.name})](${SITE.url}/blog/${l.code}/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: ${SITE.url}/blog/${l.code}/feed.xml`).join('\n')}
 
 ## About
 - [About ${SITE.name}](${SITE.url}/about.html)

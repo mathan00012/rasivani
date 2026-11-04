@@ -339,6 +339,21 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .sign-list a { text-decoration: none; display: block; padding: 4px 0; }
 .sign-list a[aria-current] { font-weight: 700; color: var(--gold-ink); }
 
+/* Guides (blog) */
+.guide-body { max-width: 72ch; margin: 28px 0; font-size: 18px; line-height: 1.7; }
+.guide-body h2 { font-size: 24px; line-height: 1.3; margin: 28px 0 8px; }
+.guide-body p { margin: 0; }
+.guide-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 28px 0; padding: 16px 18px; background: var(--surface-2); border-left: 4px solid var(--gold); border-radius: var(--radius); }
+.guide-cta p { margin: 0; font-weight: 600; }
+.guide-cta .btn { width: auto; text-decoration: none; }
+.guide-list { list-style: none; padding: 0; margin: 28px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.guide-card a { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 18px; background: var(--surface); color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: var(--radius); }
+.guide-card a:hover { border-color: var(--gold); }
+.guide-card strong { font-size: 18px; line-height: 1.35; }
+.guide-card span { color: var(--muted); font-size: 15px; }
+.guide-card small { color: var(--muted); font-size: 13px; margin-top: auto; }
+.guide-links { margin: 0 0 8px; padding-left: 20px; }
+.guide-links li { margin: 4px 0; }
 /* A4 PDF sheet (built off-screen by js/pdf.js; always light colours).
    Sized for printing: big bold chart text, dark thick lines, black text. The sheet is 680px wide and
    is printed 190mm wide, so 1px ≈ 0.28mm and 16px text prints at about 12pt. */
