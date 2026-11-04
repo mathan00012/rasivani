@@ -4,13 +4,13 @@
 // The GitHub Action in .github/workflows/daily.yml runs this every night and publishes the site.
 //
 // What it writes, per language (10):
-//   rasi-palan/<lang>/<date>.html      all 12 rasis for that day (kept for a year, then removed)
+//   rasi-palan/<lang>/<date>.html      all 12 rasis for that day, served at /rasi-palan/<lang>/<date> (kept for a year, then removed)
 //   rasi-palan/<lang>/index.html       today's overview (stable address)
 //   rasi-palan/<lang>/<rasi>/index.html one page per rasi, rewritten every day at the same address
 //                                       (that is how "mesha rasi palan today" style searches are won)
 // All text is original RasiVani wording from js/palan-i18n.js and js/palan-more-i18n.js; the daily
 // variation comes from real astronomy: Moon transit, tithi, vrat days, planet ingresses, Sade Sati.
-import { writeFileSync, mkdirSync, readdirSync, existsSync, unlinkSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync, unlinkSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, layout, STATIC_PAGES, toolHref } from './build.mjs';
@@ -143,8 +143,8 @@ function page(lang, dt, prevIso, nextIso, archive) {
     return `<tr><th scope="row">${name}</th><td class="num">${hhmm(p.sunrise)}</td><td class="num">${k ? `${hhmm(k.rahu[0])} – ${hhmm(k.rahu[1])}` : '–'}</td><td class="num">${k ? `${hhmm(k.yama[0])} – ${hhmm(k.yama[1])}` : '–'}</td><td class="num">${k ? `${hhmm(k.gulika[0])} – ${hhmm(k.gulika[1])}` : '–'}</td></tr>`;
   }).join('');
   const file = `rasi-palan/${lang}/${dateIso}.html`;
-  const alternates = LANGS.map((l) => `\n<link rel="alternate" hreflang="${l}" href="${SITE.url}/rasi-palan/${l}/${dateIso}.html">`).join('')
-    + `\n<link rel="alternate" hreflang="x-default" href="${SITE.url}/rasi-palan/en/${dateIso}.html">`;
+  const alternates = LANGS.map((l) => `\n<link rel="alternate" hreflang="${l}" href="${SITE.url}/rasi-palan/${l}/${dateIso}">`).join('')
+    + `\n<link rel="alternate" hreflang="x-default" href="${SITE.url}/rasi-palan/en/${dateIso}">`;
   const headline = fill(M.day_title, { date: titleDate(lang, dt) });
   const title = `${esc(headline)} | ${SITE.name}`;
   const description = fill(P.desc, { date: dateText });
@@ -169,11 +169,11 @@ ${specialHtml(lang, dayFacts(dt))}
 ${cards}
 </div>
 <div class="ad-slot" data-ad="palan-mid"></div>
-<nav class="palan-nav" aria-label="${esc(P.archive)}">${prevIso ? `<a href="rasi-palan/${lang}/${prevIso}.html">← ${esc(P.prev)}</a>` : '<span></span>'}${nextIso ? `<a href="rasi-palan/${lang}/${nextIso}.html">${esc(P.next)} →</a>` : ''}</nav>
+<nav class="palan-nav" aria-label="${esc(P.archive)}">${prevIso ? `<a href="rasi-palan/${lang}/${prevIso}">← ${esc(P.prev)}</a>` : '<span></span>'}${nextIso ? `<a href="rasi-palan/${lang}/${nextIso}">${esc(P.next)} →</a>` : ''}</nav>
 <section class="block"><h3>${esc(P.rahu_cities)}</h3>
   <div class="table-wrap"><table><thead><tr><th scope="col">${esc(P.city)}</th><th scope="col">${esc(U.sunrise)}</th><th scope="col">${esc(U.rahukalam)}</th><th scope="col">${esc(U.yamagandam)}</th><th scope="col">${esc(U.gulikai)}</th></tr></thead><tbody>${rahuRows}</tbody></table></div>
   <p class="note">IST · Lahiri ayanamsa</p></section>
-${archive.length ? `<section class="block"><h3>${esc(P.archive)}</h3><ul class="archive">${archive.map((a) => `<li><a href="rasi-palan/${lang}/${a}.html">${a}</a></li>`).join('')}</ul></section>` : ''}
+${archive.length ? `<section class="block"><h3>${esc(P.archive)}</h3><ul class="archive">${archive.map((a) => `<li><a href="rasi-palan/${lang}/${a}">${a}</a></li>`).join('')}</ul></section>` : ''}
 ${guideLinks(BLOG, lang, TODAY_ISO, ['chandrashtamam', 'rahu-kalam', 'sade-sati', 'panchangam-basics'])}`;
   return layout({ page: 'palan', file, title, description, body, base: '../../', lang, alternates, head: ld, keywords: fill(M.keywords, { rasi: T.rasi[0] }) });
 }
@@ -293,6 +293,12 @@ for (const lang of LANGS) {
   const dir = join(root, 'rasi-palan', lang);
   mkdirSync(dir, { recursive: true });
   for (const f of readdirSync(dir).filter((x) => /^\d{4}-\d{2}-\d{2}\.html$/.test(x) && x.slice(0, 10) < oldestKept)) unlinkSync(join(dir, f));
+  // Older day pages were written with .html links; Cloudflare redirects those, so point them at the final addresses.
+  for (const f of readdirSync(dir).filter((x) => /^\d{4}-\d{2}-\d{2}\.html$/.test(x))) {
+    const before = readFileSync(join(dir, f), 'utf8');
+    const after = before.replace(/(href="[^"]*?\/?(?!index)[\w-]+)\.html(?=["?#])/g, '$1');
+    if (after !== before) writeFileSync(join(dir, f), after);
+  }
   for (const [i, dt] of days.entries()) {
     const [y, m, d] = ymd(dt);
     const prev = addDays(dt, -1).toISOString().slice(0, 10);
@@ -302,7 +308,7 @@ for (const lang of LANGS) {
     const archive = existing.filter((x) => x < iso(y, m, d)).sort().reverse().slice(0, 14);
     const html = page(lang, dt, hasPrev ? prev : null, next, archive);
     writeFileSync(join(dir, `${iso(y, m, d)}.html`), html);
-    if (i === 0) writeFileSync(join(dir, 'index.html'), html.replace(`<link rel="canonical" href="${SITE.url}/rasi-palan/${lang}/${todayIso}.html">`, `<link rel="canonical" href="${SITE.url}/rasi-palan/${lang}/">`));
+    if (i === 0) writeFileSync(join(dir, 'index.html'), html.replace(`<link rel="canonical" href="${SITE.url}/rasi-palan/${lang}/${todayIso}">`, `<link rel="canonical" href="${SITE.url}/rasi-palan/${lang}/">`));
   }
   SLUG.forEach((slug, r) => {
     mkdirSync(join(dir, slug), { recursive: true });
@@ -332,7 +338,7 @@ for (const lang of LANGS) {
   const dir = join(root, 'rasi-palan', lang);
   if (!existsSync(dir)) continue;
   readdirSync(dir).filter((f) => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse().slice(0, 33)
-    .forEach((f) => urls.push([`${SITE.url}/rasi-palan/${lang}/${f}`, f.slice(0, 10) > todayIso ? todayIso : f.slice(0, 10)]));
+    .forEach((f) => urls.push([`${SITE.url}/rasi-palan/${lang}/${f.replace(/\.html$/, '')}`, f.slice(0, 10) > todayIso ? todayIso : f.slice(0, 10)]));
 }
 writeFileSync(join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

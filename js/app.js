@@ -166,7 +166,7 @@
   // ---------- Language ----------
   let lang = 'en';
   const TOOL_FILES = ['index.html', 'porutham.html', 'panchangam.html'];
-  const toolHref = (l, f) => `${l === 'en' ? '' : `${l}/`}${f === 'index.html' ? '' : f}` || './';
+  const toolHref = (l, f) => `${l === 'en' ? '' : `${l}/`}${f === 'index.html' ? '' : f.replace(/\.html$/, '')}` || './'; // Cloudflare serves pages without .html
   const t = (k) => (UI[lang] && UI[lang][k]) || UI.en[k] || k;
   const T = () => TERMS[lang] || TERMS.en;
   const loadedFonts = new Set();
@@ -202,7 +202,7 @@
       a.dataset.keepLang = f;
       a.setAttribute('href', TOOL_FILES.includes(f) ? toolHref(l, f) : `${f}?lang=${l}`);
     });
-    // Each language has its own address (/ta/, /te/porutham.html ...): keep the address bar in step without reloading.
+    // Each language has its own address (/ta/, /te/porutham ...): keep the address bar in step without reloading.
     const toolFile = { chart: 'index.html', match: 'porutham.html', panchang: 'panchangam.html' }[document.body.dataset.page];
     if (toolFile && history.replaceState) { try { history.replaceState(null, '', new URL(toolHref(l, toolFile), document.baseURI).href); } catch (e) { /* file:// previews */ } }
     fillTermSelects();

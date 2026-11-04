@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://rasivani.com',          // your domain, no trailing slash
   email: 'hello@rasivani.com',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
-  updated: '2026-11-02'
+  updated: '2026-11-04'
 };
 // ========================================
 
@@ -25,9 +25,11 @@ for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await im
 export const LANG_CODES = I18N.LANGS.map((l) => l.code);
 // IndexNow lets Bing, Yandex, Seznam and Naver know the moment a page changes. The key is public by design.
 export const INDEXNOW_KEY = 'a7c3e91f5b2d4086b1e4f9c27d8a6e35';
-// The three tool pages get their own URL per language: /ta/, /ta/porutham.html, /ta/panchangam.html ...
+// The three tool pages get their own URL per language: /ta/, /ta/porutham, /ta/panchangam ...
+// Cloudflare Pages serves x.html at /x and redirects /x.html there, so every link, canonical and sitemap entry leaves .html off.
 export const TOOL_FILES = ['index.html', 'porutham.html', 'panchangam.html'];
-export const toolHref = (lang, file) => `${lang === 'en' ? '' : `${lang}/`}${file === 'index.html' ? '' : file}` || './';
+export const pretty = (path) => path.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '');
+export const toolHref = (lang, file) => `${lang === 'en' ? '' : `${lang}/`}${pretty(file)}` || './';
 const OG_LOCALE = { en: 'en_IN', hi: 'hi_IN', ta: 'ta_IN', te: 'te_IN', kn: 'kn_IN', ml: 'ml_IN', mr: 'mr_IN', bn: 'bn_IN', gu: 'gu_IN', or: 'or_IN' };
 const escAttr = (s) => String(s).replace(/&(?!amp;|lt;|gt;|quot;|#)/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -45,7 +47,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
     + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}></a>`;
   const adsense = SITE.adsenseClient
     ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : '';
-  const canonical = `${SITE.url}/${file === 'index.html' ? '' : file.replace(/index\.html$/, '')}`;
+  const canonical = `${SITE.url}/${pretty(file)}`;
   const jsonld = page === 'chart' ? `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'WebApplication', name: SITE.name, url: SITE.url,
     applicationCategory: 'LifestyleApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
@@ -90,7 +92,7 @@ ${body}
 <footer class="site-foot"><div class="wrap">
   <p class="disclaimer" data-i18n="disclaimer"></p>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
-  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}<a href="about.html" data-keep-lang data-i18n="about"></a><a href="privacy.html" data-keep-lang data-i18n="privacy"></a><a href="contact.html" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
+  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
 ${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/app.js"></script>' : ''}
 </body>
@@ -208,7 +210,7 @@ prose('contact.html', 'Contact', `<h1>Contact us</h1>
 <p>When reporting a calculation issue, please include the date, time and place you entered (only if you are comfortable sharing them).</p>`);
 
 // ---- SEO + PWA files ----
-export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'about.html', 'privacy.html', 'contact.html'];
+export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'about', 'privacy', 'contact'];
 const pages = STATIC_PAGES;
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -246,8 +248,8 @@ ${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.c
 ${L.filter((l) => BLOG_LABEL[l.code]).map((l) => `- [${BLOG_LABEL[l.code]} (${l.name})](${SITE.url}/blog/${l.code}/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: ${SITE.url}/blog/${l.code}/feed.xml`).join('\n')}
 
 ## About
-- [About ${SITE.name}](${SITE.url}/about.html)
-- [Privacy](${SITE.url}/privacy.html)
+- [About ${SITE.name}](${SITE.url}/about)
+- [Privacy](${SITE.url}/privacy)
 - Contact: ${SITE.email}
 `);
 write('ads.txt', SITE.adsenseClient
@@ -263,7 +265,7 @@ write('manifest.webmanifest', JSON.stringify({
     { src: 'icons/icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
   ]
 }, null, 2));
-const cacheFiles = ['./', 'index.html', 'porutham.html', 'panchangam.html', 'about.html', 'privacy.html', 'contact.html', 'css/style.css', 'js/i18n.js', 'js/astro.js', 'js/app.js', 'js/vendor/html2canvas.min.js', 'icons/icon.svg', 'rasi-palan/en/', 'manifest.webmanifest'];
+const cacheFiles = ['./', 'porutham', 'panchangam', 'about', 'privacy', 'contact', 'css/style.css', 'js/i18n.js', 'js/astro.js', 'js/app.js', 'js/vendor/html2canvas.min.js', 'icons/icon.svg', 'rasi-palan/en/', 'manifest.webmanifest'];
 write('sw.js', `// Offline support so the Android app works without network.
 const CACHE = 'rasivani-${SITE.updated}';
 const FILES = ${JSON.stringify(cacheFiles)};

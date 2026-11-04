@@ -15,26 +15,26 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - [Jathagam / birth chart in বাংলা](https://rasivani.com/bn/): rasi and navamsa charts, nakshatra, planets, dasha
 - [Jathagam / birth chart in ગુજરાતી](https://rasivani.com/gu/): rasi and navamsa charts, nakshatra, planets, dasha
 - [Jathagam / birth chart in ଓଡ଼ିଆ](https://rasivani.com/or/): rasi and navamsa charts, nakshatra, planets, dasha
-- [Marriage porutham in English](https://rasivani.com/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in हिन्दी](https://rasivani.com/hi/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in தமிழ்](https://rasivani.com/ta/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in తెలుగు](https://rasivani.com/te/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in ಕನ್ನಡ](https://rasivani.com/kn/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in മലയാളം](https://rasivani.com/ml/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in मराठी](https://rasivani.com/mr/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in বাংলা](https://rasivani.com/bn/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in ગુજરાતી](https://rasivani.com/gu/porutham.html): 10 poruthams including rajju and vedha
-- [Marriage porutham in ଓଡ଼ିଆ](https://rasivani.com/or/porutham.html): 10 poruthams including rajju and vedha
-- [Panchangam in English](https://rasivani.com/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in हिन्दी](https://rasivani.com/hi/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in தமிழ்](https://rasivani.com/ta/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in తెలుగు](https://rasivani.com/te/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in ಕನ್ನಡ](https://rasivani.com/kn/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in മലയാളം](https://rasivani.com/ml/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in मराठी](https://rasivani.com/mr/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in বাংলা](https://rasivani.com/bn/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in ગુજરાતી](https://rasivani.com/gu/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
-- [Panchangam in ଓଡ଼ିଆ](https://rasivani.com/or/panchangam.html): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Marriage porutham in English](https://rasivani.com/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in हिन्दी](https://rasivani.com/hi/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in தமிழ்](https://rasivani.com/ta/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in తెలుగు](https://rasivani.com/te/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in ಕನ್ನಡ](https://rasivani.com/kn/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in മലയാളം](https://rasivani.com/ml/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in मराठी](https://rasivani.com/mr/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in বাংলা](https://rasivani.com/bn/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in ગુજરાતી](https://rasivani.com/gu/porutham): 10 poruthams including rajju and vedha
+- [Marriage porutham in ଓଡ଼ିଆ](https://rasivani.com/or/porutham): 10 poruthams including rajju and vedha
+- [Panchangam in English](https://rasivani.com/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in हिन्दी](https://rasivani.com/hi/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in தமிழ்](https://rasivani.com/ta/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in తెలుగు](https://rasivani.com/te/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ಕನ್ನಡ](https://rasivani.com/kn/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in മലയാളം](https://rasivani.com/ml/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in मराठी](https://rasivani.com/mr/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in বাংলা](https://rasivani.com/bn/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ગુજરાતી](https://rasivani.com/gu/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
+- [Panchangam in ଓଡ଼ିଆ](https://rasivani.com/or/panchangam): tithi, nakshatra, yoga, karana, Rahu kalam, Yamagandam, Gulikai
 
 ## Daily rasi palan (updated every day)
 - [Today's rasi palan in English](https://rasivani.com/rasi-palan/en/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/en/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
@@ -61,6 +61,6 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - [ଜ୍ୟୋତିଷ ଗାଇଡ୍ (ଓଡ଼ିଆ)](https://rasivani.com/blog/or/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: https://rasivani.com/blog/or/feed.xml
 
 ## About
-- [About RasiVani](https://rasivani.com/about.html)
-- [Privacy](https://rasivani.com/privacy.html)
+- [About RasiVani](https://rasivani.com/about)
+- [Privacy](https://rasivani.com/privacy)
 - Contact: hello@rasivani.com
