@@ -339,25 +339,70 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .sign-list a { text-decoration: none; display: block; padding: 4px 0; }
 .sign-list a[aria-current] { font-weight: 700; color: var(--gold-ink); }
 
-/* A4 PDF sheet (built off-screen by js/pdf.js; always light colours) */
-.pdf-sheet { position: absolute; left: -12000px; top: 0; background: #fff; color: var(--ink); padding: 0; font-size: 13px; }
+/* A4 PDF sheet (built off-screen by js/pdf.js; always light colours).
+   Sized for printing: big bold chart text, dark thick lines, black text. The sheet is 680px wide and
+   is printed 190mm wide, so 1px ≈ 0.28mm and 16px text prints at about 12pt. */
+.pdf-sheet { position: absolute; left: -12000px; top: 0; background: #fff; color: #111; padding: 0; font-size: 15px; font-weight: 500; }
 .pdf-sheet .jathagam, .pdf-sheet .match-card, .pdf-sheet .panch-card { padding: 0; box-shadow: none; }
-.pdf-sheet .seg, .pdf-sheet .ad-slot, .pdf-sheet .actions { display: none !important; }
-.pdf-sheet .result-head { margin-bottom: 8px; }
-.pdf-sheet .result-head h2 { font-size: 1.35rem; }
-.pdf-sheet .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 10px; gap: 8px; }
-.pdf-sheet .charts { grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 10px; }
-.pdf-sheet .block { margin-bottom: 10px; }
-.pdf-sheet .block h3 { font-size: 1rem; margin: 0 0 6px; }
-.pdf-sheet .detail-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.pdf-sheet table { font-size: 12px; }
-.pdf-sheet th, .pdf-sheet td { padding-top: 4px; padding-bottom: 4px; }
+.pdf-sheet .seg, .pdf-sheet .ad-slot, .pdf-sheet .actions, .pdf-sheet .facts, .pdf-sheet .om { display: none !important; }
+.pdf-sheet .muted, .pdf-sheet .note, .pdf-sheet figcaption { color: #333; }
+.pdf-sheet .result-head { margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #222; }
+.pdf-sheet .result-head h2 { font-size: 24px; font-weight: 800; color: #111; }
+.pdf-sheet .result-head p { font-size: 15px; font-weight: 600; margin: 2px 0 0; }
+/* charts: two big squares side by side */
+.pdf-sheet .charts { grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
+.pdf-sheet .charts figcaption { margin-top: 3px; font-size: 15px; font-weight: 700; }
+.pdf-sheet .south-chart { max-width: none; border: 4px solid #222; border-radius: 0; }
+.pdf-sheet .sc-cell { border: 1.5px solid #333; padding: 3px 5px; }
+.pdf-sheet .sc-cell small { font-size: 13px; font-weight: 700; color: #222; }
+.pdf-sheet .sc-items { font-size: 21px; font-weight: 800; line-height: 1.2; gap: 0 7px; }
+.pdf-sheet .sc-items sup { font-size: 12px; }
+.pdf-sheet .sc-center { border: 1.5px solid #333; }
+.pdf-sheet .sc-center strong { font-size: 19px; }
+.pdf-sheet .sc-name { font-size: 19px; font-weight: 800; color: #111; }
+.pdf-sheet .sc-date { font-size: 15px; font-weight: 600; color: #222; }
+.pdf-sheet .kalasha { width: 48px; height: 48px; }
+.pdf-sheet .north-chart rect, .pdf-sheet .north-chart line, .pdf-sheet .north-chart polygon { stroke: #222; stroke-width: 2.4; }
+.pdf-sheet .north-chart rect { stroke-width: 4; }
+.pdf-sheet .nc-num { fill: #222; font-size: 15px; font-weight: 700; }
+.pdf-sheet .nc-p { font-size: 20px; font-weight: 800; }
+/* sections */
+.pdf-sheet .block { margin-bottom: 8px; }
+.pdf-sheet .block h3 { font-size: 17px; font-weight: 800; margin: 0 0 4px; color: #111; }
+.pdf-sheet .detail-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1.5px solid #333; border-radius: 0; }
+.pdf-sheet .detail-grid > div { padding: 4px 8px; border: 1px solid #888; background: #fff; }
+.pdf-sheet .detail-grid dt { font-size: 13px; font-weight: 600; color: #333; line-height: 1.2; }
+.pdf-sheet .detail-grid dd { font-size: 15.5px; font-weight: 800; color: #111; line-height: 1.25; }
+/* tables */
+.pdf-sheet .table-wrap { overflow: visible; border: 1.5px solid #333; border-radius: 0; box-shadow: none; }
+.pdf-sheet table { font-size: 15px; }
+.pdf-sheet th, .pdf-sheet td { padding: 2px 8px; line-height: 1.3; border-bottom: 1px solid #999; color: #111; }
+.pdf-sheet tbody th { font-weight: 800; }
+.pdf-sheet td { font-weight: 600; }
+.pdf-sheet thead th { font-size: 14px; font-weight: 800; background: #222; color: #fff; }
+.pdf-sheet tbody tr:nth-child(even) { background: #f3f3f3; }
+.pdf-sheet tr.is-current { background: #ffe7a8 !important; }
+.pdf-sheet .tag { font-size: 12px; background: #222; color: #fff; }
+.pdf-sheet .dot { width: 10px; height: 10px; }
 .pdf-sheet .tables { grid-template-columns: 1fr 1fr; gap: 12px; }
-.pdf-sheet .table-wrap { overflow: visible; }
-.pdf-sheet .note { margin: 4px 0 0; }
-.pdf-sheet .charts { grid-template-columns: repeat(2, 320px); justify-content: center; gap: 24px; }
-.pdf-sheet .charts figcaption { margin-top: 2px; }
-.pdf-sheet .facts > div { padding: 8px 12px; }
-.pdf-sheet .detail-grid dd, .pdf-sheet .detail-grid dt { line-height: 1.25; }
-.pdf-sheet .detail-grid > div { padding: 5px 10px; }
-.pdf-sheet th, .pdf-sheet td { padding-top: 3px; padding-bottom: 3px; line-height: 1.3; }
+.pdf-sheet .tables table { font-size: 14.5px; }
+.pdf-sheet .note { margin: 3px 0 0; font-size: 13px; font-weight: 600; }
+/* one-page fit: name, date and place are already in the heading, so the details box skips them */
+.pdf-sheet .jathagam .detail-grid > div:nth-child(-n+3) { display: none; }
+.pdf-sheet .jathagam .detail-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pdf-sheet .result-head { margin-bottom: 6px; padding-bottom: 4px; }
+.pdf-sheet .kalasha { width: 40px; height: 40px; }
+.pdf-sheet .jathagam .detail-grid { display: flex; flex-wrap: wrap; gap: 0; }
+.pdf-sheet .jathagam .detail-grid > div { display: flex; gap: 5px; align-items: baseline; padding: 3px 8px; border: 0; border-right: 1px solid #888; border-bottom: 1px solid #888; flex: 1 1 auto; }
+.pdf-sheet .jathagam .detail-grid dt::after { content: ':'; }
+.pdf-sheet th, .pdf-sheet td { padding: 1px 8px; line-height: 1.25; }
+.pdf-sheet .block h3 { margin-bottom: 3px; }
+.pdf-sheet .tables { gap: 8px; }
+.pdf-sheet .tables table { font-size: 13.5px; }
+.pdf-sheet .tables th, .pdf-sheet .tables td { padding: 1px 4px; }
+.pdf-sheet .tables .tag { font-size: 10.5px; padding: 0 5px; }
+.pdf-sheet .sc-cell small { font-size: 12px; }
+.pdf-sheet .tables { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
+.pdf-sheet .tables table { font-size: 13px; }
+.pdf-sheet .tables { grid-template-columns: max-content minmax(0, 1fr); gap: 8px; }
+.pdf-sheet .tables .tag { display: none; }

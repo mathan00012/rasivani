@@ -4,9 +4,9 @@
    is scaled down to fit 2 pages. */
 (function (root) {
   'use strict';
-  const PAGE_W = 210, PAGE_H = 297, M = 10, FOOT = 7;            // mm
+  const PAGE_W = 210, PAGE_H = 297, M = 8, FOOT = 5;             // mm
   const CW = PAGE_W - 2 * M, CH = PAGE_H - 2 * M - FOOT;           // usable content box
-  const SHEET_PX = 760;                                            // layout width of the sheet
+  const SHEET_PX = 680;                                            // layout width of the sheet
 
   function load(src) {
     return new Promise((ok, fail) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail; document.head.appendChild(s); });
@@ -41,7 +41,7 @@
       const boxes = [...body.children].filter((n) => n.offsetHeight > 0).map((n) => {
         const r = n.getBoundingClientRect(); return { top: Math.round(r.top - sheetTop), bottom: Math.round(r.bottom - sheetTop) };
       });
-      const canvas = await root.html2canvas(sheet, { backgroundColor: '#ffffff', scale: 2, useCORS: true, windowWidth: SHEET_PX + 40 });
+      const canvas = await root.html2canvas(sheet, { backgroundColor: '#ffffff', scale: 3, useCORS: true, windowWidth: SHEET_PX + 40 });
       const totalPx = sheet.offsetHeight, k = canvas.width / sheet.offsetWidth;
       // mm per css px at full content width, and the page capacity in px
       let mmPerPx = CW / sheet.offsetWidth;
@@ -66,7 +66,7 @@
         ctx.drawImage(canvas, 0, Math.floor(y0 * k), canvas.width, part.height, 0, 0, part.width, part.height);
         if (i > 0) pdf.addPage('a4', 'portrait');
         const wMm = sheet.offsetWidth * mmPerPx, x = (PAGE_W - wMm) / 2;
-        pdf.addImage(part.toDataURL('image/jpeg', 0.92), 'JPEG', x, M, wMm, hPx * mmPerPx, undefined, 'FAST');
+        pdf.addImage(part.toDataURL('image/jpeg', 0.95), 'JPEG', x, M, wMm, hPx * mmPerPx, undefined, 'FAST');
         pdf.setFontSize(8); pdf.setTextColor(110);
         pdf.text(footer || 'RasiVani · rasivani.com', M, PAGE_H - M + 2);
         if (edges.length > 2) pdf.text(`${i + 1} / ${edges.length - 1}`, PAGE_W - M, PAGE_H - M + 2, { align: 'right' });
