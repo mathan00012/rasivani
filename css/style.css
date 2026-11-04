@@ -245,6 +245,9 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .services a:nth-child(2) { background: linear-gradient(135deg, #2a1a5e, #5f3dc4); }
 .services a:nth-child(3) { background: linear-gradient(135deg, #0f7c7c, #2b8a3e); }
 .services a:nth-child(4) { background: linear-gradient(135deg, #b7791f, #e8590c); }
+.services a:nth-child(5) { background: linear-gradient(135deg, #43207a, #c2185b); }
+.services a:nth-child(6) { background: linear-gradient(135deg, #1c4e9e, #0f7c7c); }
+.services a:nth-child(7) { background: linear-gradient(135deg, #8a5300, #c2185b); }
 .services h3 { margin: 0 0 6px; font-size: 20px; }
 .services p { margin: 0; opacity: .9; font-size: 15px; line-height: 1.45; }
 @media (max-width: 960px) { .services { grid-template-columns: 1fr 1fr; } }
@@ -356,6 +359,17 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .guide-card small { color: var(--muted); font-size: 13px; margin-top: auto; }
 .guide-links { margin: 0 0 8px; padding-left: 20px; }
 .guide-links li { margin: 4px 0; }
+/* Rasi, nakshatra and festival pages */
+.block > h2.h3 { font-size: 20px; margin: 0 0 12px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.block > h2.h3::before { content: ''; width: 10px; height: 10px; border-radius: 3px; background: var(--gold); transform: rotate(45deg); flex: none; }
+.sign-main .block h3 { font-size: 17px; margin: 18px 0 8px; }
+.archive .chip { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--surface-2); font-size: 14px; }
+.sign-main th, .sign-main td { white-space: normal; }
+/* Share on WhatsApp */
+.btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #1f8f4e; color: #fff; border: 0; border-radius: 999px; padding: 12px 20px; font: 600 16px/1.2 var(--script); cursor: pointer; text-decoration: none; min-height: 44px; }
+.btn-wa:hover { background: #18773f; }
+.btn-wa svg { width: 20px; height: 20px; flex: none; }
+
 /* A4 PDF sheet (built off-screen by js/pdf.js; always light colours).
    Sized for printing: big bold chart text, dark thick lines, black text. The sheet is 680px wide and
    is printed 190mm wide, so 1px ≈ 0.28mm and 16px text prints at about 12pt. */

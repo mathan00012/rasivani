@@ -344,7 +344,9 @@
           <div class="table-wrap"><table><thead><tr><th scope="col">${esc(t('bhukti'))}</th><th scope="col">${esc(t('from'))}</th><th scope="col">${esc(t('to'))}</th></tr></thead><tbody>${bh}</tbody></table></div></section>
       </div>
       </div>
-      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
+      <div class="actions"><button type="button" class="btn-wa" data-act="wa">${WA_ICON}<span>${esc(t('share_wa'))}</span></button><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
+    shareText = [`🪔 ${name ? `${name} · ` : ''}${t('nav_chart')}`, `${t('lagna')}: ${T().rasiShort[c.lagna.rasi]}`, `${t('moon_sign')}: ${T().rasiShort[c.moonRasi]}`,
+      `${t('birth_star')}: ${T().nak[c.nakshatra.index]} (${t('pada')} ${c.nakshatra.pada})`, '', `${t('share_chart')}: ${siteLink('index.html')}`].join('\n');
     $$('.seg button', out).forEach((b) => b.addEventListener('click', () => { store.set('gv-style2', b.dataset.style); renderChart(); }));
     out.hidden = false;
   }
@@ -416,7 +418,9 @@
       <ul class="pm-list">${items}</ul>
       ${whyHtml(r)}
       <div class="ad-slot" data-ad="match-mid"></div>
-      <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
+      <div class="actions"><button type="button" class="btn-wa" data-act="wa">${WA_ICON}<span>${esc(t('share_wa'))}</span></button><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
+    shareText = [`💍 ${t('score')}: ${r.score} / 10 · ${t('verdict_' + r.verdict)}`, `${t('bride')}: ${T().nak[girl.star]} · ${T().rasiShort[girl.rasi]}`,
+      `${t('groom')}: ${T().nak[boy.star]} · ${T().rasiShort[boy.rasi]}`, '', `${t('share_match')}: ${siteLink('porutham.html')}`].join('\n');
     out.hidden = false;
   }
   // "Why this score": strengths first, then the gentle notes. Text lives in js/match-why.js, loaded on first use.
@@ -540,6 +544,19 @@
     run();
   }
 
+  // ---------- Share on WhatsApp ----------
+  // A short summary (no birth date, time or place) plus a link back to the free tool in the same language.
+  let shareText = '';
+  const WA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>';
+  const siteLink = (file) => {
+    const live = /^https?:$/.test(location.protocol) && /rasivani\.com$/.test(location.hostname);
+    return `${live ? location.origin : 'https://rasivani.com'}/${toolHref(lang, file).replace(/^\.\/$/, '')}`;
+  };
+  function shareWhatsApp() {
+    if (!shareText) return;
+    window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank', 'noopener');
+  }
+
   // ---------- Download as image ----------
   function loadScript(src) {
     return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
@@ -574,6 +591,7 @@
   }
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]'); if (!b) return;
+    if (b.dataset.act === 'wa') { shareWhatsApp(); return; }
     if (b.dataset.act === 'print') window.print();
     if (b.dataset.act === 'pdf') downloadPdf(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
     if (b.dataset.act === 'png') downloadImage(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
@@ -585,6 +603,7 @@
     if (sel) {
       sel.innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.name}</option>`).join('');
       sel.addEventListener('change', () => {
+        if (document.body.dataset.alt) { store.set('gv-lang', sel.value); let m = {}; try { m = JSON.parse(document.body.dataset.alt); } catch (e) { /* ignore */ } location.href = m[sel.value] || `rasi-palan/${sel.value}/`; return; }
         if (document.body.dataset.page === 'blog') { store.set('gv-lang', sel.value); location.href = `blog/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         if (document.body.dataset.page === 'palan') { store.set('gv-lang', sel.value); location.href = `rasi-palan/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         applyLang(sel.value);

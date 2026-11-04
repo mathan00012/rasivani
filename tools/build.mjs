@@ -23,6 +23,12 @@ const { SEO } = await import('./seo.mjs');
 // Footer label for the guides (blog); the articles themselves are built by tools/blog.mjs
 const BLOG_LABEL = {};
 for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
+// Footer and home-page links to the rasi, nakshatra and festival pages (built by tools/pages.mjs; text in content/pages/<lang>.mjs)
+const EXTRA = {};
+for (const l of ['ta', 'te']) {
+  const U = (await import(`../content/pages/${l}.mjs`)).default.ui;
+  EXTRA[l] = [U.rasi_hub && ['rasi/ta/', U.rasi_hub, U.rasi_hub_desc], U.nak_hub && ['nakshatra/ta/', U.nak_hub, U.nak_hub_desc], [`festivals/${l}/`, U.fest_hub, U.fest_hub_desc]].filter(Boolean);
+}
 export const LANG_CODES = I18N.LANGS.map((l) => l.code);
 // IndexNow lets Bing, Yandex, Seznam and Naver know the moment a page changes. The key is public by design.
 export const INDEXNOW_KEY = 'a7c3e91f5b2d4086b1e4f9c27d8a6e35';
@@ -42,7 +48,7 @@ const ICON = {
   lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>`
 };
 
-export function layout({ page, file, title, description, body, scripts = true, base = '', lang = 'en', alternates = '', head = '', keywords = '', fixed = false }) {
+export function layout({ page, file, title, description, body, scripts = true, base = '', lang = 'en', alternates = '', head = '', keywords = '', fixed = false, langMap = null }) {
   const nav = [['index.html', 'nav_chart', 'chart'], ['porutham.html', 'nav_match', 'match'], ['panchangam.html', 'nav_panchang', 'panchang']]
     .map(([href, key, id]) => `<a href="${toolHref(lang, href)}" data-keep-lang="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}></a>`).join('')
     + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}></a>`;
@@ -58,7 +64,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
     { '@type': 'WebSite', '@id': `${SITE.url}/#website`, name: SITE.name, alternateName: 'RasiVani Jathagam & Rasi Palan', url: `${SITE.url}/`, inLanguage: LANG_CODES, publisher: { '@id': `${SITE.url}/#org` } },
     { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png`, sameAs: Object.values(SITE.social) }
   ] })}</script>`;
-  const langLinks = I18N.LANGS.map((l) => `<a href="${page === 'blog' && BLOG_LABEL[l.code] ? `blog/${l.code}/${/^blog\/[a-z]{2}\/[^/]+\//.test(file) ? file.split('/')[2] + '/' : ''}` : page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
+  const langLinks = I18N.LANGS.map((l) => `<a href="${langMap ? (langMap[l.code] || `rasi-palan/${l.code}/`) : page === 'blog' && BLOG_LABEL[l.code] ? `blog/${l.code}/${/^blog\/[a-z]{2}\/[^/]+\//.test(file) ? file.split('/')[2] + '/' : ''}` : page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
   return `<!doctype html>
 <html lang="${lang}" data-script="${lang}">
 <head>
@@ -80,7 +86,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
 <link rel="stylesheet" href="css/style.css">
 ${siteLd}${jsonld}${head}${adsense}
 </head>
-<body data-page="${page}" data-lang="${lang}"${fixed ? ' data-fixed="1"' : ''}>
+<body data-page="${page}" data-lang="${lang}"${fixed ? ' data-fixed="1"' : ''}${langMap ? ` data-alt="${escAttr(JSON.stringify(langMap))}"` : ''}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap head-row">
   <a class="brand" href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html">${LOGO}<span>${SITE.name}</span></a>
@@ -94,7 +100,7 @@ ${body}
   <p class="disclaimer" data-i18n="disclaimer"></p>
   <nav class="foot-social" aria-label="RasiVani on social media">${Object.entries({ WhatsApp: SITE.social.whatsapp, YouTube: SITE.social.youtube, Instagram: SITE.social.instagram, Facebook: SITE.social.facebook, X: SITE.social.x, ShareChat: SITE.social.sharechat }).map(([n, u]) => `<a href="${u}" rel="me noopener" target="_blank">${n}</a>`).join('')}</nav>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
-  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
+  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
 ${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/app.js"></script>' : ''}
 </body>
@@ -142,6 +148,7 @@ write(`${pre}index.html`, layout({
   <a href="${toolHref(lang, 'porutham.html')}" data-keep-lang="porutham.html"><h3 data-i18n="nav_match"></h3><p data-i18n="match_sub"></p></a>
   <a href="${toolHref(lang, 'panchangam.html')}" data-keep-lang="panchangam.html"><h3 data-i18n="nav_panchang"></h3><p data-i18n="panchang_sub"></p></a>
   <a href="rasi-palan/${lang}/" data-palan><h3 data-i18n="nav_palan"></h3><p>${I18N.TERMS[lang].rasi.join(' · ')}</p></a>
+  ${(EXTRA[lang] || []).map(([href, label, desc]) => `<a href="${href}"><h3>${escText(label)}</h3><p>${escText(desc)}</p></a>`).join('\n  ')}
 </section>`
 }));
 

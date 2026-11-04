@@ -15,6 +15,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, layout, STATIC_PAGES, toolHref } from './build.mjs';
 import { loadBlog, buildBlog, guideLinks } from './blog.mjs';
+import { buildPages, rasiPageHref, rasiPageLabel } from './pages.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 await import('../js/astro.js'); await import('../js/i18n.js'); await import('../js/palan-i18n.js'); await import('../js/palan-more-i18n.js');
@@ -276,7 +277,7 @@ ${specialHtml(lang, f)}
   <nav class="panel sign-list" aria-label="${esc(M.all_signs)}"><h2>${esc(M.all_signs)}</h2><ul>${SLUG.map((s, i) => `<li><a href="rasi-palan/${lang}/${s}/"${i === r ? ' aria-current="page"' : ''}>${GLYPH[i]} ${esc(T.rasi[i])}</a></li>`).join('')}</ul></nav>
 </aside>
 </div>
-<nav class="palan-nav"><a href="rasi-palan/${lang}/">← ${esc(M.all_signs)}</a><a href="${toolHref(lang, 'panchangam.html')}">${esc(U.nav_panchang)} →</a></nav>`;
+<nav class="palan-nav"><a href="rasi-palan/${lang}/">← ${esc(M.all_signs)}</a>${rasiPageHref(lang, r) ? `<a href="${rasiPageHref(lang, r)}">${esc(rasiPageLabel(lang, r))} →</a>` : ''}<a href="${toolHref(lang, 'panchangam.html')}">${esc(U.nav_panchang)} →</a></nav>`;
   return layout({ page: 'palan', file, title: `${esc(headline)} | ${SITE.name}`, description, body, base: '../../../', lang, alternates, head: ld, keywords: fill(M.keywords, { rasi: short }) })
     .replace('<body data-page="palan"', `<body data-slug="${slug}" data-page="palan"`);
 }
@@ -369,11 +370,14 @@ writeFileSync(join(root, 'rasi-palan', 'index.html'), layout({
 
 // Guides (blog): one new guide goes live each day
 const blogUrls = buildBlog(root, todayIso, BLOG);
+// Rasi and nakshatra pages (Tamil) and festival, amavasya and pournami pages (Tamil, Telugu)
+const pageUrls = buildPages(root, todayIso);
 
 // Sitemap: tool pages in every language, each language's overview + 12 rasi pages, and the last 30 days
 const urls = STATIC_PAGES.map((p) => [`${SITE.url}/${p}`, todayIso]);
 urls.push([`${SITE.url}/rasi-palan/`, todayIso]);
 urls.push(...blogUrls);
+urls.push(...pageUrls);
 for (const lang of LANGS) {
   urls.push([`${SITE.url}/rasi-palan/${lang}/`, todayIso]);
   SLUG.forEach((s) => urls.push([`${SITE.url}/rasi-palan/${lang}/${s}/`, todayIso]));
