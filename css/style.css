@@ -406,3 +406,20 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .pdf-sheet .tables table { font-size: 13px; }
 .pdf-sheet .tables { grid-template-columns: max-content minmax(0, 1fr); gap: 8px; }
 .pdf-sheet .tables .tag { display: none; }
+
+/* Marriage matching: why this score */
+.why { margin: 24px 0 8px; padding: 20px 22px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+.why h3 { margin: 0 0 8px; font-size: 20px; }
+.why > p { margin: 0 0 10px; }
+.why-key { font-weight: 600; }
+.why-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+.why-box { padding: 14px 16px; border-radius: 12px; border-top: 4px solid var(--line); }
+.why-pos { border-top-color: var(--good); }
+.why-soft { border-top-color: var(--gold); }
+.why-box h4 { margin: 0 0 8px; font-size: 16px; }
+.why-box ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.why-box li { line-height: 1.5; }
+.why-tag { font-size: 13px; font-weight: 700; }
+.why-2 .why-tag { color: var(--good); } .why-1 .why-tag { color: var(--mid); } .why-0 .why-tag { color: var(--mid); }
+.why-note { margin: 0; font-size: 14px; opacity: .85; }
+@media (max-width: 720px) { .why-cols { grid-template-columns: 1fr; } .why { padding: 16px; } }

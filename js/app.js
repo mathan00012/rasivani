@@ -3,6 +3,7 @@
   'use strict';
   const { LANGS, UI, TERMS } = window.I18N;
   const A = window.Astro;
+  const SCRIPT_BASE = (document.currentScript && document.currentScript.src) || location.href;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const store = {
@@ -413,9 +414,41 @@
         <div><dt>${esc(t('groom'))}</dt><dd>${who(boy)}</dd></div>
       </dl>
       <ul class="pm-list">${items}</ul>
+      ${whyHtml(r)}
       <div class="ad-slot" data-ad="match-mid"></div>
       <div class="actions"><button type="button" class="btn" data-act="png">${esc(UI.en.download_img)}</button><button type="button" class="btn-secondary" data-act="pdf">${esc(UI.en.print)}</button></div>`;
     out.hidden = false;
+  }
+  // "Why this score": strengths first, then the gentle notes. Text lives in js/match-why.js, loaded on first use.
+  let whyState = 'idle';
+  function loadWhy() {
+    if (window.MatchWhy || whyState !== 'idle') return;
+    whyState = 'loading';
+    const s = document.createElement('script');
+    s.src = new URL('match-why.js', SCRIPT_BASE).href;
+    s.onload = () => { whyState = 'done'; renderMatch(); };
+    s.onerror = () => { whyState = 'idle'; };
+    document.head.appendChild(s);
+  }
+  function whyHtml(r) {
+    const all = window.MatchWhy; if (!all) { loadWhy(); return ''; }
+    const W = all[lang] || all.en, E = all.en;
+    const w = (k) => W[k] != null ? W[k] : E[k];
+    const text = (it) => { const a = (W.items[it.key] || E.items[it.key]); return a[it.v] || a[0]; };
+    const li = (it) => `<li class="why-${it.v}"><b>${esc(T().porutham[it.key])}</b> <span class="why-tag">${esc(it.v === 2 ? t('v_good') : it.v === 1 ? t('v_mid') : t('v_bad'))}</span><br>${esc(text(it))}</li>`;
+    const good = r.items.filter((it) => it.v === 2), soft = r.items.filter((it) => it.v < 2);
+    const full = good.length, part = r.items.filter((it) => it.v === 1).length;
+    const intro = w('intro').replace('{full}', full).replace('{part}', part).replace('{score}', r.score);
+    const keyNote = (!r.rajjuOk || !r.vedhaOk) && r.score >= 4.5 ? `<p class="why-key">${esc(w('key_note'))}</p>` : '';
+    return `<section class="why" aria-labelledby="why-h">
+      <h3 id="why-h">${esc(w('h'))}</h3>
+      <p>${esc(intro)}</p>${keyNote}
+      <div class="why-cols">
+        <div class="why-box why-pos"><h4>${esc(w('pos'))}</h4>${good.length ? `<ul>${good.map(li).join('')}</ul>` : `<p>${esc(w('none_pos'))}</p>`}</div>
+        <div class="why-box why-soft"><h4>${esc(w('neg'))}</h4>${soft.length ? `<ul>${soft.map(li).join('')}</ul>` : `<p>${esc(w('none_neg'))}</p>`}</div>
+      </div>
+      <p class="why-note">${esc(w('note'))}</p>
+    </section>`;
   }
   function updateRasiNote(p) {
     const s = +$(`#${p}-star`).value, pd = +$(`#${p}-pada`).value;
@@ -423,6 +456,7 @@
   }
   function initMatch() {
     $('#match-people').innerHTML = personBlock('g', 'bride') + personBlock('m', 'groom');
+    loadWhy();
     ['g', 'm'].forEach((p) => {
       wirePlace(p);
       const fs = $(`#${p}-name`).closest('fieldset');
