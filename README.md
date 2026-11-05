@@ -16,6 +16,7 @@ browser, so hosting is free and birth details never leave the device.
 | `rasi-palan/<lang>/` | Daily rasi palan pages, made by `tools/daily.mjs` from `js/palan-i18n.js` |
 | `places/` | Offline place + pincode search (140k India Post areas, data.gov.in OGD licence). Rebuild with `tools/build-places.py` |
 | `tools/build.mjs` | Regenerates the pages. **Edit the SITE block at the top first** (domain, email, AdSense id) |
+| `share.html` | Post maker for social media (rasivani.com/share): today's rasi palan as 13 images + a Shorts/Reels video + caption, in any language. Reads `social/<lang>.json`, which `tools/daily.mjs` writes every night. Not indexed |
 | `manifest.webmanifest`, `sw.js`, `icons/` | Makes it installable and offline-capable (needed for the Android app) |
 
 ## 1. Domain

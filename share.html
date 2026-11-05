@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RasiVani post maker</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;600;700&family=Noto+Sans+Symbols&display=swap">
+<!-- Makes the daily rasi palan images and Shorts video for WhatsApp, Instagram, YouTube, Facebook and Telegram.
+     Data comes from social/<lang>.json, written every night by tools/daily.mjs. Not linked from the site and not indexed. -->
+<style>
+  :root { --night: #2a1a5e; --night-2: #43207a; --gold: #f2a516; --cream: #fff4df; --kumkum: #c2185b; --ink: #23163f; --muted: #6b5f7a; --line: #ecdcc8; --bg: #fffaf3; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Mukta, system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+  header { background: var(--night); color: var(--cream); padding: 14px 16px; }
+  header h1 { margin: 0; font: 400 22px 'Yatra One', serif; color: var(--gold); }
+  header p { margin: 2px 0 0; font-size: 14px; color: #d9c8f0; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 14px; }
+  label { display: grid; gap: 4px; font-weight: 600; font-size: 14px; }
+  select { font: inherit; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; min-height: 44px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 16px; }
+  button { font: 600 15px Mukta, sans-serif; min-height: 44px; padding: 8px 16px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+  button.primary { background: var(--kumkum); border-color: var(--kumkum); color: #fff; }
+  button:disabled { opacity: .5; cursor: progress; }
+  button:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  #status { min-height: 24px; font-size: 15px; color: var(--muted); margin: 0 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .slide { display: grid; gap: 6px; }
+  .slide canvas { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(42, 26, 94, .15); background: var(--night); }
+  .slide button { min-height: 36px; padding: 4px 8px; font-size: 13px; }
+  details { margin: 18px 0; border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 10px 14px; }
+  summary { font-weight: 700; cursor: pointer; }
+  textarea { width: 100%; min-height: 220px; font: 15px/1.5 Mukta, sans-serif; border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+  video { max-width: 260px; width: 100%; border-radius: 8px; display: block; margin-top: 10px; }
+  .help { font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header><h1>RasiVani post maker</h1><p>Today's rasi palan as ready-made images and a Shorts video. Pick a language, then share or download.</p></header>
+<main>
+  <div class="controls">
+    <label>Language <select id="lang"></select></label>
+    <label>Day <select id="day"></select></label>
+    <label>Size <select id="size">
+      <option value="post">Post 1080×1350 (Instagram, Facebook, WhatsApp channel)</option>
+      <option value="story">Tall 1080×1920 (Status, Story, Shorts, Reels)</option>
+    </select></label>
+  </div>
+  <div class="actions">
+    <button class="primary" id="share">Share all images</button>
+    <button id="dlall">Download all images</button>
+    <button id="video">Make Shorts / Reels video</button>
+    <button id="copy">Copy caption</button>
+  </div>
+  <p id="status" role="status" aria-live="polite"></p>
+  <div id="videoOut"></div>
+  <div class="grid" id="grid"></div>
+  <details open><summary>Caption (paste under the post)</summary>
+    <p class="help">Already copied when you press "Copy caption". On YouTube use the first line as the title.</p>
+    <textarea id="caption" aria-label="Caption"></textarea>
+  </details>
+</main>
+<script>
+(() => {
+  const LANGS = [['ta', 'தமிழ்', 'Noto Sans Tamil'], ['te', 'తెలుగు', 'Noto Sans Telugu'], ['kn', 'ಕನ್ನಡ', 'Noto Sans Kannada'], ['ml', 'മലയാളം', 'Noto Sans Malayalam'],
+    ['hi', 'हिन्दी', 'Noto Sans Devanagari'], ['mr', 'मराठी', 'Noto Sans Devanagari'], ['bn', 'বাংলা', 'Noto Sans Bengali'], ['gu', 'ગુજરાતી', 'Noto Sans Gujarati'],
+    ['or', 'ଓଡ଼ିଆ', 'Noto Sans Oriya'], ['en', 'English', 'Mukta']];
+  const CTA = {
+    en: 'Full rasi palan, free jathagam & porutham', ta: 'முழு ராசி பலன், இலவச ஜாதகம், திருமணப் பொருத்தம்',
+    te: 'పూర్తి రాశి ఫలాలు, ఉచిత జాతకం, వివాహ పొంతన', kn: 'ಪೂರ್ಣ ರಾಶಿ ಭವಿಷ್ಯ, ಉಚಿತ ಜಾತಕ, ವಿವಾಹ ಹೊಂದಾಣಿಕೆ',
+    ml: 'മുഴുവൻ രാശിഫലം, സൗജന്യ ജാതകം, വിവാഹ പൊരുത്തം', hi: 'पूरा राशिफल, मुफ़्त कुंडली और गुण मिलान',
+    mr: 'संपूर्ण राशीभविष्य, मोफत कुंडली आणि गुण मिलन', bn: 'সম্পূর্ণ রাশিফল, বিনামূল্যে কোষ্ঠী ও বিয়ের মিল',
+    gu: 'સંપૂર્ણ રાશિફળ, મફત કુંડળી અને ગુણ મિલન', or: 'ସମ୍ପୂର୍ଣ୍ଣ ରାଶିଫଳ, ମାଗଣା ଜାତକ ଓ ବିବାହ ମେଳକ'
+  };
+  const TAGS = {
+    en: '#RasiPalan #DailyHoroscope #Astrology #Jathagam #Rashifal #RasiVani',
+    ta: '#ராசிபலன் #இன்றையராசிபலன் #ஜாதகம் #RasiPalan #TamilAstrology #RasiVani',
+    te: '#రాశిఫలాలు #ఈరోజురాశిఫలాలు #జాతకం #RasiPhalalu #TeluguAstrology #RasiVani',
+    kn: '#ರಾಶಿಭವಿಷ್ಯ #ದಿನಭವಿಷ್ಯ #ಜಾತಕ #KannadaAstrology #RasiVani',
+    ml: '#രാശിഫലം #ഇന്നത്തെരാശിഫലം #ജാതകം #MalayalamAstrology #RasiVani',
+    hi: '#राशिफल #आजकाराशिफल #कुंडली #Rashifal #HindiAstrology #RasiVani',
+    mr: '#राशीभविष्य #आजचेराशीभविष्य #कुंडली #MarathiAstrology #RasiVani',
+    bn: '#রাশিফল #আজকেররাশিফল #BengaliAstrology #RasiVani',
+    gu: '#રાશિફળ #આજનુંરાશિફળ #GujaratiAstrology #RasiVani',
+    or: '#ରାଶିଫଳ #OdiaAstrology #RasiVani'
+  };
+  const SITE = 'rasivani.com';
+  const C = { night: '#2a1a5e', night2: '#43207a', deep: '#1a0f3d', gold: '#f2a516', cream: '#fff4df', muted: '#d9c8f0', kumkum: '#c2185b', star: '#ffd27a' };
+  const $ = (id) => document.getElementById(id);
+  const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+  const params = new URLSearchParams(location.search);
+  let data = null, slides = [];
+
+  // ---------- controls ----------
+  LANGS.forEach(([code, name]) => $('lang').add(new Option(name, code)));
+  $('lang').value = params.get('lang') || store.get('pm-lang') || 'ta';
+  if (params.get('size') === 'story') $('size').value = 'story';
+  const fontOf = (lang) => (LANGS.find((l) => l[0] === lang) || LANGS[0])[2];
+
+  async function loadFont(family) {
+    if (family !== 'Mukta' && !document.querySelector(`link[data-font="${family}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet'; link.dataset.font = family;
+      link.href = `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, '+')}:wght@400;600;700&display=swap`;
+      document.head.appendChild(link);
+      await new Promise((r) => { link.onload = r; link.onerror = r; });
+    }
+    const sample = data ? JSON.stringify(data.labels) + data.h1 + (CTA[data.lang] || '') + data.days.map((d) => d.dateText + d.tithi + d.nakshatra + d.special.join('') + d.signs.map((s) => s.name + s.text + s.advice + s.color).join('')).join('') : 'RasiVani';
+    await Promise.all([`400 40px "${family}"`, `600 40px "${family}"`, `700 40px "${family}"`, '400 40px "Yatra One"', '700 40px Mukta', '400 40px "Noto Sans Symbols"']
+      .map((f) => document.fonts.load(f, f.includes('Symbols') ? '♈♉♊♋♌♍♎♏♐♑♒♓' : sample).catch(() => {})));
+  }
+
+  // ---------- drawing helpers ----------
+  const font = (w, px, fam) => `${w} ${px}px "${fam}", Mukta, "Noto Sans Symbols", sans-serif`;
+  function wrap(ctx, text, maxW) {
+    const words = String(text).split(/\s+/), lines = [];
+    let line = '';
+    for (const w of words) {
+      const t = line ? line + ' ' + w : w;
+      if (ctx.measureText(t).width <= maxW || !line) line = t; else { lines.push(line); line = w; }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+  // Draw wrapped text, shrinking the font until it fits in maxLines. Returns the y below the text.
+  function para(ctx, text, x, y, maxW, { size = 40, min = 26, weight = 400, fam, color = C.cream, maxLines = 5, lh = 1.45, align = 'left' } = {}) {
+    let lines;
+    for (; size >= min; size -= 2) { ctx.font = font(weight, size, fam); lines = wrap(ctx, text, maxW); if (lines.length <= maxLines) break; }
+    ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top';
+    lines.slice(0, maxLines).forEach((l, i) => ctx.fillText(l, x, y + i * size * lh));
+    ctx.textAlign = 'left';
+    return y + Math.min(lines.length, maxLines) * size * lh;
+  }
+  function fitText(ctx, text, x, y, maxW, size, weight, fam, color, align = 'left') {
+    for (; size > 18; size -= 2) { ctx.font = font(weight, size, fam); if (ctx.measureText(text).width <= maxW) break; }
+    ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(text, x, y); ctx.textAlign = 'left';
+    return size;
+  }
+  function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+  function stars(ctx, n, x, y, size, align = 'left') {
+    ctx.font = `${size}px "Noto Sans Symbols", "Segoe UI Symbol", sans-serif`; ctx.textBaseline = 'top'; ctx.textAlign = align;
+    const full = '★'.repeat(n), empty = '★'.repeat(5 - n);
+    const wFull = ctx.measureText(full).width, wAll = ctx.measureText(full + empty).width;
+    const x0 = align === 'center' ? x - wAll / 2 : align === 'right' ? x - wAll : x;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = C.star; ctx.fillText(full, x0, y);
+    ctx.fillStyle = 'rgba(255,244,223,.22)'; ctx.fillText(empty, x0 + wFull, y);
+  }
+  function logo(ctx, x, y, s) { // the RasiVani mark: orbit, sun, moon
+    ctx.save(); ctx.translate(x, y); ctx.scale(s / 32, s / 32);
+    ctx.strokeStyle = 'rgba(255,244,223,.45)'; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(16, 16, 13, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = C.gold; ctx.beginPath(); ctx.arc(16, 16, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = C.cream; ctx.beginPath(); ctx.arc(27.3, 9.5, 2.4, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+  function background(ctx, W, H, seed) {
+    const g = ctx.createLinearGradient(0, 0, W * .3, H);
+    g.addColorStop(0, C.night2); g.addColorStop(.55, C.night); g.addColorStop(1, C.deep);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    let s = seed * 9301 + 49297; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    for (let i = 0; i < 90; i++) { ctx.fillStyle = `rgba(255,244,223,${.08 + rnd() * .35})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H, rnd() * 2.2 + .4, 0, Math.PI * 2); ctx.fill(); }
+    ctx.strokeStyle = 'rgba(242,165,22,.16)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(W + 40, -40, 360, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(242,165,22,.08)'; ctx.beginPath(); ctx.arc(-80, H + 60, 420, 0, Math.PI * 2); ctx.stroke();
+  }
+  function brandRow(ctx, W, d, fam, y0) {
+    logo(ctx, 60, y0 + 52, 64);
+    ctx.font = '400 44px "Yatra One", serif'; ctx.fillStyle = C.gold; ctx.textBaseline = 'top'; ctx.fillText('RasiVani', 140, y0 + 58);
+    fitText(ctx, d.dateText, W - 60, y0 + 66, 520, 32, 600, fam, C.muted, 'right');
+  }
+  function footer(ctx, W, bottom, lang, fam, url) {
+    const y = bottom - 140;
+    ctx.fillStyle = 'rgba(255,244,223,.10)'; ctx.fillRect(60, y - 22, W - 120, 2);
+    fitText(ctx, CTA[lang] || CTA.en, W / 2, y, W - 160, 30, 600, fam, C.muted, 'center');
+    ctx.font = '700 40px Mukta, sans-serif';
+    const w = ctx.measureText(url).width + 64;
+    rrect(ctx, (W - w) / 2, y + 46, w, 62, 31); ctx.fillStyle = C.gold; ctx.fill();
+    ctx.fillStyle = C.night; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(url, W / 2, y + 79); ctx.textAlign = 'left';
+  }
+  const overall = (sc) => Math.max(1, Math.round(sc.reduce((a, b) => a + b, 0) / 4));
+
+  // ---------- slide 1: all 12 rasis ----------
+  function drawCover(ctx, W, top, bottom, d, lang, fam) {
+    brandRow(ctx, W, d, fam, top);
+    let y = top + 150;
+    y = para(ctx, data.h1, W / 2, y, W - 120, { size: 76, min: 48, weight: 700, fam, color: C.cream, maxLines: 1, lh: 1.3, align: 'center' });
+    const L = data.labels;
+    const special = d.special.filter((x) => x !== d.tithi);
+    const info = [`${L.tithi}: ${d.tithi}`, `${L.nakshatra}: ${d.nakshatra}`].concat(special.length ? [special.join(' · ')] : []).join('  •  ');
+    y = para(ctx, info, W / 2, y + 6, W - 120, { size: 32, min: 24, weight: 600, fam, color: C.gold, maxLines: 2, lh: 1.35, align: 'center' });
+    const gTop = Math.max(y + 24, top + 300), gBottom = bottom - 190, gap = 16, cols = 3, rows = 4;
+    const tw = (W - 120 - gap * (cols - 1)) / cols, th = (gBottom - gTop - gap * (rows - 1)) / rows;
+    d.signs.forEach((s, i) => {
+      const x = 60 + (i % cols) * (tw + gap), ty = gTop + Math.floor(i / cols) * (th + gap);
+      rrect(ctx, x, ty, tw, th, 18); ctx.fillStyle = s.chandra ? 'rgba(194,24,91,.30)' : 'rgba(255,244,223,.08)'; ctx.fill();
+      ctx.strokeStyle = s.chandra ? 'rgba(255,111,165,.7)' : 'rgba(242,165,22,.25)'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.font = '400 40px "Noto Sans Symbols", "Segoe UI Symbol", sans-serif'; ctx.fillStyle = C.gold; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const cy = ty + (th - (s.chandra ? 172 : 140)) / 2; // content block centred in the tile
+      ctx.fillText(s.glyph, x + tw / 2, cy);
+      fitText(ctx, s.name, x + tw / 2, cy + 50, tw - 24, 36, 700, fam, C.cream, 'center');
+      stars(ctx, overall(s.scores), x + tw / 2, cy + 104, 30, 'center');
+      if (s.chandra) fitText(ctx, L.chandra, x + tw / 2, cy + 146, tw - 20, 24, 600, fam, '#ffc2d8', 'center');
+    });
+    footer(ctx, W, bottom, lang, fam, SITE);
+  }
+
+  // ---------- slides 2-13: one rasi each ----------
+  const scratch = document.createElement('canvas').getContext('2d');
+  function drawSign(ctx, W, top, bottom, d, lang, fam, s) {
+    brandRow(ctx, W, d, fam, top);
+    // dry run to measure the block, then draw it centred between the brand row and the footer
+    const areaTop = top + 150, areaBottom = bottom - 190, big = areaBottom - areaTop > 1100;
+    const h = signBody(scratch, W, 0, lang, fam, s, big);
+    signBody(ctx, W, areaTop + Math.max(0, (areaBottom - areaTop - h) / 2), lang, fam, s, big);
+    footer(ctx, W, bottom, lang, fam, SITE);
+  }
+  function signBody(ctx, W, y0, lang, fam, s, big) {
+    const L = data.labels;
+    let y = y0;
+    ctx.beginPath(); ctx.arc(150, y + 70, 70, 0, Math.PI * 2); ctx.fillStyle = 'rgba(242,165,22,.16)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(242,165,22,.6)'; ctx.lineWidth = 3; ctx.stroke();
+    ctx.font = '400 72px "Noto Sans Symbols", "Segoe UI Symbol", sans-serif'; ctx.fillStyle = C.gold; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.glyph, 150, y + 74); ctx.textAlign = 'left';
+    fitText(ctx, s.name, 250, y + 6, W - 310, 72, 700, fam, C.cream);
+    fitText(ctx, data.h1, 252, y + 92, W - 312, 32, 600, fam, C.gold);
+    y += 170;
+    if (s.chandra) {
+      rrect(ctx, 60, y, W - 120, 56, 14); ctx.fillStyle = 'rgba(194,24,91,.85)'; ctx.fill();
+      fitText(ctx, '⚠ ' + L.chandra, W / 2, y + 10, W - 160, 32, 700, fam, '#fff', 'center');
+      y += 76;
+    }
+    y = para(ctx, s.text, 60, y + 4, W - 120, { size: big ? 56 : 46, min: 30, weight: 400, fam, color: C.cream, maxLines: big ? 8 : s.chandra ? 5 : 6, lh: 1.5 });
+    y += 24;
+    const meters = [[L.work, s.scores[0]], [L.money, s.scores[1]], [L.health, s.scores[2]], [L.family, s.scores[3]]];
+    const mw = (W - 120 - 16) / 2;
+    meters.forEach(([label, n], i) => {
+      const x = 60 + (i % 2) * (mw + 16), my = y + Math.floor(i / 2) * 96;
+      rrect(ctx, x, my, mw, 82, 14); ctx.fillStyle = 'rgba(255,244,223,.08)'; ctx.fill();
+      fitText(ctx, label, x + 22, my + 22, mw - 250, 32, 600, fam, C.cream);
+      stars(ctx, n, x + mw - 22, my + 22, 34, 'right');
+    });
+    y += 96 * 2 + 12;
+    y = para(ctx, '“' + s.advice + '”', 60, y, W - 120, { size: big ? 40 : 34, min: 26, weight: 400, fam, color: C.muted, maxLines: 2, lh: 1.45 });
+    y += 18;
+    const chips = [`${L.lucky_color}: ${s.color}`, `${L.lucky_number}: ${s.num}`];
+    let cx = 60;
+    ctx.font = font(600, 30, fam);
+    chips.forEach((t) => {
+      const w = Math.min(ctx.measureText(t).width + 40, (W - 140) / 2);
+      rrect(ctx, cx, y, w, 54, 27); ctx.fillStyle = 'rgba(242,165,22,.18)'; ctx.fill();
+      fitText(ctx, t, cx + w / 2, y + 10, w - 30, 30, 600, fam, C.gold, 'center');
+      cx += w + 16;
+    });
+    return y + 54 - y0;
+  }
+
+  // ---------- render all slides ----------
+  function size() { return $('size').value === 'story' ? [1080, 1920] : [1080, 1350]; }
+  function drawSlide(ctx, i) {
+    const [W, H] = size(), d = data.days[+$('day').value], lang = data.lang, fam = fontOf(lang);
+    background(ctx, W, H, i + 1);
+    // the tall size keeps clear of the app buttons and captions at the top and bottom of Shorts/Reels/Status
+    const [top, bottom] = H > 1350 ? [150, H - 230] : [0, H];
+    if (i === 0) drawCover(ctx, W, top, bottom, d, lang, fam); else drawSign(ctx, W, top, bottom, d, lang, fam, d.signs[i - 1]);
+  }
+  function render() {
+    const [W, H] = size();
+    $('grid').innerHTML = ''; slides = [];
+    for (let i = 0; i < 13; i++) {
+      const c = document.createElement('canvas'); c.width = W; c.height = H;
+      drawSlide(c.getContext('2d'), i);
+      const wrapEl = document.createElement('div'); wrapEl.className = 'slide';
+      const b = document.createElement('button'); b.textContent = 'Download';
+      b.onclick = () => download(i);
+      const name = i === 0 ? '12 rasi' : data.days[+$('day').value].signs[i - 1].name;
+      c.setAttribute('role', 'img'); c.setAttribute('aria-label', name);
+      wrapEl.append(c, b); $('grid').append(wrapEl); slides.push(c);
+    }
+    $('caption').value = caption();
+  }
+  function fileName(i) {
+    const d = data.days[+$('day').value];
+    return `rasivani-${data.lang}-${d.date}-${String(i).padStart(2, '0')}-${i === 0 ? 'all' : d.signs[i - 1].slug}${$('size').value === 'story' ? '-tall' : ''}.png`;
+  }
+  const blobOf = (i) => new Promise((r) => slides[i].toBlob(r, 'image/png'));
+  async function download(i) {
+    const url = URL.createObjectURL(await blobOf(i));
+    const a = document.createElement('a'); a.href = url; a.download = fileName(i); document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  }
+  function caption() {
+    const d = data.days[+$('day').value], lang = data.lang;
+    const lines = d.signs.map((s) => `${s.glyph} ${s.name} ${'★'.repeat(overall(s.scores))}${'☆'.repeat(5 - overall(s.scores))}${s.chandra ? ' · ' + data.labels.chandra : ''}`);
+    return `${data.h1} · ${d.dateText}\n${data.labels.tithi}: ${d.tithi} · ${data.labels.nakshatra}: ${d.nakshatra}${d.special.length ? ' · ' + d.special.join(' · ') : ''}\n\n${lines.join('\n')}\n\n${CTA[lang] || CTA.en}: https://${SITE}/rasi-palan/${lang}/\n\n${TAGS[lang] || TAGS.en}`;
+  }
+  const say = (t) => { $('status').textContent = t; };
+
+  // ---------- share / download all ----------
+  $('share').onclick = async () => {
+    const files = await Promise.all(slides.map(async (c, i) => new File([await blobOf(i)], fileName(i), { type: 'image/png' })));
+    const payload = { files, text: caption() };
+    if (navigator.canShare && navigator.canShare({ files })) {
+      try { await navigator.clipboard.writeText(caption()); } catch {}
+      try { await navigator.share(payload); say('Shared. The caption is also copied, so you can paste it.'); }
+      catch (e) { if (e.name !== 'AbortError') say('Sharing did not open on this device. Use "Download all images" instead.'); }
+    } else say('This browser cannot share files directly (most computers). Use "Download all images", or open this page on your phone.');
+  };
+  $('dlall').onclick = async () => {
+    $('dlall').disabled = true;
+    for (let i = 0; i < slides.length; i++) { say(`Downloading ${i + 1} of ${slides.length}… (if Chrome asks, allow multiple downloads)`); await download(i); await new Promise((r) => setTimeout(r, 350)); }
+    say('All 13 images are in your Downloads folder.'); $('dlall').disabled = false;
+  };
+  $('copy').onclick = async () => {
+    try { await navigator.clipboard.writeText($('caption').value); say('Caption copied. Paste it under your post.'); }
+    catch { $('caption').select(); say('Press Ctrl+C (or long-press → Copy) to copy the caption.'); }
+  };
+
+  // ---------- Shorts / Reels video: 13 slides, 3 seconds each, 1080×1920 ----------
+  $('video').onclick = async () => {
+    if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) { say('This browser cannot make videos. Please use Chrome.'); return; }
+    const type = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'].find((t) => MediaRecorder.isTypeSupported(t));
+    const W = 1080, H = 1920, PER = 3000, FADE = 400;
+    const keepSize = $('size').value; $('size').value = 'story';
+    const frames = []; for (let i = 0; i < 13; i++) { const c = document.createElement('canvas'); c.width = W; c.height = H; drawSlide(c.getContext('2d'), i); frames.push(c); }
+    $('size').value = keepSize;
+    const out = document.createElement('canvas'); out.width = W; out.height = H;
+    const ctx = out.getContext('2d'); ctx.drawImage(frames[0], 0, 0);
+    const stream = out.captureStream(30);
+    const rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 6_000_000 });
+    const chunks = []; rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+    $('video').disabled = true;
+    const done = new Promise((r) => { rec.onstop = r; });
+    rec.start(500);
+    const total = frames.length * PER, t0 = performance.now();
+    await new Promise((resolve) => {
+      const tick = () => {
+        const t = performance.now() - t0;
+        if (t >= total) { resolve(); return; }
+        const i = Math.floor(t / PER), into = t - i * PER;
+        ctx.globalAlpha = 1; ctx.drawImage(frames[i], 0, 0);
+        if (into > PER - FADE && frames[i + 1]) { ctx.globalAlpha = (into - (PER - FADE)) / FADE; ctx.drawImage(frames[i + 1], 0, 0); ctx.globalAlpha = 1; }
+        say(`Making the video… ${Math.round(t / 1000)} of ${total / 1000} seconds. Keep this tab open and on screen.`);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    rec.stop(); await done;
+    const ext = type.startsWith('video/mp4') ? 'mp4' : 'webm';
+    const blob = new Blob(chunks, { type: type.split(';')[0] });
+    const url = URL.createObjectURL(blob), d = data.days[+$('day').value];
+    const name = `rasivani-${data.lang}-${d.date}-short.${ext}`;
+    $('videoOut').innerHTML = '';
+    const v = document.createElement('video'); v.src = url; v.controls = true; v.muted = true; v.playsInline = true;
+    const a = document.createElement('a'); a.href = url; a.download = name; a.textContent = `Download ${name}`; a.style.cssText = 'display:inline-block;margin-top:8px;font-weight:700;color:#c2185b';
+    const sh = document.createElement('button'); sh.textContent = 'Share video'; sh.style.marginLeft = '10px';
+    sh.onclick = async () => { const f = new File([blob], name, { type: blob.type }); if (navigator.canShare && navigator.canShare({ files: [f] })) { try { await navigator.clipboard.writeText(caption()); } catch {} navigator.share({ files: [f] }).catch(() => {}); } else a.click(); };
+    $('videoOut').append(v, a, sh);
+    say(`Video ready (${ext.toUpperCase()}, ${total / 1000} seconds). Add music in the YouTube or Instagram app if you like.`);
+    $('video').disabled = false;
+  };
+
+  // ---------- load ----------
+  async function load() {
+    const lang = $('lang').value; store.set('pm-lang', lang);
+    say('Loading today\'s rasi palan…');
+    try {
+      const res = await fetch(`social/${lang}.json`, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(res.status);
+      data = await res.json();
+    } catch { say('Could not load the rasi palan. Check the internet connection and reload.'); return; }
+    const keep = $('day').value;
+    $('day').innerHTML = '';
+    data.days.forEach((d, i) => $('day').add(new Option(d.dateText, i)));
+    $('day').value = keep && +keep < data.days.length ? keep : (params.get('day') || 0);
+    await loadFont(fontOf(lang));
+    render();
+    say('');
+  }
+  $('lang').onchange = load;
+  $('day').onchange = render;
+  $('size').onchange = render;
+  load();
+})();
+</script>
+</body>
+</html>

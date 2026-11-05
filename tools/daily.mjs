@@ -279,6 +279,42 @@ ${specialHtml(lang, f)}
     .replace('<body data-page="palan"', `<body data-slug="${slug}" data-page="palan"`);
 }
 
+// ---------- Data for the social media post maker (/share) ----------
+// One small JSON per language with today + the next 2 days. share.html draws the post images from it.
+function socialDay(lang, dt) {
+  const P = PALAN[lang], M = PALAN_MORE[lang], T = I18N.TERMS[lang], U = I18N.UI[lang];
+  const [y, m, d] = ymd(dt);
+  const ref = CITIES[REF_CITY[lang]];
+  const pc0 = A.panchang({ y, m, d, hh: 6, mm: 0, tz: 5.5, lat: ref[1], lon: ref[2] });
+  const sr = pc0.sunrise ?? 6;
+  const pc = A.panchang({ y, m, d, hh: Math.floor(sr), mm: Math.round((sr % 1) * 60), tz: 5.5, lat: ref[1], lon: ref[2] });
+  const pcNoon = A.panchang({ y, m, d, hh: 12, mm: 0, tz: 5.5, lat: ref[1], lon: ref[2] });
+  const doy = Math.floor((Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 0)) / 86400000);
+  const tithiName = pc.tithi === 14 ? T.tithi[14] : pc.tithi === 29 ? T.tithi[15] : T.tithi[pc.tithi % 15];
+  const f = dayFacts(dt);
+  const special = [];
+  if (f.sankranti != null) special.push(M.vrat.sankranti[0].replace('{rasi}', T.rasi[f.sankranti]));
+  if (f.vrat) special.push(M.vrat[f.vrat][0]);
+  return {
+    date: iso(y, m, d), dateText: longDate(lang, dt), title: fill(M.day_title, { date: titleDate(lang, dt) }),
+    tithi: tithiName, nakshatra: T.nak[pc.nakshatra.index], chandrashtamam: T.rasi[pc.chandrashtamaRasi], special,
+    rahu: pcNoon.kalam ? `${hhmm(pcNoon.kalam.rahu[0])} – ${hhmm(pcNoon.kalam.rahu[1])}` : '', city: ref[0],
+    signs: SLUG.map((slug, r) => {
+      const h = ((pc.moonRasi - r + 12) % 12) + 1;
+      return { slug, glyph: GLYPH[r], name: T.rasi[r], text: P.house[h - 1], advice: P.advice[(r * 3 + doy) % P.advice.length],
+        scores: SCORES[h - 1], color: P.colors[(r + doy) % 9], num: ((LORD_NUM[r] + d) % 9) + 1, chandra: h === 8 };
+    })
+  };
+}
+function socialJson(lang) {
+  const P = PALAN[lang], U = I18N.UI[lang];
+  return JSON.stringify({
+    lang, h1: P.h1, labels: { work: P.work, money: P.money, health: P.health, family: P.family, lucky_color: P.lucky_color, lucky_number: P.lucky_number,
+      chandra: P.chandra, tithi: U.tithi, nakshatra: U.nakshatra, chandrashtamam: U.chandrashtamam, rahukalam: U.rahukalam },
+    days: days.map((dt) => socialDay(lang, dt))
+  });
+}
+
 // ---------- Which days ----------
 const arg = process.argv[2];
 let start;
@@ -315,6 +351,10 @@ for (const lang of LANGS) {
     writeFileSync(join(dir, slug, 'index.html'), signPage(lang, r, days[0]));
   });
 }
+
+// Post maker data: social/<lang>.json (read by share.html, not listed in the sitemap)
+mkdirSync(join(root, 'social'), { recursive: true });
+for (const lang of LANGS) writeFileSync(join(root, 'social', `${lang}.json`), socialJson(lang));
 
 // Language chooser at /rasi-palan/
 writeFileSync(join(root, 'rasi-palan', 'index.html'), layout({
