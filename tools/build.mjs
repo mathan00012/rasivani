@@ -218,6 +218,18 @@ prose('contact.html', 'Contact', `<h1>Contact us</h1>
 <p>Email: <strong>${SITE.email}</strong></p>
 <p>When reporting a calculation issue, please include the date, time and place you entered (only if you are comfortable sharing them).</p>`);
 
+// ---- 404 page ----
+// Cloudflare Pages serves 404.html (with status 404) for any unknown address, at that address, so every
+// link and file here must start from the site root: <base href="/"> does that for css/, icons/, js/ and links.
+write('404.html', layout({ page: 'info', file: '404.html', base: '/', title: `Page not found · பக்கம் இல்லை | ${SITE.name}`, description: 'This page does not exist.',
+  body: `<article class="prose" style="text-align:center;padding:48px 0">
+<p class="sign-glyph" aria-hidden="true" style="font-size:56px">✦︎</p>
+<h1>Page not found</h1>
+<p lang="ta">இந்தப் பக்கம் இல்லை · <span lang="te">ఈ పేజీ లేదు</span> · <span lang="hi">यह पेज नहीं मिला</span></p>
+<p><a class="btn" style="width:auto;text-decoration:none;display:inline-flex" href="./">RasiVani home</a></p>
+<p><a href="ta/">தமிழ் ஜாதகம்</a> · <a href="te/">తెలుగు జాతకం</a> · <a href="rasi-palan/">Rasi palan</a>${(EXTRA.ta || []).map(([href, label]) => ` · <a href="${href}">${escText(label)}</a>`).join('')}</p>
+</article>` }).replace('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">', '<meta name="robots" content="noindex">').replace(/\n<link rel="canonical"[^>]*>/, ''));
+
 // ---- SEO + PWA files ----
 export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'about', 'privacy', 'contact'];
 const pages = STATIC_PAGES;
