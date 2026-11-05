@@ -444,6 +444,7 @@
         const zoomed = (f, p) => { const z = 1 + 0.045 * p, w = W * z, h = H * z; ctx.drawImage(f, (W - w) / 2, (H - h) / 2, w, h); };
         ctx.globalAlpha = 1; zoomed(frames[i], into / PER);
         if (into > PER - FADE && frames[i + 1]) { ctx.globalAlpha = (into - (PER - FADE)) / FADE; zoomed(frames[i + 1], 0); ctx.globalAlpha = 1; }
+        if (t > total - 1000) { ctx.fillStyle = `rgba(0,0,0,${(t - (total - 1000)) / 1000})`; ctx.fillRect(0, 0, W, H); } // fade to dark at the end, with the music
         say(`Making the video… ${Math.round(t / 1000)} of ${total / 1000} seconds. Keep this tab open and on screen.`);
         requestAnimationFrame(tick);
       };
