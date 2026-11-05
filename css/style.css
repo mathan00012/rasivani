@@ -289,6 +289,8 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .site-foot .disclaimer { max-width: 70ch; margin: 0 0 16px; }
 .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .foot-links a { color: var(--on-night); }
+.foot-social { display: flex; gap: 18px; flex-wrap: wrap; margin: 0 0 14px; }
+.foot-social a { color: var(--gold); font-weight: 600; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 @media print {
