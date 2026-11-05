@@ -165,6 +165,7 @@ function page(lang, dt, prevIso, nextIso, archive) {
   </div>
 </section>
 ${specialHtml(lang, dayFacts(dt))}
+<p class="wa-follow"><a href="${SITE.social.whatsapp}" rel="noopener" target="_blank">WhatsApp · RasiVani →</a></p>
 <div class="palan-grid">
 ${cards}
 </div>
@@ -243,6 +244,7 @@ function signPage(lang, r, dt) {
   </div>
 </section>
 ${specialHtml(lang, f)}
+<p class="wa-follow"><a href="${SITE.social.whatsapp}" rel="noopener" target="_blank">WhatsApp · RasiVani →</a></p>
 <div class="sign-layout">
 <article class="sign-main">
   <section class="block"><h3>${esc(M.overview)}</h3><p class="overview">${esc(overview)}</p></section>

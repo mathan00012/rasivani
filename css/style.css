@@ -440,3 +440,6 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .why-2 .why-tag { color: var(--good); } .why-1 .why-tag { color: var(--mid); } .why-0 .why-tag { color: var(--mid); }
 .why-note { margin: 0; font-size: 14px; opacity: .85; }
 @media (max-width: 720px) { .why-cols { grid-template-columns: 1fr; } .why { padding: 16px; } }
+.wa-follow { margin: 0 0 18px; }
+.wa-follow a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border-radius: 999px; background: #1f7a3a; color: #fff; font-weight: 700; text-decoration: none; }
+.wa-follow a:hover { filter: brightness(1.1); }
