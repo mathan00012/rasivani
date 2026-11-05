@@ -48,6 +48,11 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - [Today's rasi palan in ગુજરાતી](https://rasivani.com/rasi-palan/gu/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/gu/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
 - [Today's rasi palan in ଓଡ଼ିଆ](https://rasivani.com/rasi-palan/or/): all 12 rasis, plus one page per rasi at https://rasivani.com/rasi-palan/or/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)
 
+## Rasi, nakshatra and festival pages (updated every day)
+- [12 rasis in Tamil](https://rasivani.com/rasi/ta/): one page per rasi at https://rasivani.com/rasi/ta/<rasi>/ (mesha ... meena) with nature, nakshatra padas, lucky day, colour and number, today's palan and this month's palan with chandrashtamam dates
+- [27 nakshatras in Tamil](https://rasivani.com/nakshatra/ta/): one page per star at https://rasivani.com/nakshatra/ta/<star>/ (ashwini ... revati) with rasi, lord, deity, gana, yoni, rajju, best matching stars, today's tara balam and this month's good days
+- [Festivals and vrat days in Tamil](https://rasivani.com/festivals/ta/) and [in Telugu](https://rasivani.com/festivals/te/): Karthigai Deepam / Karthika Pournami, Vaikunta (Mukkoti) Ekadasi, Pongal / Makara Sankranti, and one page for every amavasya and pournami (for example https://rasivani.com/festivals/ta/amavasya-november-2026/) with exact tithi start and end times in IST
+
 ## Astrology guides (a new guide every day)
 - [Astrology guides (English)](https://rasivani.com/blog/en/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: https://rasivani.com/blog/en/feed.xml
 - [ज्योतिष गाइड (हिन्दी)](https://rasivani.com/blog/hi/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: https://rasivani.com/blog/hi/feed.xml

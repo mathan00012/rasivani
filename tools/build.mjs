@@ -265,6 +265,11 @@ ${L.map((l) => `- [Panchangam in ${l.name}](${SITE.url}/${toolHref(l.code, 'panc
 ## Daily rasi palan (updated every day)
 ${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.code}/): all 12 rasis, plus one page per rasi at ${SITE.url}/rasi-palan/${l.code}/<rasi>/ (mesha, vrishabha, mithuna, karka, simha, kanya, tula, vrischika, dhanu, makara, kumbha, meena)`).join('\n')}
 
+## Rasi, nakshatra and festival pages (updated every day)
+- [12 rasis in Tamil](${SITE.url}/rasi/ta/): one page per rasi at ${SITE.url}/rasi/ta/<rasi>/ (mesha ... meena) with nature, nakshatra padas, lucky day, colour and number, today's palan and this month's palan with chandrashtamam dates
+- [27 nakshatras in Tamil](${SITE.url}/nakshatra/ta/): one page per star at ${SITE.url}/nakshatra/ta/<star>/ (ashwini ... revati) with rasi, lord, deity, gana, yoni, rajju, best matching stars, today's tara balam and this month's good days
+- [Festivals and vrat days in Tamil](${SITE.url}/festivals/ta/) and [in Telugu](${SITE.url}/festivals/te/): Karthigai Deepam / Karthika Pournami, Vaikunta (Mukkoti) Ekadasi, Pongal / Makara Sankranti, and one page for every amavasya and pournami (for example ${SITE.url}/festivals/ta/amavasya-november-2026/) with exact tithi start and end times in IST
+
 ## Astrology guides (a new guide every day)
 ${L.filter((l) => BLOG_LABEL[l.code]).map((l) => `- [${BLOG_LABEL[l.code]} (${l.name})](${SITE.url}/blog/${l.code}/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: ${SITE.url}/blog/${l.code}/feed.xml`).join('\n')}
 

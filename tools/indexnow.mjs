@@ -1,7 +1,8 @@
 // Tells Bing (and Yandex, Seznam, Naver through the shared IndexNow network) which pages changed today,
 // so the new rasi palan is crawled within minutes instead of days. Google does not use IndexNow; it reads
 // the sitemap, which daily.mjs refreshes.
-// Run after the site is live: node tools/indexnow.mjs
+// Run after the site is live: node tools/indexnow.mjs        (pages changed today)
+//                             node tools/indexnow.mjs all    (every page in the sitemap, e.g. after a big new batch)
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +12,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const xml = readFileSync(join(root, 'sitemap.xml'), 'utf8');
 const entries = [...xml.matchAll(/<loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)].map((m) => ({ loc: m[1], lastmod: m[2] }));
 const newest = entries.reduce((a, e) => (e.lastmod > a ? e.lastmod : a), '');
-const urlList = entries.filter((e) => e.lastmod === newest).map((e) => e.loc).slice(0, 10000);
+const urlList = entries.filter((e) => process.argv[2] === 'all' || e.lastmod === newest).map((e) => e.loc).slice(0, 10000);
 const host = new URL(SITE.url).host;
 const res = await fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
