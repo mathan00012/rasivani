@@ -6,9 +6,10 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SITE, INDEXNOW_KEY } from './build.mjs';
+// build.mjs is not imported on purpose: importing it rebuilds the pages and overwrites sitemap.xml before it is read.
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const SITE = { url: 'https://rasivani.com' }, INDEXNOW_KEY = 'a7c3e91f5b2d4086b1e4f9c27d8a6e35'; // keep in step with SITE.url and INDEXNOW_KEY in build.mjs
 const xml = readFileSync(join(root, 'sitemap.xml'), 'utf8');
 const entries = [...xml.matchAll(/<loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)].map((m) => ({ loc: m[1], lastmod: m[2] }));
 const newest = entries.reduce((a, e) => (e.lastmod > a ? e.lastmod : a), '');
