@@ -179,10 +179,10 @@
     const y = bottom - 140;
     ctx.fillStyle = 'rgba(255,244,223,.10)'; ctx.fillRect(60, y - 22, W - 120, 2);
     fitText(ctx, CTA[lang] || CTA.en, W / 2, y, W - 160, 30, 600, fam, C.muted, 'center');
-    ctx.font = '700 40px Mukta, sans-serif';
-    const w = ctx.measureText(url).width + 64;
-    rrect(ctx, (W - w) / 2, y + 46, w, 62, 31); ctx.fillStyle = C.gold; ctx.fill();
-    ctx.fillStyle = C.night; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(url, W / 2, y + 79); ctx.textAlign = 'left';
+    ctx.font = '800 56px Mukta, sans-serif';
+    const w = ctx.measureText(url).width + 90;
+    rrect(ctx, (W - w) / 2, y + 40, w, 84, 42); ctx.fillStyle = C.gold; ctx.fill();
+    ctx.fillStyle = C.night; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(url, W / 2, y + 84); ctx.textAlign = 'left';
   }
   const overall = (sc) => Math.max(1, Math.round(sc.reduce((a, b) => a + b, 0) / 4));
 
@@ -352,13 +352,11 @@
 
   // ---------- original background music, made in the browser (no copyright, free on every platform) ----------
   // Raga Mohanam notes (S R G P D) over a tanpura-style drone, with a temple bell on every slide change.
-  function startMusic(mode, seconds, slideMs, seed) {
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (mode === 'none' || !AC) return null;
-    const ac = new AC(), dest = ac.createMediaStreamDestination();
+  // Builds the music on any AudioContext (live or offline), starting at t0 and lasting `seconds`.
+  function addMusic(ac, dest, t0, seconds, mode, slideSec, seed) {
     const master = ac.createGain(), comp = ac.createDynamicsCompressor();
     master.connect(comp); comp.connect(dest);
-    const t0 = ac.currentTime + 0.1, end = t0 + seconds;
+    const end = t0 + seconds;
     master.gain.setValueAtTime(0, t0); master.gain.linearRampToValueAtTime(0.9, t0 + 2);
     master.gain.setValueAtTime(0.9, end - 2.5); master.gain.linearRampToValueAtTime(0, end);
     // a small echo so it sounds like a temple hall
@@ -392,7 +390,7 @@
       });
     };
     bell(t0 + 0.2, hz(24), 0.16);
-    for (let t = t0 + slideMs / 1000; t < end - 1; t += slideMs / 1000) bell(t - 0.35, hz(rand() < 0.5 ? 24 : 31), 0.09);
+    for (let t = t0 + slideSec; t < end - 1; t += slideSec) bell(t - 0.35, hz(rand() < 0.5 ? 24 : 31), 0.09);
     if (mode === 'flute') {
       // bansuri-like flute: soft tone with vibrato, wandering slowly over Mohanam
       const scale = [0, 2, 4, 7, 9, 12, 14, 16, 19];
@@ -411,59 +409,160 @@
         t += len + (rand() < 0.2 ? 0.8 : 0.05);
       }
     }
-    return { track: dest.stream.getAudioTracks()[0], stop: () => setTimeout(() => ac.close(), 300) };
   }
 
-  // ---------- Shorts / Reels video: 13 slides, 3 seconds each, 1080×1920 ----------
-  $('video').onclick = async () => {
-    if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) { say('This browser cannot make videos. Please use Chrome.'); return; }
-    const W = 1080, H = 1920, PER = 3000, FADE = 400;
-    const music = startMusic($('music').value, 13 * PER / 1000, PER, +data.days[+$('day').value].date.replace(/-/g, '') + data.lang.charCodeAt(0));
-    const type = (music
-      ? ['video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4;codecs=avc1,opus', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm']
-      : ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm']).find((t) => MediaRecorder.isTypeSupported(t));
+  // ---------- Shorts / Reels video: 13 slides of 3 seconds, then a 3-second rasivani.com end card, 1080×1920 ----------
+  const VW = 1080, VH = 1920, FPS = 30, PER = 3000, FADE = 400, ENDCARD = 3000;
+  const videoMs = 13 * PER + ENDCARD;
+  function endCard(ctx) {
+    const lang = data.lang, fam = fontOf(lang);
+    background(ctx, VW, VH, 0);
+    logo(ctx, VW / 2 - 90, 560, 180);
+    ctx.font = '400 110px "Yatra One", serif'; ctx.fillStyle = C.gold; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('RasiVani', VW / 2, 880);
+    fitText(ctx, CTA[lang] || CTA.en, VW / 2, 990, VW - 140, 46, 600, fam, C.muted, 'center');
+    ctx.font = '800 92px Mukta, sans-serif';
+    const w = Math.min(VW - 80, ctx.measureText(SITE).width + 110);
+    rrect(ctx, (VW - w) / 2, 1110, w, 150, 75); ctx.fillStyle = C.gold; ctx.fill();
+    ctx.fillStyle = C.night; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(SITE, VW / 2, 1188);
+    ctx.textAlign = 'left';
+  }
+  function videoFrames() {
     const keepSize = $('size').value; $('size').value = 'story';
-    const frames = []; for (let i = 0; i < 13; i++) { const c = document.createElement('canvas'); c.width = W; c.height = H; drawSlide(c.getContext('2d'), i); frames.push(c); }
+    const frames = [];
+    for (let i = 0; i < 13; i++) { const c = document.createElement('canvas'); c.width = VW; c.height = VH; drawSlide(c.getContext('2d'), i); frames.push(c); }
+    const c = document.createElement('canvas'); c.width = VW; c.height = VH; endCard(c.getContext('2d')); frames.push(c);
     $('size').value = keepSize;
-    const out = document.createElement('canvas'); out.width = W; out.height = H;
-    const ctx = out.getContext('2d'); ctx.drawImage(frames[0], 0, 0);
-    const stream = out.captureStream(30);
-    if (music) stream.addTrack(music.track);
-    const rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 6_000_000 });
+    return frames;
+  }
+  // draws the video at time t (ms): slow zoom-in on every slide, cross-fade, fade to dark at the very end
+  function paint(ctx, frames, t) {
+    const i = Math.min(frames.length - 1, Math.floor(t / PER)), into = t - i * PER, span = i === frames.length - 1 ? ENDCARD : PER;
+    const zoomed = (f, p) => { const z = 1 + 0.045 * p, w = VW * z, h = VH * z; ctx.drawImage(f, (VW - w) / 2, (VH - h) / 2, w, h); };
+    ctx.globalAlpha = 1; zoomed(frames[i], Math.min(1, into / span));
+    if (into > PER - FADE && i < frames.length - 1) { ctx.globalAlpha = (into - (PER - FADE)) / FADE; zoomed(frames[i + 1], 0); ctx.globalAlpha = 1; }
+    if (t > videoMs - 700) { ctx.fillStyle = `rgba(0,0,0,${Math.min(1, (t - (videoMs - 700)) / 700)})`; ctx.fillRect(0, 0, VW, VH); }
+  }
+  const musicSeed = () => +data.days[+$('day').value].date.replace(/-/g, '') + data.lang.charCodeAt(0);
+  function loadScript(src) {
+    return new Promise((res, rej) => { if (window.Mp4Muxer) return res(); const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.append(s); });
+  }
+
+  // A real MP4 (H.264 + AAC, constant 30 fps, correct length) made frame by frame with WebCodecs.
+  // Faster than real time, sharp, and Instagram / YouTube / WhatsApp read its length properly.
+  async function makeMp4(frames, mode) {
+    await loadScript('js/mp4-muxer.js');
+    const vcfg = ['avc1.640028', 'avc1.4d0028', 'avc1.42e028'].map((codec) => ({ codec, width: VW, height: VH, bitrate: 4_500_000, framerate: FPS, avc: { format: 'avc' } }));
+    let videoConfig = null;
+    for (const c of vcfg) if ((await VideoEncoder.isConfigSupported(c)).supported) { videoConfig = c; break; }
+    if (!videoConfig) throw new Error('no H.264 encoder');
+    const seconds = videoMs / 1000, RATE = 48000;
+    let audio = null;
+    if (mode !== 'none') {
+      for (const [codec, muxCodec] of [['mp4a.40.2', 'aac'], ['opus', 'opus']]) {
+        const cfg = { codec, sampleRate: RATE, numberOfChannels: 2, bitrate: 160_000 };
+        if (window.AudioEncoder && (await AudioEncoder.isConfigSupported(cfg)).supported) { audio = { cfg, muxCodec }; break; }
+      }
+    }
+    const muxer = new Mp4Muxer.Muxer({
+      target: new Mp4Muxer.ArrayBufferTarget(),
+      video: { codec: 'avc', width: VW, height: VH, frameRate: FPS },
+      audio: audio ? { codec: audio.muxCodec, numberOfChannels: 2, sampleRate: RATE } : undefined,
+      fastStart: 'in-memory', firstTimestampBehavior: 'offset'
+    });
+    let failed = null;
+    const venc = new VideoEncoder({ output: (chunk, meta) => muxer.addVideoChunk(chunk, meta), error: (e) => { failed = e; } });
+    venc.configure(videoConfig);
+    if (audio) {
+      say('Making the music…');
+      const oac = new OfflineAudioContext(2, Math.ceil(RATE * seconds), RATE);
+      addMusic(oac, oac.destination, 0, seconds, mode, PER / 1000, musicSeed());
+      const buf = await oac.startRendering();
+      const aenc = new AudioEncoder({ output: (chunk, meta) => muxer.addAudioChunk(chunk, meta), error: (e) => { failed = e; } });
+      aenc.configure(audio.cfg);
+      const L = buf.getChannelData(0), R = buf.getChannelData(1), STEP = 4800;
+      for (let s = 0; s < buf.length; s += STEP) {
+        const n = Math.min(STEP, buf.length - s), planes = new Float32Array(n * 2);
+        planes.set(L.subarray(s, s + n), 0); planes.set(R.subarray(s, s + n), n);
+        const ad = new AudioData({ format: 'f32-planar', sampleRate: RATE, numberOfFrames: n, numberOfChannels: 2, timestamp: Math.round(s / RATE * 1e6), data: planes });
+        aenc.encode(ad); ad.close();
+      }
+      await aenc.flush(); aenc.close();
+    }
+    const cv = document.createElement('canvas'); cv.width = VW; cv.height = VH;
+    const ctx = cv.getContext('2d');
+    const total = Math.round(seconds * FPS);
+    for (let f = 0; f < total; f++) {
+      if (failed) throw failed;
+      paint(ctx, frames, f * 1000 / FPS);
+      const vf = new VideoFrame(cv, { timestamp: Math.round(f * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+      venc.encode(vf, { keyFrame: f % (FPS * 2) === 0 }); vf.close();
+      if (venc.encodeQueueSize > 6) await new Promise((r) => venc.addEventListener('dequeue', r, { once: true }));
+      if (f % 15 === 0) { say(`Making the video… ${Math.round(f / total * 100)}%`); await new Promise((r) => setTimeout(r, 0)); }
+    }
+    await venc.flush(); venc.close();
+    if (failed) throw failed;
+    muxer.finalize();
+    return new Blob([muxer.target.buffer], { type: 'video/mp4' });
+  }
+
+  // Old way, only for browsers without WebCodecs: records the canvas live (needs the screen on, length may be missing).
+  async function recordFallback(frames, mode) {
+    if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) throw new Error('This browser cannot make videos. Please use Chrome.');
+    const AC = window.AudioContext || window.webkitAudioContext;
+    let ac = null, track = null;
+    if (mode !== 'none' && AC) { ac = new AC(); const dest = ac.createMediaStreamDestination(); addMusic(ac, dest, ac.currentTime + 0.1, videoMs / 1000, mode, PER / 1000, musicSeed()); track = dest.stream.getAudioTracks()[0]; }
+    const type = (track
+      ? ['video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4;codecs=avc1,opus', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm']
+      : ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm']).find((t) => MediaRecorder.isTypeSupported(t));
+    const out = document.createElement('canvas'); out.width = VW; out.height = VH;
+    const ctx = out.getContext('2d'); paint(ctx, frames, 0);
+    const stream = out.captureStream(FPS); if (track) stream.addTrack(track);
+    const rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 8_000_000 });
     const chunks = []; rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
-    $('video').disabled = true;
     const done = new Promise((r) => { rec.onstop = r; });
     rec.start(500);
-    const total = frames.length * PER, t0 = performance.now();
+    const t0 = performance.now();
     await new Promise((resolve) => {
       const tick = () => {
         const t = performance.now() - t0;
-        if (t >= total) { resolve(); return; }
-        const i = Math.floor(t / PER), into = t - i * PER;
-        // slow zoom-in on every slide keeps the eye on the screen
-        const zoomed = (f, p) => { const z = 1 + 0.045 * p, w = W * z, h = H * z; ctx.drawImage(f, (W - w) / 2, (H - h) / 2, w, h); };
-        ctx.globalAlpha = 1; zoomed(frames[i], into / PER);
-        if (into > PER - FADE && frames[i + 1]) { ctx.globalAlpha = (into - (PER - FADE)) / FADE; zoomed(frames[i + 1], 0); ctx.globalAlpha = 1; }
-        if (t > total - 1000) { ctx.fillStyle = `rgba(0,0,0,${(t - (total - 1000)) / 1000})`; ctx.fillRect(0, 0, W, H); } // fade to dark at the end, with the music
-        say(`Making the video… ${Math.round(t / 1000)} of ${total / 1000} seconds. Keep this tab open and on screen.`);
+        if (t >= videoMs) { resolve(); return; }
+        paint(ctx, frames, t);
+        say(`Making the video… ${Math.round(t / 1000)} of ${videoMs / 1000} seconds. Keep this tab open and on screen.`);
         requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
     });
-    rec.stop(); await done; if (music) music.stop();
-    const ext = type.startsWith('video/mp4') ? 'mp4' : 'webm';
-    const blob = new Blob(chunks, { type: type.split(';')[0] });
+    rec.stop(); await done; if (ac) setTimeout(() => ac.close(), 300);
+    return new Blob(chunks, { type: type.split(';')[0] });
+  }
+
+  $('video').onclick = async () => {
+    const mode = $('music').value;
+    $('video').disabled = true; $('videoOut').innerHTML = '';
+    let blob;
+    try {
+      const frames = videoFrames();
+      if (window.VideoEncoder && window.VideoFrame) {
+        try { blob = await makeMp4(frames, mode); }
+        catch (e) { console.warn('WebCodecs video failed, recording live instead:', e); }
+      }
+      if (!blob) blob = await recordFallback(frames, mode);
+    } catch (e) { say(e.message || 'The video could not be made on this device.'); $('video').disabled = false; return; }
+    const ext = blob.type === 'video/mp4' ? 'mp4' : 'webm';
     const url = URL.createObjectURL(blob), d = data.days[+$('day').value];
-    const name = `rasivani-${data.lang}-${d.date}-short.${ext}`;
-    $('videoOut').innerHTML = '';
-    const v = document.createElement('video'); v.src = url; v.controls = true; v.muted = !music; v.playsInline = true;
+    const name = `rasivani-${data.lang}-${d.date}-reel.${ext}`;
+    const v = document.createElement('video'); v.src = url; v.controls = true; v.playsInline = true;
     const a = document.createElement('a'); a.href = url; a.download = name; a.textContent = `Download ${name}`; a.style.cssText = 'display:inline-block;margin-top:8px;font-weight:700;color:#c2185b';
-    const sh = document.createElement('button'); sh.textContent = 'Share video'; sh.style.marginLeft = '10px';
-    const vf = new File([blob], name, { type: blob.type });
+    const sh = document.createElement('button'); sh.textContent = 'Share video'; sh.className = 'primary'; sh.style.marginLeft = '10px';
+    const vfile = new File([blob], name, { type: blob.type });
     // nothing awaited before share(), so the phone still counts it as part of the tap
-    sh.onclick = () => { if (navigator.canShare && navigator.canShare({ files: [vf] })) { navigator.clipboard?.writeText(caption()).catch(() => {}); navigator.share({ files: [vf] }).catch(() => {}); } else a.click(); };
+    sh.onclick = () => { if (navigator.canShare && navigator.canShare({ files: [vfile] })) { navigator.clipboard?.writeText(caption()).catch(() => {}); navigator.share({ files: [vfile] }).catch(() => {}); } else a.click(); };
     $('videoOut').append(v, a, sh);
-    say(music ? `Video ready with music (${ext.toUpperCase()}, ${total / 1000} seconds). The music is RasiVani's own, so it is free to post anywhere.` : `Video ready (${ext.toUpperCase()}, ${total / 1000} seconds). Add a trending song in the Instagram or YouTube app.`);
+    const mb = (blob.size / 1e6).toFixed(1), secs = videoMs / 1000;
+    say(mode !== 'none'
+      ? `Video ready: ${secs} seconds, ${mb} MB, with music. The music is RasiVani's own, so it is free to post anywhere. Tap "Share video" and pick Instagram Reels, YouTube Shorts or WhatsApp.`
+      : `Video ready: ${secs} seconds, ${mb} MB. Add a trending song in the Instagram or YouTube app.`);
     $('video').disabled = false;
   };
 
