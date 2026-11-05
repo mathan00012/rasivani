@@ -274,11 +274,23 @@
       const wrapEl = document.createElement('div'); wrapEl.className = 'slide';
       const b = document.createElement('button'); b.textContent = 'Download';
       b.onclick = () => download(i);
+      const sb = document.createElement('button'); sb.textContent = 'Share';
+      sb.onclick = () => shareFiles([i]);
       const name = i === 0 ? '12 rasi' : data.days[+$('day').value].signs[i - 1].name;
       c.setAttribute('role', 'img'); c.setAttribute('aria-label', name);
-      wrapEl.append(c, b); $('grid').append(wrapEl); slides.push(c);
+      wrapEl.append(c, b, sb); $('grid').append(wrapEl); slides.push(c);
     }
     $('caption').value = caption();
+    prepareFiles(); resetShareAll();
+  }
+  // Phones only open the share menu right after a tap, so the PNG files are made in advance, not on the tap.
+  let files = [], filesFor = 0;
+  async function prepareFiles() {
+    const run = ++filesFor; files = [];
+    for (let i = 0; i < slides.length; i++) {
+      const f = new File([await blobOf(i)], fileName(i), { type: 'image/png' });
+      if (run !== filesFor) return; files[i] = f;
+    }
   }
   function fileName(i) {
     const d = data.days[+$('day').value];
@@ -298,14 +310,30 @@
   const say = (t) => { $('status').textContent = t; };
 
   // ---------- share / download all ----------
+  async function shareFiles(which) {
+    const list = which.map((i) => files[i]);
+    if (list.some((f) => !f)) { say('Getting the images ready… tap Share again in 2 seconds.'); return; }
+    if (!(navigator.share && navigator.canShare && navigator.canShare({ files: list }))) {
+      say('This browser cannot share images. On your phone, open rasivani.com/share in Chrome (not inside WhatsApp or Instagram). On a computer, use "Download all images".'); return;
+    }
+    // nothing is awaited before share(), so the phone still counts it as part of the tap
+    navigator.clipboard?.writeText(caption()).catch(() => {});
+    try { await navigator.share({ files: list }); say('Shared. The caption is copied: long-press in the message box and paste it.'); return true; }
+    catch (e) {
+      if (e.name === 'AbortError') return;
+      if (list.length > 1) say('Your phone could not share these images together. Use the Share button under each image, or "Download all images".');
+      else say('Sharing did not open on this device. Use "Download" under the image instead.');
+    }
+  }
+  // Chrome on Android shares at most 10 files at a time, so "Share all" goes in two parts: 1–7, then 8–13.
+  let part = 0, shareLabel = '';
+  function resetShareAll() { part = 0; if (shareLabel) $('share').textContent = shareLabel; }
   $('share').onclick = async () => {
-    const files = await Promise.all(slides.map(async (c, i) => new File([await blobOf(i)], fileName(i), { type: 'image/png' })));
-    const payload = { files, text: caption() };
-    if (navigator.canShare && navigator.canShare({ files })) {
-      try { await navigator.clipboard.writeText(caption()); } catch {}
-      try { await navigator.share(payload); say('Shared. The caption is also copied, so you can paste it.'); }
-      catch (e) { if (e.name !== 'AbortError') say('Sharing did not open on this device. Use "Download all images" instead.'); }
-    } else say('This browser cannot share files directly (most computers). Use "Download all images", or open this page on your phone.');
+    shareLabel = shareLabel || $('share').textContent;
+    const which = part === 0 ? [0, 1, 2, 3, 4, 5, 6] : [7, 8, 9, 10, 11, 12];
+    if (await shareFiles(which) !== true) return;
+    if (part === 0) { part = 1; $('share').textContent = 'Share images 8–13'; say('Part 1 of 2 shared (images 1–7). Tap "Share images 8–13" for the rest. The caption is copied.'); }
+    else { resetShareAll(); say('All 13 images shared. The caption is copied: long-press in the message box and paste it.'); }
   };
   $('dlall').onclick = async () => {
     $('dlall').disabled = true;
