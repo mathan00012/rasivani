@@ -1,0 +1,7 @@
+# YouTube links for the video blog posts.
+# After you upload a video, paste its link after the episode and language, then save.
+# Any YouTube link works (youtube.com/watch?v=..., youtu.be/..., or a Shorts link).
+# Posts without a link still show the story with its thumbnail; the video appears once the link is here.
+ep01 ta
+ep01 te
+ep01 en

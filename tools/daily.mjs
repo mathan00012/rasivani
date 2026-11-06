@@ -14,7 +14,7 @@ import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync, unlink
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, layout, STATIC_PAGES, toolHref } from './build.mjs';
-import { loadBlog, buildBlog, guideLinks } from './blog.mjs';
+import { loadBlog, buildBlog, guideLinks, loadVideos } from './blog.mjs';
 import { buildPages, rasiPageHref, rasiPageLabel } from './pages.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -369,7 +369,7 @@ writeFileSync(join(root, 'rasi-palan', 'index.html'), layout({
 }));
 
 // Guides (blog): one new guide goes live each day
-const blogUrls = buildBlog(root, todayIso, BLOG);
+const blogUrls = buildBlog(root, todayIso, BLOG, await loadVideos());
 // Rasi and nakshatra pages (Tamil) and festival, amavasya and pournami pages (Tamil, Telugu)
 const pageUrls = buildPages(root, todayIso);
 
