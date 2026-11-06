@@ -11,7 +11,7 @@ export const SITE = {
   email: 'hello@rasivani.com',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
   updated: '2026-11-04',
-  social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', instagram: 'https://www.instagram.com/rasivani.official/', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
+  social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
 };
 // ========================================
 
