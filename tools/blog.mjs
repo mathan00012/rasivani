@@ -139,7 +139,8 @@ ${L.sections.map(([h, lines], i) => `    <section>${h ? `<h2>${esc(h)}</h2>` : '
 ${others.length ? `<section class="block"><h3>${esc(U.more)}</h3><ul class="guide-list">${others.map((x) => card(lang, x)).join('')}</ul></section>` : ''}
 <nav class="palan-nav"><a href="blog/${lang}/">← ${esc(U.blog)}</a><a href="rasi-palan/${lang}/">${esc(U.tools.palan)} →</a></nav>
 <script>document.querySelectorAll('.video-lite').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0';f.title=a.getAttribute('aria-label');f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;a.replaceWith(f);});});</script>`
-      }).replace('<body data-page="blog"', `<body data-slug="${v.slug}" data-page="blog"`));
+      }).replace('<body data-page="blog"', `<body data-slug="${v.slug}" data-alt="${esc(JSON.stringify(Object.fromEntries(langs.map((l) => [l, e.langs[l] ? `blog/${l}/${v.slug}/` : `blog/${l}/`]))))}" data-page="blog"`)
+        .replace(new RegExp(`href="blog/([a-z]{2})/${v.slug}/"`, 'g'), (m, l) => (e.langs[l] ? m : `href="blog/${l}/"`)));
       urls.push([url, e.date]);
     }
 

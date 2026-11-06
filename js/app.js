@@ -610,6 +610,16 @@
       });
     }
     const page = document.body.dataset.page;
+    // The English tool pages (/, /porutham, /panchangam) open in the visitor's own language:
+    // their earlier choice on this site if they made one (kept in localStorage, no cookies), else the browser's language.
+    // Search engines read pages in English, so they stay here and still index every language's own address.
+    const toolFile = { chart: 'index.html', match: 'porutham.html', panchang: 'panchangam.html' }[page];
+    if (toolFile && !document.body.dataset.fixed) {
+      const want = detectLang();
+      if (want !== 'en' && UI[want]) { location.replace(new URL(toolHref(want, toolFile), document.baseURI).href + location.hash); return; }
+    }
+    // Picking a language from the footer counts as the visitor's choice too
+    $$('.foot-langs a[hreflang]').forEach((a) => a.addEventListener('click', () => store.set('gv-lang', a.getAttribute('hreflang'))));
     if (page === 'chart') initChart();
     if (page === 'match') initMatch();
     if (page === 'panchang') initPanch();

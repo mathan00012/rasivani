@@ -11,6 +11,8 @@ export const SITE = {
   email: 'hello@rasivani.com',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
   updated: '2026-11-04',
+  // YouTube channel per language: paste each new channel's address here; a language left empty uses the main channel.
+  youtubeByLang: { ta: 'https://www.youtube.com/@rasivani.official', te: '', en: '' },
   social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
 };
 // ========================================
@@ -62,7 +64,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
   })}</script>` : '';
   const siteLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebSite', '@id': `${SITE.url}/#website`, name: SITE.name, alternateName: 'RasiVani Jathagam & Rasi Palan', url: `${SITE.url}/`, inLanguage: LANG_CODES, publisher: { '@id': `${SITE.url}/#org` } },
-    { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png`, sameAs: Object.values(SITE.social) }
+    { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png`, sameAs: [...new Set([...Object.values(SITE.social), ...Object.values(SITE.youtubeByLang)].filter(Boolean))] }
   ] })}</script>`;
   const langLinks = I18N.LANGS.map((l) => `<a href="${langMap ? (langMap[l.code] || `rasi-palan/${l.code}/`) : page === 'blog' && BLOG_LABEL[l.code] ? `blog/${l.code}/${/^blog\/[a-z]{2}\/[^/]+\//.test(file) ? file.split('/')[2] + '/' : ''}` : page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
   return `<!doctype html>
@@ -98,7 +100,7 @@ ${body}
 </main>
 <footer class="site-foot"><div class="wrap">
   <p class="disclaimer" data-i18n="disclaimer"></p>
-  <nav class="foot-social" aria-label="RasiVani on social media">${Object.entries({ WhatsApp: SITE.social.whatsapp, YouTube: SITE.social.youtube, Instagram: SITE.social.instagram, Facebook: SITE.social.facebook, X: SITE.social.x, ShareChat: SITE.social.sharechat }).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" rel="me noopener" target="_blank">${n}</a>`).join('')}</nav>
+  <nav class="foot-social" aria-label="RasiVani on social media">${Object.entries({ WhatsApp: SITE.social.whatsapp, YouTube: SITE.youtubeByLang[lang] || SITE.social.youtube, Instagram: SITE.social.instagram, Facebook: SITE.social.facebook, X: SITE.social.x, ShareChat: SITE.social.sharechat }).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" rel="me noopener" target="_blank">${n}</a>`).join('')}</nav>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
   <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
