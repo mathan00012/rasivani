@@ -283,7 +283,7 @@ ${specialHtml(lang, f)}
 }
 
 // ---------- Data for the social media post maker (/share) ----------
-// One small JSON per language with today + the next 2 days. share.html draws the post images from it.
+// One small JSON per language with today + the next 7 days. share.html draws the post images from it.
 function socialDay(lang, dt) {
   const P = PALAN[lang], M = PALAN_MORE[lang], T = I18N.TERMS[lang], U = I18N.UI[lang];
   const [y, m, d] = ymd(dt);
@@ -314,7 +314,7 @@ function socialJson(lang) {
   return JSON.stringify({
     lang, h1: P.h1, labels: { work: P.work, money: P.money, health: P.health, family: P.family, lucky_color: P.lucky_color, lucky_number: P.lucky_number,
       chandra: P.chandra, tithi: U.tithi, nakshatra: U.nakshatra, chandrashtamam: U.chandrashtamam, rahukalam: U.rahukalam },
-    days: days.map((dt) => socialDay(lang, dt))
+    days: socialDays.map((dt) => socialDay(lang, dt))
   });
 }
 
@@ -324,6 +324,7 @@ let start;
 if (arg && /^\d{4}-\d{2}-\d{2}$/.test(arg)) start = new Date(`${arg}T00:00:00Z`);
 else { const now = new Date(Date.now() + 5.5 * 3600000); start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())); }
 const days = [0, 1, 2].map((i) => addDays(start, i));
+const socialDays = Array.from({ length: 8 }, (_, i) => addDays(start, i));
 const todayIso = days[0].toISOString().slice(0, 10);
 TODAY_ISO = todayIso;
 const oldestKept = addDays(start, -KEEP_DAYS).toISOString().slice(0, 10);
