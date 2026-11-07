@@ -3,7 +3,7 @@
 // Called from tools/daily.mjs, which runs every night, so new guides appear by themselves.
 import { writeFileSync, mkdirSync, existsSync, rmSync, readFileSync, readdirSync, copyFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE, layout, toolHref } from './build.mjs';
+import { SITE, layout, toolHref, exploreNav } from './build.mjs';
 
 export const BLOG_START = '2026-11-04';
 // Release order. Add new slugs at the end (and the same slug to every language file).
@@ -18,10 +18,12 @@ const toolLink = (lang, k) => (k === 'chart' ? toolHref(lang, 'index.html') : k 
 
 // ---------- Video stories: one post per YouTube episode (content/videos/epNN.mjs) ----------
 // YouTube links live in content/videos/youtube.txt ("ep01 ta https://youtu.be/...").
+// Heading over the row of links to the rest of the site
+const EXPLORE = { en: 'Free on RasiVani', hi: 'RasiVani पर मुफ़्त', ta: 'RasiVani-இல் இலவசம்', te: 'RasiVaniలో ఉచితం', kn: 'RasiVani ನಲ್ಲಿ ಉಚಿತ', ml: 'RasiVani-ൽ സൗജന്യം', mr: 'RasiVani वर मोफत', bn: 'RasiVani-তে বিনামূল্যে', gu: 'RasiVani પર મફત', or: 'RasiVani ରେ ମାଗଣା' };
 const VIDEO_UI = {
-  ta: { video: 'வீடியோ', watch: 'YouTube-இல் பாருங்கள்', soon: 'இந்த வீடியோ விரைவில் எங்கள் YouTube சேனலில் வரும்.', story: 'முழுக் கதை', play: 'வீடியோவை இயக்கு', fb: 'Facebook-இல் பாருங்கள்' },
-  te: { video: 'వీడియో', watch: 'YouTubeలో చూడండి', soon: 'ఈ వీడియో త్వరలో మా YouTube ఛానెల్‌లో వస్తుంది.', story: 'పూర్తి కథ', play: 'వీడియో ప్లే చేయండి', fb: 'Facebookలో చూడండి' },
-  en: { video: 'Video', watch: 'Watch on YouTube', soon: 'This video is coming soon to our YouTube channel.', story: 'The full story', play: 'Play video', fb: 'Watch on Facebook' }
+  ta: { videos: 'வீடியோக்கள்', guides: 'கட்டுரைகள்', video: 'வீடியோ', watch: 'YouTube-இல் பாருங்கள்', soon: 'இந்த வீடியோ விரைவில் எங்கள் YouTube சேனலில் வரும்.', story: 'முழுக் கதை', play: 'வீடியோவை இயக்கு', fb: 'Facebook-இல் பாருங்கள்' },
+  te: { videos: 'వీడియోలు', guides: 'వ్యాసాలు', video: 'వీడియో', watch: 'YouTubeలో చూడండి', soon: 'ఈ వీడియో త్వరలో మా YouTube ఛానెల్‌లో వస్తుంది.', story: 'పూర్తి కథ', play: 'వీడియో ప్లే చేయండి', fb: 'Facebookలో చూడండి' },
+  en: { videos: 'Videos', guides: 'Guides', video: 'Video', watch: 'Watch on YouTube', soon: 'This video is coming soon to our YouTube channel.', story: 'The full story', play: 'Play video', fb: 'Watch on Facebook' }
 };
 const ytId = (u) => { const m = String(u || '').match(/(?:youtu\.be\/|[?&]v=|\/shorts\/|\/embed\/|\/live\/)([\w-]{11})/) || String(u || '').match(/^([\w-]{11})$/); return m ? m[1] : ''; };
 // Each night the build reads every channel's public YouTube feed (content/videos/channels.txt) and links each
@@ -131,7 +133,11 @@ export function buildBlog(root, todayIso, BLOG, VIDEOS = []) {
       page: 'blog', file: `blog/${lang}/index.html`, title: `${esc(U.blog)} | ${SITE.name}`, description: U.intro, base: '../../', lang, alternates: alt(''), head: idxLd + `\n<link rel="alternate" type="application/rss+xml" title="${esc(U.blog)}" href="${idxUrl}feed.xml">`,
       body: `<nav class="crumbs" aria-label="Breadcrumb"><a href="${toolHref(lang, 'index.html')}">${SITE.name}</a> › <span>${esc(U.blog)}</span></nav>
 <section class="hero sign-hero" style="grid-template-columns:1fr"><div><h1>${esc(U.blog)}</h1><p class="lede">${esc(U.intro)}</p></div></section>
-<ul class="guide-list">${entries.map((p) => card(lang, p)).join('')}</ul>
+${exploreNav(lang, EXPLORE[lang])}
+${vids.length ? `<h2 class="blog-sec" id="videos">▶ ${esc((VIDEO_UI[lang] || VIDEO_UI.en).videos)}</h2>
+<ul class="guide-list">${entries.filter((p) => p.video).map((p) => card(lang, p)).join('')}</ul>
+<h2 class="blog-sec" id="guides">${esc((VIDEO_UI[lang] || VIDEO_UI.en).guides)}</h2>
+<ul class="guide-list">${entries.filter((p) => !p.video).map((p) => card(lang, p)).join('')}</ul>` : `<ul class="guide-list">${entries.map((p) => card(lang, p)).join('')}</ul>`}
 <nav class="palan-nav"><a href="rasi-palan/${lang}/">${esc(U.tools.palan)} →</a><a href="${toolLink(lang, 'match')}">${esc(U.tools.match)} →</a></nav>`
     }));
     urls.push([idxUrl, todayIso]);
@@ -171,6 +177,7 @@ ${entries.map((p) => `<item><title>${esc(p.title)}</title><link>${idxUrl}${p.slu
 <article class="guide">
   <header class="hero sign-hero" style="grid-template-columns:1fr"><div><p class="lede"><small>▶ ${esc(L.series)}</small></p><h1>${esc(v.title)}</h1><p class="lede">${esc(v.desc)}</p><p class="lede"><small>${esc(U.published)}: <time datetime="${e.date}">${esc(fmt(lang, e.date))}</time> · ${SITE.name}</small></p></div></header>
   ${player}
+  ${exploreNav(lang, EXPLORE[lang])}
   <div class="guide-body">
     <h2>${esc(VU.story)}</h2>
 ${L.sections.map(([h, lines], i) => `    <section>${h ? `<h2>${esc(h)}</h2>` : ''}<p>${esc(lines.join(' '))}</p></section>${i === 2 ? `\n    <aside class="guide-cta"><p>${esc(U.try)}</p><a class="btn" href="${toolLink(lang, 'chart')}">${esc(U.tools.chart)}</a></aside>` : ''}`).join('\n')}
@@ -212,6 +219,7 @@ ${a.sections.map(([h, t], i) => `    <section><h2>${esc(h)}</h2><p>${esc(t)}</p>
     <aside class="guide-cta"><p>${esc(U.try)}</p><a class="btn" href="${toolLink(lang, k)}">${esc(U.tools[k])}</a></aside>
   </div>
 </article>
+${exploreNav(lang, EXPLORE[lang])}
 ${more.length ? `<section class="block"><h3>${esc(U.more)}</h3><ul class="guide-list">${more.map((x) => card(lang, x)).join('')}</ul></section>` : ''}
 <nav class="palan-nav"><a href="blog/${lang}/">← ${esc(U.blog)}</a><a href="rasi-palan/${lang}/">${esc(U.tools.palan)} →</a></nav>`
       }).replace('<body data-page="blog"', `<body data-slug="${p.slug}" data-page="blog"`));

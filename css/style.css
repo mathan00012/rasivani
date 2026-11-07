@@ -75,8 +75,9 @@ h1, h2, h3 { text-wrap: balance; }
 @media (max-width: 820px) {
   .head-row { flex-wrap: wrap; gap: 8px; padding-block: 8px; }
   .lang-pick { margin-left: auto; }
-  .nav { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; mask-image: linear-gradient(90deg, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent); }
   .nav a { padding: 6px 12px; font-size: 15px; }
+  .nav::after { content: ""; flex: 0 0 56px; }
 }
 
 /* Hero band: full-bleed night sky with a kolam dot grid */
@@ -465,3 +466,10 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .wa-follow { margin: 0 0 18px; }
 .wa-follow a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border-radius: 999px; background: #1f7a3a; color: #fff; font-weight: 700; text-decoration: none; }
 .wa-follow a:hover { filter: brightness(1.1); }
+
+/* Links to every part of the site, shown on posts and the guide list */
+.explore { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 20px 0 28px; }
+.explore p { width: 100%; margin: 0 0 2px; font-weight: 600; color: var(--muted); font-size: 14px; }
+.explore a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: inherit; font-size: 15px; background: var(--surface); }
+.explore a:hover { border-color: var(--gold); }
+.blog-sec { margin: 28px 0 12px; }

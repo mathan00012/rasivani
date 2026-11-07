@@ -197,6 +197,7 @@
     $$('.combo input').forEach((el) => { el.placeholder = t('place_hint'); });
     const sel = $('#lang'); if (sel) sel.value = l;
     $$('a[data-palan]').forEach((a) => { a.setAttribute('href', `rasi-palan/${l}/`); });
+    $$('a[data-blog]').forEach((a) => { a.setAttribute('href', `blog/${l}/`); });
     $$('a[data-keep-lang]').forEach((a) => {
       const f = a.dataset.keepLang || a.getAttribute('href').split('?')[0].split('/').pop();
       a.dataset.keepLang = f;
@@ -610,6 +611,8 @@
       });
     }
     const page = document.body.dataset.page;
+    // On phones the menu scrolls sideways: bring the current section into view
+    { const nv = $('.nav'), cur = nv && $('.nav a[aria-current]'); const show = () => { if (cur && nv.scrollWidth > nv.clientWidth) nv.scrollLeft += cur.getBoundingClientRect().left - nv.getBoundingClientRect().left - 16; }; show(); if (document.fonts) document.fonts.ready.then(show); }
     // The English tool pages (/, /porutham, /panchangam) open in the visitor's own language:
     // their earlier choice on this site if they made one (kept in localStorage, no cookies), else the browser's language.
     // Search engines read pages in English, so they stay here and still index every language's own address.

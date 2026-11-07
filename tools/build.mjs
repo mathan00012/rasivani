@@ -50,10 +50,21 @@ const ICON = {
   lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>`
 };
 
+const navText = (lang, key) => (I18N.UI[lang] && I18N.UI[lang][key]) || I18N.UI.en[key] || '';
+// A row of links to every part of the site, in the page's language. Posts and the guide list show it, so a visitor
+// who arrives from a video can reach the chart, porutham, panchangam, rasi palan and the rest in one tap.
+export function exploreNav(lang, heading = '') {
+  const links = [[toolHref(lang, 'index.html'), navText(lang, 'nav_chart')], [toolHref(lang, 'porutham.html'), navText(lang, 'nav_match')],
+    [toolHref(lang, 'panchangam.html'), navText(lang, 'nav_panchang')], [`rasi-palan/${lang}/`, navText(lang, 'nav_palan')],
+    ...(EXTRA[lang] || []).map(([href, label]) => [href, label])];
+  return `<nav class="explore" aria-label="${escAttr(heading || SITE.name)}">${heading ? `<p>${escText(heading)}</p>` : ''}${links.map(([h, t]) => `<a href="${h}">${escText(t)}</a>`).join('')}</nav>`;
+}
+
 export function layout({ page, file, title, description, body, scripts = true, base = '', lang = 'en', alternates = '', head = '', keywords = '', fixed = false, langMap = null }) {
   const nav = [['index.html', 'nav_chart', 'chart'], ['porutham.html', 'nav_match', 'match'], ['panchangam.html', 'nav_panchang', 'panchang']]
-    .map(([href, key, id]) => `<a href="${toolHref(lang, href)}" data-keep-lang="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}></a>`).join('')
-    + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}></a>`;
+    .map(([href, key, id]) => `<a href="${toolHref(lang, href)}" data-keep-lang="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}>${escText(navText(lang, key))}</a>`).join('')
+    + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}>${escText(navText(lang, 'nav_palan'))}</a>`
+    + (BLOG_LABEL[lang] ? `<a href="blog/${lang}/" data-blog data-i18n="nav_blog"${page === 'blog' ? ' aria-current="page"' : ''}>${escText(navText(lang, 'nav_blog'))}</a>` : '');
   const adsense = SITE.adsenseClient
     ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : '';
   const canonical = `${SITE.url}/${pretty(file)}`;
