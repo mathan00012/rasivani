@@ -4,6 +4,6 @@
 # Videos on the channels in channels.txt are found by themselves each night; use this file only to override.
 # Facebook: add a line like  ep01 ta facebook https://www.facebook.com/...
 # Posts without a link still show the story with its thumbnail; the video appears once the link is here.
-ep01 ta
+ep01 ta https://youtu.be/DvjEIozZui4
 ep01 te
 ep01 en
