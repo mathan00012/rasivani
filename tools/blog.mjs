@@ -19,23 +19,64 @@ const toolLink = (lang, k) => (k === 'chart' ? toolHref(lang, 'index.html') : k 
 // ---------- Video stories: one post per YouTube episode (content/videos/epNN.mjs) ----------
 // YouTube links live in content/videos/youtube.txt ("ep01 ta https://youtu.be/...").
 const VIDEO_UI = {
-  ta: { video: 'வீடியோ', watch: 'YouTube-இல் பாருங்கள்', soon: 'இந்த வீடியோ விரைவில் எங்கள் YouTube சேனலில் வரும்.', story: 'முழுக் கதை', play: 'வீடியோவை இயக்கு' },
-  te: { video: 'వీడియో', watch: 'YouTubeలో చూడండి', soon: 'ఈ వీడియో త్వరలో మా YouTube ఛానెల్‌లో వస్తుంది.', story: 'పూర్తి కథ', play: 'వీడియో ప్లే చేయండి' },
-  en: { video: 'Video', watch: 'Watch on YouTube', soon: 'This video is coming soon to our YouTube channel.', story: 'The full story', play: 'Play video' }
+  ta: { video: 'வீடியோ', watch: 'YouTube-இல் பாருங்கள்', soon: 'இந்த வீடியோ விரைவில் எங்கள் YouTube சேனலில் வரும்.', story: 'முழுக் கதை', play: 'வீடியோவை இயக்கு', fb: 'Facebook-இல் பாருங்கள்' },
+  te: { video: 'వీడియో', watch: 'YouTubeలో చూడండి', soon: 'ఈ వీడియో త్వరలో మా YouTube ఛానెల్‌లో వస్తుంది.', story: 'పూర్తి కథ', play: 'వీడియో ప్లే చేయండి', fb: 'Facebookలో చూడండి' },
+  en: { video: 'Video', watch: 'Watch on YouTube', soon: 'This video is coming soon to our YouTube channel.', story: 'The full story', play: 'Play video', fb: 'Watch on Facebook' }
 };
 const ytId = (u) => { const m = String(u || '').match(/(?:youtu\.be\/|[?&]v=|\/shorts\/|\/embed\/|\/live\/)([\w-]{11})/) || String(u || '').match(/^([\w-]{11})$/); return m ? m[1] : ''; };
+// Each night the build reads every channel's public YouTube feed (content/videos/channels.txt) and links each
+// new upload to its post by itself: a video matches when its description links to the post, or its title starts
+// like the post's title. What it finds is saved in youtube-auto.json, so later builds without internet keep it.
+// Links typed into youtube.txt always win (also the place for Facebook links, which have no public feed).
+const norm = (t) => String(t || '').toLowerCase().normalize('NFC').replace(/[\s\p{P}\p{S}]+/gu, ' ').trim();
+const xmlText = (s) => s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+async function readFeeds(dir) {
+  const cacheFile = new URL('youtube-auto.json', dir);
+  let cache = {};
+  try { cache = JSON.parse(readFileSync(cacheFile, 'utf8')); } catch { /* first run */ }
+  const chFile = new URL('channels.txt', dir);
+  if (!existsSync(chFile)) return cache;
+  for (const line of readFileSync(chFile, 'utf8').split(/\r?\n/)) {
+    const m = line.trim().match(/^([a-z]{2})\s+\S*?(UC[\w-]{22})/); if (!m) continue;
+    const [, lang, ch] = m;
+    try {
+      const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${ch}`, { signal: AbortSignal.timeout(15000) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const xml = await res.text();
+      const list = cache[lang] || [];
+      for (const entry of xml.split('<entry>').slice(1)) {
+        const id = (entry.match(/<yt:videoId>([\w-]{11})<\/yt:videoId>/) || [])[1]; if (!id) continue;
+        const v = { id, title: xmlText((entry.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || ''), desc: xmlText((entry.match(/<media:description>([\s\S]*?)<\/media:description>/) || [])[1] || ''),
+          published: (entry.match(/<published>([^<]+)<\/published>/) || [])[1] || '', short: /\/shorts\//.test((entry.match(/<link[^>]*href="([^"]+)"/) || [])[1] || '') };
+        const i = list.findIndex((x) => x.id === id); if (i >= 0) list[i] = v; else list.push(v);
+      }
+      cache[lang] = list;
+      console.log(`YouTube feed ${lang}: ${list.length} videos known`);
+    } catch (err) { console.log(`YouTube feed ${lang} not read (${err.message}); using saved list`); }
+  }
+  writeFileSync(cacheFile, JSON.stringify(cache, null, 1) + '\n');
+  return cache;
+}
+const findVideo = (list, lang, e) => {
+  const L = e.langs[lang], head = norm(L.title.split('|')[0]), vt = norm(L.video_title);
+  const hits = (list || []).filter((v) => v.desc.includes(`/blog/${lang}/${e.slug}`) || (head && norm(v.title).startsWith(head)) || (vt && norm(v.title).startsWith(vt)));
+  hits.sort((a, b) => (a.short - b.short) || a.published.localeCompare(b.published));
+  return hits[0] ? hits[0].id : '';
+};
 export async function loadVideos() {
   const dir = new URL('../content/videos/', import.meta.url);
   if (!existsSync(dir)) return [];
-  const links = {};
+  const links = {}, fb = {};
   const txt = new URL('youtube.txt', dir);
   if (existsSync(txt)) for (const line of readFileSync(txt, 'utf8').split(/\r?\n/)) {
+    const f = line.trim().match(/^(ep\d+)\s+([a-z]{2})\s+facebook\s+(https:\/\/\S+)/i); if (f) { fb[`${f[1]} ${f[2]}`] = f[3]; continue; }
     const m = line.trim().match(/^(ep\d+)\s+([a-z]{2})\s+(\S+)/); if (m && ytId(m[3])) links[`${m[1]} ${m[2]}`] = ytId(m[3]);
   }
+  const feeds = await readFeeds(dir);
   const eps = [];
   for (const f of readdirSync(dir).filter((x) => /^ep\d+\.mjs$/.test(x)).sort()) {
     const e = (await import(new URL(f, dir).href)).default;
-    for (const l of Object.keys(e.langs)) e.langs[l].youtube = links[`${e.id} ${l}`] || '';
+    for (const l of Object.keys(e.langs)) { e.langs[l].youtube = links[`${e.id} ${l}`] || findVideo(feeds[l], l, e); e.langs[l].facebook = fb[`${e.id} ${l}`] || ''; }
     eps.push(e);
   }
   return eps;
@@ -120,7 +161,7 @@ ${entries.map((p) => `<item><title>${esc(p.title)}</title><link>${idxUrl}${p.slu
       if (L.youtube) graph.push({ '@type': 'VideoObject', name: v.title, description: v.desc, inLanguage: lang, thumbnailUrl: thumbAbs, uploadDate: `${e.date}T06:00:00+05:30`,
         embedUrl: `https://www.youtube-nocookie.com/embed/${L.youtube}`, url: `https://www.youtube.com/watch?v=${L.youtube}`, publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: `${SITE.url}/icons/icon-512.png` } } });
       const player = L.youtube
-        ? `<figure class="video-box"><a class="video-lite" href="https://www.youtube.com/watch?v=${L.youtube}" data-yt="${L.youtube}" aria-label="${esc(VU.play)}: ${esc(v.title)}"><img src="${v.thumb}" alt="${esc(L.video_title)}" width="1280" height="720"><span class="video-play" aria-hidden="true">▶</span></a><figcaption><a href="https://www.youtube.com/watch?v=${L.youtube}">${esc(VU.watch)} →</a></figcaption></figure>`
+        ? `<figure class="video-box"><a class="video-lite" href="https://www.youtube.com/watch?v=${L.youtube}" data-yt="${L.youtube}" aria-label="${esc(VU.play)}: ${esc(v.title)}"><img src="${v.thumb}" alt="${esc(L.video_title)}" width="1280" height="720"><span class="video-play" aria-hidden="true">▶</span></a><figcaption><a href="https://www.youtube.com/watch?v=${L.youtube}">${esc(VU.watch)} →</a>${L.facebook ? ` · <a href="${esc(L.facebook)}" rel="noopener">${esc(VU.fb)} →</a>` : ''}</figcaption></figure>`
         : `<figure class="video-box"><img src="${v.thumb}" alt="${esc(L.video_title)}" width="1280" height="720"><figcaption>${esc(VU.soon)}</figcaption></figure>`;
       mkdirSync(join(dir, v.slug), { recursive: true });
       writeFileSync(join(dir, v.slug, 'index.html'), layout({

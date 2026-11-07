@@ -1,0 +1,6 @@
+# YouTube channels, one per language. The nightly build reads each channel's public feed
+# and puts every new video on its matching blog post by itself.
+# Paste the channel ID (starts with UC) or the channel's /channel/UC... link after the language.
+ta UCP7vydyk_FHbQQ4vU_iYu8Q
+te
+en
