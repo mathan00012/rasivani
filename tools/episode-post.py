@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Turn YouTube episodes (episode 2 onwards) into blog posts for rasivani.com.
 
-    python3 tools/episode-post.py YOUTUBE-FOLDER
+    python3 tools/episode-post.py YOUTUBE-FOLDER [epNN ...]
 
 YOUTUBE-FOLDER holds studio/epNN/lines.json (every spoken line in ta/te/en) and
 <tamil|telugu|english>/epNN/ with UPLOAD-epNN-<lang>.md (YouTube title and description) and the thumbnail.
@@ -43,8 +43,15 @@ def main():
     yt = sys.argv[1]
     site = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
     spec = json.load(open(os.path.join(site, 'content', 'videos', 'episodes.json'), encoding='utf-8'))
+    only = sys.argv[2:]  # optional: just these episodes, e.g. ep09 ep10
     for ep_id, E in spec.items():
-        lines = json.load(open(os.path.join(yt, 'studio', ep_id, 'lines.json'), encoding='utf-8'))['lines']
+        if only and ep_id not in only:
+            continue
+        lines_path = os.path.join(yt, 'studio', ep_id, 'lines.json')
+        if not os.path.exists(lines_path):
+            print(f'{ep_id}: not made yet (no {lines_path}); its post stays as it is')
+            continue
+        lines = json.load(open(lines_path, encoding='utf-8'))['lines']
         starts = {i: h for i, h in E['chapters']}
         out = {'id': ep_id, 'slug': E['slug'], 'date': E['date'], 'langs': {}}
         for lang in LANGS:
