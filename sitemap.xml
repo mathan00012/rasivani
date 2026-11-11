@@ -1,421 +1,515 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://rasivani.com/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/hi/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/hi/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/hi/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ta/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ta/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/te/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/te/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/te/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/kn/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/kn/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/kn/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ml/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ml/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/ml/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/mr/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/mr/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/mr/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/bn/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/bn/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/bn/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/gu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/gu/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/gu/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/or/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/or/porutham</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/or/panchangam</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/about</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/privacy</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/contact</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/blog/en/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/hi/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/hi/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/hi/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ta/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ta/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/te/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/te/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/te/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/kn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/kn/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/kn/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ml/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ml/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/ml/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/mr/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/mr/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/mr/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/bn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/bn/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/bn/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/gu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/gu/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/gu/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/or/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/or/porutham</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/or/panchangam</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/about</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/privacy</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/contact</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://rasivani.com/blog/en/27-nakshatras-behind-month-names/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/deepavali-oil-bath-before-sunrise/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/palm-leaf-manuscripts/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/murugan-six-faces-kanda-sashti/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/brahma-muhurta-science/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/en/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/en/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/en/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/en/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/en/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/hi/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/hi/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/hi/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/hi/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/hi/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/hi/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/hi/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/hi/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/hi/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/hi/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/ta/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://rasivani.com/blog/ta/27-nakshatras-behind-month-names/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/deepavali-oil-bath-before-sunrise/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/palm-leaf-manuscripts/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/murugan-six-faces-kanda-sashti/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/brahma-muhurta-science/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ta/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/ta/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/ta/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/ta/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/ta/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/te/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://rasivani.com/blog/te/27-nakshatras-behind-month-names/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/deepavali-oil-bath-before-sunrise/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/palm-leaf-manuscripts/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/murugan-six-faces-kanda-sashti/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/brahma-muhurta-science/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/te/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/te/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/te/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/te/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/te/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/kn/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/kn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/kn/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/kn/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/kn/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/kn/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/kn/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/kn/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/kn/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/kn/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/ml/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ml/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ml/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ml/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ml/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/ml/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/ml/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/ml/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/ml/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/ml/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/mr/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/mr/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/mr/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/mr/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/mr/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/mr/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/mr/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/mr/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/mr/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/mr/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/bn/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/bn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/bn/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/bn/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/bn/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/bn/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/bn/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/bn/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/bn/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/bn/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/gu/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/gu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/gu/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/gu/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/gu/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/gu/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/gu/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/gu/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/gu/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/gu/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/or/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/or/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/or/dasha-bhukti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/blog/or/nakshatras/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/blog/or/sade-sati/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/blog/or/rajju-vedha/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/blog/or/rahu-kalam/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/blog/or/jathagam-guide/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/blog/or/ten-poruthams/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/blog/or/chandrashtamam/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://rasivani.com/blog/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi/ta/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/ashwini/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/bharani/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/krittika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/rohini/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/mrigashira/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/ardra/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/punarvasu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/pushya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/ashlesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/magha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/purva-phalguni/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/uttara-phalguni/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/hasta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/chitra/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/swati/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/vishakha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/anuradha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/jyeshtha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/mula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/purva-ashadha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/uttara-ashadha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/shravana/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/dhanishta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/shatabhisha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/purva-bhadrapada/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/uttara-bhadrapada/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/nakshatra/ta/revati/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/karthigai-deepam/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/vaikunta-ekadasi/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pongal/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-november-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-december-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-january-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-february-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-march-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-april-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-may-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-june-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-july-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-august-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-august-2027-2/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-september-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-october-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/amavasya-november-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-november-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-december-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-january-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-february-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-march-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-april-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-may-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-june-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-july-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-august-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-september-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-october-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/ta/pournami-november-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/karthika-pournami/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/vaikunta-ekadasi/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/sankranti/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-november-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-december-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-january-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-february-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-march-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-april-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-may-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-june-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-july-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-august-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-august-2027-2/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-september-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-october-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/amavasya-november-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-november-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-december-2026/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-january-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-february-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-march-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-april-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-may-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-june-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-july-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-august-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-september-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-october-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/festivals/te/pournami-november-2027/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/blog/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi/ta/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/ashwini/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/bharani/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/krittika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/rohini/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/mrigashira/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/ardra/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/punarvasu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/pushya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/ashlesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/magha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/purva-phalguni/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/uttara-phalguni/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/hasta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/chitra/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/swati/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/vishakha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/anuradha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/jyeshtha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/mula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/purva-ashadha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/uttara-ashadha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/shravana/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/dhanishta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/shatabhisha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/purva-bhadrapada/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/uttara-bhadrapada/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/nakshatra/ta/revati/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/karthigai-deepam/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/vaikunta-ekadasi/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pongal/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-november-2026/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-december-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-january-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-february-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-march-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-april-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-may-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-june-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-july-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-august-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-august-2027-2/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-september-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-october-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/amavasya-november-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-november-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-december-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-january-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-february-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-march-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-april-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-may-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-june-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-july-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-august-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-september-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-october-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-november-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/ta/pournami-december-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/karthika-pournami/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/vaikunta-ekadasi/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/sankranti/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-november-2026/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-december-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-january-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-february-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-march-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-april-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-may-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-june-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-july-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-august-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-august-2027-2/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-september-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-october-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/amavasya-november-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-november-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-december-2026/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-january-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-february-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-march-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-april-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-may-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-june-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-july-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-august-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-september-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-october-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-november-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/festivals/te/pournami-december-2027/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/en/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/en/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/en/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/en/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/en/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/en/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/hi/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ta/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/te/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/te/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/te/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/te/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/te/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/te/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/kn/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/ml/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/mr/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/bn/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-04</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/gu/2026-11-03</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/mesha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/vrishabha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/mithuna/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/karka/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/simha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/kanya/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/tula/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/vrischika/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/dhanu/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/makara/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/kumbha/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/meena/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-16</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-15</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-14</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-09</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-08</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/mesha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/vrishabha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/mithuna/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/karka/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/simha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/kanya/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/tula/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/vrischika/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/dhanu/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/makara/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/kumbha/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/meena/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-16</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-15</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-14</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-13</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-11</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-10</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-09</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://rasivani.com/rasi-palan/or/2026-11-08</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/or/2026-11-07</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/or/2026-11-06</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://rasivani.com/rasi-palan/or/2026-11-05</loc><lastmod>2026-11-05</lastmod></url>
