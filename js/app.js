@@ -4,6 +4,14 @@
   const { LANGS, UI, TERMS } = window.I18N;
   const A = window.Astro;
   const SCRIPT_BASE = (document.currentScript && document.currentScript.src) || location.href;
+  // Pin the page's base to an absolute address. Changing language rewrites the address bar
+  // (/ -> /ta/, history.replaceState); without this, relative links on a page with no <base>
+  // would then resolve under /ta/ (rasi-palan/ta/ -> /ta/rasi-palan/ta/, a 404).
+  {
+    const abs = document.baseURI, b = document.querySelector('base[href]');
+    if (b) b.setAttribute('href', abs);
+    else { const nb = document.createElement('base'); nb.href = abs; document.head.prepend(nb); }
+  }
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const store = {
