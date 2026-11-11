@@ -473,3 +473,26 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .explore a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: inherit; font-size: 15px; background: var(--surface); }
 .explore a:hover { border-color: var(--gold); }
 .blog-sec { margin: 28px 0 12px; }
+
+/* Birth place box: location + map buttons, online rows, map dialog (js/places.js) */
+.place-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.chip-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.chip-btn svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
+.chip-btn:hover { background: var(--surface-2); }
+.chip-btn:disabled { opacity: .6; cursor: progress; }
+.chip-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.place-meta.error { color: var(--bad); }
+.combo-list li .tag { font-style: normal; font-size: 11px; font-weight: 600; color: var(--teal); border: 1px solid currentColor; border-radius: 6px; padding: 0 5px; margin-left: 4px; vertical-align: 1px; }
+.combo-list li.more { color: var(--accent); font-weight: 600; font-size: 14px; }
+.map-dialog { width: min(720px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.map-dialog::backdrop { background: rgba(20, 14, 38, .55); }
+.map-box { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.map-box h3 { margin: 0; font-size: 20px; }
+.map-box .muted { margin: 0; font-size: 14px; color: var(--muted); }
+.map-search { display: flex; gap: 8px; }
+.map-search input { flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); font: inherit; }
+.map-search .btn-secondary { min-height: 44px; }
+.map-canvas { height: min(55dvh, 440px); border-radius: 10px; border: 1px solid var(--line); }
+.map-at { margin: 0; font-size: 14px; color: var(--teal); font-variant-numeric: tabular-nums; min-height: 1.4em; }
+.map-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.map-actions .btn { width: auto; min-height: 46px; }

@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://rasivani.com',          // your domain, no trailing slash
   email: 'hello@rasivani.com',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
-  updated: '2026-11-04',
+  updated: '2026-11-11',
   // YouTube channel per language: paste each new channel's address here; a language left empty uses the main channel.
   youtubeByLang: { ta: 'https://www.youtube.com/@rasivani.official', te: '', en: '' },
   social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
@@ -115,7 +115,7 @@ ${body}
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
   <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
-${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/app.js"></script>' : ''}
+${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/places.js"></script><script src="js/app.js"></script>' : ''}
 </body>
 </html>
 `.replace(/(<[a-z0-9]+\b[^>]*\bdata-i18n="(\w+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${escText(I18N.UI[lang]?.[key] ?? I18N.UI.en[key] ?? '')}${close}`);
@@ -208,6 +208,7 @@ prose('about.html', 'About', `<h1>About ${SITE.name}</h1>
 <p>Marriage matching uses the ten traditional South Indian poruthams (Dina, Gana, Mahendra, Stree Deergha, Yoni, Rasi, Rasi Adhipati, Vasya, Rajju, Vedha). Rajju and Vedha are treated as essential, as most astrologers do.</p>
 <h2>Place data</h2>
 <p>Area names, pincodes and coordinates come from the All India Pincode Directory published by the Department of Posts on data.gov.in under the Government Open Data License – India.</p>
+<p>Towns and cities worldwide: <a href="https://www.geonames.org/" rel="noopener">GeoNames</a> (CC BY 4.0). US ZIP codes and Canadian postal areas: the open <code>zipcodes</code> dataset. UK postcodes: Office for National Statistics Postcode Directory and OS Open Names (Open Government Licence v3; contains OS data © Crown copyright and database right). Time zones: <a href="https://github.com/photostructure/tz-lookup" rel="noopener">tz-lookup</a> (CC0). Places the offline list does not have, the map and “Use my location” names: © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> contributors (ODbL), searched with Photon (komoot) and Nominatim; map drawn with <a href="https://leafletjs.com" rel="noopener">Leaflet</a>.</p>
 <h2>A note on belief</h2>
 <p>Astrology is a cultural and traditional practice. It is not a science, and nothing on this site is medical, financial, legal or relationship advice. For important decisions, talk to the people involved and to a qualified professional.</p>`);
 
@@ -215,6 +216,7 @@ prose('privacy.html', 'Privacy policy', `<h1>Privacy policy</h1>
 <p>Last updated: ${SITE.updated}</p>
 <h2>Your birth details stay on your device</h2>
 <p>Names, dates, times and places you type are processed only in your browser. They are not sent to our servers or stored by us. Your language, city and chart-style choices are saved in your browser’s local storage so the site remembers them; you can clear them at any time in your browser settings.</p>
+<p>Place search runs on our own offline list first. Only when it has few matches, when you tap “Search more places”, “Pick on map” or “Use my location” does your browser send the place name you typed, or the map point / your location’s coordinates, to OpenStreetMap services (Photon by komoot, Nominatim, and the OpenStreetMap map tiles) to find the place. Your location is asked for only when you tap “Use my location”, and is used only to fill the birth place box.</p>
 <h2>Advertising and cookies</h2>
 <p>This site may show ads from Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites. Google’s use of advertising cookies enables it and its partners to serve ads based on your visits to this site and/or other sites on the Internet. You can opt out of personalised advertising at <a href="https://www.google.com/settings/ads" rel="noopener">Google Ads Settings</a>, or opt out of some third-party vendors’ cookies at <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>. Learn more in <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites that use its services</a>.</p>
 <p>Visitors in the European Economic Area, the UK and Switzerland are shown a consent message (Google-certified CMP) before any personalised ads are served.</p>
@@ -304,7 +306,7 @@ write('manifest.webmanifest', JSON.stringify({
     { src: 'icons/icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
   ]
 }, null, 2));
-const cacheFiles = ['./', 'porutham', 'panchangam', 'about', 'privacy', 'contact', 'css/style.css', 'js/i18n.js', 'js/astro.js', 'js/app.js', 'js/vendor/html2canvas.min.js', 'icons/icon.svg', 'rasi-palan/en/', 'manifest.webmanifest'];
+const cacheFiles = ['./', 'porutham', 'panchangam', 'about', 'privacy', 'contact', 'css/style.css', 'js/i18n.js', 'js/astro.js', 'js/places.js', 'js/app.js', 'js/vendor/html2canvas.min.js', 'icons/icon.svg', 'rasi-palan/en/', 'manifest.webmanifest'];
 write('sw.js', `// Offline support so the Android app works without network.
 const CACHE = 'rasivani-${SITE.updated}';
 const FILES = ${JSON.stringify(cacheFiles)};

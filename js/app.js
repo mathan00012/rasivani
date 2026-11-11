@@ -61,34 +61,8 @@
     return x;
   }
 
-  // Place search: curated cities instantly, then the offline India Post index (140k areas + pincodes)
-  const shardCache = new Map();
-  function fetchShard(path) {
-    if (!shardCache.has(path)) shardCache.set(path, fetch(path).then((r) => (r.ok ? r.json() : [])).catch(() => []));
-    return shardCache.get(path);
-  }
-  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-  async function searchPlaces(q) {
-    const nq = norm(q); if (!nq) return [];
-    const res = [];
-    CITIES.forEach((c) => { if (norm(c[0]).startsWith(nq)) res.push({ name: c[0], sub: '', lat: c[1], lon: c[2], tz: typeof c[3] === 'number' ? c[3] : 5.5, zone: typeof c[3] === 'string' ? c[3] : undefined, rank: -1 }); });
-    if (/^\d{3,6}$/.test(nq)) {
-      const rows = await fetchShard(`places/p/${nq.slice(0, 3)}.json`);
-      rows.filter((e) => e[3].startsWith(nq)).slice(0, 12).forEach((e) => res.push(toPlace(e)));
-    } else {
-      const key = nq.replace(/[^a-z]/g, '');
-      if (key.length >= 3) {
-        const rows = await fetchShard(`places/n/${key.slice(0, 3)}.json`);
-        const words = nq.split(' ');
-        rows.filter((e) => { const n = norm(`${e[0]} ${e[1]}`); return n.startsWith(nq) || words.every((w) => n.includes(w)); })
-          .sort((x, y) => (norm(x[0]) === nq ? -1 : 0) - (norm(y[0]) === nq ? -1 : 0) || x[6] - y[6])
-          .slice(0, 12).forEach((e) => res.push(toPlace(e)));
-      }
-    }
-    const seen = new Set();
-    return res.filter((p) => { const k = p.name + p.sub; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 10);
-  }
-  const toPlace = (e) => ({ name: e[0], sub: `${e[1]}, ${e[2]} ${e[3]}`, lat: e[4], lon: e[5], tz: 5.5 });
+  // Place search lives in js/places.js (offline world index + OpenStreetMap + live location + map).
+  const norm = (x) => window.Places.fold(x);
   const placeLabel = (p) => (p.sub ? `${p.name}, ${p.sub}` : p.name);
   const coordText = (p) => `${Math.abs(p.lat).toFixed(2)}°${p.lat >= 0 ? 'N' : 'S'} ${Math.abs(p.lon).toFixed(2)}°${p.lon >= 0 ? 'E' : 'W'} · ${p.zone ? p.zone.split('/').pop().replace(/_/g, ' ') + ' ' + t('local_time') : fmtTz(p.tz)}`;
   const chosen = {};
@@ -104,7 +78,11 @@
           <input id="${prefix}-place" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${prefix}-list" autocomplete="off" spellcheck="false">
           <ul id="${prefix}-list" class="combo-list" role="listbox" hidden></ul>
         </div>
-        <p class="place-meta" id="${prefix}-meta"></p>
+        <p class="place-meta" id="${prefix}-meta" aria-live="polite"></p>
+        <div class="place-tools">
+          <button type="button" class="chip-btn" id="${prefix}-here"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg><span data-ptext="here"></span></button>
+          <button type="button" class="chip-btn" id="${prefix}-map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg><span data-ptext="map"></span></button>
+        </div>
         <button type="button" class="link-btn" id="${prefix}-manual" data-i18n="use_coords"></button>
       </div>
       <div class="coords" id="${prefix}-coords" hidden>
@@ -117,41 +95,95 @@
   function setPlace(prefix, p, remember = true) {
     chosen[prefix] = p;
     $(`#${prefix}-place`).value = placeLabel(p);
-    $(`#${prefix}-meta`).textContent = coordText(p);
+    const meta = $(`#${prefix}-meta`); meta.classList.remove('error'); meta.textContent = coordText(p);
     if (remember) store.set('gv-place', JSON.stringify(p));
   }
+  const P = (k) => window.Places.text(lang, k);
+  const INDIC_RE = /[ऀ-෿]/;
   function wirePlace(prefix) {
-    const input = $(`#${prefix}-place`), list = $(`#${prefix}-list`);
-    input.placeholder = t('place_hint');
+    const input = $(`#${prefix}-place`), list = $(`#${prefix}-list`), meta = $(`#${prefix}-meta`);
+    input.placeholder = P('hint');
+    $$('[data-ptext]', input.closest('.place-field')).forEach((el) => { el.textContent = P(el.dataset.ptext); });
     let saved = null; try { saved = JSON.parse(store.get('gv-place') || 'null'); } catch (e) { /* ignore */ }
-    setPlace(prefix, saved && saved.lat != null ? saved : { name: CITIES[0][0], sub: '', lat: CITIES[0][1], lon: CITIES[0][2], tz: 5.5 }, false);
-    let results = [], active = -1, seq = 0, timer;
+    setPlace(prefix, saved && saved.lat != null ? saved : { name: CITIES[0][0], sub: 'Tamil Nadu, India', lat: CITIES[0][1], lon: CITIES[0][2], tz: 5.5 }, false);
+    let results = [], active = -1, seq = 0, timer, webTimer, query = '', busy = false, deepDone = false;
     const close = () => { list.hidden = true; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); };
+    const moreRow = () => ((norm(query).length >= 3 || INDIC_RE.test(query)) && !deepDone ? 1 : 0);
     const paint = () => {
-      list.innerHTML = results.length
-        ? results.map((p, i) => `<li role="option" id="${prefix}-opt-${i}" aria-selected="${i === active}" data-i="${i}"><strong>${esc(p.name)}</strong><span>${esc(p.sub || coordText(p))}</span></li>`).join('')
-        : `<li class="empty">${esc(t('no_place'))}</li>`;
+      const rows = results.map((p, i) => `<li role="option" id="${prefix}-opt-${i}" aria-selected="${i === active}" data-i="${i}"><strong>${esc(p.name)}${p.web ? ` <em class="tag">${esc(P('web'))}</em>` : ''}</strong><span>${esc(p.sub || coordText(p))}${p.aka ? ` · ${esc(P('aka'))} ${esc(p.aka)}` : ''}</span></li>`);
+      if (busy) rows.push(`<li class="empty">${esc(P('searching'))}</li>`);
+      else {
+        if (!results.length) rows.push(`<li class="empty">${esc(P('none'))}</li>`);
+        if (moreRow()) rows.push(`<li role="option" class="more" id="${prefix}-opt-${results.length}" aria-selected="${active === results.length}" data-more="1">${esc(P('more'))} “${esc(query.trim())}”</li>`);
+      }
+      list.innerHTML = rows.join('');
       list.hidden = false; input.setAttribute('aria-expanded', 'true');
       if (active >= 0) input.setAttribute('aria-activedescendant', `${prefix}-opt-${active}`);
     };
-    const pick = (i) => { if (results[i]) { setPlace(prefix, results[i]); $(`#${prefix}-coords`).hidden = true; } close(); };
+    const merge = (more) => {
+      const seen = new Set(results.map((p) => norm(p.name + ' ' + p.sub)));
+      more.forEach((p) => { const k = norm(p.name + ' ' + p.sub); if (!seen.has(k)) { seen.add(k); results.push(p); } });
+    };
+    const searchMore = async () => {
+      const my = seq; busy = true; paint();
+      const r = await window.Places.deep(query);
+      if (my !== seq) return;
+      busy = false; deepDone = true; merge(r); if (active < 0 && results.length) active = 0; paint(); input.focus();
+    };
+    const pick = (i) => {
+      if (i === results.length && moreRow()) { searchMore(); return; }
+      if (results[i]) { setPlace(prefix, results[i]); $(`#${prefix}-coords`).hidden = true; }
+      close();
+    };
     input.addEventListener('input', () => {
-      clearTimeout(timer);
-      const q = input.value, my = ++seq;
-      if (norm(q).length < 2) { close(); return; }
-      timer = setTimeout(async () => { const r = await searchPlaces(q); if (my !== seq) return; results = r; active = r.length ? 0 : -1; paint(); }, 120);
+      clearTimeout(timer); clearTimeout(webTimer);
+      query = input.value; const my = ++seq; busy = false; deepDone = false;
+      if (norm(query).length < 2 && !INDIC_RE.test(query)) { close(); return; }
+      timer = setTimeout(async () => {
+        const r = await window.Places.search(query); if (my !== seq) return;
+        results = r; active = r.length ? 0 : -1; paint();
+        // Few offline matches: ask OpenStreetMap too (streets, villages, places abroad) once typing pauses.
+        if (r.length < 5 && norm(query).length >= 3) {
+          webTimer = setTimeout(async () => {
+            const w = await window.Places.online(query); if (my !== seq || !w.length) return;
+            merge(w); if (active < 0) active = 0; paint();
+          }, 450);
+        }
+      }, 120);
     });
     input.addEventListener('focus', () => input.select());
     input.addEventListener('keydown', (e) => {
       if (list.hidden) return;
-      if (e.key === 'ArrowDown') { active = Math.min(results.length - 1, active + 1); paint(); e.preventDefault(); }
+      const last = results.length - 1 + moreRow();
+      if (e.key === 'ArrowDown') { active = Math.min(last, active + 1); paint(); e.preventDefault(); }
       else if (e.key === 'ArrowUp') { active = Math.max(0, active - 1); paint(); e.preventDefault(); }
-      else if (e.key === 'Enter') { pick(active); e.preventDefault(); }
+      else if (e.key === 'Enter') { pick(active < 0 ? results.length : active); e.preventDefault(); }
       else if (e.key === 'Escape') { close(); }
     });
-    list.addEventListener('mousedown', (e) => { const li = e.target.closest('[data-i]'); if (li) { e.preventDefault(); pick(+li.dataset.i); } });
-    input.addEventListener('blur', () => setTimeout(() => { close(); if (chosen[prefix] && $(`#${prefix}-coords`).hidden) input.value = placeLabel(chosen[prefix]); }, 150));
+    list.addEventListener('mousedown', (e) => {
+      const li = e.target.closest('[data-i],[data-more]'); if (!li) return;
+      e.preventDefault(); pick(li.dataset.more ? results.length : +li.dataset.i);
+    });
+    input.addEventListener('blur', () => setTimeout(() => {
+      if (busy || document.activeElement === input) return;
+      close(); if (chosen[prefix] && $(`#${prefix}-coords`).hidden) input.value = placeLabel(chosen[prefix]);
+    }, 150));
     $(`#${prefix}-manual`).addEventListener('click', () => { const c = $(`#${prefix}-coords`); c.hidden = !c.hidden; if (!c.hidden) $(`#${prefix}-lat`).focus(); });
+    const hereBtn = $(`#${prefix}-here`), mapBtn = $(`#${prefix}-map`);
+    hereBtn.addEventListener('click', async () => {
+      hereBtn.disabled = true; meta.classList.remove('error'); meta.textContent = P('locating');
+      try { const p = await window.Places.here(); setPlace(prefix, p); $(`#${prefix}-coords`).hidden = true; }
+      catch (err) { meta.classList.add('error'); meta.textContent = P(err && err.code === 1 ? 'denied' : 'failed'); }
+      hereBtn.disabled = false;
+    });
+    mapBtn.addEventListener('click', async () => {
+      mapBtn.disabled = true;
+      try {
+        const p = await window.Places.pickOnMap(chosen[prefix], { title: P('title'), hint: P('mhint'), searchHint: P('hint'), find: P('find'), use: P('use'), cancel: P('cancel'), none: P('none') });
+        if (p) { setPlace(prefix, p); $(`#${prefix}-coords`).hidden = true; }
+      } catch (e) { meta.classList.add('error'); meta.textContent = P('failed'); }
+      mapBtn.disabled = false;
+    });
   }
   function readPlace(prefix) {
     if (!$(`#${prefix}-coords`).hidden) {
@@ -194,7 +226,8 @@
     document.documentElement.dataset.script = l;
     loadFont(l);
     $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
-    $$('.combo input').forEach((el) => { el.placeholder = t('place_hint'); });
+    $$('.combo input').forEach((el) => { el.placeholder = window.Places.text(l, 'hint'); });
+    $$('[data-ptext]').forEach((el) => { el.textContent = window.Places.text(l, el.dataset.ptext); });
     const sel = $('#lang'); if (sel) sel.value = l;
     $$('a[data-palan]').forEach((a) => { a.setAttribute('href', `rasi-palan/${l}/`); });
     $$('a[data-blog]').forEach((a) => { a.setAttribute('href', `blog/${l}/`); });
