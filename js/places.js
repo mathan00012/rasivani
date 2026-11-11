@@ -29,9 +29,10 @@
     if (!cache.has(url)) cache.set(url, fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => { cache.delete(url); return null; }));
     return cache.get(url);
   }
-  const shard = (p) => getJSON(ROOT + 'places/' + p).then((x) => x || []);
+  const DATA_V = '2'; // matches places/version.json; new address = no stale copy of the old index from the browser cache
+  const shard = (p) => getJSON(ROOT + 'places/' + p + '?v=' + DATA_V).then((x) => x || []);
   let split = null;
-  const splitSet = () => (split = split || getJSON(ROOT + 'places/n/_split.json').then((a) => new Set(a || [])));
+  const splitSet = () => (split = split || getJSON(ROOT + 'places/n/_split.json?v=' + DATA_V).then((a) => new Set(a || [])));
   function loadScript(src) {
     return new Promise((ok, fail) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail; document.head.appendChild(s); });
   }

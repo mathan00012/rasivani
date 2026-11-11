@@ -1,6 +1,7 @@
 // Generates the static HTML pages, sitemap and PWA files.
 // Run: node tools/build.mjs   (then upload the whole folder to any static host)
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,6 +19,9 @@ export const SITE = {
 // ========================================
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Cloudflare tells browsers to keep css/js for 4 hours: put a content hash in each address so a new
+// deploy reaches returning visitors at once instead of pairing new pages with old scripts.
+const asset = (f) => `${f}?v=${createHash('sha1').update(readFileSync(join(root, f))).digest('hex').slice(0, 10)}`;
 const write = (f, s) => { mkdirSync(dirname(join(root, f)), { recursive: true }); writeFileSync(join(root, f), s); };
 await import('../js/i18n.js');
 const { I18N } = globalThis;
@@ -96,7 +100,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="${asset('css/style.css')}">
 ${siteLd}${jsonld}${head}${adsense}
 </head>
 <body data-page="${page}" data-lang="${lang}"${fixed ? ' data-fixed="1"' : ''}${langMap ? ` data-alt="${escAttr(JSON.stringify(langMap))}"` : ''}>
@@ -115,7 +119,7 @@ ${body}
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
   <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
-${scripts ? '<script src="js/i18n.js"></script><script src="js/astro.js"></script><script src="js/places.js"></script><script src="js/app.js"></script>' : ''}
+${scripts ? ['js/i18n.js', 'js/astro.js', 'js/places.js', 'js/app.js'].map((f) => `<script src="${asset(f)}"></script>`).join('') : ''}
 </body>
 </html>
 `.replace(/(<[a-z0-9]+\b[^>]*\bdata-i18n="(\w+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${escText(I18N.UI[lang]?.[key] ?? I18N.UI.en[key] ?? '')}${close}`);
