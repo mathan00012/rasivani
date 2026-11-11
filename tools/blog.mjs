@@ -99,6 +99,13 @@ export function published(todayIso) {
   return ORDER.map((slug, i) => ({ slug, date: addDays(BLOG_START, i) })).filter((p) => p.date <= todayIso).reverse();
 }
 
+// The episode's own thumbnail when it has been rendered; until then YouTube's picture of the video, or the site image
+const videoThumb = (root, e, lang) => {
+  const own = `images/videos/${e.id}-${lang}.jpg`;
+  if (existsSync(join(root, own))) return own;
+  return e.langs[lang].youtube ? `https://i.ytimg.com/vi/${e.langs[lang].youtube}/hqdefault.jpg` : 'icons/og.png';
+};
+
 export function buildBlog(root, todayIso, BLOG, VIDEOS = []) {
   const langs = Object.keys(BLOG);
   const live = published(todayIso);
@@ -115,7 +122,7 @@ export function buildBlog(root, todayIso, BLOG, VIDEOS = []) {
     if (existsSync(dir)) rmSync(dir, { recursive: true, force: true });
     mkdirSync(dir, { recursive: true });
     const posts = live.filter((p) => B.posts[p.slug]);
-    const vids = liveVideos.filter((e) => e.langs[lang]).map((e) => ({ video: e, slug: e.slug, date: e.date, title: plainTitle(e.langs[lang].title), desc: e.langs[lang].desc, thumb: `images/videos/${e.id}-${lang}.jpg` }));
+    const vids = liveVideos.filter((e) => e.langs[lang]).map((e) => ({ video: e, slug: e.slug, date: e.date, title: plainTitle(e.langs[lang].title), desc: e.langs[lang].desc, thumb: videoThumb(root, e, lang) }));
     // Everything for the list, newest first (a video comes before a guide of the same day)
     const entries = [...vids, ...posts.map((p) => ({ ...p, title: B.posts[p.slug].title, desc: B.posts[p.slug].desc }))]
       .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : (a.video ? -1 : 0) - (b.video ? -1 : 0)));
@@ -152,7 +159,7 @@ ${entries.map((p) => `<item><title>${esc(p.title)}</title><link>${idxUrl}${p.slu
     // One page per video story
     for (const v of vids) {
       const e = v.video, L = e.langs[lang], VU = VIDEO_UI[lang] || VIDEO_UI.en;
-      const url = `${idxUrl}${v.slug}/`, thumbAbs = `${SITE.url}/${v.thumb}`;
+      const url = `${idxUrl}${v.slug}/`, thumbAbs = /^https?:/.test(v.thumb) ? v.thumb : `${SITE.url}/${v.thumb}`;
       const vAlt = Object.keys(e.langs).map((l) => `\n<link rel="alternate" hreflang="${l}" href="${SITE.url}/blog/${l}/${e.slug}/">`).join('')
         + (e.langs.en ? `\n<link rel="alternate" hreflang="x-default" href="${SITE.url}/blog/en/${e.slug}/">` : '');
       const others = entries.filter((x) => x.slug !== v.slug).slice(0, 4);

@@ -496,3 +496,4 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .map-at { margin: 0; font-size: 14px; color: var(--teal); font-variant-numeric: tabular-nums; min-height: 1.4em; }
 .map-actions { display: flex; gap: 10px; justify-content: flex-end; }
 .map-actions .btn { width: auto; min-height: 46px; }
+.guide-card img, .video-box img { aspect-ratio: 16 / 9; object-fit: cover; }

@@ -52,15 +52,22 @@ def main():
             print(f'{ep_id}: not made yet (no {lines_path}); its post stays as it is')
             continue
         lines = json.load(open(lines_path, encoding='utf-8'))['lines']
+        if E.get('lines') and len(lines) != E['lines']:
+            print(f'{ep_id}: lines.json has {len(lines)} lines but the script has {E["lines"]}; chapters may not line up, skipped')
+            continue
         starts = {i: h for i, h in E['chapters']}
         out = {'id': ep_id, 'slug': E['slug'], 'date': E['date'], 'langs': {}}
         for lang in LANGS:
             info_path = find(yt, ep_id, lang, f'UPLOAD-{ep_id}-{lang}.md')
-            if not info_path:
+            if info_path:
+                info = open(info_path, encoding='utf-8').read()
+                title = clean_title(re.search(r'^## Title\s*\n(.+)', info, re.M).group(1))
+                desc = re.search(r'^## Description\s*\n(.+)', info, re.M).group(1).strip()
+            elif lang in E.get('upload', {}):
+                # not rendered yet: the YouTube title and description from the script
+                title, desc = clean_title(E['upload'][lang]['title']), E['upload'][lang]['desc']
+            else:
                 continue
-            info = open(info_path, encoding='utf-8').read()
-            title = clean_title(re.search(r'^## Title\s*\n(.+)', info, re.M).group(1))
-            desc = re.search(r'^## Description\s*\n(.+)', info, re.M).group(1).strip()
             sections = [['', []]]
             for i, line in enumerate(lines):
                 if i in starts:
