@@ -648,6 +648,10 @@
         if (document.body.dataset.alt) { store.set('gv-lang', sel.value); let m = {}; try { m = JSON.parse(document.body.dataset.alt); } catch (e) { /* ignore */ } location.href = m[sel.value] || `rasi-palan/${sel.value}/`; return; }
         if (document.body.dataset.page === 'blog') { store.set('gv-lang', sel.value); location.href = `blog/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
         if (document.body.dataset.page === 'palan') { store.set('gv-lang', sel.value); location.href = `rasi-palan/${sel.value}/${document.body.dataset.slug ? document.body.dataset.slug + '/' : ''}`; return; }
+        // Tool pages have their own address per language, with text written into the page (rasi names, festival and guide links):
+        // open that language's page instead of switching words in place, so nothing stays in the old language.
+        const tf = { chart: 'index.html', match: 'porutham.html', panchang: 'panchangam.html' }[document.body.dataset.page];
+        if (tf) { store.set('gv-lang', sel.value); location.href = new URL(toolHref(sel.value, tf), document.baseURI).href + location.hash; return; }
         applyLang(sel.value);
       });
     }
