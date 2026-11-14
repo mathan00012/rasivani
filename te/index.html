@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=61a2cca362">
+<link rel="stylesheet" href="css/style.css?v=2579911ef1">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://rasivani.com/#website","name":"RasiVani","alternateName":"RasiVani Jathagam & Rasi Palan","url":"https://rasivani.com/","inLanguage":["en","hi","ta","te","kn","ml","mr","bn","gu","or"],"publisher":{"@id":"https://rasivani.com/#org"}},{"@type":"Organization","@id":"https://rasivani.com/#org","name":"RasiVani","url":"https://rasivani.com/","email":"hello@rasivani.com","logo":"https://rasivani.com/icons/icon-512.png","sameAs":["https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h","https://www.youtube.com/@rasivani.official","https://www.facebook.com/rasivani.official","https://x.com/rasivani_off","https://sharechat.com/profile/rasivani"]}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RasiVani","url":"https://rasivani.com","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"te","description":"ఉచిత తెలుగు జాతకం ఆన్‌లైన్: లగ్నం, రాశి, నవాంశ, నక్షత్రం, గ్రహ స్థితి, వింశోత్తరి దశ. దక్షిణ, ఉత్తర భారత చక్రాలు.","image":"https://rasivani.com/icons/og.png"}</script>
 </head>
 <body data-page="chart" data-lang="te" data-support="hello@rasivani.com" data-fixed="1">
@@ -93,6 +93,19 @@
   </form>
 </section>
 <section id="chart-result" class="result" aria-live="polite" hidden></section>
+<section class="mystar" id="my-star" aria-labelledby="mystar-h" data-lang="te">
+  <div class="mystar-head"><h2 id="mystar-h">✦ ఈరోజు మీ నక్షత్రం</h2><button type="button" class="link-btn mystar-change" hidden>నక్షత్రం మార్చు</button></div>
+  <form class="mystar-pick" novalidate>
+    <p class="cs-hint">మీ జన్మ నక్షత్రాన్ని ఒక్కసారి ఎంచుకోండి. ఈ ఫోన్ గుర్తుంచుకుంటుంది, లాగిన్ అవసరం లేదు.</p>
+    <div class="field"><label for="ms-star">మీ జన్మ నక్షత్రం</label><select id="ms-star" required><option value="">నక్షత్రం ఎంచుకోండి</option><option value="0">అశ్విని</option><option value="1">భరణి</option><option value="2">కృత్తిక</option><option value="3">రోహిణి</option><option value="4">మృగశిర</option><option value="5">ఆరుద్ర</option><option value="6">పునర్వసు</option><option value="7">పుష్యమి</option><option value="8">ఆశ్లేష</option><option value="9">మఖ</option><option value="10">పుబ్బ</option><option value="11">ఉత్తర</option><option value="12">హస్త</option><option value="13">చిత్త</option><option value="14">స్వాతి</option><option value="15">విశాఖ</option><option value="16">అనూరాధ</option><option value="17">జ్యేష్ఠ</option><option value="18">మూల</option><option value="19">పూర్వాషాఢ</option><option value="20">ఉత్తరాషాఢ</option><option value="21">శ్రవణం</option><option value="22">ధనిష్ఠ</option><option value="23">శతభిషం</option><option value="24">పూర్వాభాద్ర</option><option value="25">ఉత్తరాభాద్ర</option><option value="26">రేవతి</option></select></div>
+    <div class="mystar-two" hidden><p>మీ నక్షత్రం రెండు రాశుల్లో ఉంటుంది. మీ రాశి ఏది?</p><div class="seg" role="group"></div></div>
+    <button class="btn" type="submit">నా రోజు చూపించు</button>
+    <p class="cs-hint">నక్షత్రం తెలియదా? పైన ఉచిత జాతకం చేయండి.</p>
+  </form>
+  <div class="mystar-out" aria-live="polite" hidden></div>
+  <script type="application/json" class="mystar-data">{"t":{"h":"ఈరోజు మీ నక్షత్రం","sub":"మీ జన్మ నక్షత్రాన్ని ఒక్కసారి ఎంచుకోండి. ఈ ఫోన్ గుర్తుంచుకుంటుంది, లాగిన్ అవసరం లేదు.","star":"మీ జన్మ నక్షత్రం","pick":"నక్షత్రం ఎంచుకోండి","two":"మీ నక్షత్రం రెండు రాశుల్లో ఉంటుంది. మీ రాశి ఏది?","go":"నా రోజు చూపించు","change":"నక్షత్రం మార్చు","rahu":"ఈరోజు రాహు కాలం, {city}","other_city":"వేరే ఊరు","next":"తదుపరి పండుగ","in_days":"ఇంకా {n} రోజుల్లో","tomorrow":"రేపు","today":"ఈరోజే!","full":"పూర్తి ఫలం చదవండి","share":"వాట్సాప్‌లో షేర్ చేయండి","share_line":"RasiVaniలో ఈరోజు నా నక్షత్ర ఫలం. మీదీ ఉచితంగా చూడండి:","dont_know":"నక్షత్రం తెలియదా? పైన ఉచిత జాతకం చేయండి.","chandra":"ఈరోజు చంద్రాష్టమం: నెమ్మదిగా ఉండండి.","loading":"ఈరోజు ఫలం వస్తోంది…","failed":"ఈరోజు ఫలం తెరవలేదు. పూర్తి ఫలం పేజీ తెరవండి."},"city":"హైదరాబాద్","lat":17.385,"lon":78.4867,"fest":[["2026-11-24","కార్తిగై దీపం (తమిళనాడు)"],["2027-01-15","మకర సంక్రాంతి / పొంగల్"],["2027-03-06","మహా శివరాత్రి"],["2027-04-07","ఉగాది (చాంద్ర నూతన సంవత్సరం)"],["2027-04-14","తమిళ పుత్తాండు / బైసాఖీ (సౌర నూతన సంవత్సరం)"],["2027-04-15","విషు (కేరళ)"],["2027-04-15","శ్రీరామ నవమి"],["2027-08-18","చింగం 1, మలయాళ నూతన సంవత్సరం"],["2027-09-04","వినాయక చవితి"],["2027-09-12","తిరువోణం (ఓణం)"],["2027-09-30","దేవీ నవరాత్రులు ప్రారంభం"],["2027-10-09","విజయదశమి / దసరా"],["2027-10-29","దీపావళి (లక్ష్మీ పూజ)"],["2027-12-11","కార్తిగై దీపం (తమిళనాడు)"]],"kalam":"te/rahu-kalam/"}</script>
+  <script defer src="js/mystar.js?v=940809c719"></script>
+</section>
 <section class="services" aria-label="Services">
   <a href="te/" data-keep-lang="index.html"><h3 data-i18n="nav_chart">జాతకం</h3><p data-i18n="chart_sub">రాశి, నవాంశ చక్రాలు, జన్మ నక్షత్రం, వింశోత్తరి దశతో ఉచిత జాతకం. లాహిరి అయనాంశతో మీ బ్రౌజర్‌లోనే లెక్కిస్తుంది.</p></a>
   <a href="te/porutham" data-keep-lang="porutham.html"><h3 data-i18n="nav_match">వివాహ పొంతన</h3><p data-i18n="match_sub">వధూవరుల జనన వివరాలు లేదా జన్మ నక్షత్రాలతో పది పొంతనలు చూడండి.</p></a>

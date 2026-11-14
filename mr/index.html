@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=61a2cca362">
+<link rel="stylesheet" href="css/style.css?v=2579911ef1">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://rasivani.com/#website","name":"RasiVani","alternateName":"RasiVani Jathagam & Rasi Palan","url":"https://rasivani.com/","inLanguage":["en","hi","ta","te","kn","ml","mr","bn","gu","or"],"publisher":{"@id":"https://rasivani.com/#org"}},{"@type":"Organization","@id":"https://rasivani.com/#org","name":"RasiVani","url":"https://rasivani.com/","email":"hello@rasivani.com","logo":"https://rasivani.com/icons/icon-512.png","sameAs":["https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h","https://www.youtube.com/@rasivani.official","https://www.facebook.com/rasivani.official","https://x.com/rasivani_off","https://sharechat.com/profile/rasivani"]}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RasiVani","url":"https://rasivani.com","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"mr","description":"मोफत मराठी जन्मकुंडली ऑनलाइन: लग्न, राशी, नवांश, नक्षत्र, ग्रहस्थिती आणि विंशोत्तरी दशा. उत्तर व दक्षिण भारतीय कुंडली.","image":"https://rasivani.com/icons/og.png"}</script>
 </head>
 <body data-page="chart" data-lang="mr" data-support="hello@rasivani.com" data-fixed="1">
@@ -93,6 +93,19 @@
   </form>
 </section>
 <section id="chart-result" class="result" aria-live="polite" hidden></section>
+<section class="mystar" id="my-star" aria-labelledby="mystar-h" data-lang="mr">
+  <div class="mystar-head"><h2 id="mystar-h">✦ आज तुमचे नक्षत्र</h2><button type="button" class="link-btn mystar-change" hidden>नक्षत्र बदला</button></div>
+  <form class="mystar-pick" novalidate>
+    <p class="cs-hint">तुमचे जन्म नक्षत्र एकदा निवडा. हा फोन लक्षात ठेवेल, लॉगिन नको.</p>
+    <div class="field"><label for="ms-star">तुमचे जन्म नक्षत्र</label><select id="ms-star" required><option value="">नक्षत्र निवडा</option><option value="0">अश्विनी</option><option value="1">भरणी</option><option value="2">कृत्तिका</option><option value="3">रोहिणी</option><option value="4">मृगशिरा</option><option value="5">आर्द्रा</option><option value="6">पुनर्वसु</option><option value="7">पुष्य</option><option value="8">आश्लेषा</option><option value="9">मघा</option><option value="10">पूर्वा फाल्गुनी</option><option value="11">उत्तरा फाल्गुनी</option><option value="12">हस्त</option><option value="13">चित्रा</option><option value="14">स्वाति</option><option value="15">विशाखा</option><option value="16">अनुराधा</option><option value="17">ज्येष्ठा</option><option value="18">मूल</option><option value="19">पूर्वाषाढ़ा</option><option value="20">उत्तराषाढ़ा</option><option value="21">श्रवण</option><option value="22">धनिष्ठा</option><option value="23">शतभिषा</option><option value="24">पूर्वा भाद्रपद</option><option value="25">उत्तरा भाद्रपद</option><option value="26">रेवती</option></select></div>
+    <div class="mystar-two" hidden><p>तुमचे नक्षत्र दोन राशींमध्ये येते. तुमची रास कोणती?</p><div class="seg" role="group"></div></div>
+    <button class="btn" type="submit">माझा दिवस दाखवा</button>
+    <p class="cs-hint">नक्षत्र माहीत नाही? वर मोफत कुंडली बनवा.</p>
+  </form>
+  <div class="mystar-out" aria-live="polite" hidden></div>
+  <script type="application/json" class="mystar-data">{"t":{"h":"आज तुमचे नक्षत्र","sub":"तुमचे जन्म नक्षत्र एकदा निवडा. हा फोन लक्षात ठेवेल, लॉगिन नको.","star":"तुमचे जन्म नक्षत्र","pick":"नक्षत्र निवडा","two":"तुमचे नक्षत्र दोन राशींमध्ये येते. तुमची रास कोणती?","go":"माझा दिवस दाखवा","change":"नक्षत्र बदला","rahu":"आजचा राहू काळ, {city}","other_city":"दुसरे शहर","next":"पुढचा सण","in_days":"{n} दिवसांनी","tomorrow":"उद्या","today":"आज!","full":"संपूर्ण राशीभविष्य वाचा","share":"व्हॉट्सॲपवर शेअर करा","share_line":"RasiVani वर आज माझे नक्षत्र फल. तुमचेही मोफत पाहा:","dont_know":"नक्षत्र माहीत नाही? वर मोफत कुंडली बनवा.","chandra":"आज चंद्राष्टम: सावकाश राहा.","loading":"आजचे फल येत आहे…","failed":"आजचे फल उघडले नाही. संपूर्ण राशीभविष्य पान उघडा."},"city":"मुंबई","lat":19.076,"lon":72.8777,"fest":[["2026-11-24","Karthigai Deepam"],["2027-01-15","Thai Pongal / Makara Sankranti / Uttarayan"],["2027-03-06","Maha Shivaratri"],["2027-04-07","Ugadi / Gudi Padwa (lunar new year)"],["2027-04-14","Tamil Puthandu / Baisakhi / Pana Sankranti (solar new year)"],["2027-04-15","Vishu (Kerala)"],["2027-04-15","Sri Rama Navami"],["2027-08-18","Chingam 1, Malayalam New Year"],["2027-09-04","Vinayaka Chaturthi / Ganesh Chaturthi"],["2027-09-12","Thiruvonam (Onam)"],["2027-09-30","Navaratri begins"],["2027-10-09","Vijayadashami / Dussehra"],["2027-10-29","Deepavali / Diwali (Lakshmi Puja)"],["2027-12-11","Karthigai Deepam"]],"kalam":"rahu-kalam/"}</script>
+  <script defer src="js/mystar.js?v=940809c719"></script>
+</section>
 <section class="services" aria-label="Services">
   <a href="mr/" data-keep-lang="index.html"><h3 data-i18n="nav_chart">जन्मकुंडली</h3><p data-i18n="chart_sub">राशी व नवांश कुंडली, जन्म नक्षत्र आणि विंशोत्तरी दशेसह मोफत कुंडली. लाहिरी अयनांशाने तुमच्या ब्राउझरमध्येच गणना.</p></a>
   <a href="mr/porutham" data-keep-lang="porutham.html"><h3 data-i18n="nav_match">विवाह गुणमिलन</h3><p data-i18n="match_sub">वधू-वरांच्या जन्म तपशिलावरून किंवा नक्षत्रावरून दहा गुण (कूट) तपासा.</p></a>
