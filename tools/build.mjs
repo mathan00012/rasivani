@@ -87,10 +87,12 @@ export function layout({ page, file, title, description, body, scripts = true, b
     { '@type': 'Organization', '@id': `${SITE.url}/#org`, name: SITE.name, url: `${SITE.url}/`, email: SITE.email, logo: `${SITE.url}/icons/icon-512.png`, sameAs: [...new Set([...Object.values(SITE.social), ...Object.values(SITE.youtubeByLang)].filter(Boolean))] }
   ] })}</script>`;
   const langLinks = I18N.LANGS.map((l) => `<a href="${langMap ? (langMap[l.code] || `rasi-palan/${l.code}/`) : page === 'blog' && BLOG_LABEL[l.code] ? `blog/${l.code}/${/^blog\/[a-z]{2}\/[^/]+\//.test(file) ? file.split('/')[2] + '/' : ''}` : page === 'palan' ? `rasi-palan/${l.code}/` : toolHref(l.code, TOOL_FILES.includes(file.replace(/^[a-z]{2}\//, '')) ? file.replace(/^[a-z]{2}\//, '') : 'index.html')}" hreflang="${l.code}" lang="${l.code}">${l.name}</a>`).join('');
+  // Any page below the root gets <base href="/">, not "../../": some crawlers ignore relative bases and
+  // requested /blog/te/blog/te/... (thousands of 404s seen in Cloudflare, 14 Nov 2026).
   return `<!doctype html>
 <html lang="${lang}" data-script="${lang}">
 <head>
-<meta charset="utf-8">${base ? `\n<base href="${base}">` : ''}
+<meta charset="utf-8">${base ? '\n<base href="/">' : ''}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${escAttr(description)}">${keywords ? `\n<meta name="keywords" content="${escAttr(keywords)}">` : ''}
