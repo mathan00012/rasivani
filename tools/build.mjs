@@ -29,6 +29,7 @@ await import('../js/i18n.js');
 const { I18N } = globalThis;
 const { SEO } = await import('./seo.mjs');
 const EXTRAS = await import('./extras.mjs');
+const FUN = await import('./fun.mjs');
 // Footer label for the guides (blog); the articles themselves are built by tools/blog.mjs
 const BLOG_LABEL = {};
 for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
@@ -62,7 +63,7 @@ const navText = (lang, key) => (I18N.UI[lang] && I18N.UI[lang][key]) || I18N.UI.
 // who arrives from a video can reach the chart, porutham, panchangam, rasi palan and the rest in one tap.
 export function exploreNav(lang, heading = '') {
   const links = [[toolHref(lang, 'index.html'), navText(lang, 'nav_chart')], [toolHref(lang, 'porutham.html'), navText(lang, 'nav_match')],
-    [toolHref(lang, 'panchangam.html'), navText(lang, 'nav_panchang')], ...EXTRAS.exploreLinks(lang), [`rasi-palan/${lang}/`, navText(lang, 'nav_palan')],
+    [toolHref(lang, 'panchangam.html'), navText(lang, 'nav_panchang')], ...EXTRAS.exploreLinks(lang), [`rasi-palan/${lang}/`, navText(lang, 'nav_palan')], ...FUN.exploreLinks(lang),
     ...(EXTRA[lang] || []).map(([href, label]) => [href, label])];
   return `<nav class="explore" aria-label="${escAttr(heading || SITE.name)}">${heading ? `<p>${escText(heading)}</p>` : ''}${links.map(([h, t]) => `<a href="${h}">${escText(t)}</a>`).join('')}</nav>`;
 }
@@ -124,7 +125,7 @@ ${body}
   <p class="disclaimer" data-i18n="disclaimer"></p>
   <nav class="foot-social" aria-label="RasiVani on social media">${Object.entries({ WhatsApp: SITE.social.whatsapp, YouTube: SITE.youtubeByLang[lang] || SITE.social.youtube, Instagram: SITE.social.instagram, Facebook: SITE.social.facebook, X: SITE.social.x, ShareChat: SITE.social.sharechat }).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" rel="me noopener" target="_blank">${n}</a>`).join('')}</nav>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
-  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}${EXTRAS.footLinks(lang)}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><a href="terms" data-keep-lang data-paid>Terms</a><a href="refund" data-keep-lang data-paid>Refunds</a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
+  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}${EXTRAS.footLinks(lang)}${FUN.footLinks(lang)}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><a href="terms" data-keep-lang data-paid>Terms</a><a href="refund" data-keep-lang data-paid>Refunds</a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
 ${scripts ? ['js/i18n.js', 'js/astro.js', 'js/places.js', ...(page === 'reports' ? ['js/report.js', 'js/report-text.js', 'js/rt/en.js', 'js/reports-page.js'] : []), 'js/app.js'].map((f) => `<script src="${asset(f)}"></script>`).join('') : ''}
 </body>
@@ -176,7 +177,8 @@ write(`${pre}index.html`, layout({
   <a href="reports" data-keep-lang data-paid><h3 data-i18n="nav_reports"></h3><p data-i18n="reports_sub"></p></a>
   <a href="rasi-palan/${lang}/" data-palan><h3 data-i18n="nav_palan"></h3><p>${I18N.TERMS[lang].rasi.join(' · ')}</p></a>
   ${(EXTRA[lang] || []).map(([href, label, desc]) => `<a href="${href}"><h3>${escText(label)}</h3><p>${escText(desc)}</p></a>`).join('\n  ')}
-</section>`
+</section>
+${FUN.homeCards(lang)}`
 }));
 
 // ---- Marriage matching ----
@@ -350,7 +352,8 @@ write('404.html', layout({ page: 'info', file: '404.html', base: '/', title: `Pa
 
 // ---- SEO + PWA files ----
 const EXTRA_BUILT = await EXTRAS.buildExtras({ SITE, layout, write });
-export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'reports', 'about', 'privacy', 'contact', 'terms', 'refund', ...EXTRA_BUILT.urls];
+const FUN_BUILT = FUN.buildFun({ SITE, layout, write });
+export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'reports', 'about', 'privacy', 'contact', 'terms', 'refund', ...EXTRA_BUILT.urls, ...FUN_BUILT.urls];
 const pages = STATIC_PAGES;
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -392,7 +395,7 @@ ${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.c
 ## Astrology guides (a new guide every day)
 ${L.filter((l) => BLOG_LABEL[l.code]).map((l) => `- [${BLOG_LABEL[l.code]} (${l.name})](${SITE.url}/blog/${l.code}/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: ${SITE.url}/blog/${l.code}/feed.xml`).join('\n')}
 
-${EXTRA_BUILT.llms}## About
+${EXTRA_BUILT.llms}${FUN_BUILT.llms}## About
 - [About ${SITE.name}](${SITE.url}/about)
 - [Privacy](${SITE.url}/privacy)
 - Contact: ${SITE.email}

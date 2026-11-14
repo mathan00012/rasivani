@@ -242,13 +242,13 @@ tr.is-current, tbody tr.is-current { background: var(--mid-bg); }
 .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0 48px; }
 .services a { display: block; padding: 22px; text-decoration: none; color: #fff; border-radius: var(--radius); min-height: 150px; transition: transform .15s ease; }
 .services a:hover { transform: translateY(-2px); }
-.services a:nth-child(1) { background: linear-gradient(135deg, #c2185b, #e8590c); }
-.services a:nth-child(2) { background: linear-gradient(135deg, #2a1a5e, #5f3dc4); }
-.services a:nth-child(3) { background: linear-gradient(135deg, #0f7c7c, #2b8a3e); }
-.services a:nth-child(4) { background: linear-gradient(135deg, #b7791f, #e8590c); }
-.services a:nth-child(5) { background: linear-gradient(135deg, #43207a, #c2185b); }
-.services a:nth-child(6) { background: linear-gradient(135deg, #1c4e9e, #0f7c7c); }
-.services a:nth-child(7) { background: linear-gradient(135deg, #8a5300, #c2185b); }
+.services a:nth-child(7n+1) { background: linear-gradient(135deg, #c2185b, #e8590c); }
+.services a:nth-child(7n+2) { background: linear-gradient(135deg, #2a1a5e, #5f3dc4); }
+.services a:nth-child(7n+3) { background: linear-gradient(135deg, #0f7c7c, #2b8a3e); }
+.services a:nth-child(7n+4) { background: linear-gradient(135deg, #b7791f, #e8590c); }
+.services a:nth-child(7n+5) { background: linear-gradient(135deg, #43207a, #c2185b); }
+.services a:nth-child(7n+6) { background: linear-gradient(135deg, #1c4e9e, #0f7c7c); }
+.services a:nth-child(7n+7) { background: linear-gradient(135deg, #8a5300, #c2185b); }
 .services h3 { margin: 0 0 6px; font-size: 20px; }
 .services p { margin: 0; opacity: .9; font-size: 15px; line-height: 1.45; }
 @media (max-width: 960px) { .services { grid-template-columns: 1fr 1fr; } }
@@ -600,3 +600,150 @@ html:not([data-script="en"]):not([data-script="hi"]):not([data-script="mr"]) .pr
 
 /* Paid reports: hidden inside the Play Store app */
 .in-app [data-paid] { display: none !important; }
+
+/* ===== Fun tools: Friendship score, FLAMES, Nakshatra animal (tools/fun.mjs, js/fun.js) ===== */
+.fun-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.fun-badges span { padding: 4px 12px; border-radius: 999px; background: rgba(255, 255, 255, .12); color: var(--on-night); font-size: 14px; font-weight: 600; }
+.fun-stars { border: 0; padding: 0; margin: 4px 0 8px; min-width: 0; }
+.fun-stars legend { font-weight: 700; font-size: 15px; padding: 0; margin-bottom: 2px; }
+.fun-seg { display: flex; margin-bottom: 16px; }
+.fun-seg button { flex: 1; }
+.fun-result { margin: 32px auto; max-width: 560px; }
+.fun-card { text-align: center; padding: 28px 20px 20px; border-radius: var(--radius); background: var(--surface); border-top: 5px solid var(--kumkum); box-shadow: var(--shadow); }
+.fun-names { margin: 0 0 12px; font-weight: 700; font-size: 18px; overflow-wrap: anywhere; }
+.fun-ring { --deg: 0deg; width: 168px; aspect-ratio: 1; margin: 8px auto 16px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--kumkum) 0deg, var(--gold) var(--deg), var(--surface-2) var(--deg)); animation: fun-pop .5s ease-out; }
+.fun-ring span { width: 132px; aspect-ratio: 1; border-radius: 50%; background: var(--surface); display: flex; align-items: center; justify-content: center; font: 700 48px/1 var(--script); font-variant-numeric: tabular-nums; }
+.fun-ring small { font-size: 22px; }
+.fun-title { margin: 0 0 6px; font-size: 24px; color: var(--kumkum); }
+.fun-big { font-size: 32px; }
+.fun-line { margin: 0 auto 16px; max-width: 40ch; font-size: 17px; }
+.fun-count { margin: 0 0 4px; color: var(--muted); font-size: 15px; }
+.fun-tip { margin: 0 auto 16px; padding: 10px 14px; border-radius: 12px; background: var(--surface-2); font-size: 15px; max-width: 46ch; }
+.fun-note { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+.fun-bars { list-style: none; margin: 0 0 8px; padding: 0; text-align: left; display: grid; gap: 8px; }
+.fun-bars li { display: grid; grid-template-columns: minmax(0, 9em) 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.fun-bar { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.fun-bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--gold), var(--kumkum)); }
+.fun-bars b { font-variant-numeric: tabular-nums; }
+.fl-letters { display: grid; gap: 6px; margin: 0 0 10px; }
+.fl-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+.fl-row span { min-width: 30px; padding: 4px 6px; border-radius: 8px; background: var(--surface-2); font-weight: 700; font-size: 18px; }
+.fl-row span.cut { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--muted); opacity: .55; }
+.fl-word { display: flex; justify-content: center; gap: 6px; margin: 8px 0 14px; }
+.fl-word span { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; font-weight: 700; }
+.fl-word .out { color: var(--muted); text-decoration: line-through; }
+.fl-word .win { background: var(--kumkum); color: #fff; animation: fun-pop .5s ease-out; }
+.an-emoji { font-size: 84px; line-height: 1; margin: 4px 0 8px; animation: fun-pop .5s ease-out; }
+.an-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; text-align: left; }
+.an-facts > div { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); min-width: 0; }
+.an-facts dt { font-size: 13px; color: var(--muted); }
+.an-facts dd { margin: 2px 0 0; font-weight: 600; }
+.fun-actions { justify-content: center; flex-wrap: wrap; }
+.fun-home { margin: 8px 0 48px; }
+.fun-home h2 { margin: 0 0 16px; }
+.fun-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.fun-cards a { display: block; padding: 20px 22px; border-radius: var(--radius); color: #fff; text-decoration: none; transition: transform .15s ease; }
+.fun-cards a:hover { transform: translateY(-2px); }
+.fun-cards a:nth-child(4n+1) { background: linear-gradient(135deg, #e8590c, #f2a516); }
+.fun-cards a:nth-child(4n+2) { background: linear-gradient(135deg, #c2185b, #7b1fa2); }
+.fun-cards a:nth-child(4n+3) { background: linear-gradient(135deg, #0f7c7c, #1c4e9e); }
+.fun-cards a:nth-child(4n+4) { background: linear-gradient(135deg, #2a1a5e, #c2185b); }
+.fun-cards h3 { margin: 6px 0 4px; font-size: 20px; }
+.fun-cards p { margin: 0; opacity: .92; font-size: 15px; line-height: 1.45; }
+.fun-emo { font-size: 34px; line-height: 1; }
+@keyframes fun-pop { from { transform: scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .fun-ring, .fl-word .win, .an-emoji { animation: none; } .fun-cards a { transition: none; } }
+@media (max-width: 520px) { .an-facts { grid-template-columns: 1fr; } .fun-bars li { grid-template-columns: minmax(0, 7.5em) 1fr auto; } }
+
+/* Friendship cartoon scenes (js/fun.js sceneSvg). A stands at x=110, B at x=250 */
+.fs-wrap { margin: -8px -4px 8px; }
+.fs-scene { display: block; width: 100%; height: auto; border-radius: 14px; }
+.fs-scene text { font-family: var(--script); }
+.fs-who, .fs-p, .fs-arm, .fs-mv, .fs-mouth, .fs-umb, .fs-cup-a, .fs-cup-b, .fs-burst, .fs-cloud, .fs-sun { transform-box: fill-box; }
+.fs-arm { transform-origin: 50% 0; }
+.fs-cap { margin: 0 auto 12px; font-weight: 700; font-size: 18px; max-width: 34ch; }
+.fs-praise { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+.fs-praise li { padding: 10px 14px; border-radius: 12px; background: var(--surface-2); font-weight: 600; }
+.fs-replay { text-align: center; margin: 12px 0 0; }
+@keyframes fs-slide { from { transform: none; } to { transform: translateX(var(--dx, 0)); } }
+@keyframes fs-raise-r { to { transform: rotate(-150deg); } }
+@keyframes fs-raise-l { to { transform: rotate(150deg); } }
+@keyframes fs-wave-r { 0%, 100% { transform: rotate(-120deg); } 50% { transform: rotate(-160deg); } }
+@keyframes fs-wave-l { 0%, 100% { transform: rotate(120deg); } 50% { transform: rotate(160deg); } }
+@keyframes fs-bounce { 0%, 100% { transform: none; } 50% { transform: translateY(-10px); } }
+@keyframes fs-jump { 0%, 100% { transform: none; } 40% { transform: translateY(-34px); } 60% { transform: translateY(-34px); } }
+@keyframes fs-rain { from { transform: translateY(-30px); } to { transform: translateY(200px); } }
+@keyframes fs-fall { from { transform: translateY(0) rotate(0); } to { transform: translateY(260px) rotate(200deg); } }
+@keyframes fs-float { 0% { transform: translateY(10px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-36px); opacity: 0; } }
+@keyframes fs-blink { 0%, 80%, 100% { opacity: 0; } 85% { opacity: 1; } }
+@keyframes fs-pop { 0%, 40% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes fs-fade-out { to { opacity: 0; } }
+@keyframes fs-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fs-smile { to { transform: scaleY(-1) translateY(-4px); } }
+@keyframes fs-tilt-a { 0%, 100% { transform: none; } 50% { transform: translateX(8px) rotate(14deg); } }
+@keyframes fs-tilt-b { 0%, 100% { transform: none; } 50% { transform: translateX(-8px) rotate(-14deg); } }
+.fs-float { animation: fs-float 2.4s ease-out infinite; } .fs-d2 { animation-delay: 1.1s; }
+.fs-mv { animation: fs-slide 1.6s ease-in-out .6s forwards; --dx: 84px; }
+/* 0 biryani: the piece travels from A's side to B's */
+.fs-s0 .fs-mv { --dx: 26px; }
+.fs-s0 .fs-a .fs-arm-r { animation: fs-raise-r .6s ease-out forwards; animation-name: fs-wave-r; animation-iteration-count: 2; }
+/* 1 umbrella: A walks up and holds it over B, rain keeps falling */
+.fs-s1 .fs-aw { --dx: 74px; animation: fs-slide 1.2s ease-out forwards; }
+.fs-s1 .fs-a .fs-arm-r { animation: fs-raise-r .5s ease-out 1.1s forwards; }
+.fs-s1 .fs-umb { opacity: 0; animation: fs-fade-in .4s ease-out 1.2s forwards; }
+.fs-rain { animation: fs-rain 1s linear infinite; }
+/* 2 selfie */
+.fs-s2 .fs-aw { --dx: 50px; animation: fs-slide 1s ease-out forwards; }
+.fs-s2 .fs-bw { --dx: -40px; animation: fs-slide 1s ease-out forwards; }
+.fs-s2 .fs-a .fs-arm-r { animation: fs-raise-r .5s ease-out .9s forwards; }
+.fs-s2 rect, .fs-s2 .fs-flash { transform: translateX(6px); }
+.fs-flash { animation: fs-blink 1.6s linear 1.2s infinite; opacity: 0; }
+/* 3 high five */
+.fs-s3 .fs-aw { --dx: 44px; animation: fs-slide 1s ease-in forwards; }
+.fs-s3 .fs-bw { --dx: -44px; animation: fs-slide 1s ease-in forwards; }
+.fs-s3 .fs-a .fs-arm-r { animation: fs-raise-r .4s ease-out .7s forwards; }
+.fs-s3 .fs-b .fs-arm-l { animation: fs-raise-l .4s ease-out .7s forwards; }
+.fs-burst { transform-origin: center; animation: fs-pop 1.2s ease-out .6s both; }
+/* 4 chai cheers */
+.fs-s4 .fs-aw { --dx: 22px; animation: fs-slide .8s ease-out forwards; }
+.fs-s4 .fs-bw { --dx: -22px; animation: fs-slide .8s ease-out forwards; }
+.fs-cup-a { animation: fs-tilt-a 1.4s ease-in-out .8s infinite; }
+.fs-cup-b { animation: fs-tilt-b 1.4s ease-in-out .8s infinite; }
+.fs-steam { animation: fs-float 2s ease-out infinite; }
+/* 5 dance */
+.fs-s5 .fs-a { animation: fs-bounce .6s ease-in-out infinite; }
+.fs-s5 .fs-b { animation: fs-bounce .6s ease-in-out .3s infinite; }
+.fs-s5 .fs-a .fs-arm-r, .fs-s5 .fs-b .fs-arm-r { animation: fs-wave-r .6s ease-in-out infinite; }
+.fs-s5 .fs-a .fs-arm-l, .fs-s5 .fs-b .fs-arm-l { animation: fs-wave-l .6s ease-in-out .3s infinite; }
+/* 6 notes before the exam */
+.fs-s6 .fs-mv { --dx: 84px; }
+/* 7 ice cream cheers up a sad friend */
+.fs-s7 .fs-mv { --dx: 80px; }
+.fs-cloud { animation: fs-fade-out .6s ease-in 2.2s forwards; }
+.fs-sun { opacity: 0; animation: fs-fade-in .6s ease-out 2.6s forwards; }
+.fs-s7 .fs-mouth { transform-origin: center; animation: fs-smile .3s ease-out 2.2s forwards; }
+.fs-s7 .fs-b .fs-arm-l { animation: fs-raise-l .4s ease-out 2s forwards; animation-name: fs-wave-l; animation-iteration-count: 3; }
+/* 8 victory jump with confetti */
+.fs-s8 .fs-a, .fs-s8 .fs-b { animation: fs-jump 1.1s ease-in-out infinite; }
+.fs-s8 .fs-b { animation-delay: .15s; }
+.fs-s8 .fs-arm-r { animation: fs-wave-r 1.1s ease-in-out infinite; }
+.fs-s8 .fs-arm-l { animation: fs-wave-l 1.1s ease-in-out infinite; }
+.fs-confetti { animation: fs-fall 2.6s linear infinite; }
+/* 9 dosti hug */
+.fs-s9 .fs-aw { --dx: 52px; animation: fs-slide 1.2s ease-in forwards; }
+.fs-s9 .fs-bw { --dx: -52px; animation: fs-slide 1.2s ease-in forwards; }
+.fs-s9 .fs-a .fs-arm-r { animation: fs-raise-r .5s ease-out 1.1s forwards; animation-name: fs-hug-a; }
+.fs-s9 .fs-b .fs-arm-l { animation: fs-raise-l .5s ease-out 1.1s forwards; animation-name: fs-hug-b; }
+@keyframes fs-hug-a { to { transform: rotate(-80deg); } }
+@keyframes fs-hug-b { to { transform: rotate(80deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .fs-scene * { animation-duration: .01s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; }
+}
+.fun-who { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 4px; margin: 0 0 12px; min-width: 0; }
+.fun-who legend { font-weight: 700; padding: 0 6px; }
+.fun-glabel { display: block; font-weight: 600; margin-bottom: 6px; }
+.fun-who .fun-seg { margin-bottom: 0; }
+.fun-dobrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: start; }
+.fun-glabel { font-size: 15px; margin-bottom: 0; }
+@media (max-width: 420px) { .fun-dobrow { grid-template-columns: 1fr; gap: 0; } }

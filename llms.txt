@@ -93,6 +93,18 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - Why 108? The maths behind the beads: https://rasivani.com/learn/en/why-108/ · https://rasivani.com/learn/ta/why-108/ · https://rasivani.com/learn/te/why-108/
 - Your birth star (nakshatra), explained: https://rasivani.com/learn/en/birth-star/ · https://rasivani.com/learn/ta/birth-star/ · https://rasivani.com/learn/te/birth-star/
 
+## Fun tools (free, shareable on WhatsApp)
+- English: [Friendship score](https://rasivani.com/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- हिन्दी: [Friendship score](https://rasivani.com/hi/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/hi/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/hi/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- தமிழ்: [Friendship score](https://rasivani.com/ta/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/ta/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/ta/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- తెలుగు: [Friendship score](https://rasivani.com/te/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/te/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/te/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- ಕನ್ನಡ: [Friendship score](https://rasivani.com/kn/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/kn/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/kn/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- മലയാളം: [Friendship score](https://rasivani.com/ml/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/ml/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/ml/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- मराठी: [Friendship score](https://rasivani.com/mr/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/mr/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/mr/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- বাংলা: [Friendship score](https://rasivani.com/bn/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/bn/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/bn/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- ગુજરાતી: [Friendship score](https://rasivani.com/gu/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/gu/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/gu/nakshatra-animal/) (yoni animal of each of the 27 stars)
+- ଓଡ଼ିଆ: [Friendship score](https://rasivani.com/or/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/or/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/or/nakshatra-animal/) (yoni animal of each of the 27 stars)
+
 ## About
 - [About RasiVani](https://rasivani.com/about)
 - [Privacy](https://rasivani.com/privacy)
