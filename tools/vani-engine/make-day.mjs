@@ -140,7 +140,7 @@ async function textPack(lang) {
   let pack = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
   if (pack && pack._lang === lang) return pack;
   log(`  translating to ${lang}...`);
-  const tr = (t, f) => translate(t, lang, f);
+  const tr = (t, f = true) => translate(t, lang, f); // VANI (a woman) speaks titles and hooks
   pack = { _lang: lang, _note: 'Edit any line and run again. Delete voice-' + lang + ' files for that clip to remake its voice.', lines: {} };
   pack.title = await tr(day.title);
   pack.hook = await tr(day.hook);
