@@ -35,9 +35,9 @@ const BLOG_LABEL = {};
 for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
 // Footer and home-page links to the rasi, nakshatra and festival pages (built by tools/pages.mjs; text in content/pages/<lang>.mjs)
 const EXTRA = {};
-for (const l of ['ta', 'te']) {
+for (const l of ['ta', 'te', 'hi']) {
   const U = (await import(`../content/pages/${l}.mjs`)).default.ui;
-  EXTRA[l] = [U.rasi_hub && ['rasi/ta/', U.rasi_hub, U.rasi_hub_desc], U.nak_hub && ['nakshatra/ta/', U.nak_hub, U.nak_hub_desc], [`festivals/${l}/`, U.fest_hub, U.fest_hub_desc]].filter(Boolean);
+  EXTRA[l] = [U.rasi_hub && [`rasi/${l}/`, U.rasi_hub, U.rasi_hub_desc], U.nak_hub && [`nakshatra/${l}/`, U.nak_hub, U.nak_hub_desc], U.fest_hub && [`festivals/${l}/`, U.fest_hub, U.fest_hub_desc]].filter(Boolean);
 }
 export const LANG_CODES = I18N.LANGS.map((l) => l.code);
 // IndexNow lets Bing, Yandex, Seznam and Naver know the moment a page changes. The key is public by design.
