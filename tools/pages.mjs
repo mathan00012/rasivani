@@ -117,7 +117,7 @@ function rasiPage(lang, r, today) {
 
   const file = `rasi/${lang}/${slug}/index.html`, url = `${SITE.url}/rasi/${lang}/${slug}/`;
   const title = fill(U.rasi_title, { rasi: name, month: monthName(lang, today) });
-  const description = fill(U.rasi_desc, { rasi: name, lord: T.planet[lord], month });
+  const description = fill(U.rasi_desc, { rasi: name, lord: T.planet[lord], month, naks: nakList });
   const faqVars = { rasi: name, lord: T.planet[lord], day: T.weekday[LORD_DAY[lord]], naks: nakList, chandra: chandraText };
   const faq = U.rasi_faq.map(([q, a]) => [fill(q, faqVars), fill(a, faqVars)]);
   const facts = [
