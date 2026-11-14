@@ -9,9 +9,11 @@ import { fileURLToPath } from 'node:url';
 export const SITE = {
   name: 'RasiVani',
   url: 'https://rasivani.com',          // your domain, no trailing slash
-  email: 'hello@rasivani.com',          // a real inbox you read (AdSense and Play Store require contact info)
+  email: 'hello@rasivani.com',
+  seller: 'RasiVani (a unit of Krishna WB &amp; Digi House)',                    // business name shown on Contact/Terms/Refund pages (Razorpay and Indian e-commerce rules need it)
+  address: 'Ambur, Tamil Nadu 635808, India',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
-  updated: '2026-11-11',
+  updated: '2026-11-13',
   // YouTube channel per language: paste each new channel's address here; a language left empty uses the main channel.
   youtubeByLang: { ta: 'https://www.youtube.com/@rasivani.official', te: '', en: '' },
   social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
@@ -26,6 +28,7 @@ const write = (f, s) => { mkdirSync(dirname(join(root, f)), { recursive: true })
 await import('../js/i18n.js');
 const { I18N } = globalThis;
 const { SEO } = await import('./seo.mjs');
+const EXTRAS = await import('./extras.mjs');
 // Footer label for the guides (blog); the articles themselves are built by tools/blog.mjs
 const BLOG_LABEL = {};
 for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
@@ -59,7 +62,7 @@ const navText = (lang, key) => (I18N.UI[lang] && I18N.UI[lang][key]) || I18N.UI.
 // who arrives from a video can reach the chart, porutham, panchangam, rasi palan and the rest in one tap.
 export function exploreNav(lang, heading = '') {
   const links = [[toolHref(lang, 'index.html'), navText(lang, 'nav_chart')], [toolHref(lang, 'porutham.html'), navText(lang, 'nav_match')],
-    [toolHref(lang, 'panchangam.html'), navText(lang, 'nav_panchang')], [`rasi-palan/${lang}/`, navText(lang, 'nav_palan')],
+    [toolHref(lang, 'panchangam.html'), navText(lang, 'nav_panchang')], ...EXTRAS.exploreLinks(lang), [`rasi-palan/${lang}/`, navText(lang, 'nav_palan')],
     ...(EXTRA[lang] || []).map(([href, label]) => [href, label])];
   return `<nav class="explore" aria-label="${escAttr(heading || SITE.name)}">${heading ? `<p>${escText(heading)}</p>` : ''}${links.map(([h, t]) => `<a href="${h}">${escText(t)}</a>`).join('')}</nav>`;
 }
@@ -68,6 +71,8 @@ export function layout({ page, file, title, description, body, scripts = true, b
   const nav = [['index.html', 'nav_chart', 'chart'], ['porutham.html', 'nav_match', 'match'], ['panchangam.html', 'nav_panchang', 'panchang']]
     .map(([href, key, id]) => `<a href="${toolHref(lang, href)}" data-keep-lang="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ''}>${escText(navText(lang, key))}</a>`).join('')
     + `<a href="rasi-palan/${lang}/" data-palan data-i18n="nav_palan"${page === 'palan' ? ' aria-current="page"' : ''}>${escText(navText(lang, 'nav_palan'))}</a>`
+    + EXTRAS.navLink(lang, page)
+    + `<a href="reports" data-keep-lang data-paid data-i18n="nav_reports"${page === 'reports' ? ' aria-current="page"' : ''}>${escText(navText(lang, 'nav_reports'))}</a>`
     + (BLOG_LABEL[lang] ? `<a href="blog/${lang}/" data-blog data-i18n="nav_blog"${page === 'blog' ? ' aria-current="page"' : ''}>${escText(navText(lang, 'nav_blog'))}</a>` : '');
   const adsense = SITE.adsenseClient
     ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>` : '';
@@ -103,7 +108,7 @@ export function layout({ page, file, title, description, body, scripts = true, b
 <link rel="stylesheet" href="${asset('css/style.css')}">
 ${siteLd}${jsonld}${head}${adsense}
 </head>
-<body data-page="${page}" data-lang="${lang}"${fixed ? ' data-fixed="1"' : ''}${langMap ? ` data-alt="${escAttr(JSON.stringify(langMap))}"` : ''}>
+<body data-page="${page}" data-lang="${lang}" data-support="${SITE.email}"${fixed ? ' data-fixed="1"' : ''}${langMap ? ` data-alt="${escAttr(JSON.stringify(langMap))}"` : ''}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap head-row">
   <a class="brand" href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html">${LOGO}<span>${SITE.name}</span></a>
@@ -117,9 +122,9 @@ ${body}
   <p class="disclaimer" data-i18n="disclaimer"></p>
   <nav class="foot-social" aria-label="RasiVani on social media">${Object.entries({ WhatsApp: SITE.social.whatsapp, YouTube: SITE.youtubeByLang[lang] || SITE.social.youtube, Instagram: SITE.social.instagram, Facebook: SITE.social.facebook, X: SITE.social.x, ShareChat: SITE.social.sharechat }).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" rel="me noopener" target="_blank">${n}</a>`).join('')}</nav>
   <nav class="foot-langs" aria-label="Languages">${langLinks}</nav>
-  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
+  <div class="foot-links">${BLOG_LABEL[lang] ? `<a href="blog/${lang}/">${escText(BLOG_LABEL[lang])}</a>` : ''}${(EXTRA[lang] || []).map(([href, label]) => `<a href="${href}">${escText(label)}</a>`).join('')}${EXTRAS.footLinks(lang)}<a href="about" data-keep-lang data-i18n="about"></a><a href="privacy" data-keep-lang data-i18n="privacy"></a><a href="contact" data-keep-lang data-i18n="contact"></a><a href="terms" data-keep-lang data-paid>Terms</a><a href="refund" data-keep-lang data-paid>Refunds</a><span>© ${SITE.updated.slice(0, 4)} ${SITE.name}</span></div>
 </div></footer>
-${scripts ? ['js/i18n.js', 'js/astro.js', 'js/places.js', 'js/app.js'].map((f) => `<script src="${asset(f)}"></script>`).join('') : ''}
+${scripts ? ['js/i18n.js', 'js/astro.js', 'js/places.js', ...(page === 'reports' ? ['js/report.js', 'js/report-text.js', 'js/rt/en.js', 'js/reports-page.js'] : []), 'js/app.js'].map((f) => `<script src="${asset(f)}"></script>`).join('') : ''}
 </body>
 </html>
 `.replace(/(<[a-z0-9]+\b[^>]*\bdata-i18n="(\w+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${escText(I18N.UI[lang]?.[key] ?? I18N.UI.en[key] ?? '')}${close}`);
@@ -155,6 +160,7 @@ write(`${pre}index.html`, layout({
       <div class="field"><label for="b-time" data-i18n="tob"></label><input id="b-time" type="time" required></div>
     </div>
     <div id="chart-place"></div>
+    ${EXTRAS.chartPicker(lang)}
     <button class="btn" type="submit" data-i18n="btn_chart"></button>
     ${privateNote}
   </form>
@@ -164,6 +170,8 @@ write(`${pre}index.html`, layout({
   <a href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html"><h3 data-i18n="nav_chart"></h3><p data-i18n="chart_sub"></p></a>
   <a href="${toolHref(lang, 'porutham.html')}" data-keep-lang="porutham.html"><h3 data-i18n="nav_match"></h3><p data-i18n="match_sub"></p></a>
   <a href="${toolHref(lang, 'panchangam.html')}" data-keep-lang="panchangam.html"><h3 data-i18n="nav_panchang"></h3><p data-i18n="panchang_sub"></p></a>
+  ${EXTRAS.serviceCards(lang)}
+  <a href="reports" data-keep-lang data-paid><h3 data-i18n="nav_reports"></h3><p data-i18n="reports_sub"></p></a>
   <a href="rasi-palan/${lang}/" data-palan><h3 data-i18n="nav_palan"></h3><p>${I18N.TERMS[lang].rasi.join(' · ')}</p></a>
   ${(EXTRA[lang] || []).map(([href, label, desc]) => `<a href="${href}"><h3>${escText(label)}</h3><p>${escText(desc)}</p></a>`).join('\n  ')}
 </section>`
@@ -205,6 +213,54 @@ write(`${pre}panchangam.html`, layout({
 // ---- Static pages required by AdSense / Play Store ----
 const prose = (file, title, html) => write(file, layout({ page: 'info', file, title: `${title} | ${SITE.name}`, description: `${title} - ${SITE.name}`, body: `<article class="prose">${html}</article>` }));
 
+// ---- Paid in-depth reports ----
+const PRODUCT_CARDS = [['complete', 99], ['birth', 49], ['career', 49], ['marriage', 49]].map(([k, price]) => `
+    <button type="button" class="prod${k === 'complete' ? ' prod-best' : ''}" role="radio" aria-checked="false" data-product="${k}">
+      ${k === 'complete' ? '<span class="prod-badge" data-rt="best_value"></span>' : ''}
+      <span class="prod-title" data-rt="title_${k}"></span>
+      <span class="prod-desc" data-rt="desc_${k}"></span>
+      <span class="prod-foot"><span class="prod-price">₹${price}</span><span class="prod-pages" data-rt="pages_${k}"></span></span>
+    </button>`).join('');
+write('reports.html', layout({
+  page: 'reports', file: 'reports.html',
+  title: 'In-depth Horoscope Report: Career, Marriage &amp; Mangal Dosha from ₹49 | RasiVani',
+  description: 'Detailed horoscope reports in Tamil, Telugu, Kannada, Malayalam, Hindi and more: career and money, marriage timing, Mangal dosha, yogas, Sade Sati and dasha periods. Free preview, PDF by email.',
+  head: `<link rel="stylesheet" href="${asset('css/reports.css')}">`,
+  body: `<div id="rep-app" class="prose" hidden><p data-rt="app_note"></p></div>
+<div id="rep-main">
+<section class="hero" style="grid-template-columns:1fr;padding-bottom:12px">
+  <div><h1 data-rt="page_title"></h1><p class="lede" data-rt="page_sub"></p></div>
+</section>
+<h2 class="rep-h2" data-rt="choose"></h2>
+<div class="prods" role="radiogroup">${PRODUCT_CARDS}
+</div>
+<form id="rep-form" class="panel rep-form" novalidate>
+  <p class="error" id="rep-error" role="alert" hidden></p>
+  <div class="row2">
+    <div class="field"><label for="r-name" data-i18n="name"></label><input id="r-name" autocomplete="name"></div>
+    <div class="field"><label for="r-gender" data-rt="gender"></label><select id="r-gender"><option value="m" data-rt="male"></option><option value="f" data-rt="female"></option></select></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="r-date" data-i18n="dob"></label><input id="r-date" type="date" required></div>
+    <div class="field"><label for="r-time" data-i18n="tob"></label><input id="r-time" type="time" required></div>
+  </div>
+  <div id="rep-place"></div>
+  <div class="field"><label for="r-email" data-rt="email"></label><input id="r-email" type="email" autocomplete="email" inputmode="email"></div>
+  <button class="btn" type="submit" data-rt="btn_preview"></button>
+</form>
+<section id="rep-result" class="result" aria-live="polite" hidden></section>
+<section id="rep-saved" class="block rep-aside" hidden><h3 data-rt="saved_head"></h3><ul></ul></section>
+<details class="block rep-aside"><summary data-rt="recover_head"></summary>
+  <form id="rec-form" novalidate><p class="note" data-rt="recover_q"></p>
+    <div class="row2"><div class="field"><label for="rec-id" data-rt="payment_id"></label><input id="rec-id" autocomplete="off" spellcheck="false" placeholder="pay_XXXXXXXXXXXX"></div>
+    <div class="field" style="align-self:end"><button class="btn-secondary" type="submit" data-rt="btn_recover"></button></div></div>
+    <p class="status" id="rec-msg" role="status"></p></form>
+</details>
+</div>`
+}));
+
+const policyContact = `<p><strong>${SITE.seller}</strong><br>${SITE.address}<br>Email: <a href="mailto:${SITE.email}">${SITE.email}</a></p>`;
+
 prose('about.html', 'About', `<h1>About ${SITE.name}</h1>
 <p>${SITE.name} (“light of your horoscope”) is a free Vedic astrology site for families across India and the diaspora. It makes a jathagam (birth chart), checks marriage porutham, and shows the daily panchangam in ten Indian languages.</p>
 <h2>How the calculations work</h2>
@@ -221,6 +277,8 @@ prose('privacy.html', 'Privacy policy', `<h1>Privacy policy</h1>
 <h2>Your birth details stay on your device</h2>
 <p>Names, dates, times and places you type are processed only in your browser. They are not sent to our servers or stored by us. Your language, city and chart-style choices are saved in your browser’s local storage so the site remembers them; you can clear them at any time in your browser settings.</p>
 <p>Place search runs on our own offline list first. Only when it has few matches, when you tap “Search more places”, “Pick on map” or “Use my location” does your browser send the place name you typed, or the map point / your location’s coordinates, to OpenStreetMap services (Photon by komoot, Nominatim, and the OpenStreetMap map tiles) to find the place. Your location is asked for only when you tap “Use my location”, and is used only to fill the birth place box.</p>
+<h2>Paid reports</h2>
+<p>When you buy a detailed report, the report is still calculated in your browser. To take payment and deliver it we share only what is needed: Razorpay (our payment gateway) receives your email, the amount and a short code made from your birth date, time and place, so a paid report can be reopened later; your card or UPI details go directly to Razorpay and never reach us. The finished PDF is sent to your email through our email provider (Resend) and is not stored by us after sending. Payment records are kept by Razorpay as Indian law requires.</p>
 <h2>Advertising and cookies</h2>
 <p>This site may show ads from Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites. Google’s use of advertising cookies enables it and its partners to serve ads based on your visits to this site and/or other sites on the Internet. You can opt out of personalised advertising at <a href="https://www.google.com/settings/ads" rel="noopener">Google Ads Settings</a>, or opt out of some third-party vendors’ cookies at <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>. Learn more in <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites that use its services</a>.</p>
 <p>Visitors in the European Economic Area, the UK and Switzerland are shown a consent message (Google-certified CMP) before any personalised ads are served.</p>
@@ -235,7 +293,46 @@ prose('contact.html', 'Contact', `<h1>Contact us</h1>
 <p>We would love to hear about mistakes in translations or calculations, and ideas for new services.</p>
 <p>We answer by email only, usually within two working days.</p>
 <p>Email: <strong>${SITE.email}</strong></p>
-<p>When reporting a calculation issue, please include the date, time and place you entered (only if you are comfortable sharing them).</p>`);
+<p>When reporting a calculation issue, please include the date, time and place you entered (only if you are comfortable sharing them).</p>
+<h2>Business details</h2>
+${policyContact}
+<p>Questions about a paid report or a refund: write to the email above with your payment ID. See also our <a href="terms">terms</a> and <a href="refund">refund and delivery policy</a>.</p>`);
+
+prose('terms.html', 'Terms of use', `<h1>Terms of use</h1>
+<p>Last updated: ${SITE.updated}</p>
+<p>${SITE.name} (${SITE.url}) is run by ${SITE.seller}. By using the site you agree to these terms.</p>
+<h2>What we offer</h2>
+<p>Free tools (birth chart, porutham, panchangam, rasi palan) and paid detailed reports: Birth Report (₹49), Career &amp; Money Report (₹49), Marriage &amp; Mangal Dosha Report (₹49) and the Full Life Pack (₹99, all three reports plus more sections). Each is a one-time payment, not a subscription. Prices are in Indian rupees and include all taxes. Each paid report is a computer-generated document made from the birth details you enter, using traditional rules of Vedic astrology.</p>
+<h2>Nature of astrology</h2>
+<p>Astrology is a traditional belief system, not a science. Reports are for cultural and personal interest. They do not predict events with certainty and are not medical, legal, financial, career or relationship advice. Do not make important decisions on the basis of a report alone. You must be 18 or older to buy a report.</p>
+<h2>Your responsibilities</h2>
+<p>You are responsible for entering correct birth details and a working email address. A report bought for one set of birth details cannot be moved to another person.</p>
+<h2>Payment</h2>
+<p>Payments are processed by Razorpay Software Pvt. Ltd. We never see or store your card, UPI or bank details.</p>
+<h2>Delivery and refunds</h2>
+<p>Reports are delivered instantly on screen and by email. See the <a href="refund">refund and delivery policy</a>.</p>
+<h2>Liability</h2>
+<p>To the extent the law allows, our total liability for any claim about a paid report is limited to the amount you paid for it.</p>
+<h2>Governing law</h2>
+<p>These terms follow the laws of India. Grievances: write to the contact below; we reply within 48 hours and resolve within one month.</p>
+${policyContact}`);
+
+prose('refund.html', 'Refund, cancellation and delivery policy', `<h1>Refund, cancellation and delivery policy</h1>
+<p>Last updated: ${SITE.updated}</p>
+<h2>Delivery</h2>
+<p>All reports are digital. Nothing is shipped. Your report appears on screen right after payment, a PDF downloads to your device, and a copy is emailed to the address you give, usually within 5 minutes. You can reopen a paid report any time on the same device, or on any device with your payment ID and the same birth details.</p>
+<h2>Refunds</h2>
+<ul>
+<li><strong>Not delivered:</strong> if you paid but did not receive your report because of a technical problem, email us within 7 days with your payment ID and we will deliver it or refund the full amount.</li>
+<li><strong>Charged twice:</strong> duplicate payments for the same report are refunded in full.</li>
+<li><strong>Wrong birth details:</strong> if you typed a wrong date, time or place, email us within 7 days and we will send a corrected report once, free.</li>
+<li>Because a report is generated instantly and cannot be returned, we do not offer refunds for a change of mind once it has been delivered.</li>
+</ul>
+<p>Approved refunds go back to the original payment method through Razorpay within 5–7 working days.</p>
+<h2>Cancellation</h2>
+<p>You can cancel any time before paying. A failed or cancelled payment is never charged; if money left your account, your bank returns it automatically.</p>
+<h2>Contact</h2>
+${policyContact}`);
 
 // ---- 404 page ----
 // Cloudflare Pages serves 404.html (with status 404) for any unknown address, at that address, so every
@@ -250,7 +347,8 @@ write('404.html', layout({ page: 'info', file: '404.html', base: '/', title: `Pa
 </article>` }).replace('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">', '<meta name="robots" content="noindex">').replace(/\n<link rel="canonical"[^>]*>/, ''));
 
 // ---- SEO + PWA files ----
-export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'about', 'privacy', 'contact'];
+const EXTRA_BUILT = await EXTRAS.buildExtras({ SITE, layout, write });
+export const STATIC_PAGES = [...LANG_CODES.flatMap((l) => TOOL_FILES.map((f) => toolHref(l, f).replace(/^\.\/$/, ''))), 'reports', 'about', 'privacy', 'contact', 'terms', 'refund', ...EXTRA_BUILT.urls];
 const pages = STATIC_PAGES;
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -292,7 +390,7 @@ ${L.map((l) => `- [Today's rasi palan in ${l.name}](${SITE.url}/rasi-palan/${l.c
 ## Astrology guides (a new guide every day)
 ${L.filter((l) => BLOG_LABEL[l.code]).map((l) => `- [${BLOG_LABEL[l.code]} (${l.name})](${SITE.url}/blog/${l.code}/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: ${SITE.url}/blog/${l.code}/feed.xml`).join('\n')}
 
-## About
+${EXTRA_BUILT.llms}## About
 - [About ${SITE.name}](${SITE.url}/about)
 - [Privacy](${SITE.url}/privacy)
 - Contact: ${SITE.email}
@@ -327,6 +425,18 @@ self.addEventListener('fetch', (e) => {
 // /ta/ (/ta/rasi-palan/ta/, /ta/blog/ta/, /ta/te/, /ta/about ...). Those addresses may be bookmarked or
 // indexed: send them to the real page. Language folders hold only index, porutham and panchangam pages,
 // so anything nested under them is one of these.
-write('_redirects', `# Generated by tools/build.mjs\n${LANG_CODES.filter((l) => l !== 'en').map((l) =>
-  ['about', 'privacy', 'contact'].map((f) => `/${l}/${f} /${f} 301`).join('\n') + `\n/${l}/:seg/* /:seg/:splat 301`).join('\n')}\n`);
+// Only those old folders are listed (not /<lang>/:seg/*): Cloudflare applies a redirect even when a file exists,
+// and the language folders now also hold real pages (/ta/rahu-kalam/, /ta/calendar/).
+// Cloudflare allows only 100 rules with * or :placeholders, so language-folder links are listed one page at a time.
+const OLD_SEGS = (l) => ['rasi-palan', 'blog', ...(['ta', 'te'].includes(l) ? ['rasi', 'nakshatra', 'festivals'] : [])];
+// Easy language addresses: rasivani.com/tamil -> /ta/ (the short codes stay the main, indexed addresses)
+const LANG_NAMES = [['tamil', 'ta'], ['telugu', 'te'], ['kannada', 'kn'], ['malayalam', 'ml'], ['hindi', 'hi'], ['marathi', 'mr'], ['bengali', 'bn'], ['bangla', 'bn'], ['gujarati', 'gu'], ['odia', 'or'], ['oriya', 'or']];
+const easyLang = [...LANG_NAMES.flatMap(([n, c]) => [`/${n}/rasi-palan/* /rasi-palan/${c}/:splat 301`, `/${n}/blog/* /blog/${c}/:splat 301`, `/${n}/learn/* /learn/${c}/:splat 301`, `/${n} /${c}/ 301`, `/${n}/* /${c}/:splat 301`]),
+  '/english / 301', '/english/rasi-palan/* /rasi-palan/en/:splat 301', '/english/blog/* /blog/en/:splat 301', '/english/learn/* /learn/en/:splat 301', '/english/* /:splat 301', '/en / 301', '/en/* /:splat 301'];
+// Cloudflare counts every rule after the first one with * or :name as dynamic (limit 100), so exact rules go first.
+const redirectLines = `${easyLang.join('\n')}\n${LANG_CODES.filter((l) => l !== 'en').map((l) =>
+  ['about', 'privacy', 'contact', 'reports', 'terms', 'refund'].map((f) => `/${l}/${f} /${f} 301`).join('\n') + '\n' + OLD_SEGS(l).map((x) => `/${l}/${x}/* /${x}/:splat 301`).join('\n')
+  + '\n' + LANG_CODES.filter((x) => x !== l && x !== 'en').flatMap((x) => TOOL_FILES.map((f) => `/${l}/${toolHref(x, f).replace(/^\.\/$/, '')} /${toolHref(x, f).replace(/^\.\/$/, '')} 301`)).join('\n')).join('\n')}`.split('\n');
+const isDynamic = (r) => /[*:]/.test(r.split(' ')[0]);
+write('_redirects', `# Generated by tools/build.mjs\n${[...redirectLines.filter((r) => !isDynamic(r)), ...redirectLines.filter(isDynamic)].join('\n')}\n`);
 console.log('Built pages for', SITE.url);

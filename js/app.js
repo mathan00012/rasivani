@@ -228,6 +228,7 @@
     return nav.find((x) => UI[x]) || 'en';
   }
   let rerender = null;
+  const langHooks = [];
   function applyLang(l) {
     lang = l; store.set('gv-lang', l);
     document.documentElement.lang = l;
@@ -248,6 +249,7 @@
     const toolFile = { chart: 'index.html', match: 'porutham.html', panchang: 'panchangam.html' }[document.body.dataset.page];
     if (toolFile && history.replaceState) { try { history.replaceState(null, '', new URL(toolHref(l, toolFile), document.baseURI).href); } catch (e) { /* file:// previews */ } }
     fillTermSelects();
+    langHooks.forEach((fn) => fn(l));
     if (rerender) rerender();
   }
 
@@ -332,7 +334,9 @@
     const all = [c.lagna, ...c.planets];
     const nav = all.map((p) => Object.assign({}, p, { rasi: p.navamsa }));
     const centre = `${KALASHA}<span class="sc-name">${esc(name || '')}</span><span class="sc-date">${esc(dateStr)}</span>`;
-    const draw = (items, title, lr, ctr) => style === 'south' ? southChart(items, title, ctr) : northChart(items, title, lr);
+    const draw = (items, title, lr, ctr) => style === 'south' ? southChart(items, title, ctr)
+      : style === 'east' && window.ChartStyles ? window.ChartStyles.east(items, title, { label: (p) => T().abbr[p.key] + (p.retro && p.key !== 'rahu' && p.key !== 'ketu' ? '(R)' : ''), centre: ctr ? [title, name || '', dateStr] : [title] })
+      : northChart(items, title, lr);
     const now = Date.now();
     const R = (p) => p.retro && p.key !== 'rahu' && p.key !== 'ketu';
     const rows = all.map((p) => `<tr><th scope="row"><span class="dot pl-${p.key}"></span>${esc(T().planet[p.key])}${R(p) ? ' <span class="tag">R</span>' : ''}</th><td>${esc(T().rasiShort[p.rasi])}</td><td class="num">${fmtDeg(p.deg)}</td><td>${esc(T().nak[p.nak.index])} · ${p.nak.pada}</td><td>${esc(T().planet[DASHA_ORDER[p.nak.index % 9]])}</td><td>${esc(T().rasiShort[p.navamsa])}</td></tr>`).join('');
@@ -362,6 +366,7 @@
         <div class="seg" role="group" aria-label="${esc(t('chart_style'))}">
           <button type="button" data-style="south" aria-pressed="${style === 'south'}">${esc(t('south'))}</button>
           <button type="button" data-style="north" aria-pressed="${style === 'north'}">${esc(t('north'))}</button>
+          ${window.ChartStyles ? `<button type="button" data-style="east" aria-pressed="${style === 'east'}">${esc(window.ChartStyles.text(lang, 'east'))}</button>` : ''}
         </div>
       </div>
       <dl class="facts">
@@ -640,6 +645,8 @@
   });
 
   // ---------- Boot ----------
+  // Hooks for the extra pages (js/kalam.js, js/calendars.js) and the East Indian chart (js/chartstyles.js)
+  window.RV = { placeField, wirePlace, readPlace, setPlace, t: (k) => t(k) };
   function boot() {
     const sel = $('#lang');
     if (sel) {
@@ -656,6 +663,11 @@
       });
     }
     const page = document.body.dataset.page;
+    // Inside the Play Store app (TWA) digital goods must use Play billing, so paid reports are hidden there
+    try {
+      if (document.referrer.startsWith('android-app://')) sessionStorage.setItem('rv-app', '1');
+      if (sessionStorage.getItem('rv-app') === '1') document.documentElement.classList.add('in-app');
+    } catch (e) { /* storage blocked */ }
     // On phones the menu scrolls sideways: bring the current section into view
     { const nv = $('.nav'), cur = nv && $('.nav a[aria-current]'); const show = () => { if (cur && nv.scrollWidth > nv.clientWidth) nv.scrollLeft += cur.getBoundingClientRect().left - nv.getBoundingClientRect().left - 16; }; show(); if (document.fonts) document.fonts.ready.then(show); }
     // The English tool pages (/, /porutham, /panchangam) open in the visitor's own language:
@@ -671,6 +683,8 @@
     if (page === 'chart') initChart();
     if (page === 'match') initMatch();
     if (page === 'panchang') initPanch();
+    if (page === 'reports' && window.initReports) window.initReports({ placeField, wirePlace, readBirth, t, lang: () => lang, onLang: (fn) => langHooks.push(fn) });
+    if (window.RVExtra && window.RVExtra[page]) window.RVExtra[page]();
     applyLang(detectLang());
     if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   }

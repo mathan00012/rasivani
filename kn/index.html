@@ -29,14 +29,14 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=2e0ac36dc6">
+<link rel="stylesheet" href="css/style.css?v=27b6d3cf5f">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://rasivani.com/#website","name":"RasiVani","alternateName":"RasiVani Jathagam & Rasi Palan","url":"https://rasivani.com/","inLanguage":["en","hi","ta","te","kn","ml","mr","bn","gu","or"],"publisher":{"@id":"https://rasivani.com/#org"}},{"@type":"Organization","@id":"https://rasivani.com/#org","name":"RasiVani","url":"https://rasivani.com/","email":"hello@rasivani.com","logo":"https://rasivani.com/icons/icon-512.png","sameAs":["https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h","https://www.youtube.com/@rasivani.official","https://www.facebook.com/rasivani.official","https://x.com/rasivani_off","https://sharechat.com/profile/rasivani"]}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RasiVani","url":"https://rasivani.com","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"kn","description":"ಉಚಿತ ಕನ್ನಡ ಜಾತಕ ಆನ್‌ಲೈನ್: ಲಗ್ನ, ರಾಶಿ, ನವಾಂಶ, ನಕ್ಷತ್ರ, ಗ್ರಹ ಸ್ಥಿತಿ, ವಿಂಶೋತ್ತರಿ ದಶಾ. ದಕ್ಷಿಣ ಮತ್ತು ಉತ್ತರ ಭಾರತೀಯ ಕುಂಡಲಿ.","image":"https://rasivani.com/icons/og.png"}</script>
 </head>
-<body data-page="chart" data-lang="kn" data-fixed="1">
+<body data-page="chart" data-lang="kn" data-support="hello@rasivani.com" data-fixed="1">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap head-row">
   <a class="brand" href="kn/" data-keep-lang="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/><circle cx="16" cy="16" r="6" fill="#f2a516"/><circle cx="27.3" cy="9.5" r="2.4" fill="currentColor"/></svg><span>RasiVani</span></a>
-  <nav class="nav" aria-label="Main"><a href="kn/" data-keep-lang="index.html" data-i18n="nav_chart" aria-current="page">ಜಾತಕ</a><a href="kn/porutham" data-keep-lang="porutham.html" data-i18n="nav_match">ಜಾತಕ ಹೊಂದಾಣಿಕೆ</a><a href="kn/panchangam" data-keep-lang="panchangam.html" data-i18n="nav_panchang">ಪಂಚಾಂಗ</a><a href="rasi-palan/kn/" data-palan data-i18n="nav_palan">ರಾಶಿ ಭವಿಷ್ಯ</a><a href="blog/kn/" data-blog data-i18n="nav_blog">ಲೇಖನಗಳು</a></nav>
+  <nav class="nav" aria-label="Main"><a href="kn/" data-keep-lang="index.html" data-i18n="nav_chart" aria-current="page">ಜಾತಕ</a><a href="kn/porutham" data-keep-lang="porutham.html" data-i18n="nav_match">ಜಾತಕ ಹೊಂದಾಣಿಕೆ</a><a href="kn/panchangam" data-keep-lang="panchangam.html" data-i18n="nav_panchang">ಪಂಚಾಂಗ</a><a href="rasi-palan/kn/" data-palan data-i18n="nav_palan">ರಾಶಿ ಭವಿಷ್ಯ</a><a href="kn/rahu-kalam/">ರಾಹು ಕಾಲ</a><a href="reports" data-keep-lang data-paid data-i18n="nav_reports">ಜಾತಕ ವರದಿ</a><a href="blog/kn/" data-blog data-i18n="nav_blog">ಲೇಖನಗಳು</a></nav>
   <div class="lang-pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><label class="skip" for="lang" data-i18n="nav_lang">ಭಾಷೆ</label><select id="lang" aria-label="Language"></select></div>
 </div></header>
 <main id="main" class="wrap">
@@ -57,6 +57,37 @@
       <div class="field"><label for="b-time" data-i18n="tob">ಜನ್ಮ ಸಮಯ</label><input id="b-time" type="time" required></div>
     </div>
     <div id="chart-place"></div>
+    <fieldset class="cs-pick" id="chart-style-pick">
+      <legend>ನಿಮ್ಮ ಕುಂಡಲಿ ಶೈಲಿ ಆರಿಸಿ</legend>
+      <p class="cs-hint">ಗ್ರಹಗಳು ಅವೇ, ಬರೆಯುವ ವಿಧಾನ ಮೂರು. ನಿಮ್ಮ ಕುಟುಂಬ ನೋಡುವ ಶೈಲಿ ಆರಿಸಿ. ಜಾತಕ ಬಂದ ನಂತರವೂ ಬದಲಾಯಿಸಬಹುದು.</p>
+      <div class="cs-opts">
+        <label class="cs-opt"><input type="radio" name="chart-style" value="south" checked>
+          <svg class="cs-mini" viewBox="0 0 200 200" aria-hidden="true"><g class="cs-grid"><rect x="50" y="0" width="50" height="50"/><text x="75" y="31">ಚಂ</text><rect x="100" y="0" width="50" height="50"/><rect x="150" y="0" width="50" height="50"/><rect x="150" y="50" width="50" height="50"/><text x="175" y="81">ಗು</text><rect x="150" y="100" width="50" height="50"/><text x="175" y="131">ಲ</text><rect x="150" y="150" width="50" height="50"/><rect x="100" y="150" width="50" height="50"/><rect x="50" y="150" width="50" height="50"/><text x="75" y="181">ರ</text><rect x="0" y="150" width="50" height="50"/><rect x="0" y="100" width="50" height="50"/><rect x="0" y="50" width="50" height="50"/><rect x="0" y="0" width="50" height="50"/><text x="25" y="31">ಶ</text><rect class="cs-c" x="50" y="50" width="100" height="100"/></g><text class="cs-arrow" x="100" y="106">→ ↻</text></svg>
+          <span class="cs-name">ದಕ್ಷಿಣ ಭಾರತ</span>
+          <span class="cs-where">(ತಮಿಳುನಾಡು, ಕೇರಳ, ಕರ್ನಾಟಕ, ಆಂಧ್ರ, ತೆಲಂಗಾಣ, ಶ್ರೀಲಂಕಾ)</span>
+          <span class="cs-how">ರಾಶಿಗಳು ಸ್ಥಿರ, ಪ್ರದಕ್ಷಿಣವಾಗಿ</span>
+        </label>
+        <label class="cs-opt"><input type="radio" name="chart-style" value="north">
+          <svg class="cs-mini" viewBox="0 0 200 200" aria-hidden="true"><g class="cs-grid"><polygon class="cs-l" points="100,0 150,50 100,100 50,50"/><rect x="0" y="0" width="200" height="200"/><line x1="0" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="200"/><polygon points="100,0 200,100 100,200 0,100"/><text class="cs-n" x="100" y="35.5">5</text><text x="100" y="57.5">ಲ</text><text class="cs-n" x="50" y="17">6</text><text class="cs-n" x="25" y="44.5">7</text><text class="cs-n" x="52.5" y="92">8</text><text x="52.5" y="105">ರ</text><text class="cs-n" x="25" y="142">9</text><text class="cs-n" x="50" y="168">10</text><text class="cs-n" x="100" y="174">11</text><text class="cs-n" x="150" y="168">12</text><text x="150" y="181">ಶ</text><text class="cs-n" x="175" y="142">1</text><text x="175" y="155">ಚಂ</text><text class="cs-n" x="147.5" y="92">2</text><text class="cs-n" x="175" y="44.5">3</text><text class="cs-n" x="150" y="17">4</text><text x="150" y="30">ಗು</text></g></svg>
+          <span class="cs-name">ಉತ್ತರ ಭಾರತ</span>
+          <span class="cs-where">(ಉತ್ತರ ಮತ್ತು ಪಶ್ಚಿಮ ಭಾರತ, ನೇಪಾಳ)</span>
+          <span class="cs-how">ಲಗ್ನ ಮೇಲೆ, ಭಾವಗಳು ಅಪ್ರದಕ್ಷಿಣವಾಗಿ</span>
+        </label>
+        <label class="cs-opt"><input type="radio" name="chart-style" value="east">
+          <svg class="cs-mini cs-east" aria-hidden="true" viewBox="0 0 400 400">
+      <rect class="ec-bg" x="1" y="1" width="398" height="398"/>
+      <rect class="ec-mid" x="133.33333333333334" y="133.33333333333334" width="133.33333333333334" height="133.33333333333334"/>
+      <rect class="ec-frame" x="1" y="1" width="398" height="398"/>
+      <line x1="133.33333333333334" y1="1" x2="133.33333333333334" y2="399"/><line x1="266.6666666666667" y1="1" x2="266.6666666666667" y2="399"/>
+      <line x1="1" y1="133.33333333333334" x2="399" y2="133.33333333333334"/><line x1="1" y1="266.6666666666667" x2="399" y2="266.6666666666667"/>
+      <line x1="1" y1="1" x2="133.33333333333334" y2="133.33333333333334"/><line x1="399" y1="1" x2="266.6666666666667" y2="133.33333333333334"/>
+      <line x1="1" y1="399" x2="133.33333333333334" y2="266.6666666666667"/><line x1="399" y1="399" x2="266.6666666666667" y2="266.6666666666667"/><text x="200" y="18" class="ec-num"></text><text x="200" y="67" class="ec-p">ಚಂ</text><text x="92" y="16" class="ec-num"></text><text x="14" y="128" class="ec-num ec-l"></text><text x="22" y="150" class="ec-num"></text><text x="62" y="205" class="ec-p">ಗು</text><text x="14" y="280" class="ec-num ec-l"></text><text x="40" y="313" class="ec-p ec-small">ಲ</text><text x="92" y="392" class="ec-num"></text><text x="200" y="390" class="ec-num"></text><text x="308" y="392" class="ec-num"></text><text x="308" y="367" class="ec-p ec-small">ರ</text><text x="386" y="280" class="ec-num ec-r"></text><text x="378" y="150" class="ec-num"></text><text x="386" y="128" class="ec-num ec-r"></text><text x="308" y="16" class="ec-num"></text><text x="308" y="45" class="ec-p ec-small">ಶ</text></svg>
+          <span class="cs-name">ಪೂರ್ವ ಭಾರತ</span>
+          <span class="cs-where">(ಬಂಗಾಳ, ಒಡಿಶಾ, ಅಸ್ಸಾಂ, ಬಾಂಗ್ಲಾದೇಶ)</span>
+          <span class="cs-how">ರಾಶಿಗಳು ಸ್ಥಿರ, ಅಪ್ರದಕ್ಷಿಣವಾಗಿ</span>
+        </label>
+      </div>
+    </fieldset><script defer src="js/chartstyles.js"></script>
     <button class="btn" type="submit" data-i18n="btn_chart">ಜಾತಕ ರಚಿಸಿ</button>
     <p class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><span data-i18n="private_note">ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳು ನಿಮ್ಮ ಸಾಧನದಿಂದ ಹೊರಗೆ ಹೋಗುವುದಿಲ್ಲ.</span></p>
   </form>
@@ -66,6 +97,9 @@
   <a href="kn/" data-keep-lang="index.html"><h3 data-i18n="nav_chart">ಜಾತಕ</h3><p data-i18n="chart_sub">ರಾಶಿ ಮತ್ತು ನವಾಂಶ ಕುಂಡಲಿ, ಜನ್ಮ ನಕ್ಷತ್ರ ಮತ್ತು ವಿಂಶೋತ್ತರಿ ದಶೆಯೊಂದಿಗೆ ಉಚಿತ ಜಾತಕ. ಲಾಹಿರಿ ಅಯನಾಂಶದಲ್ಲಿ ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲೇ ಲೆಕ್ಕ.</p></a>
   <a href="kn/porutham" data-keep-lang="porutham.html"><h3 data-i18n="nav_match">ಜಾತಕ ಹೊಂದಾಣಿಕೆ</h3><p data-i18n="match_sub">ವಧು-ವರರ ಜನ್ಮ ವಿವರ ಅಥವಾ ನಕ್ಷತ್ರದಿಂದ ಹತ್ತು ಕೂಟಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.</p></a>
   <a href="kn/panchangam" data-keep-lang="panchangam.html"><h3 data-i18n="nav_panchang">ಪಂಚಾಂಗ</h3><p data-i18n="panchang_sub">ನಿಮ್ಮ ನಗರಕ್ಕೆ ತಿಥಿ, ನಕ್ಷತ್ರ, ಯೋಗ, ಕರಣ, ಸೂರ್ಯೋದಯ ಮತ್ತು ರಾಹು ಕಾಲ.</p></a>
+  <a href="kn/rahu-kalam/"><h3>ಇಂದಿನ ರಾಹು ಕಾಲ</h3><p>ನಿಮ್ಮ ಊರಿನ ಇಂದಿನ ಸೂರ್ಯೋದಯ ಮತ್ತು ಸೂರ್ಯಾಸ್ತದಿಂದ ರಾಹು ಕಾಲ, ಯಮಗಂಡ, ಗುಳಿಕ ಕಾಲದ ಸರಿಯಾದ ಸಮಯ. ಬೆಳಿಗ್ಗೆ 6 ಗಂಟೆಯ ಪಟ್ಟಿ ಅಲ್ಲ.</p></a>
+  <a href="kn/calendar/"><h3>ಇಂದಿನ ಭಾರತೀಯ ಕ್ಯಾಲೆಂಡರ್‌ಗಳು</h3><p>ಒಂದೇ ದಿನಾಂಕ, ಐದು ಭಾರತೀಯ ಕ್ಯಾಲೆಂಡರ್‌ಗಳು. ಸಂಕ್ರಾಂತಿ ಏಕೆ ಸರಿಯುವುದಿಲ್ಲ, ದೀಪಾವಳಿ ಏಕೆ ಸರಿಯುತ್ತದೆ ಎಂಬುದೂ ಇಲ್ಲಿದೆ.</p></a>
+  <a href="reports" data-keep-lang data-paid><h3 data-i18n="nav_reports">ಜಾತಕ ವರದಿ</h3><p data-i18n="reports_sub">ವೃತ್ತಿ, ವಿವಾಹ ಮತ್ತು ಕುಜ ದೋಷದ ವಿವರವಾದ ವರದಿ ₹49 ರಿಂದ, ಉಚಿತ ಮುನ್ನೋಟದೊಂದಿಗೆ.</p></a>
   <a href="rasi-palan/kn/" data-palan><h3 data-i18n="nav_palan">ರಾಶಿ ಭವಿಷ್ಯ</h3><p>ಮೇಷ · ವೃಷಭ · ಮಿಥುನ · ಕಟಕ · ಸಿಂಹ · ಕನ್ಯಾ · ತುಲಾ · ವೃಶ್ಚಿಕ · ಧನು · ಮಕರ · ಕುಂಭ · ಮೀನ</p></a>
   
 </section>
@@ -74,8 +108,8 @@
   <p class="disclaimer" data-i18n="disclaimer">ಜ್ಯೋತಿಷ್ಯ ಒಂದು ಸಾಂಪ್ರದಾಯಿಕ ನಂಬಿಕೆ, ವಿಜ್ಞಾನವಲ್ಲ. ಈ ಫಲಿತಾಂಶಗಳನ್ನು ಸಾಂಸ್ಕೃತಿಕ ಮಾರ್ಗದರ್ಶನವಾಗಿ ಮಾತ್ರ ಬಳಸಿ; ವೈದ್ಯಕೀಯ, ಹಣಕಾಸು ಅಥವಾ ಕಾನೂನು ನಿರ್ಧಾರಗಳಿಗೆ ಅಲ್ಲ.</p>
   <nav class="foot-social" aria-label="RasiVani on social media"><a href="https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h" rel="me noopener" target="_blank">WhatsApp</a><a href="https://www.youtube.com/@rasivani.official" rel="me noopener" target="_blank">YouTube</a><a href="https://www.facebook.com/rasivani.official" rel="me noopener" target="_blank">Facebook</a><a href="https://x.com/rasivani_off" rel="me noopener" target="_blank">X</a><a href="https://sharechat.com/profile/rasivani" rel="me noopener" target="_blank">ShareChat</a></nav>
   <nav class="foot-langs" aria-label="Languages"><a href="./" hreflang="en" lang="en">English</a><a href="hi/" hreflang="hi" lang="hi">हिन्दी</a><a href="ta/" hreflang="ta" lang="ta">தமிழ்</a><a href="te/" hreflang="te" lang="te">తెలుగు</a><a href="kn/" hreflang="kn" lang="kn">ಕನ್ನಡ</a><a href="ml/" hreflang="ml" lang="ml">മലയാളം</a><a href="mr/" hreflang="mr" lang="mr">मराठी</a><a href="bn/" hreflang="bn" lang="bn">বাংলা</a><a href="gu/" hreflang="gu" lang="gu">ગુજરાતી</a><a href="or/" hreflang="or" lang="or">ଓଡ଼ିଆ</a></nav>
-  <div class="foot-links"><a href="blog/kn/">ಜ್ಯೋತಿಷ ಮಾರ್ಗದರ್ಶಿಗಳು</a><a href="about" data-keep-lang data-i18n="about">ನಮ್ಮ ಬಗ್ಗೆ</a><a href="privacy" data-keep-lang data-i18n="privacy">ಗೌಪ್ಯತೆ</a><a href="contact" data-keep-lang data-i18n="contact">ಸಂಪರ್ಕ</a><span>© 2026 RasiVani</span></div>
+  <div class="foot-links"><a href="blog/kn/">ಜ್ಯೋತಿಷ ಮಾರ್ಗದರ್ಶಿಗಳು</a><a href="kn/calendar/">ಭಾರತೀಯ ಕ್ಯಾಲೆಂಡರ್‌ಗಳು</a><a href="learn/kn/">ಕಲಿಯಿರಿ</a><a href="about" data-keep-lang data-i18n="about">ನಮ್ಮ ಬಗ್ಗೆ</a><a href="privacy" data-keep-lang data-i18n="privacy">ಗೌಪ್ಯತೆ</a><a href="contact" data-keep-lang data-i18n="contact">ಸಂಪರ್ಕ</a><a href="terms" data-keep-lang data-paid>Terms</a><a href="refund" data-keep-lang data-paid>Refunds</a><span>© 2026 RasiVani</span></div>
 </div></footer>
-<script src="js/i18n.js?v=fee801f7ee"></script><script src="js/astro.js?v=0a627ef139"></script><script src="js/places.js?v=daabaa3a8d"></script><script src="js/app.js?v=77fdc57117"></script>
+<script src="js/i18n.js?v=c3f47f4d91"></script><script src="js/astro.js?v=0a627ef139"></script><script src="js/places.js?v=daabaa3a8d"></script><script src="js/app.js?v=fdfb946fe9"></script>
 </body>
 </html>

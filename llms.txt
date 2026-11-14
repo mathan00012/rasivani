@@ -65,6 +65,34 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - [જ્યોતિષ માર્ગદર્શિકા (ગુજરાતી)](https://rasivani.com/blog/gu/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: https://rasivani.com/blog/gu/feed.xml
 - [ଜ୍ୟୋତିଷ ଗାଇଡ୍ (ଓଡ଼ିଆ)](https://rasivani.com/blog/or/): plain-language guides to Chandrashtamam, the 10 poruthams, Rajju and Vedha, reading a jathagam, Rahu kalam, Sade Sati, the 27 nakshatras, dasha and bhukti, panchangam basics and monthly vrat days. RSS: https://rasivani.com/blog/or/feed.xml
 
+## Rahu kalam finder (updated every day)
+- [Rahu kalam today, English](https://rasivani.com/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/rahu-kalam/<city> (chennai, bengaluru, hyderabad, mumbai, new-delhi, kolkata, kochi, singapore, kuala-lumpur, dubai, colombo, london, new-york, toronto, sydney)
+- [Rahu kalam today, தமிழ்](https://rasivani.com/ta/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/ta/rahu-kalam/<city> (chennai, madurai, coimbatore, tiruchirappalli, salem, tirunelveli, puducherry, vellore, bengaluru, jaffna, colombo, singapore, kuala-lumpur, dubai)
+- [Rahu kalam today, తెలుగు](https://rasivani.com/te/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/te/rahu-kalam/<city> (hyderabad, visakhapatnam, vijayawada, tirupati, warangal, guntur, nellore, kurnool, chennai, bengaluru)
+- [Rahu kalam today, हिन्दी](https://rasivani.com/hi/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/hi/rahu-kalam/<city> (new-delhi, lucknow, varanasi, jaipur, patna, bhopal, mumbai, hyderabad, bengaluru, chennai, dubai)
+- [Rahu kalam today, ಕನ್ನಡ](https://rasivani.com/kn/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/kn/rahu-kalam/<city> (bengaluru, mysuru, mangaluru, hubballi, belagavi, udupi, chennai, hyderabad)
+- [Rahu kalam today, മലയാളം](https://rasivani.com/ml/rahu-kalam/): Rahu kalam, Yamagandam, Gulika kalam and Abhijit muhurtam for any place, from that place's sunrise and sunset; city pages at https://rasivani.com/ml/rahu-kalam/<city> (thiruvananthapuram, kochi, kozhikode, thrissur, kannur, kottayam, chennai, dubai)
+
+## Indian calendars (updated every day)
+- [Indian calendars today, English](https://rasivani.com/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+- [Indian calendars today, தமிழ்](https://rasivani.com/ta/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+- [Indian calendars today, తెలుగు](https://rasivani.com/te/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+- [Indian calendars today, हिन्दी](https://rasivani.com/hi/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+- [Indian calendars today, ಕನ್ನಡ](https://rasivani.com/kn/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+- [Indian calendars today, മലയാളം](https://rasivani.com/ml/calendar/): today's date in the Tamil, Malayalam, Telugu-Kannada (amanta), North Indian (purnimanta) and Indian National (Saka) calendars, festivals for the next 12 months, and how solar and lunar calendars relate
+
+## Learn (explainers for the RasiVani cartoon videos)
+- [Learn, English](https://rasivani.com/learn/en/)
+- [Learn, தமிழ்](https://rasivani.com/learn/ta/)
+- [Learn, తెలుగు](https://rasivani.com/learn/te/)
+- [Learn, हिन्दी](https://rasivani.com/learn/hi/)
+- [Learn, ಕನ್ನಡ](https://rasivani.com/learn/kn/)
+- [Learn, മലയാളം](https://rasivani.com/learn/ml/)
+- Yamagandam: Yama's "office hours": https://rasivani.com/learn/en/yamagandam/ · https://rasivani.com/learn/ta/yamagandam/ · https://rasivani.com/learn/te/yamagandam/
+- Rasi and Lagnam are not the same thing: https://rasivani.com/learn/en/rasi-vs-lagnam/ · https://rasivani.com/learn/ta/rasi-vs-lagnam/ · https://rasivani.com/learn/te/rasi-vs-lagnam/
+- Why 108? The maths behind the beads: https://rasivani.com/learn/en/why-108/ · https://rasivani.com/learn/ta/why-108/ · https://rasivani.com/learn/te/why-108/
+- Your birth star (nakshatra), explained: https://rasivani.com/learn/en/birth-star/ · https://rasivani.com/learn/ta/birth-star/ · https://rasivani.com/learn/te/birth-star/
+
 ## About
 - [About RasiVani](https://rasivani.com/about)
 - [Privacy](https://rasivani.com/privacy)
