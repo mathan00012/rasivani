@@ -629,6 +629,56 @@
       setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     } catch (e) { window.print(); } finally { btn.disabled = false; btn.textContent = label; }
   }
+  // ---------- Porutham share card (square image: both stars, score, verdict, rasivani.com; no birth details) ----------
+  function wrapLines(ctx, text, max) {
+    const words = String(text).split(' '), lines = []; let cur = '';
+    for (const w of words) { const t2 = cur ? cur + ' ' + w : w; if (ctx.measureText(t2).width > max && cur) { lines.push(cur); cur = w; } else cur = t2; }
+    if (cur) lines.push(cur); return lines;
+  }
+  async function matchCardImage() {
+    const { r, girl, boy } = lastMatch; const S = 1080;
+    const c = document.createElement('canvas'); c.width = S; c.height = S; const x = c.getContext('2d');
+    try { await document.fonts.ready; } catch (e) { /* older browsers */ }
+    const g = x.createLinearGradient(0, 0, S, S); g.addColorStop(0, '#2a1a5e'); g.addColorStop(1, '#7a1f5c');
+    x.fillStyle = g; x.fillRect(0, 0, S, S);
+    // soft stars
+    x.fillStyle = 'rgba(255,244,223,.5)';
+    for (let i = 0; i < 70; i++) { const px = (i * 397) % S, py = (i * 211) % S, rr = (i % 3) + 1; x.beginPath(); x.arc(px, py, rr, 0, 7); x.fill(); }
+    const font = (w, sz) => `${w} ${sz}px Mukta, 'Noto Sans', system-ui, sans-serif`;
+    x.textAlign = 'center'; x.fillStyle = '#f2a516'; x.font = font(700, 44);
+    x.fillText(`💍 ${t('score')}`, S / 2, 130);
+    // score ring
+    const cx = S / 2, cy = 380, R = 170, col = r.verdict === 'good' ? '#4ade80' : r.verdict === 'ok' ? '#f2a516' : '#ff8a80';
+    x.lineWidth = 26; x.strokeStyle = 'rgba(255,255,255,.15)'; x.beginPath(); x.arc(cx, cy, R, 0, Math.PI * 2); x.stroke();
+    x.strokeStyle = col; x.lineCap = 'round'; x.beginPath(); x.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * Math.min(1, r.score / 10)); x.stroke();
+    x.fillStyle = '#fff4df'; x.font = font(800, 150); x.fillText(String(r.score), cx, cy + 40);
+    x.font = font(600, 40); x.fillStyle = '#d9c8f0'; x.fillText('/ 10', cx, cy + 100);
+    // the two people: star · rasi only
+    const who = (p) => `${T().nak[p.star]} · ${T().rasiShort[p.rasi]}`;
+    x.font = font(700, 46); x.fillStyle = '#fff4df';
+    x.fillText(who(girl), S / 2, 650); x.font = font(700, 40); x.fillStyle = '#f2a516'; x.fillText('❤', S / 2, 712);
+    x.font = font(700, 46); x.fillStyle = '#fff4df'; x.fillText(who(boy), S / 2, 778);
+    // verdict
+    x.font = font(500, 34); x.fillStyle = '#d9c8f0';
+    wrapLines(x, t('verdict_' + r.verdict), S - 160).slice(0, 2).forEach((ln, i) => x.fillText(ln, S / 2, 860 + i * 46));
+    // footer
+    x.fillStyle = 'rgba(0,0,0,.25)'; x.fillRect(0, S - 110, S, 110);
+    x.fillStyle = '#fff4df'; x.font = font(700, 40); x.fillText('rasivani.com', S / 2, S - 60);
+    x.font = font(500, 26); x.fillStyle = '#d9c8f0'; x.fillText(t('share_match'), S / 2, S - 22);
+    return new Promise((res) => c.toBlob(res, 'image/png'));
+  }
+  async function shareMatchCard(btn) {
+    const label = btn.textContent; btn.disabled = true; btn.textContent = '…';
+    try {
+      const blob = await matchCardImage();
+      const file = new File([blob], `rasivani-porutham-${lastMatch.r.score}.png`, { type: 'image/png' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try { await navigator.share({ files: [file], text: shareText }); return; } catch (e) { if (e && e.name === 'AbortError') return; }
+      }
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name;
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch (e) { window.print(); } finally { btn.disabled = false; btn.textContent = label; }
+  }
   async function downloadPdf(el, btn) {
     const label = btn.textContent; btn.disabled = true; btn.textContent = '…';
     try {
@@ -641,6 +691,7 @@
     if (b.dataset.act === 'wa') { shareWhatsApp(); return; }
     if (b.dataset.act === 'print') window.print();
     if (b.dataset.act === 'pdf') downloadPdf(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
+    if (b.dataset.act === 'png' && document.body.dataset.page === 'match' && lastMatch) { shareMatchCard(b); return; }
     if (b.dataset.act === 'png') downloadImage(b.closest('.result').querySelector('.jathagam, .match-card, .panch-card') || b.closest('.result'), b);
   });
 
