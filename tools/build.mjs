@@ -30,6 +30,7 @@ const { I18N } = globalThis;
 const { SEO } = await import('./seo.mjs');
 const EXTRAS = await import('./extras.mjs');
 const FUN = await import('./fun.mjs');
+const MYSTAR = await import('./mystar.mjs');
 // Footer label for the guides (blog); the articles themselves are built by tools/blog.mjs
 const BLOG_LABEL = {};
 for (const l of I18N.LANGS.map((x) => x.code)) { try { BLOG_LABEL[l] = (await import(`../content/blog/${l}.mjs`)).default.ui.blog; } catch { /* language not written yet */ } }
@@ -140,6 +141,8 @@ const trust = `<ul class="trust">
 </ul>`;
 const privateNote = `<p class="private">${ICON.lock}<span data-i18n="private_note"></span></p>`;
 
+const MYSTAR_CARD = {};
+for (const l of LANG_CODES) MYSTAR_CARD[l] = await MYSTAR.homeCard(l, { kalamHref: EXTRAS.kalamHref(l) });
 for (const lang of LANG_CODES) {
 const pre = lang === 'en' ? '' : `${lang}/`;
 const S = SEO[lang];
@@ -169,6 +172,7 @@ write(`${pre}index.html`, layout({
   </form>
 </section>
 <section id="chart-result" class="result" aria-live="polite" hidden></section>
+${MYSTAR_CARD[lang]}
 <section class="services" aria-label="Services">
   <a href="${toolHref(lang, 'index.html')}" data-keep-lang="index.html"><h3 data-i18n="nav_chart"></h3><p data-i18n="chart_sub"></p></a>
   <a href="${toolHref(lang, 'porutham.html')}" data-keep-lang="porutham.html"><h3 data-i18n="nav_match"></h3><p data-i18n="match_sub"></p></a>

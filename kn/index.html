@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=61a2cca362">
+<link rel="stylesheet" href="css/style.css?v=2579911ef1">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://rasivani.com/#website","name":"RasiVani","alternateName":"RasiVani Jathagam & Rasi Palan","url":"https://rasivani.com/","inLanguage":["en","hi","ta","te","kn","ml","mr","bn","gu","or"],"publisher":{"@id":"https://rasivani.com/#org"}},{"@type":"Organization","@id":"https://rasivani.com/#org","name":"RasiVani","url":"https://rasivani.com/","email":"hello@rasivani.com","logo":"https://rasivani.com/icons/icon-512.png","sameAs":["https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h","https://www.youtube.com/@rasivani.official","https://www.facebook.com/rasivani.official","https://x.com/rasivani_off","https://sharechat.com/profile/rasivani"]}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RasiVani","url":"https://rasivani.com","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"inLanguage":"kn","description":"ಉಚಿತ ಕನ್ನಡ ಜಾತಕ ಆನ್‌ಲೈನ್: ಲಗ್ನ, ರಾಶಿ, ನವಾಂಶ, ನಕ್ಷತ್ರ, ಗ್ರಹ ಸ್ಥಿತಿ, ವಿಂಶೋತ್ತರಿ ದಶಾ. ದಕ್ಷಿಣ ಮತ್ತು ಉತ್ತರ ಭಾರತೀಯ ಕುಂಡಲಿ.","image":"https://rasivani.com/icons/og.png"}</script>
 </head>
 <body data-page="chart" data-lang="kn" data-support="hello@rasivani.com" data-fixed="1">
@@ -93,6 +93,19 @@
   </form>
 </section>
 <section id="chart-result" class="result" aria-live="polite" hidden></section>
+<section class="mystar" id="my-star" aria-labelledby="mystar-h" data-lang="kn">
+  <div class="mystar-head"><h2 id="mystar-h">✦ ಇಂದು ನಿಮ್ಮ ನಕ್ಷತ್ರ</h2><button type="button" class="link-btn mystar-change" hidden>ನಕ್ಷತ್ರ ಬದಲಿಸಿ</button></div>
+  <form class="mystar-pick" novalidate>
+    <p class="cs-hint">ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರವನ್ನು ಒಮ್ಮೆ ಆರಿಸಿ. ಈ ಫೋನ್ ನೆನಪಿಡುತ್ತದೆ, ಲಾಗಿನ್ ಬೇಡ.</p>
+    <div class="field"><label for="ms-star">ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರ</label><select id="ms-star" required><option value="">ನಕ್ಷತ್ರ ಆರಿಸಿ</option><option value="0">ಅಶ್ವಿನಿ</option><option value="1">ಭರಣಿ</option><option value="2">ಕೃತ್ತಿಕಾ</option><option value="3">ರೋಹಿಣಿ</option><option value="4">ಮೃಗಶಿರ</option><option value="5">ಆರ್ದ್ರಾ</option><option value="6">ಪುನರ್ವಸು</option><option value="7">ಪುಷ್ಯ</option><option value="8">ಆಶ್ಲೇಷ</option><option value="9">ಮಘಾ</option><option value="10">ಪುಬ್ಬ</option><option value="11">ಉತ್ತರ</option><option value="12">ಹಸ್ತ</option><option value="13">ಚಿತ್ತಾ</option><option value="14">ಸ್ವಾತಿ</option><option value="15">ವಿಶಾಖ</option><option value="16">ಅನುರಾಧ</option><option value="17">ಜ್ಯೇಷ್ಠ</option><option value="18">ಮೂಲ</option><option value="19">ಪೂರ್ವಾಷಾಢ</option><option value="20">ಉತ್ತರಾಷಾಢ</option><option value="21">ಶ್ರವಣ</option><option value="22">ಧನಿಷ್ಠ</option><option value="23">ಶತಭಿಷ</option><option value="24">ಪೂರ್ವಾಭಾದ್ರ</option><option value="25">ಉತ್ತರಾಭಾದ್ರ</option><option value="26">ರೇವತಿ</option></select></div>
+    <div class="mystar-two" hidden><p>ನಿಮ್ಮ ನಕ್ಷತ್ರ ಎರಡು ರಾಶಿಗಳಲ್ಲಿ ಬರುತ್ತದೆ. ನಿಮ್ಮ ರಾಶಿ ಯಾವುದು?</p><div class="seg" role="group"></div></div>
+    <button class="btn" type="submit">ನನ್ನ ದಿನ ತೋರಿಸಿ</button>
+    <p class="cs-hint">ನಕ್ಷತ್ರ ಗೊತ್ತಿಲ್ಲವೇ? ಮೇಲೆ ಉಚಿತ ಜಾತಕ ಮಾಡಿ.</p>
+  </form>
+  <div class="mystar-out" aria-live="polite" hidden></div>
+  <script type="application/json" class="mystar-data">{"t":{"h":"ಇಂದು ನಿಮ್ಮ ನಕ್ಷತ್ರ","sub":"ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರವನ್ನು ಒಮ್ಮೆ ಆರಿಸಿ. ಈ ಫೋನ್ ನೆನಪಿಡುತ್ತದೆ, ಲಾಗಿನ್ ಬೇಡ.","star":"ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರ","pick":"ನಕ್ಷತ್ರ ಆರಿಸಿ","two":"ನಿಮ್ಮ ನಕ್ಷತ್ರ ಎರಡು ರಾಶಿಗಳಲ್ಲಿ ಬರುತ್ತದೆ. ನಿಮ್ಮ ರಾಶಿ ಯಾವುದು?","go":"ನನ್ನ ದಿನ ತೋರಿಸಿ","change":"ನಕ್ಷತ್ರ ಬದಲಿಸಿ","rahu":"ಇಂದಿನ ರಾಹು ಕಾಲ, {city}","other_city":"ಬೇರೆ ಊರು","next":"ಮುಂದಿನ ಹಬ್ಬ","in_days":"ಇನ್ನು {n} ದಿನಗಳಲ್ಲಿ","tomorrow":"ನಾಳೆ","today":"ಇಂದೇ!","full":"ಪೂರ್ಣ ಫಲ ಓದಿ","share":"ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಹಂಚಿ","share_line":"RasiVani ನಲ್ಲಿ ಇಂದು ನನ್ನ ನಕ್ಷತ್ರ ಫಲ. ನಿಮ್ಮದನ್ನೂ ಉಚಿತವಾಗಿ ನೋಡಿ:","dont_know":"ನಕ್ಷತ್ರ ಗೊತ್ತಿಲ್ಲವೇ? ಮೇಲೆ ಉಚಿತ ಜಾತಕ ಮಾಡಿ.","chandra":"ಇಂದು ಚಂದ್ರಾಷ್ಟಮ: ನಿಧಾನವಾಗಿರಿ.","loading":"ಇಂದಿನ ಫಲ ಬರುತ್ತಿದೆ…","failed":"ಇಂದಿನ ಫಲ ತೆರೆಯಲಿಲ್ಲ. ಪೂರ್ಣ ಫಲ ಪುಟ ತೆರೆಯಿರಿ."},"city":"ಬೆಂಗಳೂರು","lat":12.9716,"lon":77.5946,"fest":[["2026-11-24","ಕಾರ್ತಿಗೈ ದೀಪಂ (ತಮಿಳುನಾಡು)"],["2027-01-15","ಮಕರ ಸಂಕ್ರಾಂತಿ / ಪೊಂಗಲ್"],["2027-03-06","ಮಹಾ ಶಿವರಾತ್ರಿ"],["2027-04-07","ಯುಗಾದಿ (ಚಾಂದ್ರ ಹೊಸ ವರ್ಷ)"],["2027-04-14","ತಮಿಳು ಹೊಸ ವರ್ಷ / ಬೈಸಾಖಿ (ಸೌರ ಹೊಸ ವರ್ಷ)"],["2027-04-15","ವಿಷು / ಬಿಸು"],["2027-04-15","ಶ್ರೀರಾಮ ನವಮಿ"],["2027-08-18","ಚಿಂಗಂ 1, ಮಲಯಾಳಂ ಹೊಸ ವರ್ಷ"],["2027-09-04","ಗಣೇಶ ಚತುರ್ಥಿ"],["2027-09-12","ತಿರುವೋಣಂ (ಓಣಂ)"],["2027-09-30","ನವರಾತ್ರಿ / ದಸರಾ ಆರಂಭ"],["2027-10-09","ವಿಜಯದಶಮಿ"],["2027-10-29","ದೀಪಾವಳಿ (ಲಕ್ಷ್ಮೀ ಪೂಜೆ)"],["2027-12-11","ಕಾರ್ತಿಗೈ ದೀಪಂ (ತಮಿಳುನಾಡು)"]],"kalam":"kn/rahu-kalam/"}</script>
+  <script defer src="js/mystar.js?v=940809c719"></script>
+</section>
 <section class="services" aria-label="Services">
   <a href="kn/" data-keep-lang="index.html"><h3 data-i18n="nav_chart">ಜಾತಕ</h3><p data-i18n="chart_sub">ರಾಶಿ ಮತ್ತು ನವಾಂಶ ಕುಂಡಲಿ, ಜನ್ಮ ನಕ್ಷತ್ರ ಮತ್ತು ವಿಂಶೋತ್ತರಿ ದಶೆಯೊಂದಿಗೆ ಉಚಿತ ಜಾತಕ. ಲಾಹಿರಿ ಅಯನಾಂಶದಲ್ಲಿ ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲೇ ಲೆಕ್ಕ.</p></a>
   <a href="kn/porutham" data-keep-lang="porutham.html"><h3 data-i18n="nav_match">ಜಾತಕ ಹೊಂದಾಣಿಕೆ</h3><p data-i18n="match_sub">ವಧು-ವರರ ಜನ್ಮ ವಿವರ ಅಥವಾ ನಕ್ಷತ್ರದಿಂದ ಹತ್ತು ಕೂಟಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.</p></a>

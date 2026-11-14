@@ -747,3 +747,28 @@ html:not([data-script="en"]):not([data-script="hi"]):not([data-script="mr"]) .pr
 .fun-dobrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: start; }
 .fun-glabel { font-size: 15px; margin-bottom: 0; }
 @media (max-width: 420px) { .fun-dobrow { grid-template-columns: 1fr; gap: 0; } }
+
+/* "YOUR star today" card on the home page (tools/mystar.mjs, js/mystar.js) */
+.mystar { margin: 8px 0 32px; padding: 20px; border: 1.5px solid var(--line); border-radius: 18px; background: var(--surface); display: flex; flex-direction: column; gap: 12px; }
+.mystar-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.mystar h2 { margin: 0; }
+.mystar-pick { display: flex; flex-direction: column; gap: 12px; max-width: 520px; }
+.mystar-two .seg { display: flex; gap: 8px; flex-wrap: wrap; }
+.mystar-two button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.mystar-two button[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-2); font-weight: 700; }
+.ms-who { margin: 0; font-size: 18px; }
+.ms-palan p { margin: 0 0 8px; }
+.ms-advice { color: var(--muted, inherit); font-style: italic; }
+.ms-warn { font-weight: 700; color: var(--kumkum); }
+.ms-scores { list-style: none; margin: 0 0 8px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4px 20px; max-width: 520px; }
+.ms-scores li { display: flex; justify-content: space-between; gap: 8px; }
+.ms-scores b { color: var(--gold, #c98a00); letter-spacing: 1px; }
+.ms-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.ms-actions .btn { width: auto; min-height: 46px; text-decoration: none; }
+.ms-actions .btn-secondary { display: inline-flex; align-items: center; text-decoration: none; }
+.ms-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.ms-tile { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
+.ms-tile span { font-size: 14px; }
+.ms-tile b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.ms-tile em { font-style: normal; font-weight: 600; color: var(--accent); }
+.ms-tile a { font-size: 14px; }
