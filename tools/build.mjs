@@ -10,7 +10,7 @@ export const SITE = {
   name: 'RasiVani',
   url: 'https://rasivani.com',          // your domain, no trailing slash
   email: 'hello@rasivani.com',
-  seller: 'RASIVANI',                    // business name shown on Contact/Terms/Refund pages (Razorpay and Indian e-commerce rules need it)
+  seller: 'RasiVani (a unit of Krishna WB &amp; Digi House)',                    // business name shown on Contact/Terms/Refund pages (Razorpay and Indian e-commerce rules need it)
   address: 'Ambur, Tamil Nadu 635808, India',          // a real inbox you read (AdSense and Play Store require contact info)
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
   updated: '2026-11-13',
