@@ -12,11 +12,11 @@ import * as C from './calendar.mjs';
 
 await import('../js/astro.js'); await import('../js/i18n.js'); await import('../js/palan-i18n.js'); await import('../js/palan-more-i18n.js');
 const { Astro: A, I18N, PALAN, PALAN_MORE } = globalThis;
-const TXT = { ta: (await import('../content/pages/ta.mjs')).default.ui, te: (await import('../content/pages/te.mjs')).default.ui };
+const TXT = { ta: (await import('../content/pages/ta.mjs')).default.ui, te: (await import('../content/pages/te.mjs')).default.ui, hi: (await import('../content/pages/hi.mjs')).default.ui };
 
 export const RASI_SLUG = ['mesha', 'vrishabha', 'mithuna', 'karka', 'simha', 'kanya', 'tula', 'vrischika', 'dhanu', 'makara', 'kumbha', 'meena'];
 export const NAK_SLUG = ['ashwini', 'bharani', 'krittika', 'rohini', 'mrigashira', 'ardra', 'punarvasu', 'pushya', 'ashlesha', 'magha', 'purva-phalguni', 'uttara-phalguni', 'hasta', 'chitra', 'swati', 'vishakha', 'anuradha', 'jyeshtha', 'mula', 'purva-ashadha', 'uttara-ashadha', 'shravana', 'dhanishta', 'shatabhisha', 'purva-bhadrapada', 'uttara-bhadrapada', 'revati'];
-export const RASI_LANGS = ['ta'];          // rasi + nakshatra pages (Tamil first, as in the growth plan)
+export const RASI_LANGS = ['ta', 'hi'];    // rasi + nakshatra pages (Tamil first; Hindi added 14 Nov 2026, its rashifal pages lead Google clicks)
 export const FEST_LANGS = ['ta', 'te'];    // festival pages
 const FEST_START = '2026-11-01';           // amavasya / pournami pages are kept from this date on, never removed
 const GLYPH = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'].map((g) => g + '︎');
@@ -33,7 +33,7 @@ const RAJJU = [0, 1, 2, 3, 4, 3, 2, 1, 0];
 const GOOD_HOUSES = { sun: [3, 6, 10, 11], mars: [3, 6, 11], mercury: [2, 4, 6, 8, 10, 11], venus: [1, 2, 3, 4, 5, 8, 9, 11, 12], jupiter: [2, 5, 7, 9, 11], saturn: [3, 6, 11] };
 // [work, money, health, family] for the Moon in house 1..12 (same table as the daily rasi palan)
 const SCORES = [[3, 3, 4, 4], [3, 2, 3, 3], [5, 4, 4, 3], [2, 3, 2, 2], [2, 2, 3, 2], [4, 4, 5, 3], [4, 4, 4, 5], [1, 2, 1, 2], [3, 3, 3, 3], [5, 4, 4, 4], [5, 5, 4, 5], [2, 1, 2, 3]];
-const CITY = { ta: [13.0827, 80.2707], te: [17.385, 78.4867] }; // Chennai, Hyderabad
+const CITY = { ta: [13.0827, 80.2707], te: [17.385, 78.4867], hi: [28.6139, 77.209] }; // Chennai, Hyderabad, New Delhi
 const H = 3600000, DAY = 24 * H;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -75,7 +75,10 @@ function rasiNaks(r) {
   for (let p = 9 * r; p < 9 * r + 9; p++) { const star = Math.floor(p / 4), pada = (p % 4) + 1; const last = out[out.length - 1]; if (last && last.star === star) last.padas.push(pada); else out.push({ star, padas: [pada] }); }
   return out;
 }
-const padaText = (lang, padas) => (padas.length === 4 ? '(1–4 பாதங்கள்)' : `(${padas.join(', ')} பாதம்)`);
+const padaText = (lang, padas) => (padas.length === 4 ? TXT[lang].pada_all : fill(TXT[lang].pada_some, { list: padas.join(', ') }));
+// The same rasi / nakshatra page in the other languages that have one (hreflang + language menu)
+const rasiAlt = (path) => RASI_LANGS.map((l) => `\n<link rel="alternate" hreflang="${l}" href="${SITE.url}/${path(l)}">`).join('');
+const rasiLangMap = (path) => Object.fromEntries(RASI_LANGS.map((l) => [l, path(l)]));
 
 function rasiPage(lang, r, today) {
   const T = I18N.TERMS[lang], U = TXT[lang], P = PALAN[lang], M = PALAN_MORE[lang];
@@ -159,7 +162,7 @@ function rasiPage(lang, r, today) {
     crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_rasis, `${SITE.url}/rasi/${lang}/`], [name, url]]),
     faqLd(faq)
   ];
-  return { file, url, html: page({ lang, file, title, description, body, ld, keywords: `${name} ராசி, ${name} ராசி பலன், ${name} ராசி குணங்கள், ${monthName(lang, today)} மாத ராசி பலன், ${name} rasi`, langMap: langMapFor(lang, `rasi/${lang}/${slug}/`) }) };
+  return { file, url, html: page({ lang, file, title, description, body, ld, keywords: fill(TXT[lang].rasi_kw, { rasi: name, month: monthName(lang, today), slug }), alternates: rasiAlt((l) => `rasi/${l}/${slug}/`), langMap: rasiLangMap((l) => `rasi/${l}/${slug}/`) }) };
 }
 
 function rasiHub(lang, today) {
@@ -169,7 +172,7 @@ function rasiHub(lang, today) {
 <section class="hero sign-hero" style="grid-template-columns:1fr"><div><h1>${esc(U.rasi_hub_title)}</h1><p class="lede">${esc(U.rasi_hub_desc)}</p></div></section>
 <ul class="guide-list">${RASI_SLUG.map((s, r) => `<li class="guide-card"><a href="rasi/${lang}/${s}/"><strong>${GLYPH[r]} ${esc(T.rasi[r])}</strong><span>${esc(U.lord)}: ${esc(T.planet[RASI_LORD[r]])} · ${esc(rasiNaks(r).map((n) => T.nak[n.star]).join(', '))}</span></a></li>`).join('')}</ul>
 <nav class="palan-nav"><a href="nakshatra/${lang}/">${esc(U.all_naks)} →</a><a href="rasi-palan/${lang}/">${esc(PALAN[lang].h1)} →</a></nav>`;
-  return { file, url, html: page({ lang, file, title: U.rasi_hub_title, description: U.rasi_hub_desc, body, ld: [crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_rasis, url]])], langMap: langMapFor(lang, `rasi/${lang}/`) }) };
+  return { file, url, html: page({ lang, file, title: U.rasi_hub_title, description: U.rasi_hub_desc, body, ld: [crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_rasis, url]])], alternates: rasiAlt((l) => `rasi/${l}/`), langMap: rasiLangMap((l) => `rasi/${l}/`) }) };
 }
 
 // ---------------------------------------------------------------- nakshatra pages
@@ -177,8 +180,9 @@ function nakRasiText(lang, n) {
   const T = I18N.TERMS[lang], parts = {};
   for (let pada = 1; pada <= 4; pada++) { const r = A.rasiFromStarPada(n, pada); (parts[r] = parts[r] || []).push(pada); }
   const keys = Object.keys(parts).map(Number);
-  if (keys.length === 1) return `${T.nak[n]} நட்சத்திரம் முழுவதும் (4 பாதங்களும்) ${T.rasi[keys[0]]} ராசியில் உள்ளது.`;
-  return `${T.nak[n]} நட்சத்திரத்தின் ` + keys.map((r) => `${parts[r].join(', ')} பாதம் ${T.rasi[r]} ராசியில்`).join('; ') + ' உள்ளது.';
+  const U = TXT[lang];
+  if (keys.length === 1) return fill(U.nak_in_one, { nak: T.nak[n], rasi: T.rasi[keys[0]] });
+  return fill(U.nak_in_parts, { nak: T.nak[n], parts: keys.map((r) => fill(U.nak_part, { padas: parts[r].join(', '), rasi: T.rasi[r] })).join('; ') });
 }
 function bestMatches(n) {
   // bride = star n; average score over every pada of both stars; rajju and vedha must agree
@@ -244,7 +248,7 @@ function nakPage(lang, n, today) {
     <p>${esc(fill(U.tara_line, { today: T.nak[todayStar], nak: name, tara: U.taras[tara] }))}</p>
     <p class="overview">${esc(U.tara_text[tara])}</p></section>
   <div class="ad-slot" data-ad="nak-mid"></div>
-  <section class="block"><h2 class="h3">${esc(fill(U.month_title, { month }).replace(' ராசி பலன்', ' நட்சத்திர பலன்'))}</h2>
+  <section class="block"><h2 class="h3">${esc(fill(U.nak_month_title, { month }))}</h2>
     <h3>${esc(fill(U.month_good, { month: monthName(lang, today) }))}</h3>${chips(good.map((iso) => [shortDay(lang, iso)]))}
     <h3>${esc(fill(U.month_careful, { month: monthName(lang, today) }))}</h3>${chips(careful.map((iso) => [shortDay(lang, iso)]))}
     <h3>${esc(fill(U.janma_days, { month: monthName(lang, today), nak: name }))}</h3><p>${esc(janma.map((s) => range(lang, s)).join('; ') || '–')}</p>
@@ -267,7 +271,7 @@ function nakPage(lang, n, today) {
     crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_naks, `${SITE.url}/nakshatra/${lang}/`], [name, url]]),
     faqLd(faq)
   ];
-  return { file, url, html: page({ lang, file, title, description, body, ld, keywords: `${name} நட்சத்திரம், ${name} நட்சத்திர பொருத்தம், ${name} நட்சத்திர குணங்கள், ${name} நட்சத்திர பலன், ${NAK_SLUG[n]} nakshatra`, langMap: langMapFor(lang, `nakshatra/${lang}/${slug}/`) }) };
+  return { file, url, html: page({ lang, file, title, description, body, ld, keywords: fill(TXT[lang].nak_kw, { nak: name, slug }), alternates: rasiAlt((l) => `nakshatra/${l}/${slug}/`), langMap: rasiLangMap((l) => `nakshatra/${l}/${slug}/`) }) };
 }
 
 function nakHub(lang) {
@@ -277,7 +281,7 @@ function nakHub(lang) {
 <section class="hero sign-hero" style="grid-template-columns:1fr"><div><h1>${esc(U.nak_hub_title)}</h1><p class="lede">${esc(U.nak_hub_desc)}</p></div></section>
 <ul class="guide-list">${NAK_SLUG.map((s, n) => `<li class="guide-card"><a href="nakshatra/${lang}/${s}/"><strong>${n + 1}. ${esc(T.nak[n])}</strong><span>${esc(U.nak_lord)}: ${esc(T.planet[DASHA_LORDS[n % 9]])} · ${esc([...new Set([1, 2, 3, 4].map((p) => T.rasi[A.rasiFromStarPada(n, p)]))].join(', '))} · ${esc(U.ganas[GANA[n]])}</span></a></li>`).join('')}</ul>
 <nav class="palan-nav"><a href="rasi/${lang}/">${esc(U.all_rasis)} →</a><a href="${toolHref(lang, 'porutham.html')}">${esc(U.check_match)} →</a></nav>`;
-  return { file, url, html: page({ lang, file, title: U.nak_hub_title, description: U.nak_hub_desc, body, ld: [crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_naks, url]])], langMap: langMapFor(lang, `nakshatra/${lang}/`) }) };
+  return { file, url, html: page({ lang, file, title: U.nak_hub_title, description: U.nak_hub_desc, body, ld: [crumbsLd([[SITE.name, `${SITE.url}/`], [U.all_naks, url]])], alternates: rasiAlt((l) => `nakshatra/${l}/`), langMap: rasiLangMap((l) => `nakshatra/${l}/`) }) };
 }
 
 // ---------------------------------------------------------------- festivals
@@ -494,6 +498,7 @@ export function buildPages(root, today) {
 // Links for other pages
 export const extraFooter = {
   ta: [['rasi/ta/', TXT.ta.rasi_hub], ['nakshatra/ta/', TXT.ta.nak_hub], ['festivals/ta/', TXT.ta.fest_hub]],
+  hi: [['rasi/hi/', TXT.hi.rasi_hub], ['nakshatra/hi/', TXT.hi.nak_hub]],
   te: [['festivals/te/', TXT.te.fest_hub]]
 };
 export const rasiPageHref = (lang, r) => (RASI_LANGS.includes(lang) ? `rasi/${lang}/${RASI_SLUG[r]}/` : null);
