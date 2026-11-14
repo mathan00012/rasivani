@@ -772,3 +772,27 @@ html:not([data-script="en"]):not([data-script="hi"]):not([data-script="mr"]) .pr
 .ms-tile b { font-size: 20px; font-variant-numeric: tabular-nums; }
 .ms-tile em { font-style: normal; font-weight: 600; color: var(--accent); }
 .ms-tile a { font-size: 14px; }
+
+/* Baby names by nakshatra (tools/babynames.mjs, js/babynames.js) */
+.bn-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 2.2em; height: 2.2em; padding: 0 .4em; border-radius: 12px; background: var(--kumkum); color: #fff; font-weight: 700; font-size: .95em; line-height: 1; }
+.bn-pada { scroll-margin-top: 140px; }
+.bn-quick .bn-chip { min-width: 3.2em; }
+.bn-pada h2 { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bn-pada:target h2 .bn-chip { outline: 3px solid var(--gold); outline-offset: 2px; }
+.bn-meta { color: var(--muted); margin: -4px 0 12px; font-size: 15px; }
+.bn-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.bn-cols h3 { font-size: 17px; margin: 0 0 8px; }
+.bn-table td, .bn-table th { text-align: left; vertical-align: top; }
+.bn-table td:first-child { width: 42%; }
+.bn-lat { display: block; color: var(--muted); font-size: 13px; font-weight: 400; }
+.bn-letters td, .bn-letters th { text-align: left; white-space: nowrap; }
+.bn-letters caption { caption-side: bottom; text-align: left; padding: 8px 12px; color: var(--muted); font-size: 13px; }
+.bn-letters small { color: var(--muted); }
+.bn-quick ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.bn-quick a { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); padding: 6px 4px; border-radius: 12px; }
+.bn-quick a:hover { background: var(--surface-2); }
+.bn-quick a > span:last-child { display: flex; flex-direction: column; font-weight: 600; }
+.bn-quick small { color: var(--muted); font-weight: 400; font-size: 14px; }
+.bn-big { font: 700 64px/1 var(--script); color: var(--kumkum); margin: 4px 0 16px; }
+.bn-btn { width: auto; text-decoration: none; }
+.bn-note { max-width: 70ch; margin: 8px 0 40px; }

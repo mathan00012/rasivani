@@ -105,6 +105,14 @@ Calculations use the sidereal zodiac with Lahiri (Chitrapaksha) ayanamsa, Vimsho
 - ગુજરાતી: [Friendship score](https://rasivani.com/gu/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/gu/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/gu/nakshatra-animal/) (yoni animal of each of the 27 stars)
 - ଓଡ଼ିଆ: [Friendship score](https://rasivani.com/or/friendship-score/) (two names, optional birth stars: tara, gana and yoni) · [FLAMES](https://rasivani.com/or/flames/) (the name game) · [Nakshatra animal](https://rasivani.com/or/nakshatra-animal/) (yoni animal of each of the 27 stars)
 
+## Baby names by nakshatra (birth star)
+- English: [Name letters for all 27 stars](https://rasivani.com/baby-names/) with boy and girl names and meanings for every pada
+- हिन्दी: [Name letters for all 27 stars](https://rasivani.com/hi/baby-names/) with boy and girl names and meanings for every pada
+- தமிழ்: [Name letters for all 27 stars](https://rasivani.com/ta/baby-names/) with boy and girl names and meanings for every pada
+- తెలుగు: [Name letters for all 27 stars](https://rasivani.com/te/baby-names/) with boy and girl names and meanings for every pada
+- ಕನ್ನಡ: [Name letters for all 27 stars](https://rasivani.com/kn/baby-names/) with boy and girl names and meanings for every pada
+- മലയാളം: [Name letters for all 27 stars](https://rasivani.com/ml/baby-names/) with boy and girl names and meanings for every pada
+
 ## About
 - [About RasiVani](https://rasivani.com/about)
 - [Privacy](https://rasivani.com/privacy)
