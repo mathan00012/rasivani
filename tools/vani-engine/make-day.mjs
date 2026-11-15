@@ -316,14 +316,16 @@ for (const lang of LANGS) {
   if (bgSegs.length) join(bgSegs, path.join(rasiDir, '2-background.mp4'));
   if (clipMap.R5) fs.copyFileSync(await segment(r('R5'), clipMap.R5, lang, pack, work), path.join(rasiDir, '3-outro.mp4'));
   // join with the rasi palan video from make-week-shorts if it exists
-  const rpRoot = ['D:\\MADDY\\rasivani\\social\\rasipalan', path.join(VANI, '..', '..', 'social', 'rasipalan')].map((d) => path.join(d, lang, nextDate)).find((d) => fs.existsSync(d));
+  // make-week-shorts.mjs saves reels in youtube\\<tamil|telugu|hindi|english>\\rasipalan\\<date>\\
+  const FOLDER = { ta: 'tamil', te: 'telugu', hi: 'hindi', en: 'english' }[lang];
+  const rpRoot = [path.join(VANI, '..', FOLDER, 'rasipalan', nextDate), path.join(VANI, '..', '..', 'social', 'rasipalan', lang, nextDate)].find((d) => fs.existsSync(d));
   const rpVid = rpRoot && fs.readdirSync(rpRoot).find((f) => /\.mp4$/i.test(f));
   if (rpVid && fs.existsSync(path.join(rasiDir, '1-intro.mp4'))) {
     const mid = path.join(work, 'rp-mid.mp4');
     run(['-i', path.join(rpRoot, rpVid), '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-filter_complex', '[0:v]scale=720:1280:force_original_aspect_ratio=decrease,pad=720:1280:(ow-iw)/2:(oh-ih)/2,fps=30,setsar=1[v]', '-map', '[v]', '-map', '0:a?', '-map', '1:a', '-shortest', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2', mid]);
     try { join([path.join(rasiDir, '1-intro.mp4'), mid, ...(fs.existsSync(path.join(rasiDir, '3-outro.mp4')) ? [path.join(rasiDir, '3-outro.mp4')] : [])], path.join(rasiDir, `RASI-PALAN-${nextDate}-${lang}.mp4`)); log('  rasi palan: joined with ' + rpVid); }
     catch (e) { log('  rasi palan join failed: ' + e.message.slice(0, 120)); }
-  } else log(`  rasi palan: intro/background/outro ready in rasi-palan-${nextDate}\\ (no make-week-shorts video found for ${nextDate} to join)`);
+  } else log(`  rasi palan: intro/background/outro ready in rasi-palan-${nextDate}\\ (no rasi palan reel for ${nextDate} yet: run MAKE-RASI-WEEK first)`);
   }
   // thumbnails + upload text
   const th = thumbs(lang, pack, clipMap, outDir, work);
