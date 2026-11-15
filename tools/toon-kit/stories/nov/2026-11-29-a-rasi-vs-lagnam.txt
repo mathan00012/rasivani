@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-29 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-29-a-rasi-vs-lagnam
+DATE: 2026-11-29
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: learn:rasi-vs-lagnam
+HOOK: en: Rasi or lagnam: which is YOU?!
+CTA: en: YOUR rasi and lagnam
+THUMB: en: Rasi or lagnam: which is *YOU*?
+THUMB: en: *YOUR* birth time matters!
+THUMB: en: Pandit sighs at *YOU*
+TITLE: en: Rasi vs lagnam: the difference YOU must know 😲 #shorts
+TITLE: en: Rasi and lagnam explained for YOU
+TITLE: en: VANI mixes them up, Pandit sighs 😂
+DESC: en: Rasi = the Moon's sign at birth. Lagnam = the sign rising in the east at birth; it changes about every 2 hours, so YOUR birth time matters.
+TAGS: en: rasi vs lagnam, lagna, ascendant, moon sign, jathagam
+
+SCENE: temple
+VANI (happy, mic): en: My rasi is Simha, so my lagnam is Simha too!
+PANDIT (sheepish, facepalm) [react: shock]: en: Child... no.
+CARD: en: Rasi = Moon's sign ; Lagnam = sign rising in the east ; Lagnam changes ≈ every 2 h
+PANDIT (happy, point) [react: think]: en: Rasi is where the Moon was. Lagnam is the sign rising at your birth minute.
+VANI (shock): en: So my birth time decides my lagnam? My mom said 'around lunch'!
+VANI (happy, cheer): en: Get YOUR rasi and lagnam free on rasivani dot com!

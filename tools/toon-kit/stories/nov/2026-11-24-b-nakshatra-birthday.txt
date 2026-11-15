@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-24 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-24-b-nakshatra-birthday
+DATE: 2026-11-24
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: learn:birth-star
+HOOK: en: YOU have 2 birthdays?!
+CTA: en: YOUR star birthday
+THUMB: en: *YOU* have 2 birthdays!
+THUMB: en: *YOUR* star birthday moves!
+THUMB: en: Paati wishes *YOU* on the wrong day?
+TITLE: en: YOU have two birthdays every year! 🎂🎂 #shorts
+TITLE: en: Star birthday explained for YOU
+TITLE: en: Paati's birthday wishes confuse VANI 😂
+DESC: en: YOUR star birthday is the day the Moon returns to your birth nakshatra in your birth month. It moves on the English calendar, which is why Paati's date changes every year.
+TAGS: en: nakshatra birthday, star birthday, janma nakshatra, birthday, tamil birthday
+
+SCENE: home
+PAATI (happy, wave) [react: happy]: en: Happy birthday, my dear!
+VANI (confused, shrug): en: Paati, my birthday is in March!
+PAATI (smirk, point) [react: sheepish]: en: That's your English birthday. Today is your STAR birthday.
+CARD: en: Star birthday ; Moon returns to YOUR birth star ; In YOUR birth month
+VANI (happy, cheer): en: Two birthdays? Two cakes! Best tradition ever!
+VANI (happy, point): en: Find YOUR birth star free on rasivani dot com!

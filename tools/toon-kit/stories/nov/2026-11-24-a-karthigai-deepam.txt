@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-24 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-24-a-karthigai-deepam
+DATE: 2026-11-24
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: The hill lamp is TONIGHT!
+CTA: en: YOUR deepam time
+THUMB: en: *YOUR* lamps tonight!
+THUMB: en: The hill lamp, *YOUR* way
+THUMB: en: Karthigai Deepam: *YOU* ready?
+TITLE: en: Karthigai Deepam tonight: light YOUR lamps 🪔 #shorts
+TITLE: en: Why the Tiruvannamalai hill lamp? For YOU
+TITLE: en: VANI vs 100 lamps 😂
+DESC: en: Karthigai Deepam is celebrated in Karthigai month on Krittika nakshatra day: Tuesday 24 November 2026. The great lamp is lit on the Tiruvannamalai hill; in Telugu homes it is Karthika Pournami lamps.
+TAGS: en: karthigai deepam, karthigai deepam 2026, tiruvannamalai, deepam, karthika pournami
+
+SCENE: temple
+VANI (shock): en: Whoa! The whole hill is glowing!
+THATHA (happy, point) [react: think]: en: Karthigai Deepam! On Krittika star day, the great lamp is lit on the hill.
+CARD: en: Karthigai Deepam ; Tue 24 Nov 2026 ; Krittika nakshatra day
+VANI (happy, phone): en: I'll light a hundred lamps at home!
+THATHA (smirk, stop) [react: sheepish]: en: Light ten. Then call the fire service for the rest.
+VANI (happy, cheer): en: Happy Karthigai Deepam! YOUR lamp time is on rasivani dot com!

@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-17 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-17-b-sabarimala-vratham
+DATE: 2026-11-17
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: learn:sabarimala-vratham
+HOOK: en: 41 days start TODAY!
+CTA: en: YOUR vratham guide
+THUMB: en: 41 days start *TODAY* for *YOU*
+THUMB: en: No shortcuts, madam! *YOUR* 41 days
+THUMB: en: Black dress, simple food: *YOUR* vratham
+TITLE: en: Sabarimala Mandala season starts today: YOUR 41-day vratham 🙏 #shorts
+TITLE: en: Why 41 days? Sabarimala vratham explained for YOU
+TITLE: en: Vendor: no shortcuts in YOUR vratham 😂
+DESC: en: The Sabarimala Mandala season begins on Vrischikam 1, Tuesday 17 November 2026. Devotees keep a 41-day vratham by tradition: simple food, black or blue clothes, daily prayer and discipline.
+TAGS: en: sabarimala, mandala pooja, 41 days vratham, ayyappa, vrischikam
+
+SCENE: market
+VENDOR (happy, wave) [react: happy]: en: Black dhotis, black shirts! The Mandala season starts today!
+VANI (confused, think): en: Today? Can I do a quick 4-day version?
+VENDOR (stern, stop) [react: sheepish]: en: Madam! Forty-one days. No shortcuts. Not even for reporters.
+CARD: en: Mandala season ; Starts Tue 17 Nov 2026 ; 41 days of simple living
+VENDOR (happy, point) [react: think]: en: Simple food, simple clothes, prayer every day. That's the tradition.
+VANI (happy, cheer): en: Starting YOUR vratham? Read the full guide on rasivani dot com. Swamiye saranam!

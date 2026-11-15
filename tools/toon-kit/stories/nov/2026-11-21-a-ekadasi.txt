@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-21 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-21-a-ekadasi
+DATE: 2026-11-21
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: Why no rice today?!
+CTA: en: YOUR fasting days
+THUMB: en: Why no rice for *YOU* today?
+THUMB: en: Paati's Ekadasi rule for *YOU*
+THUMB: en: 11th day: *YOUR* fasting day
+TITLE: en: Ekadasi today: why YOUR Paati skips rice 🍚 #shorts
+TITLE: en: What is Ekadasi? Explained for YOU
+TITLE: en: Paati hides the rice from VANI 😂
+DESC: en: Ekadasi is the 11th tithi and comes twice a month. Tradition keeps a fast or skips grains on this day. Check the exact date for YOUR city on the RasiVani calendar.
+TAGS: en: ekadasi, ekadasi today, fasting, tithi, hindu calendar
+
+SCENE: home
+VANI (happy): en: Paati, where's the rice? I'm starving!
+PAATI (stern, stop) [react: sheepish]: en: Today is Ekadasi. No rice in this house!
+CARD: en: Ekadasi ; 11th tithi ; Twice every month
+PAATI (happy, point) [react: think]: en: Eleventh day of the Moon's cycle. We fast, we pray, we rest the stomach.
+VANI (sheepish, facepalm): en: Twice a month? My stomach didn't sign up for this.
+VANI (happy, cheer): en: YOUR fasting days for the whole month: rasivani dot com calendar!

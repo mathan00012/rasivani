@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-16 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-16-b-panchangam
+DATE: 2026-11-16
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: YOUR 5-in-1 day app?!
+CTA: en: YOUR panchangam today
+THUMB: en: Raja wants *YOUR* 5-in-1 app
+THUMB: en: *YOUR* day has 5 parts!
+THUMB: en: Tithi? Yogam? *YOU* need this
+TITLE: en: Panchangam = 5 things about YOUR day 😲 #shorts
+TITLE: en: What is panchangam? Explained for YOU
+TITLE: en: Raja's 5-in-1 app is older than YOUR phone 😂
+DESC: en: Panchangam means five limbs: tithi (lunar day), vaaram (weekday), nakshatram (Moon's star), yogam and karanam. Together they describe YOUR day in the Indian calendar.
+TAGS: en: panchangam, panchang today, tithi, nakshatra, yogam, karanam
+
+SCENE: palace
+RAJA (angry, stop) [react: shock]: en: Reporter! I want ONE app that tells me everything about today!
+VANI (smirk, phone): en: Your Majesty, your ancestors made it. It's called panchangam.
+CARD: en: Panchangam = 5 ; Tithi · Vaaram · Nakshatram ; Yogam · Karanam
+PANDIT (happy, point) [react: think]: en: Five limbs, King. Lunar day, weekday, the Moon's star, yogam and karanam.
+RAJA (confused, think): en: Five things? My minister can't even remember one.
+VANI (happy, cheer): en: YOUR panchangam for today is free on rasivani dot com!

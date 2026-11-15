@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-22 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-22-a-daily-rasi-palan
+DATE: 2026-11-22
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: rasi-palan
+HOOK: en: Why 3 sites, 3 answers?!
+CTA: en: YOUR rasi palan
+THUMB: en: 3 sites, 3 answers for *YOU*?
+THUMB: en: *YOUR* rasi palan, decoded
+THUMB: en: Vendor reads *YOUR* future!
+TITLE: en: Why is YOUR rasi palan different on every site? 😲 #shorts
+TITLE: en: How daily rasi palan works, for YOU
+TITLE: en: Vendor's rasi palan vs VANI's 😂
+DESC: en: Daily rasi palan is read from the Moon's transit (gocharam) over YOUR Moon sign. Methods and wording vary between astrologers, which is why sites differ.
+TAGS: en: rasi palan today, daily horoscope, gocharam, moon sign, rasi palan
+
+SCENE: market
+VANI (angry, phone): en: Site one says lucky day. Site two says careful. Site three says buy a cow!
+VENDOR (smirk, point) [react: sheepish]: en: Madam, buy the cow. Milk is always lucky.
+CARD: en: Daily rasi palan ; Moon's daily movement ; Read from YOUR Moon sign
+THATHA (happy) [react: think]: en: It's the Moon moving over your rasi. Each reader explains it his own way.
+VANI (think, think): en: So the Moon is the same, only the storytellers change!
+VANI (happy, cheer): en: YOUR rasi palan every morning, free on rasivani dot com!

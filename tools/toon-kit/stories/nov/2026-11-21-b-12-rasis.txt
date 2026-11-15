@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-21 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-21-b-12-rasis
+DATE: 2026-11-21
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: rasi-palan
+HOOK: en: YOUR sky is a pizza?!
+CTA: en: YOUR rasi free
+THUMB: en: *YOUR* sky = 12 slices!
+THUMB: en: Which slice is *YOURS*?
+THUMB: en: 360 ÷ 12 = *YOUR* rasi
+TITLE: en: 12 rasis explained with a pizza 🍕 Which one is YOURS? #shorts
+TITLE: en: What is a rasi? 30 seconds, for YOU
+TITLE: en: Kutti's pizza zodiac 😂
+DESC: en: The zodiac circle is 360°, split into 12 rasis of 30° each, from Mesham to Meenam. YOUR rasi is the one the Moon was in when you were born.
+TAGS: en: 12 rasi, zodiac signs, rasi palan, mesham, moon sign
+
+SCENE: home
+KUTTI (happy, cheer) [react: happy]: en: Look! I cut the sky into twelve pizza slices!
+VANI (confused, shrug): en: Kutti, that's not how the sky works.
+THATHA (smirk, point) [react: shock]: en: Actually it is! Three hundred sixty degrees, twelve slices of thirty.
+CARD: en: 12 rasis ; 360° ÷ 12 = 30° each ; Mesham → Meenam
+VANI (sheepish, facepalm): en: Beaten by a kid with a pizza. Again.
+VANI (happy, cheer): en: Find YOUR slice, YOUR rasi, free on rasivani dot com!

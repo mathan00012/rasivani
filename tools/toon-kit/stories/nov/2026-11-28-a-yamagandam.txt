@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-28 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-28-a-yamagandam
+DATE: 2026-11-28
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: learn:yamagandam
+HOOK: en: Yama's office hours?!
+CTA: en: YOUR Yamagandam today
+THUMB: en: Yama's office hours for *YOU*!
+THUMB: en: Saturday 1:30 PM: *YOUR* pause
+THUMB: en: Don't start *YOUR* trip now!
+TITLE: en: Yamagandam today: Yama's office hours 😲 #shorts
+TITLE: en: Yamagandam explained for YOU
+TITLE: en: VANI's trip gets stopped by Thatha 😂
+DESC: en: Yamagandam is one eighth of the daytime. On Saturday it is the 6th part, about 1:30 to 3 PM in Chennai; the time shifts with YOUR city's sunrise. Tradition avoids starting journeys then.
+TAGS: en: yamagandam, yamagandam today, saturday, panchangam, nalla neram
+
+SCENE: village
+VANI (happy, wave): en: Weekend trip! Leaving right now, one thirty!
+THATHA (stern, stop) [react: shock]: en: Wait! Yama is in his office now. Yamagandam!
+CARD: en: Saturday Yamagandam ; ≈ 1:30–3:00 PM ; Avoid starting journeys
+THATHA (happy, point) [react: think]: en: One eighth of the day, ninety minutes. Have tea, then go.
+VANI (sheepish, shrug): en: Fine. Tea first. Yama can enjoy his weekend too.
+VANI (happy, cheer): en: YOUR city's Yamagandam is on rasivani dot com!

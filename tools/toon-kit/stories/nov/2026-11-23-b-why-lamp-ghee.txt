@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-23 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-23-b-why-lamp-ghee
+DATE: 2026-11-23
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: Why ghee, not LED?!
+CTA: en: YOUR deepam date
+THUMB: en: Ghee lamp vs *YOUR* LED!
+THUMB: en: Kutti asks what *YOU* wanted to
+THUMB: en: Deepam tomorrow: *YOUR* lamps ready?
+TITLE: en: Why ghee lamps and not LED? Ask YOUR Paati 🪔 #shorts
+TITLE: en: Lamp traditions explained for YOU
+TITLE: en: Kutti brings an LED to Paati 😂
+DESC: en: Lighting a ghee or oil lamp is a tradition. Practically, it gives a steady, clean flame. Karthigai Deepam is on Tuesday 24 November 2026.
+TAGS: en: deepam, ghee lamp, karthigai deepam, diya, tradition
+
+SCENE: home
+KUTTI (happy, cheer): en: Paati! I brought fifty LED lamps for Deepam!
+PAATI (smirk, point) [react: sheepish]: en: And who will pour the ghee in them?
+VANI (think, think): en: Why ghee, Paati? Honestly.
+PAATI (happy) [react: think]: en: Tradition, child. A steady, clean flame. And it smells like home.
+CARD: en: Karthigai Deepam ; Tue 24 Nov 2026 ; Lamps at dusk
+VANI (happy, cheer): en: Deepam is tomorrow! YOUR lamp time is on rasivani dot com!

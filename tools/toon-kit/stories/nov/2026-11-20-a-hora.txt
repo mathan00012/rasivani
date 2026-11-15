@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-20 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-20-a-hora
+DATE: 2026-11-20
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: Which planet owns THIS hour?!
+CTA: en: YOUR hora now
+THUMB: en: Which planet owns *YOUR* hour?
+THUMB: en: *YOUR* Friday starts with Venus
+THUMB: en: Raja hires a planet per hour!
+TITLE: en: Hora: every hour of YOUR day has a planet 😲 #shorts
+TITLE: en: What is hora? Explained for YOU in 30 seconds
+TITLE: en: Raja wants a planet timetable 😂
+DESC: en: Each hour from sunrise is ruled by a graha in a fixed order. The first hora of the day belongs to the weekday's lord, so Friday starts with Venus (Shukra).
+TAGS: en: hora, planetary hours, hora today, shukra hora, panchangam
+
+SCENE: palace
+RAJA (stern, stop): en: Reporter, I want a different planet in charge every hour.
+VANI (smirk, phone): en: Done. It's called hora. Your ancestors beat you to it.
+CARD: en: Hora ; 1 hour = 1 planet ; Friday's first hour = Venus
+PANDIT (happy, point) [react: think]: en: From sunrise, each hour has a ruler. Friday begins with Shukra.
+RAJA (happy, cheer): en: Venus first? Then I'll start with sweets!
+VANI (happy, cheer): en: YOUR hora table for today is on rasivani dot com!

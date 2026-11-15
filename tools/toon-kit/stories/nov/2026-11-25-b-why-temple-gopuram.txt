@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-25 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-25-b-why-temple-gopuram
+DATE: 2026-11-25
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: home
+HOOK: en: Why is the gate taller than the god?!
+CTA: en: YOUR temple story
+THUMB: en: Gate taller than god? *YOU* asked!
+THUMB: en: *YOUR* temple's tallest secret
+THUMB: en: Kutti's question for *YOU*
+TITLE: en: Why is the temple gate taller than the shrine? 🛕 #shorts
+TITLE: en: Gopuram explained for YOU
+TITLE: en: Kutti stumps VANI 😂
+DESC: en: A gopuram is the gateway tower of a South Indian temple. It grew taller over centuries (Pallava, Chola, Nayak eras) so pilgrims could see the temple from far away.
+TAGS: en: gopuram, temple tower, south indian temple, chola, architecture
+
+SCENE: temple
+KUTTI (confused, point): en: Akka, why is the gate taller than the god's room?
+VANI (think, think): en: Er... good question. Thatha?
+THATHA (happy, point) [react: think]: en: So you see the temple from far away, child! The gopuram is the signboard of the town.
+CARD: en: Gopuram ; Gateway tower ; Grew taller over centuries
+VANI (smirk) [react: sheepish]: en: Ancient Google Maps!
+VANI (happy, cheer): en: More of YOUR culture stories on rasivani dot com!

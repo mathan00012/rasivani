@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-26 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-26-b-rasi-chart-styles
+DATE: 2026-11-26
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: learn:rasi-chart-styles
+HOOK: en: Square, diamond or box?!
+CTA: en: YOUR chart style
+THUMB: en: Which chart is *YOURS*?
+THUMB: en: Square vs diamond: *YOUR* jathagam
+THUMB: en: North or South? *YOU* pick!
+TITLE: en: South vs North Indian chart: which one is YOURS? 😲 #shorts
+TITLE: en: Jathagam chart styles explained for YOU
+TITLE: en: Pandit and Raja fight over boxes 😂
+DESC: en: South Indian charts keep the rasi boxes fixed. North Indian charts are diamonds with houses fixed from the lagnam. East Indian (Bengal, Odisha) charts use another grid. RasiVani draws all three.
+TAGS: en: south indian chart, north indian chart, jathagam, kundli, chart style
+
+SCENE: palace
+RAJA (angry, point): en: This chart is a diamond! Mine was a square! Who changed my fate?
+PANDIT (sheepish, shrug) [react: shock]: en: Same fate, King. Different drawing.
+CARD: en: South = fixed rasi boxes ; North = diamond from lagnam ; East = another grid
+VANI (happy, point): en: South draws signs fixed, North draws houses fixed. Same sky!
+RAJA (happy): en: Then draw me all three. I'm a king.
+VANI (happy, cheer): en: Pick YOUR chart style free on rasivani dot com!

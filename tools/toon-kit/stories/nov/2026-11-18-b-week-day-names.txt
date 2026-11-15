@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-18 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-18-b-week-day-names
+DATE: 2026-11-18
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: YOUR week is from India?!
+CTA: en: YOUR hora today
+THUMB: en: *YOUR* Sunday is a planet!
+THUMB: en: Raja: *YOUR* week copied us?
+THUMB: en: 7 days, 7 planets: *YOUR* week
+TITLE: en: Why is YOUR week in THIS order? 😲 #shorts
+TITLE: en: Sunday, Monday... the planet secret behind YOUR week
+TITLE: en: Raja says the English week copied India 😂
+DESC: en: The weekday order (Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn) comes from the planetary-hour (hora) cycle, used in India and in the Greco-Roman world. Ravi-vaaram = Sunday, Soma-vaaram = Monday.
+TAGS: en: weekday names, hora, planets, indian calendar, vaaram
+
+SCENE: palace
+RAJA (angry, point) [react: shock]: en: Reporter! The English stole our week! Sunday is Ravi-vaaram!
+VANI (confused, shrug): en: Your Majesty, Romans had the same order. Sun, Moon, Mars...
+CARD: en: Ravi = Sun-day ; Soma = Moon-day ; Same planet order, two worlds
+PANDIT (happy, think) [react: think]: en: Both used the planetary hours, King. Each day is named by its first hour's planet.
+RAJA (sheepish, shrug): en: So nobody stole it... we just both counted well?
+VANI (happy, cheer): en: Find YOUR planet hour today on rasivani dot com!

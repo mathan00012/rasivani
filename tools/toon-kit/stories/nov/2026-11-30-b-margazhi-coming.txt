@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-30 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-30-b-margazhi-coming
+DATE: 2026-11-30
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: 4 AM kolam challenge!
+CTA: en: YOUR December dates
+THUMB: en: *YOUR* 4 AM challenge!
+THUMB: en: Margazhi is coming for *YOU*
+THUMB: en: December = *YOUR* best month?
+TITLE: en: Margazhi is coming: are YOU ready for 4 AM? 🌅 #shorts
+TITLE: en: Why Margazhi mornings are special, for YOU
+TITLE: en: VANI's 4 AM kolam disaster 😂
+DESC: en: Margazhi month begins on Wednesday 16 December 2026. Tradition: early-morning bhajans, kolams at the doorstep, and temple visits before sunrise. VANI's December series starts soon.
+TAGS: en: margazhi, margazhi 2026, kolam, december, tiruppavai
+
+SCENE: village
+PAATI (happy): en: Margazhi is coming! Kolam at four in the morning!
+VANI (shock): en: Four AM? Paati, even my alarm sleeps at four AM.
+CARD: en: Margazhi ; Starts Wed 16 Dec 2026 ; Kolams and bhajans at dawn
+PAATI (smirk, point) [react: sheepish]: en: Then you'll draw a kolam in your sleep. Practise from today!
+VANI (happy, wave): en: Challenge accepted! December, VANI is coming!
+VANI (happy, cheer): en: YOUR December festival dates are on rasivani dot com!

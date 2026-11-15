@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-29 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-29-b-why-108
+DATE: 2026-11-29
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: learn:why-108
+HOOK: en: Why 108 beads?!
+CTA: en: YOUR 108 secret
+THUMB: en: Why 108 for *YOU*?
+THUMB: en: 27 × 4 = *YOUR* 108
+THUMB: en: Kutti counts, *YOU* lose count
+TITLE: en: Why 108 beads? The star maths for YOU 😲 #shorts
+TITLE: en: 108 explained for YOU in 30 seconds
+TITLE: en: VANI loses count at 57 😂
+DESC: en: 27 nakshatras × 4 padas = 108, and 12 rasis × 9 padas = 108. It's one reason given for 108 beads; there are others too.
+TAGS: en: 108, why 108, japa mala, nakshatra, padas
+
+SCENE: temple
+KUTTI (happy, cheer): en: Fifty-five, fifty-six, fifty-seven...
+VANI (confused, think): en: Kutti, why a hundred and eight beads? Why not a hundred?
+CARD: en: 27 stars × 4 padas = 108 ; 12 rasis × 9 padas = 108 ; One reason of many
+PAATI (smirk, point) [react: sheepish]: en: Twenty-seven stars, four parts each. You do the maths, reporter.
+VANI (happy): en: One hundred and eight! The sky is in the mala!
+VANI (happy, cheer): en: More of YOUR 108 secrets on rasivani dot com!

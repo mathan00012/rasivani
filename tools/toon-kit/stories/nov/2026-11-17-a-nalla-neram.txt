@@ -1,0 +1,26 @@
+# Cartoon for 2026-11-17 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-17-a-nalla-neram
+DATE: 2026-11-17
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: rahu-kalam/
+HOOK: en: Is there ANY good time today?!
+CTA: en: YOUR good time today
+THUMB: en: Is there *ANY* good time for *YOU*?
+THUMB: en: Tuesday 3 PM: *YOUR* no-go zone
+THUMB: en: Thatha's list: *YOUR* safe hours
+TITLE: en: Good time today? Find YOUR nalla neram in 30 seconds #shorts
+TITLE: en: Rahu kalam, Yamagandam, Gulika: avoid them, YOU are free!
+TITLE: en: Tuesday's no-go time for YOU 😲
+DESC: en: Nalla neram = time outside Rahu kalam, Yamagandam and Gulika kalam. On Tuesday Rahu kalam is about 3 to 4:30 PM in Chennai, and it shifts with YOUR city's sunrise.
+TAGS: en: nalla neram, good time today, rahu kalam tuesday, auspicious time
+
+SCENE: village
+VANI (sad, shrug): en: Rahu kalam, Yamagandam, Gulika... Thatha, is there ANY good time left for me?
+THATHA (smirk, point) [react: sheepish]: en: Plenty! You just spend it scrolling your magic box.
+CARD: en: Tuesday ; Rahu kalam ≈ 3:00–4:30 PM ; Rest of the day = mostly fine
+THATHA (happy) [react: think]: en: Skip those three slots. The rest of the day is yours. Simple!
+VANI (shock): en: Wait, so I can't blame Rahu for my late homework?
+THATHA (stern, stop) [react: sheepish]: en: No. That one is your fault.
+VANI (happy, cheer): en: YOUR nalla neram for today is on rasivani dot com!

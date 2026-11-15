@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-19 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-19-a-brahma-muhurtham
+DATE: 2026-11-19
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: YOU missed 4:30 AM again?
+CTA: en: YOUR early hour
+THUMB: en: *YOU* hit snooze again?
+THUMB: en: 4:30 AM: *YOUR* secret hour
+THUMB: en: Thatha wins, *YOU* sleep!
+TITLE: en: Brahma muhurtham: the hour YOU keep sleeping through 😴 #shorts
+TITLE: en: What is Brahma muhurtham? Explained for YOU
+TITLE: en: Thatha is up before YOUR alarm 😂
+DESC: en: Brahma muhurtham starts about 1 hour 36 minutes (2 muhurtas) before sunrise and lasts 48 minutes. Tradition calls it the best time for study and prayer.
+TAGS: en: brahma muhurtham, early morning, 4am, study time, morning routine
+
+SCENE: home
+VANI (sad): en: Five more minutes... just five more...
+THATHA (smirk, point) [react: sheepish]: en: I've watered the plants, read the paper and fed the cow. You're still on 'five more'?
+CARD: en: Brahma muhurtham ; Starts ≈ 1 h 36 min before sunrise ; Lasts 48 minutes
+THATHA (happy) [react: think]: en: Before sunrise, the mind is fresh. Our elders studied in this time.
+VANI (shock): en: So that's why you remember everything and I forget my keys?
+VANI (happy, cheer): en: YOUR sunrise time and Brahma muhurtham are on rasivani dot com!

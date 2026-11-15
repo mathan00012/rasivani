@@ -1,0 +1,24 @@
+# Cartoon for 2026-11-28 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-28-b-friendship-score
+DATE: 2026-11-28
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: friendship-score/
+HOOK: en: How strong is YOUR friendship?!
+CTA: en: YOUR friendship score
+THUMB: en: *YOUR* friendship score?!
+THUMB: en: Send this to *YOUR* best friend
+THUMB: en: Vendor vs Raja: *YOUR* turn!
+TITLE: en: Test YOUR friendship score with ONE name 🤝 #shorts
+TITLE: en: Friendship score: try it with YOUR best friend
+TITLE: en: Raja and Vendor's friendship score 😂
+DESC: en: A fun RasiVani tool: type two names and get a friendship score with a cartoon card to share. Just for fun, not astrology. Try it with YOUR best friend this weekend.
+TAGS: en: friendship score, friendship test, best friend, fun quiz, rasivani
+
+SCENE: market
+RAJA (happy): en: Vendor, you are my best friend!
+VENDOR (smirk, phone) [react: shock]: en: Let's check. Friendship score... twelve percent.
+RAJA (angry, stop): en: Twelve? Arrest that phone!
+VANI (happy, point): en: It's just for fun, Your Majesty! Send it to your friends and laugh.
+VANI (happy, cheer): en: Check YOUR friendship score on rasivani dot com and tag YOUR best friend!

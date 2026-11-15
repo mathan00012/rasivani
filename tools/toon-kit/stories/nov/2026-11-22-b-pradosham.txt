@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-22 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-22-b-pradosham
+DATE: 2026-11-22
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: Whisper to Nandi?!
+CTA: en: YOUR next pradosham
+THUMB: en: Nandi hears *YOUR* wish!
+THUMB: en: Sunset tonight: *YOUR* pradosham
+THUMB: en: Paati's ear secret for *YOU*
+TITLE: en: Pradosham: whisper YOUR wish to Nandi 🙏 #shorts
+TITLE: en: What is pradosham? Explained for YOU
+TITLE: en: VANI whispers too loud 😂
+DESC: en: Pradosham falls on the 13th tithi, in the twilight around sunset (about 1½ hours). It is a tradition of Shiva worship. Local calendars can differ by a day.
+TAGS: en: pradosham, pradosham today, shiva, nandi, trayodasi
+
+SCENE: temple
+PAATI (happy) [react: think]: en: Pradosham today. Whisper your wish in Nandi's ear.
+VANI (happy, mic): en: NANDI! I WANT A PROMOTION!
+PAATI (stern, stop) [react: sheepish]: en: Whisper, child! The whole street now knows your salary.
+CARD: en: Pradosham ; 13th tithi ; Twilight, around sunset
+VANI (sheepish, facepalm): en: Okay, okay... softly this time.
+VANI (happy, cheer): en: YOUR next pradosham date is on rasivani dot com calendar!

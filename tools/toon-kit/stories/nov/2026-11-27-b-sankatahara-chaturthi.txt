@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-27 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-27-b-sankatahara-chaturthi
+DATE: 2026-11-27
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: calendar/
+HOOK: en: Ganesha's monthly appointment!
+CTA: en: YOUR chaturthi dates
+THUMB: en: Ganesha's date with *YOU*!
+THUMB: en: *YOUR* monthly Ganesha day
+THUMB: en: Moonrise fast: *YOU* in?
+TITLE: en: Sankatahara Chaturthi: YOUR monthly Ganesha day 🐘 #shorts
+TITLE: en: What is Sankatahara Chaturthi? For YOU
+TITLE: en: VANI waits for the Moon 😂
+DESC: en: Sankatahara Chaturthi is the 4th tithi after the full moon, every month. Tradition keeps a fast until moonrise and prays to Ganesha. Check YOUR city's moonrise.
+TAGS: en: sankatahara chaturthi, ganesha, chaturthi, moonrise, fasting
+
+SCENE: temple
+VANI (sad): en: Paati, I'm hungry. When can I eat?
+PAATI (stern, point) [react: sheepish]: en: After the moon rises. Today is Sankatahara Chaturthi.
+CARD: en: Sankatahara Chaturthi ; 4th day after full moon ; Fast till moonrise
+PAATI (happy) [react: think]: en: Every month, Ganesha removes troubles. We wait for the moon, then we eat.
+VANI (smirk, phone): en: My app says moonrise is late. Ganesha, please hurry the Moon!
+VANI (happy, cheer): en: YOUR chaturthi dates and moonrise: rasivani dot com!

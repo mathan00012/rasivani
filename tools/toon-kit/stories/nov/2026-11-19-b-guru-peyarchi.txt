@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-19 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-19-b-guru-peyarchi
+DATE: 2026-11-19
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: rasi-palan
+HOOK: en: Jupiter is moving house?!
+CTA: en: YOUR rasi palan
+THUMB: en: Jupiter moves *YOUR* house!
+THUMB: en: 12 years, 12 rasis: *YOUR* turn?
+THUMB: en: Paati: *YOUR* Guru is coming!
+TITLE: en: Guru peyarchi explained: Jupiter moves into YOUR rasi? 😲 #shorts
+TITLE: en: Why Jupiter changes sign once a year, for YOU
+TITLE: en: Paati's Guru peyarchi gossip 😂
+DESC: en: Jupiter takes about 12 years to go round the zodiac, so it stays about one year in each rasi. Peyarchi = change of sign. Astrologers read its effect from YOUR Moon sign.
+TAGS: en: guru peyarchi, jupiter transit, guru transit, rasi palan, vyazhan
+
+SCENE: home
+PAATI (happy, wave) [react: happy]: en: Guru is coming to our house! Clean everything!
+VANI (confused, shrug): en: Which guru? Should I make coffee?
+PAATI (smirk, point) [react: sheepish]: en: Jupiter, silly! He moves one house every year.
+CARD: en: Jupiter ; ≈ 12 years around the zodiac ; ≈ 1 year in each rasi
+VANI (think, think): en: Twelve houses, twelve years. That's slower than my landlord.
+VANI (happy, cheer): en: What Jupiter means for YOUR rasi: rasivani dot com!

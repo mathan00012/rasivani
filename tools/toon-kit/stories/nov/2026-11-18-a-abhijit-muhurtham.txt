@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-18 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-18-a-abhijit-muhurtham
+DATE: 2026-11-18
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: YOUR noon power hour!
+CTA: en: YOUR muhurtham today
+THUMB: en: *YOUR* noon power hour!
+THUMB: en: 48 minutes that save *YOUR* day
+THUMB: en: Pandit: *YOUR* lunch can wait!
+TITLE: en: Abhijit muhurtham: YOUR noon power hour ⚡ #shorts
+TITLE: en: What is Abhijit muhurtham? Explained for YOU
+TITLE: en: Pandit stops YOUR lunch for 48 minutes 😂
+DESC: en: Daytime has 15 muhurtas. Abhijit is the 8th, around local noon, about 48 minutes long (it changes with the day's length). Tradition treats it as a good time to start work.
+TAGS: en: abhijit muhurtham, muhurtham today, good time, panchangam
+
+SCENE: temple
+VANI (happy, phone): en: Twelve noon! Lunch time!
+PANDIT (stern, stop) [react: shock]: en: Lunch? This is Abhijit muhurtham! Start your big work NOW.
+CARD: en: Abhijit muhurtham ; 8th of 15 day muhurtas ; Around noon, ≈ 48 min
+PANDIT (happy, point) [react: think]: en: The day has fifteen parts. The middle one, around noon, is the strong one.
+VANI (sheepish, facepalm): en: So my biryani waits forty-eight minutes?
+VANI (happy, cheer): en: YOUR muhurtham times for today are on rasivani dot com!

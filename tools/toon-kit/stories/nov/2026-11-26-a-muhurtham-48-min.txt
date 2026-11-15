@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-26 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-26-a-muhurtham-48-min
+DATE: 2026-11-26
+FORMAT: short
+LOOK: modern
+LANGS: ta,te,hi,en
+LINK: panchangam
+HOOK: en: YOUR meeting is 1¼ muhurtham!
+CTA: en: YOUR muhurtham times
+THUMB: en: *YOUR* 1 hour = 1¼ muhurtham
+THUMB: en: 48 minutes, *YOUR* ancient unit
+THUMB: en: Raja's meeting in muhurthams!
+TITLE: en: A muhurtham is 48 minutes. YOUR day has 30 of them 😲 #shorts
+TITLE: en: Muhurtham time explained for YOU
+TITLE: en: Raja books a 2-muhurtham meeting 😂
+DESC: en: A day and night have 30 muhurtas of 48 minutes each: 30 × 48 min = 24 hours. That is the ancient Indian time unit behind 'muhurtham'.
+TAGS: en: muhurtham, 48 minutes, ancient time, indian time units, panchangam
+
+SCENE: palace
+RAJA (stern, point): en: Reporter! Meeting at once. It will take two muhurthams.
+VANI (confused, phone): en: Two whats? Is that before or after lunch?
+CARD: en: 1 muhurtham = 48 min ; 30 in a day and night ; 30 × 48 = 24 hours
+PANDIT (happy, think) [react: think]: en: Forty-eight minutes each, thirty in a full day. Perfect maths.
+VANI (sheepish, facepalm): en: So my one-hour meeting is one and a quarter muhurtham. Fancy!
+VANI (happy, cheer): en: YOUR good muhurtham times are on rasivani dot com!

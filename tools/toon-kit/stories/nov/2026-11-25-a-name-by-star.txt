@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-25 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-25-a-name-by-star
+DATE: 2026-11-25
+FORMAT: short
+LOOK: saree
+LANGS: ta,te,hi,en
+LINK: baby-names/
+HOOK: en: YOUR name starts with a STAR?!
+CTA: en: YOUR star's letters
+THUMB: en: *YOUR* name from *YOUR* star!
+THUMB: en: Paati renames *YOU*!
+THUMB: en: Which letter is *YOURS*?
+TITLE: en: YOUR name's first letter comes from YOUR star 😲 #shorts
+TITLE: en: Naming by nakshatra explained for YOU
+TITLE: en: Paati wants to rename VANI 😂
+DESC: en: Each nakshatra pada has a starting syllable. Traditional naming uses it for the first letter of the baby's name. RasiVani has the letters and names for all 27 stars.
+TAGS: en: baby names by nakshatra, nakshatra letters, baby names, naming ceremony
+
+SCENE: home
+PAATI (think, think): en: Vani... Vani... doesn't match your star. Let's rename you!
+VANI (shock, stop): en: Paati! I have 10K followers with this name!
+CARD: en: Every star ; 4 padas ; 4 starting sounds
+PAATI (happy, point) [react: think]: en: Each star part has a sound. Babies get names starting with it.
+VANI (sheepish, facepalm): en: Good thing you didn't name me. I'd be 'Vo-something'.
+VANI (happy, cheer): en: YOUR star's letters and baby names: rasivani dot com!

@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-27 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-27-a-sade-sati
+DATE: 2026-11-27
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: rasi-palan
+HOOK: en: 7½ years of Saturn?!
+CTA: en: YOUR Saturn check
+THUMB: en: 7½ years for *YOU*? Relax!
+THUMB: en: Is *YOUR* Saturn here?
+THUMB: en: Pandit calms *YOU* down
+TITLE: en: Sade sati: 7½ years of Saturn, explained calmly for YOU #shorts
+TITLE: en: Why sade sati is 7½ years, for YOU
+TITLE: en: VANI panics, Pandit laughs 😂
+DESC: en: Sade sati is Saturn's transit through the 12th, 1st and 2nd houses from YOUR Moon sign. Saturn takes about 2½ years per sign, so 3 × 2½ = about 7½ years.
+TAGS: en: sade sati, ezharai sani, saturn transit, shani, rasi palan
+
+SCENE: temple
+VANI (shock): en: Seven and a half years of Saturn? I'm cancelling my life!
+PANDIT (smirk, stop) [react: sheepish]: en: Relax, child. It's just maths.
+CARD: en: Sade sati ; 3 signs × ≈ 2½ years ; ≈ 7½ years
+PANDIT (happy, point) [react: think]: en: Saturn spends two and a half years in each sign. Three signs around your Moon. That's all.
+VANI (sheepish, facepalm): en: So I panicked for nothing. Classic me.
+VANI (happy, cheer): en: Is Saturn near YOUR rasi? Check free on rasivani dot com!

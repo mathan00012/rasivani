@@ -1,0 +1,25 @@
+# Cartoon for 2026-11-30 (1 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-30-a-marriage-porutham
+DATE: 2026-11-30
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: porutham
+HOOK: en: 10 matches on Paati's fingers!
+CTA: en: YOUR porutham free
+THUMB: en: *YOUR* 10 poruthams!
+THUMB: en: Paati checks *YOUR* match
+THUMB: en: Rajju? Yoni? *YOU* need this!
+TITLE: en: Marriage porutham: Paati counts YOUR 10 matches 💍 #shorts
+TITLE: en: Porutham explained for YOU
+TITLE: en: Paati rejects VANI's match 😂
+DESC: en: The Tamil system checks 10 poruthams by nakshatra (dinam, ganam, yoni, rasi, rajju and more). Telugu and North Indian families use Ashtakoota with 36 points.
+TAGS: en: marriage porutham, thirumana porutham, kundli milan, ashtakoota, rajju
+
+SCENE: home
+VANI (happy, phone): en: Paati, look! A perfect match for me!
+PAATI (stern, stop) [react: sheepish]: en: Perfect? Let me count. Dinam, ganam, yoni, rasi, rajju...
+CARD: en: Tamil: 10 poruthams ; Telugu / North: 36 points ; Both by nakshatra
+PAATI (smirk, point) [react: shock]: en: Seven out of ten. Better than your last one. That was two.
+VANI (sheepish, facepalm): en: Paati! Not on camera!
+VANI (happy, cheer): en: Check YOUR porutham free on rasivani dot com!

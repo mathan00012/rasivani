@@ -1,0 +1,26 @@
+# Cartoon for 2026-11-20 (5 PM). Written in English; Toon Studio translates to Tamil, Telugu and Hindi with Sarvam.
+SLUG: 2026-11-20-b-rahu-ketu-science
+DATE: 2026-11-20
+FORMAT: short
+LOOK: classic
+LANGS: ta,te,hi,en
+LINK: learn:birth-star
+HOOK: en: Invisible planets?!
+CTA: en: YOUR chart free
+THUMB: en: Invisible planets in *YOUR* chart!
+THUMB: en: Rahu & Ketu: *YOUR* eclipse points
+THUMB: en: Science vs Thatha: *YOU* decide!
+TITLE: en: Rahu and Ketu are REAL points in the sky, here's why 😲 #shorts
+TITLE: en: Rahu Ketu explained with science, for YOU
+TITLE: en: VANI vs the invisible snake 😂
+DESC: en: Rahu and Ketu are the two points where the Moon's path crosses the Sun's path (lunar nodes). They are always 180° apart, and eclipses happen near them. That part is real astronomy.
+TAGS: en: rahu ketu, lunar nodes, eclipse, astronomy, navagraha
+
+SCENE: sky
+VANI (shock): en: Rahu and Ketu! I looked everywhere. Where are these planets?
+THATHA (smirk, point) [react: sheepish]: en: You won't see them with your telescope, child.
+CARD: en: Rahu & Ketu ; Where the Moon's path crosses the Sun's ; Always 180° apart
+THATHA (happy) [react: think]: en: They are crossing points. When Sun and Moon meet near them, you get an eclipse.
+VANI (shock): en: So the 'snake' that swallows the Sun is just geometry?
+THATHA (smirk, point) [react: sheepish]: en: The story is old. The maths is older. Both are ours!
+VANI (happy, cheer): en: Love it! See where Rahu sits in YOUR chart on rasivani dot com!
