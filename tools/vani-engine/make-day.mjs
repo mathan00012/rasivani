@@ -23,11 +23,23 @@ const planFile = [path.join(ENGINE, 'plan.json'), path.join(VANI, 'flow-plan', '
 const plan = JSON.parse(fs.readFileSync(planFile, 'utf8'));
 const inboxRoot = path.join(VANI, 'flow-inbox');
 let [date, langArg] = process.argv.slice(2);
+// PREP mode: node make-day.mjs prep 2026-11-16 2026-11-30 [langs]
+// Makes titles, descriptions (UPLOAD.txt) and thumbnails for every day from the start pictures, before any clips exist.
+if (date === 'prep') {
+  const [, , , from, to = from, langs = 'ta,te,hi,en'] = process.argv;
+  for (const d of plan.map((x) => x.date).filter((x) => x >= from && x <= to)) {
+    try { execFileSync(process.execPath, [fileURLToPath(import.meta.url), d, langs], { env: { ...process.env, PREP: '1' }, stdio: 'inherit' }); }
+    catch (e) { console.log('  ' + d + ' failed, going on with the next day'); }
+  }
+  process.exit(0);
+}
+const PREP = !!process.env.PREP;
 if (!date) date = fs.readdirSync(inboxRoot).filter((d) => /^\d{4}-\d\d-\d\d$/.test(d)).sort().pop();
 const day = plan.find((d) => d.date === date);
 if (!day) { console.log('No story planned for ' + date); process.exit(1); }
 const LANGS = (langArg || 'ta,te,hi,en').split(',').map((s) => s.trim()).filter(Boolean);
 const inbox = path.join(inboxRoot, date);
+fs.mkdirSync(inbox, { recursive: true });
 const readyRoot = path.join(VANI, 'ready', date);
 const log = (...a) => console.log(...a);
 
@@ -255,7 +267,7 @@ function thumbs(lang, pack, clipMap, outDir, work) {
   const made = [];
   const mk = (clip, at, events, name, w, h) => {
     const frame = path.join(work, name + '-frame.png'); const ass = path.join(work, name + '.ass');
-    run(['-ss', String(at), '-i', clipMap[clip.id], '-frames:v', '1', frame]);
+    run([...(/\.(jpe?g|png)$/i.test(clipMap[clip.id]) ? [] : ['-ss', String(at)]), '-i', clipMap[clip.id], '-frames:v', '1', frame]);
     fs.writeFileSync(ass, assHeader(lang, 1080, 1920) + events);
     const fit = w > h ? `[0:v]scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},boxblur=20[bg];[0:v]scale=-2:${h}[fg];[bg][fg]overlay=(W-w)/2:0,` : `[0:v]scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},`;
     const subW = w > h ? `,scale=${w}:${h}` : '';
@@ -271,9 +283,10 @@ function thumbs(lang, pack, clipMap, outDir, work) {
 }
 
 // ---------- main ----------
-const clipMap = findClips();
+const clipMap = PREP ? Object.fromEntries(allIds.map((id) => [id, path.join(inbox, 'start', id + '.jpg')]).filter(([, f]) => fs.existsSync(f))) : findClips();
+if (PREP) log(`\n${date}: ${day.title}\n  PREP: titles, descriptions${Object.keys(clipMap).length ? ' and thumbnails from start pictures' : ' (no start pictures yet, so no thumbnails: run MAKE-START-FRAMES for this date first)'}`);
 const have = allIds.filter((id) => clipMap[id]);
-log(`\n${date}: ${day.title}\n  clips found: ${have.length} of 25${have.length < 25 ? ' (missing: ' + allIds.filter((id) => !clipMap[id]).join(', ') + ' - skipped)' : ''}`);
+if (!PREP) log(`\n${date}: ${day.title}\n  clips found: ${have.length} of 25${have.length < 25 ? ' (missing: ' + allIds.filter((id) => !clipMap[id]).join(', ') + ' - skipped)' : ''}`);
 if (!KEY) log(DRY ? '  TEST MODE: silent voices, English text everywhere.' : '  No Sarvam key found: Tamil/Telugu/Hindi will have no new voices. Put the key in engine\\sarvam-key.txt');
 const nextDate = new Date(Date.parse(date + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10);
 
@@ -283,6 +296,8 @@ for (const lang of LANGS) {
   const outDir = path.join(readyRoot, lang); fs.mkdirSync(outDir, { recursive: true });
   const work = path.join(inbox, '_work', lang); fs.mkdirSync(work, { recursive: true });
   const pack = await textPack(lang);
+  const storyOut = path.join(outDir, `VANI-${date}-${lang}.mp4`);
+  if (!PREP) {
   // story
   const story = day.clips.filter((c) => clipMap[c.id]);
   const segs = [];
@@ -291,7 +306,6 @@ for (const lang of LANGS) {
     segs.push(await segment(c, clipMap[c.id], lang, pack, work, { hook: i === 0 ? pack.hook : null, end: i === story.length - 1 ? pack.end : null }));
     process.stdout.write(`  ${c.id} `);
   }
-  const storyOut = path.join(outDir, `VANI-${date}-${lang}.mp4`);
   if (segs.length) { join(segs, storyOut); log(`\n  story: ${path.basename(storyOut)} (${Math.round(probe(storyOut).dur)} s)`); }
   // rasi palan wrappers (for tomorrow morning)
   const r = (id) => day.rclips.find((c) => c.id === id);
@@ -310,12 +324,13 @@ for (const lang of LANGS) {
     try { join([path.join(rasiDir, '1-intro.mp4'), mid, ...(fs.existsSync(path.join(rasiDir, '3-outro.mp4')) ? [path.join(rasiDir, '3-outro.mp4')] : [])], path.join(rasiDir, `RASI-PALAN-${nextDate}-${lang}.mp4`)); log('  rasi palan: joined with ' + rpVid); }
     catch (e) { log('  rasi palan join failed: ' + e.message.slice(0, 120)); }
   } else log(`  rasi palan: intro/background/outro ready in rasi-palan-${nextDate}\\ (no make-week-shorts video found for ${nextDate} to join)`);
+  }
   // thumbnails + upload text
   const th = thumbs(lang, pack, clipMap, outDir, work);
   const titles = [pack.title, pack.hook, pack.titleC].map((t) => (t.length > 95 ? t.slice(0, 95) : t));
   const up = [
     `UPLOAD - ${date} - ${lang.toUpperCase()}`,
-    `Video: ${path.basename(storyOut)}  |  Post at 7:00 PM IST  |  Thumbnails: ${th.join(', ')}`,
+    `Video: ${path.basename(storyOut)}  |  Post at ${({ '2026-11-24': '5:00 PM', '2026-11-26': '9:00 AM' })[date] || '7:00 PM'} IST  |  Thumbnails: ${th.join(', ')}`,
     '',
     'TITLES (A/B test - use "Test & compare" in YouTube Studio):',
     ...titles.map((t, i) => `  ${'ABC'[i]}: ${t} #shorts`),
