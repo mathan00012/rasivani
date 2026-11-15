@@ -18,9 +18,9 @@ TAGS: en: gulika kalam, gulikai, today gulika time, nalla neram, panchangam
 
 SCENE: market
 VANI (happy, phone): en: It's Monday, one thirty. I'm buying earrings. Perfect timing!
-VENDOR (smirk, point) [react: shock]: en: Madam, it's Gulika kalam. Buy one pair, you'll come back for ten!
+VENDOR (smirk, point) [react: shock]: en: Madam, it's Gulika kalam. Buy one pair, you'll come back for ten! | hi: मैडम, ये गुलिका काल है। एक जोड़ी खरीदोगी, तो दस बार वापस आओगी!
 VANI (confused, shrug): en: Gulika what? Is that a new sale?
-CARD: en: Gulika kalam ; Monday ≈ 1:30–3:00 PM ; What you do, repeats (tradition)
+CARD: en: Gulika kalam ; Monday ≈ 1:30–3:00 PM ; What you do, repeats (tradition) | hi: गुलिका काल ; सोमवार ≈ 1:30–3:00 PM ; जो करो, वो दोहराता है (परंपरा)
 VENDOR (happy) [react: think]: en: One eighth of the day. Whatever you start now, happens again. So buying is good, quarrels are bad! | hi: दिन का आठवाँ हिस्सा। अभी जो शुरू करोगी, वो फिर से होगा। इसलिए खरीदारी अच्छी, झगड़ा बुरा!
 VANI (sheepish, facepalm): en: So my shopping will repeat? My bank account is crying.
 VANI (happy, cheer): en: Check YOUR city's Gulika time on rasivani dot com. Free, every day!
