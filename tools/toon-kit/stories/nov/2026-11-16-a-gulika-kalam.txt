@@ -4,7 +4,7 @@ DATE: 2026-11-16
 FORMAT: short
 LOOK: classic
 LANGS: ta,te,hi,en
-LINK: learn:yamagandam
+LINK: rahu-kalam/
 HOOK: en: YOUR Monday repeat hour?!
 CTA: en: YOUR city's timings, free
 THUMB: en: *YOUR* Monday 'repeat' hour!
@@ -12,7 +12,7 @@ THUMB: en: Thatha: do it twice, *YOU* pay twice!
 THUMB: en: 1:30 to 3 PM: *YOUR* lucky repeat?
 TITLE: en: Today's Gulika kalam: what YOU do now REPEATS 😲 #shorts
 TITLE: en: Gulika kalam explained for YOU in 30 seconds
-TITLE: en: Buy gold in Gulika kalam? Thatha's answer for YOU 😂
+TITLE: en: Buy gold in Gulika kalam? the Vendor's answer for YOU 😂
 DESC: en: Gulika kalam is one eighth of the daytime. On Monday it is the 6th part, about 1:30 to 3 PM in Chennai; it shifts with YOUR city's sunrise. Tradition says what you do now repeats, so people buy things but avoid sad events.
 TAGS: en: gulika kalam, gulikai, today gulika time, nalla neram, panchangam
 
@@ -21,6 +21,6 @@ VANI (happy, phone): en: It's Monday, one thirty. I'm buying earrings. Perfect t
 VENDOR (smirk, point) [react: shock]: en: Madam, it's Gulika kalam. Buy one pair, you'll come back for ten!
 VANI (confused, shrug): en: Gulika what? Is that a new sale?
 CARD: en: Gulika kalam ; Monday ≈ 1:30–3:00 PM ; What you do, repeats (tradition)
-VENDOR (happy) [react: think]: en: One eighth of the day. Whatever you start now, happens again. So buying is good, quarrels are bad!
+VENDOR (happy) [react: think]: en: One eighth of the day. Whatever you start now, happens again. So buying is good, quarrels are bad! | hi: दिन का आठवाँ हिस्सा। अभी जो शुरू करोगी, वो फिर से होगा। इसलिए खरीदारी अच्छी, झगड़ा बुरा!
 VANI (sheepish, facepalm): en: So my shopping will repeat? My bank account is crying.
 VANI (happy, cheer): en: Check YOUR city's Gulika time on rasivani dot com. Free, every day!
