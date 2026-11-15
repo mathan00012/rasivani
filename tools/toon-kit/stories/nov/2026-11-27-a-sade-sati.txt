@@ -4,7 +4,7 @@ DATE: 2026-11-27
 FORMAT: short
 LOOK: classic
 LANGS: ta,te,hi,en
-LINK: rasi-palan
+LINK: blog:sade-sati
 HOOK: en: 7½ years of Saturn?!
 CTA: en: YOUR Saturn check
 THUMB: en: 7½ years for *YOU*? Relax!

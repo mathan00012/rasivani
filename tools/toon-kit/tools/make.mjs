@@ -188,7 +188,9 @@ async function buildStory(st, lang, format) {
 
 let LINK = null;
 const linkUrl = (link, lang) => { const B = 'https://rasivani.com/';
-  if (link.startsWith('learn:')) return `${B}learn/${lang}/${link.slice(6)}/`;
+  // pages that don't exist in a language fall back to that language's home page
+  if (link.startsWith('learn:')) return lang === 'hi' ? `${B}hi/` : `${B}learn/${lang}/${link.slice(6)}/`;
+  if (link.startsWith('blog:')) return (lang === 'hi' && link === 'blog:brahma-muhurta-science') || !['ta', 'te', 'hi', 'en'].includes(lang) ? (lang === 'en' ? B : `${B}${lang}/`) : `${B}blog/${lang}/${link.slice(5)}/`;
   if (link === 'rasi-palan') return `${B}rasi-palan/${lang}/`;
   if (link === 'home') return lang === 'en' ? B : `${B}${lang}/`;
   return lang === 'en' ? B + link : `${B}${lang}/${link}`; };

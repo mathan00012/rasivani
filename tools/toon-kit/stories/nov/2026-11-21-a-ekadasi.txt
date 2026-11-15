@@ -4,7 +4,7 @@ DATE: 2026-11-21
 FORMAT: short
 LOOK: saree
 LANGS: ta,te,hi,en
-LINK: calendar/
+LINK: blog:vrat-days
 HOOK: en: Why no rice today?!
 CTA: en: YOUR fasting days
 THUMB: en: Why no rice for *YOU* today?

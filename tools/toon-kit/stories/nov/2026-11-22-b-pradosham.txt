@@ -4,7 +4,7 @@ DATE: 2026-11-22
 FORMAT: short
 LOOK: saree
 LANGS: ta,te,hi,en
-LINK: calendar/
+LINK: blog:vrat-days
 HOOK: en: Whisper to Nandi?!
 CTA: en: YOUR next pradosham
 THUMB: en: Nandi hears *YOUR* wish!

@@ -4,7 +4,7 @@ DATE: 2026-11-19
 FORMAT: short
 LOOK: classic
 LANGS: ta,te,hi,en
-LINK: panchangam
+LINK: blog:brahma-muhurta-science
 HOOK: en: YOU missed 4:30 AM again?
 CTA: en: YOUR early hour
 THUMB: en: *YOU* hit snooze again?

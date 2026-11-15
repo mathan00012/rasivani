@@ -4,7 +4,7 @@ DATE: 2026-11-27
 FORMAT: short
 LOOK: modern
 LANGS: ta,te,hi,en
-LINK: calendar/
+LINK: blog:vrat-days
 HOOK: en: Ganesha's monthly appointment!
 CTA: en: YOUR chaturthi dates
 THUMB: en: Ganesha's date with *YOU*!
