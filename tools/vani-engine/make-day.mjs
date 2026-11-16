@@ -236,11 +236,15 @@ async function segment(c, src, lang, pack, work, opts = {}) {
     const avail = Math.max(1, info.dur - 0.4);
     if (V > avail) { tempo = Math.min(1.25, V / avail); V = V / tempo; caps = caps.map((p) => ({ ...p, start: 0.2 + (p.start - 0.2) / tempo, end: 0.2 + (p.end - 0.2) / tempo })); }
     T = Math.max(Math.min(info.dur, T), V + 0.5);
-    const bed = info.audio ? `[0:a]volume=0.07,aresample=48000,apad[bed];` : '';
+    // Dubbed clips: drop Flow's own audio completely. Even quiet, its English speech was audible under ta/te/hi voices.
+    const useBed = !!process.env.KEEP_BED && info.audio;
+    const bed = useBed ? `[0:a]volume=0.05,aresample=48000,apad[bed];` : '';
     const vfx = `[1:a]atempo=${tempo.toFixed(3)},aresample=48000,adelay=200|200,apad[vo]`;
-    audioArgs = { inputs: ['-i', voice], filter: bed + vfx + (info.audio ? ';[bed][vo]amix=inputs=2:duration=longest:normalize=0[aout]' : ';[vo]anull[aout]') };
+    audioArgs = { inputs: ['-i', voice], filter: bed + vfx + (useBed ? ';[bed][vo]amix=inputs=2:duration=longest:normalize=0[aout]' : ';[vo]anull[aout]') };
   } else {
-    audioArgs = { inputs: info.audio ? [] : ['-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo'], filter: info.audio ? '[0:a]aresample=48000,apad[aout]' : '[1:a]anull[aout]' };
+    // No-voice clips keep Flow's sound (ambience). In ta/te/hi it is turned down, in case Flow added English chatter.
+    const amb = lang === 'en' ? '' : 'volume=0.35,';
+    audioArgs = { inputs: info.audio ? [] : ['-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo'], filter: info.audio ? `[0:a]${amb}aresample=48000,apad[aout]` : '[1:a]anull[aout]' };
     if (lines.length) caps = [{ text: lines.map((l) => l.text).join(' '), start: 0.3, end: Math.max(1, T - 0.4) }];
   }
   let ev = capEvents(caps, lang);
