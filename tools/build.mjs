@@ -15,7 +15,7 @@ export const SITE = {
   adsenseClient: '',                    // e.g. 'ca-pub-1234567890123456' once AdSense approves you
   updated: '2026-11-13',
   // YouTube channel per language: paste each new channel's address here; a language left empty uses the main channel.
-  youtubeByLang: { ta: 'https://www.youtube.com/@rasivani.official', te: '', en: '' },
+  youtubeByLang: { ta: 'https://www.youtube.com/@rasivani.official', te: '', en: '', hi: 'https://www.youtube.com/@RasiVani-hindi' },
   social: { whatsapp: 'https://whatsapp.com/channel/0029Vb9Q7Cw65yD8xqFxLT1h', youtube: 'https://www.youtube.com/@rasivani.official', facebook: 'https://www.facebook.com/rasivani.official', x: 'https://x.com/rasivani_off', sharechat: 'https://sharechat.com/profile/rasivani' }
 };
 // ========================================
