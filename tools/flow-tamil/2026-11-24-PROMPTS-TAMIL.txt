@@ -1,0 +1,81 @@
+I saw Karthigai Deepam 900 years ago (TAMIL VERSION, speech in Tamil)
+Place: the foot of the hill at Tiruvannamalai, around 1100 CE
+
+
+HOW: Flow > Frames to video > upload start\NN.jpg > paste the FLOW PROMPT below. Veo 3.1 Lite, 9:16, 1 output.
+MAKE-VIDEOS keeps these Tamil voices for Tamil and makes English/Telugu/Hindi with AI voices automatically.
+
+=== 01  [A1] Close-up   start\01.jpg
+Handheld close-up, a quick natural reaction. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI lands in a huge crowd holding lamps, a woman pulls VANI’s flying pallu away from a flame. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "திருவண்ணாமலை, கி.பி. 1100. கார்த்திகை தீபம் அன்னைக்கு. நான் கிட்டத்தட்ட தீப்பிடிச்சுட்டேன்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 02  [A1] Wide   start\02.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Wide shot: a huge rocky hill, a giant temple below, thousands of pilgrims with lamps and offerings streaming in at golden hour. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 03  [A1] Selfie talk   start\03.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI pushes through the crowd. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "என் வேலை: மலை மேல பெரிய தீபம் ஏத்துறதுக்கு முன்னாடி, சூரியன் மறையறதுக்குள்ள கோயிலுக்குப் போகணும்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 04  [A1] Two-shot   start\04.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. A ghee seller with brass pots shouts to VANI. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "மேல எவ்வளவு நெய் போகும்?" Then Ghee seller says in Tamil: "மலை முழுசும் ஜொலிக்கிற அளவுக்கு. வாங்குறியா, வேடிக்கை பாக்குறியா?" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 05  [A1] Cutaway   start\05.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Men carry big pots of ghee and huge cloth wicks up a rocky path. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 06  [A2] Selfie talk   start\06.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI near the temple wall with carved inscriptions. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "முதல் clue: இங்க சுவர்ல கல்வெட்டு இருக்கு. விளக்கு அணையாம இருக்க ஆடு, மாடு தானம் கொடுத்தாங்க, நெய் நிக்காம வரணும்னு." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 07  [A2] POV hands   start\07.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. First-person view: VANI touches carved Tamil letters on a granite temple wall. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 08  [A2] Two-shot   start\08.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. A temple lamp-keeper woman fills hundreds of small lamps. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "தினமும் இதைச் செய்வீங்களா?" Then Lamp-keeper says in Tamil: "தினமும். என் அம்மா செஞ்சாங்க. அவங்க அம்மா செஞ்சாங்க. இந்த விளக்கு தூங்காது." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 09  [A2] Close-up   start\09.jpg
+Handheld close-up, a quick natural reaction. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI’s pallu drifts toward a lamp again, the lamp-keeper slaps it away. Keep VANI’s face, hair and outfit exactly as in the start frame. Lamp-keeper says in Tamil: "அதைக் கட்டு! இல்லைன்னா நீயே தீபம் ஆயிடுவே!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 10  [A2] Selfie talk   start\10.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI tying her pallu, laughing. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "ரெண்டாவது clue: மலை ஒளிர்ற அந்த நொடியில, ஒவ்வொரு வீட்டிலும் தீபம் ஏத்துவாங்க." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 11  [A3] Wide   start\11.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. The sun touches the horizon, the entire crowd turns to face the hill and goes silent. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 12  [A3] Close-up   start\12.jpg
+Handheld close-up, a quick natural reaction. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Close-up of VANI holding her breath. Keep VANI’s face, hair and outfit exactly as in the start frame. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 13  [A3] Wide   start\13.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. A huge fire bursts into light at the top of the hill against the dusk sky, the crowd roars. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 14  [A3] Cutaway   start\14.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Close-ups of faces lit by flame: a young man shouting with joy, an old man crying, a woman praying. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 15  [A3] POV hands   start\15.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. First-person view: VANI lights a small clay lamp from a neighbour’s lamp. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 16  [A4] Two-shot   start\16.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. The ghee seller next to VANI, quietly. Keep VANI’s face, hair and outfit exactly as in the start frame. Ghee seller says in Tamil: "பாத்தியா? சிலதை வாங்க முடியாது. பார்க்கத்தான் முடியும்." Then VANI says in Tamil: "இப்ப புரியுது." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 17  [A4] Wide   start\17.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Drone shot: the whole town glows with thousands of tiny lamps under the lit hill. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 18  [A4] Selfie talk   start\18.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI walks through lamp-lit streets, soft. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "ஒவ்வொரு வாசல். ஒவ்வொரு சுவர். ஒவ்வொரு ஜன்னல்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 19  [A4] Cutaway   start\19.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. A woman places a lamp on a kolam at a doorstep. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 20  [A4] Ending   start\20.jpg
+Static calm medium shot, very slow push-in, emotional and quiet. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. VANI holds her lamp in front of her face, the hill fire behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "இன்னைக்கு ராத்திரி நீங்களும் ஒரு தீபம் ஏத்துவீங்க. 900 வருஷம் கழிச்சும், அதே ஜோதி. திருவண்ணாமலையிலிருந்து, உங்க VANI." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R1  [A5] Selfie talk   start\R1.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Morning light in the foot of the hill at Tiruvannamalai; VANI waves at the camera and smiles, locals busy behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "காலை வணக்கம்! இன்னைக்கு உங்க ராசி பலன் இதோ!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R2  [A5] Wide   start\R2.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Wide shot: a huge rocky hill, a giant temple below, thousands of pilgrims with lamps and offerings streaming in at golden hour; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R3  [A5] Cutaway   start\R3.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Men carry big pots of ghee and huge cloth wicks up a rocky path; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R4  [A5] Wide   start\R4.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. The sun touches the horizon, the entire crowd turns to face the hill and goes silent; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R5  [A5] Close-up   start\R5.jpg
+Handheld close-up, a quick natural reaction. Setting: the foot of the hill at Tiruvannamalai, around 1100 CE. Close-up of VANI smiling and pointing down at the screen, the same place behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "உங்க முழு ஜாதகம் ராசிவாணி டாட் காம்ல இலவசம். நாளைக்கு சந்திப்போம்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: drums, conch, crowd chanting, crackling fire, wind. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.

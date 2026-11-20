@@ -1,0 +1,81 @@
+I met the young man who said the Earth spins (TAMIL VERSION, speech in Tamil)
+Place: Kusumapura (old Patna), 499 CE
+
+
+HOW: Flow > Frames to video > upload start\NN.jpg > paste the FLOW PROMPT below. Veo 3.1 Lite, 9:16, 1 output.
+MAKE-VIDEOS keeps these Tamil voices for Tamil and makes English/Telugu/Hindi with AI voices automatically.
+
+=== 01  [A1] Close-up   start\01.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. VANI lands on a riverbank ghat at sunset, spinning slightly, steadying herself. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "குசுமபுரம், கி.பி. 499. இங்க ஒரு 23 வயசு பையன் எல்லாரையும் கலங்கடிக்கப் போறான்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 02  [A1] Wide   start\02.jpg
+Slow cinematic drone or crane move, wide and high. Setting: Kusumapura (old Patna), 499 CE. Wide shot of an ancient riverside town: wooden houses, boats on the Ganga, ghats, people bathing, a palm-leaf scriptorium. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 03  [A1] Two-shot   start\03.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: Kusumapura (old Patna), 499 CE. A fish seller woman with a basket on her head stops VANI. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "அறிஞர்கள் எங்க உட்காருவாங்க?" Then Fish seller says in Tamil: "அந்த லூசுப் பையனா? பூமி சுத்துதுன்னு சொல்றவனா?" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 04  [A1] Selfie talk   start\04.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: Kusumapura (old Patna), 499 CE. VANI walks fast through the lanes. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "என் வேலை: இன்னைக்கு ராத்திரி நட்சத்திரம் பாக்கப் போறதுக்கு முன்னாடி அவனைக் கண்டுபிடிக்கணும்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 05  [A1] Cutaway   start\05.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: Kusumapura (old Patna), 499 CE. Students copy numbers onto palm leaves by lamplight in a courtyard. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 06  [A2] Two-shot   start\06.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: Kusumapura (old Patna), 499 CE. A grumpy old priest scoffs at VANI. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "பூமி சுத்துதா?" Then Old priest says in Tamil: "பூமி சுத்தினா, பறவைங்க ஏன் பின்னாடி விழுந்துடல?" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 07  [A2] Close-up   start\07.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. VANI to camera. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "நல்ல கேள்வி! கி.பி. 499-ல இது ரொம்ப புத்திசாலித்தனமான சந்தேகம்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 08  [A2] Selfie talk   start\08.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: Kusumapura (old Patna), 499 CE. VANI on a rooftop staircase. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "முதல் clue: அவரோட நூல் ஆர்யபடீயம் சொல்லுது, நட்சத்திரம் நகருற மாதிரி தெரியுறது, நாம நகருறதால தான்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 09  [A2] POV hands   start\09.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: Kusumapura (old Patna), 499 CE. First-person view: VANI’s hands hold a palm leaf with Sanskrit verses and numbers. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 10  [A2] Cutaway   start\10.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: Kusumapura (old Patna), 499 CE. A young scholar seen only from behind, on a rooftop, measuring the sky with a stick and string. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 11  [A3] Selfie talk   start\11.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: Kusumapura (old Patna), 499 CE. VANI whispers, not daring to interrupt. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "அவர் பிஸியா இருக்கார். ரெண்டாவது clue: பை-யோட மதிப்பை சுமார் 3.1416ன்னு கணக்குப் போட்டவர் இவர்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 12  [A3] Close-up   start\12.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. The fish seller appears again, hands on hips. Fish seller says in Tamil: "இன்னும் அந்த தலை சுத்துற கேள்வியா?" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 13  [A3] Close-up   start\13.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. VANI grinning. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "என் காலத்துல இவர் பேர்ல ஒரு satellite-ஏ இருக்கு!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 14  [A3] Wide   start\14.jpg
+Slow cinematic drone or crane move, wide and high. Setting: Kusumapura (old Patna), 499 CE. Night sky full of stars over the town, a meteor streaks. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 15  [A3] POV hands   start\15.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: Kusumapura (old Patna), 499 CE. First-person view: VANI looks up, the camera tilts with her as the stars wheel slowly. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 16  [A4] Selfie talk   start\16.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: Kusumapura (old Patna), 499 CE. VANI lying on the rooftop, looking up. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "அசையாம படுத்தா, பூமி நகருறது கிட்டத்தட்ட தெரியுது." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 17  [A4] Cutaway   start\17.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: Kusumapura (old Patna), 499 CE. The young scholar’s lamp goes out on the far rooftop. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 18  [A4] Wide   start\18.jpg
+Slow cinematic drone or crane move, wide and high. Setting: Kusumapura (old Patna), 499 CE. Dawn over the Ganga, boats moving out. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 19  [A4] Close-up   start\19.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. VANI waking up on the rooftop, laughing. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "வானத்தைப் பார்த்துக்கிட்டே தூங்கிட்டேன். அவர் பார்த்தா வெக்கப்படுவார்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 20  [A4] Ending   start\20.jpg
+Static calm medium shot, very slow push-in, emotional and quiet. Setting: Kusumapura (old Patna), 499 CE. VANI at the river at dawn. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "1975-ல இந்தியாவோட முதல் satellite-க்கு ஆர்யபட்டான்னு பேர் வச்சாங்க. ஒரு பிடிவாதமான இளைஞன், ஒரு பெரிய ஐடியா. உங்க பெரிய ஐடியா என்ன? கி.பி. 499-லிருந்து, உங்க VANI." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R1  [A5] Selfie talk   start\R1.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: Kusumapura (old Patna), 499 CE. Morning light in Kusumapura (old Patna); VANI waves at the camera and smiles, locals busy behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "காலை வணக்கம்! இன்னைக்கு உங்க ராசி பலன் இதோ!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R2  [A5] Wide   start\R2.jpg
+Slow cinematic drone or crane move, wide and high. Setting: Kusumapura (old Patna), 499 CE. Wide shot of an ancient riverside town: wooden houses, boats on the Ganga, ghats, people bathing, a palm-leaf scriptorium; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R3  [A5] Cutaway   start\R3.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: Kusumapura (old Patna), 499 CE. Students copy numbers onto palm leaves by lamplight in a courtyard; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R4  [A5] Cutaway   start\R4.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: Kusumapura (old Patna), 499 CE. A young scholar seen only from behind, on a rooftop, measuring the sky with a stick and string; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R5  [A5] Close-up   start\R5.jpg
+Handheld close-up, a quick natural reaction. Setting: Kusumapura (old Patna), 499 CE. Close-up of VANI smiling and pointing down at the screen, the same place behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "உங்க முழு ஜாதகம் ராசிவாணி டாட் காம்ல இலவசம். நாளைக்கு சந்திப்போம்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: river, market voices, bells, night crickets. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
