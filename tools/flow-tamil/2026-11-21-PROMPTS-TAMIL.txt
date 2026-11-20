@@ -1,0 +1,81 @@
+I tried to get into Nalanda university (TAMIL VERSION, speech in Tamil)
+Place: the gate of Nalanda university, Bihar, around 640 CE
+VALUE: Nalanda (Bihar, ~427–1200 CE) taught medicine, logic, grammar and maths from palm-leaf books; visiting scholars like Xuanzang wrote that many applicants failed the gate questions. Lesson for viewers: ask 'why', not just 'what'.
+
+HOW: Flow > Frames to video > upload start\NN.jpg > paste the FLOW PROMPT below. Veo 3.1 Lite, 9:16, 1 output.
+If Veo speaks a line badly, try once more; if still bad, keep it (the engine can redub it in Tamil). Clips without speech: same as before.
+
+=== 01  [A1] Close-up   start\01.jpg
+Handheld close-up, a quick natural reaction. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI lands in front of a tall red-brick gateway, students in robes stare. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "நாளந்தா, கி.பி. 640. ஆசியாவோட மிகப் பெரிய பல்கலைக்கழகம். நானும் உள்ள போகணும்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 02  [A1] Wide   start\02.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the gate of Nalanda university, Bihar, around 640 CE. Wide shot of Nalanda: red-brick monasteries, courtyards, hundreds of students and teachers, stupa, blue sky. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 03  [A1] Two-shot   start\03.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the gate of Nalanda university, Bihar, around 640 CE. A stern gatekeeper scholar with a shaved head and robe blocks VANI. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "வணக்கம்! நான் படிக்க வந்திருக்கேன்." Then Gatekeeper answers in Tamil: "எல்லாரும் அதுக்குத்தான் வர்றாங்க. பாதி பேர் திரும்பிப் போயிடுவாங்க. முதல்ல என் கேள்விக்கு பதில் சொல்லு." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 04  [A1] Selfie talk   start\04.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI steps aside, whispering. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "அந்தக் காலத்து பயணிகள் எழுதியிருக்காங்க, நிறைய பேர் இந்த வாசல்லயே தோத்துப் போனாங்களாம்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 05  [A1] Cutaway   start\05.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the gate of Nalanda university, Bihar, around 640 CE. Students debate in pairs in a courtyard, clapping hands as they make points. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 06  [A2] Two-shot   start\06.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the gate of Nalanda university, Bihar, around 640 CE. A friendly student monk named Dharma sits with VANI on the steps. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "எப்படி தயார் ஆகுறது?" Then Dharma answers in Tamil: "விவாதத்தைக் கவனி. இங்க 'என்ன'ன்னு கேக்க மாட்டாங்க. 'ஏன்'னு தான் கேப்பாங்க." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 07  [A2] POV hands   start\07.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: the gate of Nalanda university, Bihar, around 640 CE. First-person view: VANI clicks her pen nervously, Dharma stares at it. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 08  [A2] Close-up   start\08.jpg
+Handheld close-up, a quick natural reaction. Setting: the gate of Nalanda university, Bihar, around 640 CE. Dharma, puzzled. Dharma says in Tamil: "உன் கையில இருக்கிற குச்சி ஏன் 'டக் டக்'னு பேசிக்கிட்டே இருக்கு?" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 09  [A2] Selfie talk   start\09.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI walks through a library hall with stacks of palm-leaf manuscripts. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "முதல் clue: ஆயிரக்கணக்கான ஓலைச்சுவடிகள். மருத்துவம், தர்க்கம், இலக்கணம், கணிதம்... எல்லாமே இங்க!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 10  [A2] Cutaway   start\10.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the gate of Nalanda university, Bihar, around 640 CE. A teacher draws a diagram in the sand for a circle of students. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 11  [A3] Selfie talk   start\11.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI back at the gate, sun low. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "ரெண்டாவது clue: இந்த காவலருக்கு நல்ல பதிலை விட நல்ல கேள்வி தான் பிடிக்கும்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 12  [A3] Two-shot   start\12.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the gate of Nalanda university, Bihar, around 640 CE. Gatekeeper asks, arms folded. Keep VANI’s face, hair and outfit exactly as in the start frame. Gatekeeper asks in Tamil: "நீ ஏன் படிக்கணும்னு நினைக்கிறே?" Then VANI says in Tamil: "தெரியல. ஆனா ஏன்னு தெரிஞ்சுக்கணும், அதுக்குத்தான் வந்தேன்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 13  [A3] Close-up   start\13.jpg
+Handheld close-up, a quick natural reaction. Setting: the gate of Nalanda university, Bihar, around 640 CE. Gatekeeper’s stern face breaks into a tiny smile. Gatekeeper says in Tamil: "அது... சரியான முதல் பதில்." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 14  [A3] POV hands   start\14.jpg
+First-person point of view, handheld, we see through VANI’s eyes and only her hands. Setting: the gate of Nalanda university, Bihar, around 640 CE. First-person view: the big wooden gate creaks open for VANI. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 15  [A3] Wide   start\15.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the gate of Nalanda university, Bihar, around 640 CE. Evening: lamps lit in hundreds of monastery windows, chanting. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 16  [A4] Two-shot   start\16.jpg
+Handheld medium two-shot, the camera gently moves between the two faces as they talk. Setting: the gate of Nalanda university, Bihar, around 640 CE. Dharma hands VANI a palm-leaf bundle. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says in Tamil: "என்னோட முதல் புத்தகம்!" Then Dharma answers in Tamil: "உன் பேசுற குச்சியால இதுல எழுதிடாதே!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 17  [A4] Close-up   start\17.jpg
+Handheld close-up, a quick natural reaction. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI laughing, holding the palm-leaf bundle. Keep VANI’s face, hair and outfit exactly as in the start frame. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 18  [A4] Cutaway   start\18.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the gate of Nalanda university, Bihar, around 640 CE. Students sleeping on mats in a brick cell, a lamp burning low. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 19  [A4] Wide   start\19.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the gate of Nalanda university, Bihar, around 640 CE. Night drone shot over the glowing Nalanda campus. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== 20  [A4] Ending   start\20.jpg
+Static calm medium shot, very slow push-in, emotional and quiet. Setting: the gate of Nalanda university, Bihar, around 640 CE. VANI by a lamp in the library. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "பல நூற்றாண்டுக்கு அப்புறம் இந்த இடம் எரிஞ்சு போச்சு. ஆனா அந்த வாசல் கேள்வி இன்னும் முக்கியம். நீங்க ஏன் படிக்கிறீங்க? நாளந்தாவிலிருந்து, உங்க VANI." Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R1  [A5] Selfie talk   start\R1.jpg
+Handheld selfie video, she holds the camera at arm’s length and walks, natural phone-camera shake. Setting: the gate of Nalanda university, Bihar, around 640 CE. Morning light in the gate of Nalanda university, Bihar; VANI waves at the camera and smiles, locals busy behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "நாளந்தாவிலிருந்து காலை வணக்கம்! இன்னைக்கு உங்க ராசி பலன் இதோ!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R2  [A5] Wide   start\R2.jpg
+Slow cinematic drone or crane move, wide and high. Setting: the gate of Nalanda university, Bihar, around 640 CE. Wide shot of Nalanda: red-brick monasteries, courtyards, hundreds of students and teachers, stupa, blue sky; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R3  [A5] Cutaway   start\R3.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the gate of Nalanda university, Bihar, around 640 CE. Students debate in pairs in a courtyard, clapping hands as they make points; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R4  [A5] Cutaway   start\R4.jpg
+Short cinematic cutaway with natural motion, handheld. Setting: the gate of Nalanda university, Bihar, around 640 CE. A teacher draws a diagram in the sand for a circle of students; calm and slow, leave empty space at the top of the frame for text. No dialogue. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
+
+=== R5  [A5] Close-up   start\R5.jpg
+Handheld close-up, a quick natural reaction. Setting: the gate of Nalanda university, Bihar, around 640 CE. Close-up of VANI smiling and pointing down at the screen, the same place behind her. Keep VANI’s face, hair and outfit exactly as in the start frame. VANI says to the camera in Tamil: "உங்க முழு ஜாதகம் ராசிவாணி டாட் காம்ல இலவசம். நாளைக்கு சந்திப்போம்!" Clear natural Tamil speech with a Tamil accent, natural lip movement. Background sound: chanting, debating voices, birds, bells, footsteps on brick. All people are adults. Realistic people and motion, no subtitles, no on-screen text, no music.
