@@ -4,7 +4,7 @@
 //   For every story slot 01..20 and R1..R5 that has NO Flow clip (NN.mp4/.mov/.webm), it takes a picture:
 //   NN.jpg / NN.png / NN.webp in the inbox, or else start\NN.jpg, and makes NN.mp4 from it.
 //   Length: your Tamil recording voice-ta\NN.* + 0.5 s if it exists, else STILL_SECS (default 6 s).
-//   The clip is silent. The slots it made are listed in stills.json, so MAKE-VIDEOS knows to give them
+//   The clip has only a very soft ambience (STILL_AMB=0 = silent). The slots it made are listed in stills.json, so MAKE-VIDEOS knows to give them
 //   a voice (your recording, or the AI voice) in every language, Tamil too.
 // Re-running is safe: a still clip is remade only if its picture or voice is newer than the clip.
 import fs from 'node:fs';
@@ -25,6 +25,9 @@ const inbox = path.join(inboxRoot, date);
 if (!fs.existsSync(inbox)) { console.log('No folder ' + inbox); process.exit(0); }
 const DEF = parseFloat(process.env.STILL_SECS || '6');
 const W = 720, H = 1280, FPS = 30;
+// Soft room/outdoor ambience so picture slots with no dialogue are not dead silent. STILL_AMB=0 turns it off.
+const AMB = process.env.STILL_AMB === '0' ? 'anullsrc=r=48000:cl=stereo'
+  : 'anoisesrc=r=48000:color=brown:amplitude=0.5,lowpass=f=900,highpass=f=80,volume=0.06,aformat=channel_layouts=stereo';
 
 const slots = [...Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, '0')), 'R1', 'R2', 'R3', 'R4', 'R5'];
 const listFile = path.join(inbox, 'stills.json');
@@ -60,7 +63,7 @@ slots.forEach((id, i) => {
   const vf = `scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},` +
     `zoompan=z='${z}':x='${x}':y='${y}':d=${n}:s=${W}x${H}:fps=${FPS},setsar=1,format=yuv420p`;
   execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-loop', '1', '-i', pic,
-    '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-vf', vf, '-frames:v', String(n), '-t', secs.toFixed(2),
+    '-f', 'lavfi', '-i', AMB, '-vf', vf, '-frames:v', String(n), '-t', secs.toFixed(2),
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-c:a', 'aac', '-shortest', out], { stdio: ['ignore', 'ignore', 'pipe'] });
   made[id] = { from: path.relative(inbox, pic), secs: +secs.toFixed(2) };
   count++;
